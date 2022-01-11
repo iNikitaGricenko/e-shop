@@ -1,0 +1,1049 @@
+@import url('https://fonts.googleapis.com/css2?family=Ubuntu:wght@300;400;500;7007display=swap');
+*
+{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Ubuntu', sans-serif;
+}
+:root
+{
+    --blue: #287bff;
+    --white: #fff;
+    --grey: #f5f5f5;
+    --black1: #222;
+    --black2: #999;
+
+    --primary: #03a9f4;
+  --p-light: #67daff;
+  --p-dark: #007ac1;
+  --secondary: #b3e5fc;
+  --s-light: #e6ffff;
+  --s-dark: #82b3c9;
+
+    --light-shades: #F6EFEA;
+    --light-accent: #D7AB9A;
+    --main-brand: #DC9B85;
+    --dark-accent: #A48A8B;
+    --dark-shades: #DD4141;
+}
+body
+{
+    min-height: 100vh;
+    overflow-x: hidden;
+}
+.container
+{
+    position: relative;
+    width: 100%;
+}
+.navigation
+{
+    position: fixed;
+    width: 80px;
+    height: 100%;
+    background: var(--primary);
+    border-left: 10px solid var(--primary);
+    overflow: hidden;
+    transition: 0.5s;
+}
+.navigation.active
+{
+    width: 300px;
+}
+.navigation ul
+{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+}
+.navigation ul li
+{
+    position: relative;
+    width: 100%;
+    list-style: none;
+    border-top-left-radius: 30px;
+    border-bottom-left-radius: 30px;
+}
+.navigation ul li:hover,
+.navigation ul li.hovered
+{
+    background: var(--white);
+}
+.navigation ul li[aria-disabled="true"]
+{
+    background: var(--p-dark);
+    pointer-events: none;
+}
+.navigation ul li:nth-child(1)
+{
+    margin-bottom: 40px;
+    margin-top: 20px;
+    pointer-events: none;
+}
+.navigation ul li:last-child
+{
+    margin-top: 50px;
+}
+.navigation ul li a
+{
+    position: relative;
+    width: 100%;
+    display: flex;
+    text-decoration: none;
+    color: var(--white);
+}
+.navigation ul li:hover a,
+.navigation ul li.hovered a
+{
+    color: var(--primary);
+}
+.navigation ul li:hover a:after,
+.navigation ul li.hovered a:after,
+.navigation ul li:hover a:before,
+.navigation ul li.hovered a:before
+{
+    content: '';
+    position: absolute;
+    right: 0;
+    width: 50px;
+    height: 50px;
+    background: transparent;
+    border-radius: 50%;
+    pointer-events: none;
+}
+.navigation ul li:hover a:after,
+.navigation ul li.hovered a:after
+{
+    bottom: -50px;
+    box-shadow: 35px -35px 0 10px var(--white);
+    z-index: 1000;
+}
+.navigation ul li:hover a:before,
+.navigation ul li.hovered a:before
+{
+    top: -50px;
+    box-shadow: 35px 35px 0 10px var(--white);
+}
+.navigation ul li a .icon
+{
+    position: relative;
+    display: block;
+    min-width: 60px;
+    height: 60px;
+    line-height: 70px;
+    text-align: center;
+}
+.navigation ul li a .icon .fas
+{
+    font-size: 1.75em;
+}
+.navigation ul li a .title
+{
+    position: relative;
+    display: block;
+    padding: 0 10px;
+    height: 60px;
+    line-height: 60px;
+    text-align: start;
+    white-space: nowrap;
+}
+
+.main-content {
+    position: absolute;
+    width: calc(100% - 80px);
+    left: 80px;
+    min-height: 100vh;
+    background: var(--white);
+    transition: 0.5s;
+}
+.main-content.active
+{
+    width: calc(100% - 300px);
+    left: 300px;
+}
+.topbar
+{
+    width: 100%;
+    height: 60px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 10px;
+}
+.toggle
+{
+    position: relative;
+    width: 60px;
+    height: 60px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 2.5em;
+    cursor: pointer;
+}
+.search
+{
+    position: relative;
+    width: 400px;
+    margin: 0 10px;
+}
+.search label
+{
+    position: relative;
+    width: 100%;
+}
+.search label input
+{
+    width: 100%;
+    height: 40px;
+    border-radius: 40px;
+    padding: 5px 35px;
+    font-size: 18px;
+    outline: none;
+    border: 1px solid var(--black2);
+}
+.search label .fab
+{
+    position: absolute;
+    top: 0;
+    left: 10px;
+    font-size: 1em;
+}
+.user
+{
+    position: relative;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    overflow: hidden;
+    cursor: pointer;
+}
+.user img
+{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+.cardBox
+{
+    position: relative;
+    width: 100%;
+    padding: 20px;
+    display: grid;
+    grid-template-columns: repeat(4,1fr);
+    grid-gap: 30px;
+}
+.cardBox .card
+{
+    position: relative;
+    background: var(--white);
+    padding: 30px;
+    border-radius: 20px;
+    display: flex;
+    justify-content: space-between;
+    cursor: pointer;
+    box-shadow: 0 7px 25px rgba(0,0,0,0.08);
+}
+.cardBox .card .numbers
+{
+    position: relative;
+    font-weight: 500;
+    font-size: 2.5em;
+    color: var(--primary);
+}
+.cardBox .card .cardName
+{
+    color: var(--black2);
+    font-size: 1.1em;
+    margin-top: 5px;
+}
+.cardBox .card .iconBox
+{
+    font-size: 2.5em;
+    color: var(--black2);
+    padding: 0 5px;
+}
+.cardBox .card:hover
+{
+    background: var(--primary);
+}
+.cardBox .card:hover .numbers,
+.cardBox .card:hover .cardName,
+.cardBox .card:hover .iconBox
+{
+    color: var(--white);
+}
+
+/* charts start */
+.graphBox
+{
+    position: relative;
+    width: 100%;
+    padding: 20px;
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    grid-gap: 30px;
+    min-height: 200px;
+}
+.graphBox .box
+{
+    position: relative;
+    background: var(--white);
+    padding: 20px;
+    width: 100%;
+    box-shadow: 0 7px 25px rgba(0,0,0,0.08);
+    border-radius: 20px;
+}
+/* charts end */
+
+.details
+{
+    position: relative;
+    width: 100%;
+    padding: 20px;
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    grid-gap: 30px;
+    /*margin-top: 10px;*/
+}
+.details .recentOrders
+{
+    position: relative;
+    display: grid;
+    min-height: 500px;
+    background: var(--white);
+    padding: 20px;
+    box-shadow: 0 7px 25px rgba(0,0,0,0.08);
+    border-radius: 20px;
+}
+.cardHeader
+{
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+}
+.cardHeader h2
+{
+    font-weight: 600;
+    color: var(--primary);
+}
+.btn
+{
+    position: relative;
+    padding: 5px 10px;
+    background: var(--primary);
+    text-decoration: none;
+    color: var(--white);
+    border-radius: 6px;
+}
+.details table
+{
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 10px;
+}
+.details table thead td
+{
+    font-weight: 600;
+}
+.details .recentOrders table tr
+{
+    color: var(--black1);
+    border-bottom: 1px solid rgba(0,0,0,0.1);
+}
+.details .recentOrders table tr:last-child
+{
+    border-bottom: none;
+}
+.details .recentOrders table tbody tr:hover
+{
+    background: var(--primary);
+    color: var(--white);
+}
+.details .recentOrders table tr td
+{
+    padding: 10px;
+}
+.details .recentOrders table tr td:last-child
+{
+    text-align: end;
+}
+.details .recentOrders table tr td:nth-child(2)
+{
+    text-align: end;
+}
+.details .recentOrders table tr td:nth-child(3)
+{
+    text-align: center;
+}
+.status
+{
+    padding: 2px 4px;
+    color: var(--white);
+    border-radius: 4px;
+    font-size: 14px;
+    font-weight: 500;
+}
+.status.delivered
+{
+    background: #8de02c;
+    cursor: pointer;
+}
+.status.pending
+{
+    background: #f9ca3f;
+    cursor: pointer;
+}
+.status.return
+{
+    background: #f00;
+    cursor: pointer;
+}
+.status.inprogress
+{
+    background: #1795ce;
+    cursor: pointer;
+}
+.status.Online
+{
+    background: rgb(60,184,229);
+}
+.status.Offline
+{
+    background: rgba(108,108,108,0.9);
+}.status.Order
+{
+    background: rgba(198, 172, 0, 0.9);
+}.status.Inform
+{
+    background: rgba(148, 0, 170, 0.9);
+}.status.Guarantee
+{
+    background: rgba(25, 219, 0, 0.9);
+}.status.Other
+{
+    background: rgba(87, 141, 111, 0.9);
+}
+.recentCustomers
+{
+    position: relative;
+    display: grid;
+    min-height: 500px;
+    padding: 20px;
+    background: var(--white);
+    box-shadow: 0 7px 25px rgba(0,0,0,0.08);
+    border-radius: 20px;
+}
+.recentCustomers .imgBox
+{
+    position: relative;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    overflow: hidden;
+}
+.recentCustomers .imgBox img
+{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+.recentCustomers table tr td
+{
+    padding: 12px 10px;
+}
+.recentCustomers table tr td h4
+{
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 1.2em;
+}
+.recentCustomers table tr td h4 span
+{
+    font-size: 14px;
+    color: var(--black2);
+}
+.recentCustomers table tr:hover
+{
+    background: var(--primary);
+    color: var(--white);
+}
+.recentCustomers table tr:hover td h4 span
+{
+    color: var(--white);
+}
+
+/* --- form start --- */
+.settings
+{
+    position: relative;
+    width: 100%;
+    height: 100%;
+    padding: 20px;
+    display: grid;
+    grid-template-columns: repeat(2, 2fr);
+    grid-gap: 20px;
+}
+.settings:last-child
+{
+    grid-template-columns: 1fr;
+    grid-gap: 10px;
+}
+.formBox
+{
+  width: 100%;
+  padding: 40px;
+    display: block;
+  background: var(--white);
+  box-shadow: 0 15px 25px rgba(0,0,0,0.08);
+  -webkit-box-shadow: 0 15px 25px rgba(0,0,0,0.08);
+  -moz-box-shadow: 0 15px 25px rgba(0,0,0,0.08);
+  border-radius: 20px;
+  transition: 0.5s;
+  -moz-transition: 0.5s;
+  -o-transition: 0.5s;
+  -webkit-transition: 0.5s;
+}
+.formBox .form-heading
+{
+  margin: 0 0 30px;
+  padding: 0;
+  color: var(--black1);
+  text-align: center;
+  font-family: sans-serif;
+}
+.formBox .inputImgBox
+{
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    width: 100px;
+    height: 100px;
+    margin-bottom: 25px;
+    margin-left: auto;
+    margin-right: auto;
+    border-radius: 50%;
+    background: var(--white);
+    box-shadow: 0 5px 5px rgba(0,0,0,0.15);
+    -webkit-box-shadow: 0 5px 5px rgba(0,0,0,0.15);
+    -moz-box-shadow: 0 5px 5px rgba(0,0,0,0.15);
+    overflow: hidden;
+    cursor: pointer;
+}
+.formBox .inputImgBox img
+{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+.formBox .inputImgBox:hover
+{
+    border: 1px solid var(--primary);
+}
+.formBox .inputImgBox input[type=file]
+{
+    outline: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    user-select: none;
+    cursor: pointer;
+    z-index: 10000;
+}
+.formBox .inputBox
+{
+  position: relative;
+}
+.formBox .inputBox label
+{
+  position: absolute;
+  top: 0;
+  left: 0;
+  padding: 10px 5px;
+  font-size: 16px;
+  color: var(--black2);
+  letter-spacing: 1px;
+  font-family: sans-serif;
+  pointer-events: none;
+  transition: .5s;
+  -moz-transition: 0.5s;
+  -o-transition: 0.5s;
+  -webkit-transition: 0.5s;
+}
+.formBox .inputBox input:focus ~ label,
+.formBox .inputBox input:valid ~ label
+{
+  top: -30px;
+  left: 0;
+  color: var(--primary);
+}
+.formBox .inputBox input
+{
+  position: relative;
+  width: 100%;
+  padding: 10px 5px;
+  font-size: 16px;
+  color: var(--black1);
+  letter-spacing: 1px;
+  font-family: sans-serif;
+  margin-bottom: 30px;
+  border: none;
+  outline: none;
+  background: var(--white);
+  box-shadow: 0 5px 5px rgba(0,0,0,0.15);
+  -webkit-box-shadow: 0 5px 5px rgba(0,0,0,0.15);
+  -moz-box-shadow: 0 5px 5px rgba(0,0,0,0.15);
+}
+.formBox .inputBox span
+{
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  display: block;
+  background: var(--secondary-black);
+  width: 100%;
+  height: 2px;
+  transform: translateY(-30px);
+}
+.formBox .inputBox span:before
+{
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: #00b0ff;
+  transform: scale(0);
+  transform-origin: right;
+  transition: transform 0.5s ease-in-out;
+  -moz-transition: transform 0.5s ease-in-out;
+  -o-transition: transform 0.5s ease-in-out;
+  -webkit-transition: transform 0.5s ease-in-out;
+}
+.formBox .inputBox input:hover + label
+{
+  opacity: 0.25;
+}
+.formBox .inputBox input:focus ~ span:before,
+.formBox .inputBox input:valid ~ span:before
+{
+  box-shadow: 0 2px 10px #00b0ff,
+    0 2px 15px #00b0ff;
+  -webkit-box-shadow: 0 2px 10px #00b0ff,
+    0 2px 15px #00b0ff;
+  -moz-box-shadow: 0 2px 10px #00b0ff,
+    0 2px 15px #00b0ff;
+  transform: scale(1);
+  transform-origin: left;
+  transition: transform 0.5s ease-in-out;
+  -moz-transition: transform 0.5s ease-in-out;
+  -o-transition: transform 0.5s ease-in-out;
+  -webkit-transition: transform 0.5s ease-in-out;
+}
+.formBox .inputBox input:invalid ~ span:before
+{
+  background: #c70000;
+  box-shadow: 0 2px 10px #c70000,
+    0 2px 15px #c70000;
+  -webkit-box-shadow: 0 2px 10px #c70000,
+    0 2px 15px #c70000;
+  -moz-box-shadow: 0 2px 10px #c70000,
+    0 2px 15px #c70000;
+}
+.formBox .inputBox input[type=submit],
+.formBox .inputBox button[type=submit]
+{
+  background: transparent;
+  border: none;
+  outline: none;
+  color: var(--white);
+  font-family: sans-serif;
+  font-size: 16px;
+  background: var(--primary);
+  padding: 15px 0;
+  margin: auto;
+  cursor: pointer;
+  border-radius: 5px;
+  overflow: hidden;
+  transition: 0.5s;
+  -moz-transition: 0.5s;
+  -o-transition: 0.5s;
+  -webkit-transition: 0.5s;
+}
+.formBox .inputBox input[type=submit]:hover,
+.formBox .inputBox button[type=submit]:hover
+{
+  text-shadow: 0 0 10px #000;
+  transform: scale(0.98);
+  opacity: 0.85;
+  animation: hover-shadow 2s linear infinite;
+}
+.status-modal
+{
+    position: fixed;
+    top: 50%;
+    left: calc(40% - 80px);
+    width: 400px;
+    height: 350px;
+  background: transparent;
+  border-radius: 20px;
+  transition: 0.5s;
+  -moz-transition: 0.5s;
+  -o-transition: 0.5s;
+  -webkit-transition: 0.5s;
+    display: none;
+}
+.status-modal.active
+{
+    display: block;
+}
+.main-content.active .status-modal
+{
+    left: calc(20% + 220px);
+}
+.choice
+{
+    position: relative;
+    width: 300px;
+    height: 50px;
+}
+.choice:before,
+.change:before
+{
+    content: '';
+    position: absolute;
+    right: 20px;
+    top: 15px;
+    z-index: 1;
+    width: 8px;
+    height: 8px;
+    border: 2px solid transparent;
+    border-top: 2px solid #333;
+    border-right: 2px solid #333;
+    transform: rotate(-45deg);
+    transition: 0.5s;
+    pointer-events: none;
+}
+.choice.active:before,
+.change.active:before
+{
+    top: 22px;
+    transform: rotate(-225deg);
+}
+.choice input[type=submit]
+{
+    position: absolute;
+    top: 9px;
+    right: -80px;
+    width: 75px;
+    height: 30px;
+    cursor: pointer;
+    background: var(--blue);
+    color: #fff;
+    border: none;
+    outline: none;
+    border-radius: 10px;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.05);
+}
+.choice input[type=submit]:hover
+{
+    background: var(--p-dark);
+}
+.choice .choiceBox,
+.change .openBox
+{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    cursor: pointer;
+    background: #fff !important;
+    border: none;
+    outline: none;
+    padding: 12px 20px;
+    border-radius: 10px;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.05);
+}
+.choice .choiceBox:hover,
+.change .openBox:hover
+{
+    background: #ececec;
+}
+.choice .option,
+.change .option
+{
+    position: absolute;
+    top: 55px;
+    width: 100%;
+    background: #fff !important;
+    box-shadow: 0 30px 30px rgba(0,0,0,0.05);
+    border-radius: 10px;
+    padding: 20px 10px;
+    overflow: hidden;
+    display: none;
+}
+.choice.active .option,
+.change.active .option
+{
+    display: block;
+}
+.choice .option div
+{
+    padding: 12px 20px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    cursor: pointer;
+}
+.choice .option div:hover
+{
+    opacity: 0.7;
+    color: #fff;
+}
+.product
+{
+    position: relative;
+    width: 100%;
+    margin: auto;
+    padding: 20px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 30px;
+}
+.product .change
+{
+    position: relative;
+    display: grid;
+    min-height: 50px;
+    background: var(--white);
+    padding: 20px;
+    box-shadow: 0 7px 25px rgba(0,0,0,0.08);
+    border-radius: 20px;
+    margin: auto;
+}
+.product .change
+{
+    position: relative;
+    width: 100%;
+    height: 50px;
+}
+.change .option
+{
+    top: 51px;
+}
+.change.active
+{
+    z-index: 101;
+}
+.delete-modal
+{
+    position: fixed;
+    top: 50%;
+    left: calc(40% - 80px);
+    width: 330px;
+    height: 100px;
+    background: var(--white) !important;
+    box-shadow: 0 0 30px rgba(0,0,0,0.1);
+    border-radius: 10px;
+    transition: 0.5s;
+    -moz-transition: 0.5s;
+    -o-transition: 0.5s;
+    -webkit-transition: 0.5s;
+    display: none;
+}
+.delete-modal.active
+{
+    display: flex;
+    flex-direction: row;
+}
+.main-content.active .delete-modal
+{
+    left: calc(20% + 220px);
+}
+.delete
+{
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    align-content: center;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    background: transparent;
+}
+.delete .inputBox
+{
+    border-radius: 10px;
+    padding: 20px 10px;
+}
+.delete .inputBox input
+{
+    border: none;
+    outline: none;
+    color: var(--white) !important;
+    text-align: center;
+    font-family: sans-serif;
+    font-size: 16px;
+    background: var(--blue);
+    padding: 15px 0;
+    margin: auto;
+    cursor: pointer;
+    border-radius: 5px;
+    overflow: hidden;
+    transition: 0.5s;
+    -moz-transition: 0.5s;
+    -o-transition: 0.5s;
+    -webkit-transition: 0.5s;
+}
+.delete .inputBox input::placeholder
+{
+    color: rgba(255,255,255, 1);
+}
+.delete .inputBox input:hover
+{
+    background: var(--p-light);
+}
+.todel
+{
+    cursor: pointer;
+}
+
+@keyframes hover-shadow
+{
+  0%
+  {
+    box-shadow: 0 0 15px black;
+    -webkit-box-shadow: 0 0 15px black;
+    -moz-box-shadow: 0 0 15px black;
+  }
+  50%
+  {
+    box-shadow: 0 0 20px var(--primary);
+    -webkit-box-shadow: 0 0 20px var(--primary);
+    -moz-box-shadow: 0 0 20px var(--primary);
+  }
+  100%
+  {
+    box-shadow: 0 0 15px black;
+    -webkit-box-shadow: 0 0 15px black;
+    -moz-box-shadow: 0 0 15px black;
+  }
+}
+/* --- form end --- */
+
+/* responsive design */
+@media (max-width: 991px)
+{
+    .graphBox
+    {
+        grid-template-columns: 1fr;
+        height: auto;
+    }
+    .container
+    {
+        overflow-x: hidden;
+        overflow-y: visible;
+    }
+    .navigation
+    {
+        left: -300px;
+    }
+    .navigation.active
+    {
+        width: 300px;
+        left: 0;
+    }
+    .main-content
+    {
+        position: relative;
+        width: 100%;
+        left: 0;
+    }
+    .main-content.active
+    {
+        left: 300px;
+    }
+    .cardBox
+    {
+        grid-template-columns: repeat(2,1fr);
+    }
+    .settings
+    {
+        grid-template-columns: 1fr;
+        height: auto;
+    }
+    .product
+    {
+        grid-template-columns: 1fr;
+    }
+}
+@media (max-width: 768px)
+{
+    .details
+    {
+        grid-template-columns: repeat(1,1fr);
+    }
+    .recentOrders,
+    .recentCustomers
+    {
+        overflow-x: auto;
+    }
+    .status.inprogress,
+    .status.Order,
+    .status.Inform,
+    .status.Guarantee
+    {
+        white-space: nowrap;
+    }
+}
+@media (max-width: 480px)
+{
+    .cardBox
+    {
+        grid-template-columns: repeat(1,1fr);
+    }
+    .cardHeader h2
+    {
+        font-size: 20px;
+    }
+    .user
+    {
+        min-width: 40px;
+    }
+    .navigation
+    {
+        width: 100%;
+        left: -100%;
+        z-index: 1000;
+    }
+    .navigation.active
+    {
+        width: 100%;
+        left: 0;
+    }
+    .toggle
+    {
+        z-index: 1001;
+    }
+    .main-content.active .toggle
+    {
+        position: fixed;
+        right: 0;
+        left: initial;
+        color: #fff;
+    }
+}

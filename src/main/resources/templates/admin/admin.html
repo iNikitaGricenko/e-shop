@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
+<head>
+  <meta charset="utf-8" />
+  <title th:text="${title}">
+
+  </title>
+  <link rel="icon" href="#">
+  <meta name='viewport' content='width=device-width, initial-scale=1.0'>
+  <script src="https://kit.fontawesome.com/979f4e20dd.js" crossorigin="anonymous"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <link rel="stylesheet" th:href="@{/css/admin/admin-style.css}"/>
+</head>
+<body>
+<!-- loader start -->
+<div th:insert="blocks/loader :: loader"></div>
+<!-- loader end -->
+  <div class="container">
+    <div class="navigation">
+      <ul>
+        <li>
+          <a href="#">
+            <span class="icon"><i class="fas fa-hammer"></i></span>
+            <span class="title">Brand Name</span>
+          </a>
+        </li>
+        <li aria-disabled="true">
+          <a href="/admin">
+            <span class="icon"><i class="fas fa-home"></i></span>
+            <span class="title">Dashboard</span>
+          </a>
+        </li>
+        <li>
+          <a href="admin/customers">
+            <span class="icon"><i class="fas fa-users"></i></span>
+            <span class="title">Customers</span>
+          </a>
+        </li>
+        <li>
+          <a href="admin/messages">
+            <span class="icon"><i class="fas fa-comments-dollar"></i></span>
+            <span class="title">Message</span>
+          </a>
+        </li>
+        <li>
+          <a href="admin/setup">
+            <span class="icon"><i class="fas fa-edit"></i></span>
+            <span class="title">Setup</span>
+          </a>
+        </li>
+        <li>
+          <a href="admin/settings">
+            <span class="icon"><i class="fas fa-cogs"></i></span>
+            <span class="title">Settings</span>
+          </a>
+        </li>
+        <li>
+          <a href="#">
+            <span class="icon"><i class="fas fa-lock"></i></span>
+            <span class="title">Password</span>
+          </a>
+        </li>
+        <li>
+          <a href="/">
+            <span class="icon"><i class="fas fa-arrow-alt-circle-left"></i></span>
+            <span class="title">Left</span>
+          </a>
+        </li>
+        <li>
+          <a href="/logout">
+            <span class="icon"><i class="fas fa-door-open"></i></span>
+            <span class="title">Sign out</span>
+          </a>
+        </li>
+      </ul>
+    </div>
+
+    <div class="main-content">
+      <div class="topbar">
+        <div class="toggle">
+          <i class="fas fa-bars"></i>
+        </div>
+        <div class="search">
+          <form action="/admin/search" th:method="post">
+            <label>
+              <input type="search" name="search" placeholder="Search here">
+              <i class="fab fa-searchengin"></i>
+            </label>
+          </form>
+        </div>
+        <div class="user">
+          <a href="admin/settings"><img th:src="${User.photo}"></a>
+        </div>
+      </div>
+
+	<!-- cards start -->      
+	<div class="cardBox">
+		<div class="card">
+			<div>
+              <div class="numbers">1,504</div>
+              <div class="cardName">Daily Views</div>
+            </div>
+            <div class="iconBox">
+              <i class="fas fa-eye"></i>
+            </div>
+		</div>
+		<div class="card">
+			<div>
+              <div class="numbers">80</div>
+              <div class="cardName">Sales</div>
+            </div>
+            <div class="iconBox">
+              <i class="fas fa-cart-arrow-down"></i>
+            </div>
+		</div>
+		<div class="card">
+			<div>
+              <div class="numbers">284</div>
+              <div class="cardName">Comments</div>
+            </div>
+            <div class="iconBox">
+              <i class="fas fa-comment"></i>
+            </div>
+		</div>
+		<div class="card">
+			<div>
+              <div class="numbers">$7,842</div>
+              <div class="cardName">Earning</div>
+            </div>
+            <div class="iconBox">
+              <i class="fas fa-wallet"></i>
+            </div>
+		</div>
+	</div>
+	<!-- cards end -->      
+
+      <!-- charts start -->
+      <div class="graphBox">
+        <div class="box">
+          <canvas id="Traffic" th:data-value1="${data_traffic_value1}" th:data-value2="${data_traffic_value2}" th:data-value3="${data_traffic_value3}">
+          </canvas>
+        </div>
+        <div class="box">
+          <canvas id="Earning" th:data-value1="${data_january}" th:data-value2="${data_february}" th:data-value3="${data_march}"
+                  th:data-value4="${data_april}" th:data-value5="${data_may}" th:data-value6="${data_june}"
+                  th:data-value7="${data_july}" th:data-value8="${data_august}" th:data-value9="${data_september}"
+                  th:data-value10="${data_october}" th:data-value11="${data_november}" th:data-value12="${data_december}">
+          </canvas>
+        </div>
+      </div>
+      <!-- charts end -->
+
+      <!-- table start -->
+      <div class="details">
+      <!-- order details start -->
+        <div class="recentOrders">
+          <div class="cardHeader">
+            <h2>Recent Orders</h2>
+            <a href="admin/customers" class="btn">View All</a>
+          </div>
+          <table>
+            <thead>
+              <tr>
+                <td>Name</td>
+                <td>Price</td>
+                <td>Payment</td>
+                <td>Status</td>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Star Refrigerator</td>
+                <td>$1200</td>
+                <td>Paid</td>
+                <td><span class="status delivered">Delivered</span></td>
+              </tr>
+              <tr>
+                <td>Wall Fan</td>
+                <td>$110</td>
+                <td>Paid</td>
+                <td><span class="status pending">Pending</span></td>
+              </tr>
+              <tr>
+                <td>Adidas Shoes</td>
+                <td>$620</td>
+                <td>Paid</td>
+                <td><span class="status return">Return</span></td>
+              </tr>
+              <tr>
+                <td>Denim Shirts</td>
+                <td>$110</td>
+                <td>Due</td>
+                <td><span class="status inprogress">In Progress</span></td>
+              </tr>
+              <tr>
+                <td>Casual Shoes</td>
+                <td>$575</td>
+                <td>Paid</td>
+                <td><span class="status pending">Pending</span></td>
+              </tr>
+              <tr>
+                <td>Window Coolers</td>
+                <td>$110</td>
+                <td>Due</td>
+                <td><span class="status pending">Pending</span></td>
+              </tr>
+              <tr>
+                <td>Speakers</td>
+                <td>$620</td>
+                <td>Paid</td>
+                <td><span class="status return">Return</span></td>
+              </tr>
+              <tr>
+                <td>Hp Laptop</td>
+                <td>$110</td>
+                <td>Due</td>
+                <td><span class="status inprogress">In Progress</span></td>
+              </tr>
+              <tr>
+                <td>Apple Watch</td>
+                <td>$1200</td>
+                <td>Paid</td>
+                <td><span class="status delivered">Delivered</span></td>
+              </tr>
+              <tr>
+                <td>Wall Fan</td>
+                <td>$110</td>
+                <td>Paid</td>
+                <td><span class="status pending">Pending</span></td>
+              </tr>
+              <tr>
+                <td>Denim Shirts</td>
+                <td>$110</td>
+                <td>Due</td>
+                <td><span class="status inprogress">In Progress</span></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      <!-- order details list end -->
+
+        <!-- New Customers start -->
+        <div class="recentCustomers">
+          <div class="cardHeader">
+            <h2>Recent Customers</h2>
+          </div>
+          <table>
+            <tr>
+              <td width="60px"><div class="imgBox"><img th:src="@{/img/admin/img1.jpg}"></div></td>
+              <td><h4>David<br><span>Italy</span></h4></td>
+            </tr>
+            <tr>
+              <td width="60px"><div class="imgBox"><img th:src="@{/img/admin/img2.jpg}"></div></td>
+              <td><h4>Muhammad<br><span>India</span></h4></td>
+            </tr>
+            <tr>
+              <td width="60px"><div class="imgBox"><img th:src="@{/img/admin/img3.jpg}"></div></td>
+              <td><h4>Amelia<br><span>France</span></h4></td>
+            </tr>
+            <tr>
+              <td width="60px"><div class="imgBox"><img th:src="@{/img/admin/img4.jpg}"></div></td>
+              <td><h4>Olivia<br><span>USA</span></h4></td>
+            </tr>
+            <tr>
+              <td width="60px"><div class="imgBox"><img th:src="@{/img/admin/img5.jpg}"></div></td>
+              <td><h4>Amit<br><span>Japan</span></h4></td>
+            </tr>
+            <tr>
+              <td width="60px"><div class="imgBox"><img th:src="@{/img/admin/img6.jpg}"></div></td>
+              <td><h4>Ashraf<br><span>India</span></h4></td>
+            </tr>
+            <tr>
+              <td width="60px"><div class="imgBox"><img th:src="@{/img/admin/img7.jpg}"></div></td>
+              <td><h4>Diana<br><span>Malaysia</span></h4></td>
+            </tr>
+            <tr>
+              <td width="60px"><div class="imgBox"><img th:src="@{/img/admin/img8.jpg}"></div></td>
+              <td><h4>Amit<br><span>India</span></h4></td>
+            </tr>
+          </table>
+        </div>
+        <!-- New Customers end -->
+      </div>
+      <!-- table end -->
+
+    </div>
+  </div>
+
+  <!-- https://www.chartjs.org/docs/latest/ -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@3.6.1/dist/chart.min.js"></script>
+  <script th:src="@{/js/admin/MainCharts.js}"></script>
+  <script th:src="@{/js/admin/admin-menu.js}"></script>
+</body>
+</html>

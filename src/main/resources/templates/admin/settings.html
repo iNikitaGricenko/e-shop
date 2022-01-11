@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
+<head>
+  <meta charset="utf-8" />
+  <title th:text="${title}">
+
+  </title>
+  <link rel="icon" href="#">
+  <meta name='viewport' content='width=device-width, initial-scale=1.0'>
+  <script src="https://kit.fontawesome.com/979f4e20dd.js" crossorigin="anonymous"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <link rel="stylesheet" th:href="@{/css/admin/admin-style.css}"/>
+</head>
+<body>
+<!-- loader start -->
+<div th:insert="blocks/loader :: loader"></div>
+<!-- loader end -->
+  <div class="container">
+    <div class="navigation">
+      <ul>
+        <li>
+          <a href="#">
+            <span class="icon"><i class="fas fa-hammer"></i></span>
+            <span class="title">Brand Name</span>
+          </a>
+        </li>
+        <li>
+          <a href="/admin">
+            <span class="icon"><i class="fas fa-home"></i></span>
+            <span class="title">Dashboard</span>
+          </a>
+        </li>
+        <li>
+          <a href="customers">
+            <span class="icon"><i class="fas fa-users"></i></span>
+            <span class="title">Customers</span>
+          </a>
+        </li>
+        <li>
+          <a href="messages">
+            <span class="icon"><i class="fas fa-comments-dollar"></i></span>
+            <span class="title">Message</span>
+          </a>
+        </li>
+        <li>
+          <a href="setup">
+            <span class="icon"><i class="fas fa-edit"></i></span>
+            <span class="title">Setup</span>
+          </a>
+        </li>
+        <li aria-disabled="true">
+          <a href="settings">
+            <span class="icon"><i class="fas fa-cogs"></i></span>
+            <span class="title">Settings</span>
+          </a>
+        </li>
+        <li>
+          <a href="#">
+            <span class="icon"><i class="fas fa-lock"></i></span>
+            <span class="title">Password</span>
+          </a>
+        </li>
+        <li>
+          <a href="/">
+            <span class="icon"><i class="fas fa-arrow-alt-circle-left"></i></span>
+            <span class="title">Left</span>
+          </a>
+        </li>
+        <li>
+          <a href="/logout">
+            <span class="icon"><i class="fas fa-door-open"></i></span>
+            <span class="title">Sign out</span>
+          </a>
+        </li>
+      </ul>
+    </div>
+
+    <div class="main-content">
+      <div class="topbar">
+        <div class="toggle">
+          <i class="fas fa-bars"></i>
+        </div>
+        <div class="search">
+          <form action="/admin/search" th:method="post">
+            <label>
+              <input type="search" name="search" placeholder="Search here">
+              <i class="fab fa-searchengin"></i>
+            </label>
+          </form>
+        </div>
+      </div>
+
+      <form th:action="@{/changeProfile}" th:object="${User}" method="post" enctype="multipart/form-data">
+        <div class="settings">
+          <!-- Main info start -->
+            <div class="formBox">
+              <h2 class="form-heading">Главная</h2>
+                <div class="inputImgBox">
+                  <img id="ProfileImage" th:src="${User.photo}">
+                  <input type="file" accept="image/jpg, image/jpeg, image/png" name="photo" onclick="middleClick(this);">
+                </div>
+                <div class="inputBox">
+                  <input type="email" name="login" required="" th:value="${User.login}">
+                  <label>E-mail адрес</label>
+                  <span></span>
+                </div>
+                <div class="inputBox">
+                  <input type="password" name="password" required="" th:value="${User.password}">
+                  <label>Пароль</label>
+                  <span></span>
+                </div>
+                <div class="inputBox">
+                  <input type="text" name="registerDate" required="" onblur="if(this.value==''){this.type='text'}" onfocus="(this.type='date')" th:value="${User.registerDate}" readonly>
+                  <label style="top: -30px;left: 0;color: var(--blue);">Дата регистрации</label>
+                  <span></span>
+                </div>
+            </div>
+          <!-- Main info end -->
+
+          <!-- Second info start -->
+            <div class="formBox">
+              <h2 class="form-heading">Полное имя</h2>
+                <div class="inputBox">
+                  <input type="text" name="firstName" required="" th:value="${User.firstName}">
+                  <label>Имя</label>
+                  <span></span>
+                </div>
+                <div class="inputBox">
+                  <input type="text" name="secondName" required="" th:value="${User.secondName}">
+                  <label>Фамилия</label>
+                  <span></span>
+                </div>
+                <div class="inputBox">
+                  <input type="text"  name="middleName" required="" th:value="${User.middleName}">
+                  <label>Отчество</label>
+                  <span></span>
+                </div>
+                <h2 class="form-heading">Доставка</h2>
+                <div class="inputBox">
+                  <input type="text" name="city" required="" th:value="${User.city}">
+                  <label>Город</label>
+                  <span></span>
+                </div>
+                <div class="inputBox">
+                  <input type="tel" id="Phone2" name="phone" required="" autocomplete="on" th:value="${User.phone}">
+                  <label>Телефон</label>
+                  <span></span>
+                </div>
+            </div>
+          <!-- Second info end -->
+        </div>
+        <div class="settings">
+        <!-- Third info start -->
+            <div class="formBox">
+                <div class="inputBox">
+                  <input type="submit" name="" value="Принять настройки">
+                </div>
+            </div>
+          <!-- Third info end -->
+        </div>
+      </form>
+
+    </div>
+  </div>
+
+
+  <script type="text/javascript" th:src="@{/js/admin/admin-menu.js}"></script>
+  <script type="text/javascript" th:src="@{/js/OpenProfileImage.js}"></script>
+  <script type="text/javascript" th:src="@{/js/PhoneMask.js}"></script>
+</body>
+</html>

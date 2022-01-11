@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
+<head>
+  <meta charset="utf-8" />
+  <title th:text="${title}">
+
+  </title>
+  <link rel="icon" href="#">
+  <meta name='viewport' content='width=device-width, initial-scale=1.0'>
+  <script src="https://kit.fontawesome.com/979f4e20dd.js" crossorigin="anonymous"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <link rel="stylesheet" th:href="@{/css/style.css}"/>
+  <link rel="stylesheet" th:href="@{/css/login.css}"/>
+</head>
+
+<body>
+<!-- loader start -->
+<div th:insert="blocks/loader :: loader"></div>
+<!-- loader end -->
+  <div class="banner">
+    <header>
+      <a href="/" class="logo">Brand Name</a>
+    </header>
+    <img th:src="@{/img/bg2.jpg}">
+    <div class="content">
+      <div class="contact">
+    <div class="formBox">
+      <form class="formBox-form" th:action="@{/login}" method="post">
+      <h2 class="form-heading">Log-In</h2>
+        <div class="inputBox">
+          <input type="email" name="username" required="">
+          <label>Email Address</label>
+          <span></span>
+        </div>
+        <div class="inputBox">
+          <input type="password" name="password" required="">
+          <label>Password</label>
+          <span></span>
+        </div>
+        <div class="inputBox">
+          <input type="submit" name="" value="Авторизация" >
+          <!-- <button type="submit" name="" value="">Send</button> -->
+        </div>
+      </form>
+        <a href="/register" >Still haven`t account yet?</a>
+    </div>
+  </div>
+  <div class="footer">
+    <footer>
+      <ul>
+        <li><a href="#"><i class="fab fa-github-square"></i></a></li>
+        <li><a href="#"><i class="fab fa-twitter-square"></i></a></li>
+        <li><a href="#"><i class="fab fa-instagram-square"></i></a></li>
+      </ul>
+        <span >
+          ©
+          <script>
+            document.write(new Date().getFullYear())
+          </script>, made with
+            <i class="fas fa-heart heart"></i>
+        </span>
+    </footer>
+  </div>
+    </div>
+  </div>
+
+    <script>
+      $(document).ready(function() {
+
+        if ($("#datetimepicker").length != 0) {
+          $('#datetimepicker').datetimepicker({
+            icons: {
+              time: "fa fa-clock-o",
+              date: "fa fa-calendar",
+              up: "fa fa-chevron-up",
+              down: "fa fa-chevron-down",
+              previous: 'fa fa-chevron-left',
+              next: 'fa fa-chevron-right',
+              today: 'fa fa-screenshot',
+              clear: 'fa fa-trash',
+              close: 'fa fa-remove'
+            }
+          });
+        }
+
+        function scrollToDownload() {
+
+          if ($('.section-download').length != 0) {
+            $("html, body").animate({
+              scrollTop: $('.section-download').offset().top
+            }, 1000);
+          }
+        }
+        const card = document.querySelector('.toggle-menu');
+        const cardtoggle = document.querySelector('.toggle');
+        cardtoggle.onclick = function(){
+          card.classList.toggle('active');
+        }
+      });
+      </script>
+</body>
+
+</html>

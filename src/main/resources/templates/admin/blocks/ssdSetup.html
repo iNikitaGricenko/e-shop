@@ -1,0 +1,72 @@
+<form th:fragment="ssd" class="change" th:action="@{/accry/ssd}" th:object="${Spu}" method="POST" enctype="multipart/form-data" > <!--enctype="multipart/form-data"-->
+  <input type="text" class="openBox" name="" placeholder="Добавить товар: Видеокарту" readonly>
+  <div class="option">
+    <div class="formBox">
+      <h2 class="form-heading">SSD (Твердотельный накопитель)</h2>
+      <div class="inputBox">
+        <input type="text" name="name" required="">
+        <label>Название</label>
+        <span></span>
+      </div>
+      <div class="inputBox">
+        <input type="text" name="model" required="">
+        <label>Модель</label>
+        <span></span>
+      </div>
+      <div class="inputBox">
+        <input type="text" name="type" required="">
+        <label>Тип</label>
+        <span></span>
+      </div>
+    </div>
+    <br>
+    <br>
+    <div class="formBox">
+      <h2 class="form-heading">Характеристики</h2>
+      <div class="inputBox">
+        <input type="number" min="1024" step="1024" name="size" required="">
+        <label>Объем памяти</label>
+        <span></span>
+      </div>
+      <div class="inputBox">
+        <input type="number" min="0" step="1" name="readerSpeed">
+        <label>Скорость чтения</label>
+        <span></span>
+      </div>
+      <div class="inputBox">
+        <input type="number" min="0" step="1" name="writerSpeed">
+        <label>Скорость записи</label>
+        <span></span>
+      </div>
+    </div>
+    <div class="formBox" style="display: flex; flex-wrap: wrap;">
+      <h2 class="form-heading">Фото:</h2>
+      <div class="inputImgBox" title="Фото 1" data-placement="bottom">
+        <img th:src="@{/img/admin/prod-icon.png}">
+        <input type="file" accept="image/jpg, image/jpeg, image/png" name="photo1" th:enctype="'multipart/form-data'">
+      </div>
+      <div class="inputImgBox" title="Фото 2" data-placement="bottom">
+        <img th:src="@{/img/admin/prod-icon.png}">
+        <input type="file" accept="image/jpg, image/jpeg, image/png" name="photo2" th:enctype="'multipart/form-data'">
+      </div>
+      <div class="inputImgBox" title="Фото 3" data-placement="bottom">
+        <img th:src="@{/img/admin/prod-icon.png}">
+        <input type="file" accept="image/jpg, image/jpeg, image/png" name="photo3" th:enctype="'multipart/form-data'">
+      </div>
+      <div class="inputImgBox" title="Фото 4" data-placement="bottom">
+        <img th:src="@{/img/admin/prod-icon.png}">
+        <input type="file" accept="image/jpg, image/jpeg, image/png" name="photo4" th:enctype="'multipart/form-data'">
+      </div>
+      <div class="inputImgBox" title="Фото 5" data-placement="bottom">
+        <img th:src="@{/img/admin/prod-icon.png}">
+        <input type="file" accept="image/jpg, image/jpeg, image/png" name="photo5" th:enctype="'multipart/form-data'">
+      </div>
+    </div>
+    <br>
+    <div class="formBox">
+      <div class="inputBox">
+        <input type="submit" name="" value="Применить">
+      </div>
+    </div>
+  </div>
+</form>

@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
+<head>
+  <meta charset="utf-8" />
+  <title th:text="${title}">
+
+  </title>
+  <link rel="icon" href="#">
+  <meta name='viewport' content='width=device-width, initial-scale=1.0'>
+  <script src="https://kit.fontawesome.com/979f4e20dd.js" crossorigin="anonymous"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <link rel="stylesheet" th:href="@{/css/style.css}"/>
+  <link rel="stylesheet" th:href="@{/css/product.css}"/>
+  <link rel="stylesheet" th:href="@{/css/media.css}" type="text/css"/>
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js" type="text/javascript"></script>
+  <script src="https://cdn.jsdelivr.net/npm/jquery.maskedinput@1.4.1/src/jquery.maskedinput.min.js" type="text/javascript"></script>
+</head>
+
+<body>
+<!-- loader start -->
+<div th:insert="blocks/loader :: loader"></div>
+<!-- loader end -->
+	<main id="blur">
+  <!-- header start -->
+    <div th:insert="blocks/header :: header"></div>
+
+  <div class="link-cards">
+    <div class="container" id="main-content">
+
+    <div class="card">
+        <img th:src="@{/img/links/INTEL-CORE-i9-X-SERIES.png}">
+        <div class="content">
+          <h3  class="card-title">
+            Процессоры
+          </h3>
+          <a class="button" href="accry/cpu">Перейти</a>
+        </div>
+    </div>
+
+    <div class="card">
+        <img th:src="@{/img/links/NVIDIA-RTX-3080-3D-Render-2.png}">
+        <div class="content">
+          <div class="card-title">
+            <h3>
+              Видеокарты
+            </h3>
+          </div>
+        <a class="button" href="accry/gpu">Перейти</a>
+        </div>
+    </div>
+
+    <div class="card">
+        <img th:src="@{/img/links/ASUS_MAXIMUS_XII.png}">
+        <div class="content">
+          <div class="card-title">
+            <h3>
+              Материнские платы
+            </h3>
+          </div>
+        <a class="button" href="accry/motherboard">Перейти</a>
+        </div>
+    </div>
+
+    <div class="card">
+        <img th:src="@{/img/links/CORSAIR_VENGEANCE_LED.png}">
+        <div class="content">
+          <div class="card-title">
+            <h3>
+              Модули памяти (ОЗУ)
+            </h3>
+          </div>
+        <a class="button" href="accry/ram">Перейти</a>
+        </div>
+    </div>
+
+    <div class="card">
+        <img th:src="@{/img/links/samsung_950_pro.0.0.png}">
+        <div class="content">
+          <div class="card-title">
+            <h3>
+              SSD-диски
+            </h3>
+          </div>
+        <a class="button" href="accry/ssd">Перейти</a>
+        </div>
+    </div>
+
+    <div class="card">
+        <img th:src="@{/img/links/raidmax_neon_rgb_1.png}">
+        <div class="content">
+          <div class="card-title">
+            <h3>
+              Корпуса
+            </h3>
+          </div>
+        <a class="button" href="accry/case">Перейти</a>
+        </div>
+    </div>
+
+    <div class="card">
+        <img th:src="@{/img/links/THERMALTAKE_PS-SPR-0650FPCBEU-R-04.png}">
+        <div class="content">
+          <div class="card-title">
+            <h3>
+              Блоки питания
+            </h3>
+          </div>
+        <a class="button" href="accry/power-supply">Перейти</a>
+        </div>
+    </div>
+
+    <div class="card">
+        <img th:src="@{/img/links/kuler.png}">
+        <div class="content">
+          <div class="card-title">
+            <h3>
+              Системы охлаждения
+            </h3>
+          </div>
+        <a class="button" href="accry/cooling-system">Перейти</a>
+        </div>
+    </div>
+
+    <div class="card">
+        <img th:src="@{/img/links/seagate_hdd1tb.png}">
+        <div class="content">
+          <div class="card-title">
+            <h3>
+              Жесткие диски
+            </h3>
+          </div>
+        <a class="button" href="accry/hdd">Перейти</a>
+        </div>
+    </div>
+
+    <div class="card">
+      <img th:src="@{/img/links/61-tm_thickbox_default.webp}">
+        <div class="content">
+          <div class="card-title">
+            <h3>
+              Звуковые карты
+            </h3>
+          </div>
+        <a class="button" href="accry/sound-cards">Перейти</a>
+        </div>
+    </div>
+
+    <div class="card">
+      <img th:src="@{/img/links/asrock-thunderbolt-2-aic-thunderbolt-2-aic.png}">
+        <div class="content">
+          <div class="card-title">
+            <h3>
+              Контроллеры<br>Адаптеры
+            </h3>
+          </div>
+          <a class="button" href="accry/controllers-adapters">Перейти</a>
+        </div>
+    </div>
+
+    <div class="card">
+        <img th:src="@{/img/links/ASUS_FX_HDD.png}">
+        <div class="content">
+          <div class="card-title">
+            <h3>
+              Внешние HDD
+            </h3>
+          </div>
+          <a class="button" href="accry/external-hdd">Перейти</a>
+        </div>
+    </div>
+
+  </div>
+  </div>
+
+<!-- footer start -->
+  <div th:insert="blocks/footer :: footer"></div>
+<!-- footer end -->
+    </main>
+<!-- modals start -->
+    <div th:insert="blocks/modals :: recall"></div>
+    <div th:insert="blocks/modals :: settings"></div>
+    <div th:insert="blocks/modals :: login"></div>
+    <div th:insert="blocks/modals :: register"></div>
+    <!-- modals end -->
+    <script type="text/javascript" th:src="@{/js/OpenProfileImage.js}"></script>
+    <script type="text/javascript" th:src="@{/js/PhoneMask.js}"></script>
+    <script type="text/javascript" th:src="@{/js/modals.js}"></script>
+</body>
+
+</html>

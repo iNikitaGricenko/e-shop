@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
+<head>
+  <meta charset="utf-8" />
+  <title th:text="${title}">
+
+  </title>
+  <link rel="icon" href="#">
+  <meta name='viewport' content='width=device-width, initial-scale=1.0'>
+  <script src="https://kit.fontawesome.com/979f4e20dd.js" crossorigin="anonymous"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <link rel="stylesheet" th:href="@{/css/admin/admin-style.css}"/>
+
+</head>
+<body>
+<!-- loader start -->
+<div th:insert="blocks/loader :: loader"></div>
+<!-- loader end -->
+<div class="container">
+  <div class="navigation">
+    <ul>
+      <li>
+        <a href="#">
+          <span class="icon"><i class="fas fa-hammer"></i></span>
+          <span class="title">Brand Name</span>
+        </a>
+      </li>
+      <li>
+        <a href="/admin">
+          <span class="icon"><i class="fas fa-home"></i></span>
+          <span class="title">Dashboard</span>
+        </a>
+      </li>
+      <li>
+        <a href="customers">
+          <span class="icon"><i class="fas fa-users"></i></span>
+          <span class="title">Customers</span>
+        </a>
+      </li>
+      <li>
+        <a href="messages">
+          <span class="icon"><i class="fas fa-comments-dollar"></i></span>
+          <span class="title">Message</span>
+        </a>
+      </li>
+      <li aria-disabled="true">
+        <a href="setup">
+          <span class="icon"><i class="fas fa-edit"></i></span>
+          <span class="title">Setup</span>
+        </a>
+      </li>
+      <li>
+        <a href="settings">
+          <span class="icon"><i class="fas fa-cogs"></i></span>
+          <span class="title">Settings</span>
+        </a>
+      </li>
+      <li>
+        <a href="#">
+          <span class="icon"><i class="fas fa-lock"></i></span>
+          <span class="title">Password</span>
+        </a>
+      </li>
+      <li>
+        <a href="/">
+          <span class="icon"><i class="fas fa-arrow-alt-circle-left"></i></span>
+          <span class="title">Left</span>
+        </a>
+      </li>
+      <li>
+        <a href="/logout">
+          <span class="icon"><i class="fas fa-door-open"></i></span>
+          <span class="title">Sign out</span>
+        </a>
+      </li>
+    </ul>
+  </div>
+
+  <div class="main-content">
+    <div class="topbar">
+      <div class="toggle">
+        <i class="fas fa-bars"></i>
+      </div>
+      <div class="search">
+        <form action="/admin/search" th:method="post">
+          <label>
+            <input type="search" name="search" placeholder="Search here">
+            <i class="fab fa-searchengin"></i>
+          </label>
+        </form>
+      </div>
+      <div class="user">
+        <a href="settings"><img th:src="${User.photo}"></a>
+      </div>
+    </div>
+
+    <div class="product">
+      <th:block th:insert="admin/blocks/laptopSetup :: laptop"></th:block>
+      <th:block th:insert="admin/blocks/gpuSetup :: gpu"></th:block>
+      <th:block th:insert="admin/blocks/cpuSetup :: cpu"></th:block>
+      <th:block th:insert="admin/blocks/ramSetup :: ram"></th:block>
+      <th:block th:insert="admin/blocks/ssdSetup :: ssd"></th:block>
+    </div>
+
+  </div>
+</div>
+
+<script th:src="@{/js/admin/admin-menu.js}"></script>
+<script>
+  let modal = document.querySelectorAll('.change');
+  let openBoxes = document.querySelectorAll('.openBox');
+  openBoxes.forEach(function (element, index, array) {
+    element.onclick = function () {
+      element.parentElement.classList.toggle('active');
+    }
+  });
+</script>
+</body>
+</html>

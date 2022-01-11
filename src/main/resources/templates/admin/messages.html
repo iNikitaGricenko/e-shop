@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
+<head>
+  <meta charset="utf-8" />
+  <title th:text="${title}">
+
+  </title>
+  <link rel="icon" href="#">
+  <meta name='viewport' content='width=device-width, initial-scale=1.0'>
+  <script src="https://kit.fontawesome.com/979f4e20dd.js" crossorigin="anonymous"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <link rel="stylesheet" th:href="@{/css/admin/admin-style.css}"/>
+</head>
+<body>
+<!-- loader start -->
+<div th:insert="blocks/loader :: loader"></div>
+<!-- loader end -->
+  <div class="container">
+    <div class="navigation">
+      <ul>
+        <li>
+          <a href="#">
+            <span class="icon"><i class="fas fa-hammer"></i></span>
+            <span class="title">Brand Name</span>
+          </a>
+        </li>
+        <li>
+          <a href="/admin">
+            <span class="icon"><i class="fas fa-home"></i></span>
+            <span class="title">Dashboard</span>
+          </a>
+        </li>
+        <li>
+          <a href="customers">
+            <span class="icon"><i class="fas fa-users"></i></span>
+            <span class="title">Customers</span>
+          </a>
+        </li>
+        <li aria-disabled="true">
+          <a href="messages">
+            <span class="icon"><i class="fas fa-comments-dollar"></i></span>
+            <span class="title">Message</span>
+          </a>
+        </li>
+        <li>
+          <a href="setup">
+            <span class="icon"><i class="fas fa-edit"></i></span>
+            <span class="title">Setup</span>
+          </a>
+        </li>
+        <li>
+          <a href="settings">
+            <span class="icon"><i class="fas fa-cogs"></i></span>
+            <span class="title">Settings</span>
+          </a>
+        </li>
+        <li>
+          <a href="#">
+            <span class="icon"><i class="fas fa-lock"></i></span>
+            <span class="title">Password</span>
+          </a>
+        </li>
+        <li>
+          <a href="/">
+            <span class="icon"><i class="fas fa-arrow-alt-circle-left"></i></span>
+            <span class="title">Left</span>
+          </a>
+        </li>
+        <li>
+          <a href="/logout">
+            <span class="icon"><i class="fas fa-door-open"></i></span>
+            <span class="title">Sign out</span>
+          </a>
+        </li>
+      </ul>
+    </div>
+
+    <div class="main-content">
+      <div class="topbar">
+        <div class="toggle">
+          <i class="fas fa-bars"></i>
+        </div>
+        <div class="search">
+          <form action="/admin/search" th:method="post">
+            <label>
+              <input type="search" name="search" placeholder="Search here">
+              <i class="fab fa-searchengin"></i>
+            </label>
+          </form>
+        </div>
+        <div class="user">
+          <a href="settings"><img th:src="${User.photo}"></a>
+        </div>
+      </div>
+
+	<!-- cards start -->
+	<div class="cardBox">
+		<div class="card">
+			<div>
+              <div class="numbers">1,504</div>
+              <div class="cardName">Messages</div>
+            </div>
+            <div class="iconBox">
+              <i class="fas fa-envelope"></i>
+            </div>
+		</div>
+        <div class="card">
+			<div>
+              <div class="numbers">104</div>
+              <div class="cardName">Recall request</div>
+            </div>
+            <div class="iconBox">
+              <i class="fas fa-phone"></i>
+            </div>
+		</div>
+	</div>
+	<!-- cards end -->
+
+      <!-- table start -->
+      <div class="details" style="grid-template-columns: 1fr;">
+      <!-- order details start -->
+        <div class="recentOrders">
+          <div class="cardHeader">
+            <h2>Call me back</h2>
+          </div>
+          <table>
+            <thead>
+              <tr>
+                <td>Name</td>
+                <td>Phone</td>
+                <td>Commentary</td>
+                <td>Status</td>
+              </tr>
+            </thead>
+            <tbody>
+              <tr class="todel">
+                <td>David</td>
+                <td>+38(068)-069-53-74</td>
+                <td style="white-space: break-spaces; line-break: anywhere">Hello I have a troubleshoot with delivery</td>
+                <td><span class="status Order">Place an order</span></td>
+              </tr>
+              <tr class="todel">
+                <td>Muhammad</td>
+                <td>+38(068)-069-53-74</td>
+                <td style="white-space: break-spaces; line-break: anywhere">I have suggestions</td>
+                <td><span class="status Other">Other</span></td>
+              </tr>
+              <tr class="todel">
+                <td>Amelia</td>
+                <td>+38(068)-069-53-74</td>
+                <td style="white-space: break-spaces; line-break: anywhere">Can I get a discount</td>
+                <td><span class="status Inform">Get product information</span></td>
+              </tr>
+              <tr class="todel">
+                <td>Olivia</td>
+                <td>+38(068)-069-53-74</td>
+                <td style="white-space: break-spaces; line-break: anywhere">Due</td>
+                <td><span class="status Guarantee">Warranty treatment</span></td>
+              </tr>
+              <tr class="todel">
+                <td>Amit</td>
+                <td>+38(068)-069-53-74</td>
+                <td style="white-space: break-spaces; line-break: anywhere">Paid</td>
+                <td><span class="status Other">Other</span></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      <!-- order details list end -->
+
+          <!-- order details start -->
+        <div class="recentOrders">
+          <div class="cardHeader">
+            <h2>Contact us</h2>
+          </div>
+          <table>
+            <thead>
+              <tr>
+                <td>Name</td>
+                <td>E-mail</td>
+                <td>Phone</td>
+                <td>Commentary</td>
+              </tr>
+            </thead>
+            <tbody>
+              <tr class="todel">
+                <td>David</td>
+                <td>VfVristalt@gmail.com</td>
+                <td>+38(068)-069-53-74</td>
+                <td style="white-space: break-spaces; line-break: anywhere">Hello I have a troubleshoot with delivery</td>
+              </tr>
+              <tr class="todel">
+                <td>Muhammad</td>
+                <td>VfVristalt@gmail.com</td>
+                <td>+38(068)-069-53-74</td>
+                <td style="white-space: break-spaces; line-break: anywhere">I have suggestions</td>
+              </tr>
+              <tr class="todel">
+                <td>Amelia</td>
+                <td>VfVristalt@gmail.com</td>
+                <td>+38(068)-069-53-74</td>
+                <td style="white-space: break-spaces; line-break: anywhere">Can I get a discount</td>
+              </tr>
+              <tr class="todel">
+                <td>Olivia</td>
+                <td>VfVristalt@gmail.com</td>
+                <td>+38(068)-069-53-74</td>
+                <td style="white-space: break-spaces; line-break: anywhere">Due</td>
+              </tr>
+              <tr class="todel">
+                <td>Amit</td>
+                <td>VfVristalt@gmail.com</td>
+                <td>+38(068)-069-53-74</td>
+                <td style="white-space: break-spaces; line-break: anywhere">Paid</td>
+              </tr><tr>
+                <td>Muhammad</td>
+                <td>VfVristalt@gmail.com</td>
+                <td>+38(068)-069-53-74</td>
+                <td style="white-space: break-spaces; line-break: anywhere">I have suggestions</td>
+              </tr>
+              <tr class="todel">
+                <td>Amelia</td>
+                <td>VfVristalt@gmail.com</td>
+                <td>+38(068)-069-53-74</td>
+                <td style="white-space: break-spaces; line-break: anywhere">Can I get a discount</td>
+              </tr>
+              <tr class="todel">
+                <td>Olivia</td>
+                <td>VfVristalt@gmail.com</td>
+                <td>+38(068)-069-53-74</td>
+                <td style="white-space: break-spaces; line-break: anywhere">Due</td>
+              </tr>
+              <tr class="todel">
+                <td>Amit</td>
+                <td>VfVristalt@gmail.com</td>
+                <td>+38(068)-069-53-74</td>
+                <td style="white-space: break-spaces; line-break: anywhere">Paid</td>
+              </tr>
+              <tr class="todel">
+                <td>David</td>
+                <td>VfVristalt@gmail.com</td>
+                <td>+38(068)-069-53-74</td>
+                <td style="white-space: break-spaces; line-break: anywhere">Hello I have a troubleshoot with delivery</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      <!-- order details list end -->
+
+      </div>
+      <!-- table end -->
+
+    </div>
+  </div>
+
+  <div class="delete-modal">
+    <form class="delete">
+      <div class="inputBox">
+        <input type="submit" name="" value="Удалить">
+      </div>
+      <div class="inputBox">
+        <input class="cancel" type="text" name="" placeholder="Отменить" readonly>
+      </div>
+    </form>
+  </div>
+
+  <script th:src="@{/js/admin/admin-menu.js}"></script>
+  <script>
+    let modal = document.querySelector('.delete-modal');
+
+    let cancel = document.querySelector('.cancel');
+    cancel.onclick = function () {
+      modal.classList.toggle('active');
+    }
+    document.querySelectorAll('.todel').forEach(
+      el => el.onclick = function() {
+        var offset = el.getBoundingClientRect();
+        if (window.outerWidth > 991)
+          modal.style.right = offset.left + "px";
+        else
+          modal.style.left = "30px";
+        modal.style.top = offset.top + "px";
+        modal.classList.toggle('active');
+      }
+    );
+  </script>
+</body>
+</html>

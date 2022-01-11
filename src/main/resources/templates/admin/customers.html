@@ -1,0 +1,506 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
+<head>
+  <meta charset="utf-8" />
+  <title th:text="${title}">
+
+  </title>
+  <link rel="icon" href="#">
+  <meta name='viewport' content='width=device-width, initial-scale=1.0'>
+  <script src="https://kit.fontawesome.com/979f4e20dd.js" crossorigin="anonymous"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <link rel="stylesheet" th:href="@{/css/admin/admin-style.css}"/>
+</head>
+<body>
+<!-- loader start -->
+<div th:insert="blocks/loader :: loader"></div>
+<!-- loader end -->
+  <div class="container">
+    <div class="navigation">
+      <ul>
+        <li>
+          <a href="#">
+            <span class="icon"><i class="fas fa-hammer"></i></span>
+            <span class="title">Brand Name</span>
+          </a>
+        </li>
+        <li>
+          <a href="/admin">
+            <span class="icon"><i class="fas fa-home"></i></span>
+            <span class="title">Dashboard</span>
+          </a>
+        </li>
+        <li aria-disabled="true">
+          <a href="customers">
+            <span class="icon"><i class="fas fa-users"></i></span>
+            <span class="title">Customers</span>
+          </a>
+        </li>
+        <li>
+          <a href="messages">
+            <span class="icon"><i class="fas fa-comments-dollar"></i></span>
+            <span class="title">Message</span>
+          </a>
+        </li>
+        <li>
+          <a href="setup">
+            <span class="icon"><i class="fas fa-edit"></i></span>
+            <span class="title">Setup</span>
+          </a>
+        </li>
+        <li>
+          <a href="settings">
+            <span class="icon"><i class="fas fa-cogs"></i></span>
+            <span class="title">Settings</span>
+          </a>
+        </li>
+        <li>
+          <a href="#">
+            <span class="icon"><i class="fas fa-lock"></i></span>
+            <span class="title">Password</span>
+          </a>
+        </li>
+        <li>
+          <a href="/">
+            <span class="icon"><i class="fas fa-arrow-alt-circle-left"></i></span>
+            <span class="title">Left</span>
+          </a>
+        </li>
+        <li>
+          <a href="/logout">
+            <span class="icon"><i class="fas fa-door-open"></i></span>
+            <span class="title">Sign out</span>
+          </a>
+        </li>
+      </ul>
+    </div>
+
+    <div class="main-content">
+      <div class="topbar">
+        <div class="toggle">
+          <i class="fas fa-bars"></i>
+        </div>
+        <div class="search">
+          <form action="/admin/search" th:method="post">
+            <label>
+              <input type="search" name="search" placeholder="Search here">
+              <i class="fab fa-searchengin"></i>
+            </label>
+          </form>
+        </div>
+        <div class="user">
+          <a href="settings"><img th:src="${User.photo}"></a>
+        </div>
+      </div>
+
+	<!-- cards start -->
+	<div class="cardBox">
+		<div class="card">
+			<div>
+              <div class="numbers">1,504</div>
+              <div class="cardName">Daily Views</div>
+            </div>
+            <div class="iconBox">
+              <i class="fas fa-eye"></i>
+            </div>
+		</div>
+		<div class="card">
+			<div>
+              <div class="numbers">50</div>
+              <div class="cardName">Online</div>
+            </div>
+            <div class="iconBox">
+              <i class="fas fa-signal"></i>
+            </div>
+		</div>
+	</div>
+	<!-- cards end -->
+
+      <!-- table start -->
+      <div class="details">
+        <!-- New Customers start -->
+        <div class="recentCustomers">
+          <div class="cardHeader">
+            <h2>New Customers of week</h2>
+          </div>
+          <table>
+            <tr>
+              <td width="60px"><div class="imgBox"><img th:src="@{/img/admin/img1.jpg}"></div></td>
+              <td><h4>David<br><span>Italy</span></h4></td>
+              <td><h4>26.07.2021</h4></td>
+              <td><span class="status Online">Online</span></td>
+            </tr>
+            <tr>
+              <td width="60px"><div class="imgBox"><img th:src="@{/img/admin/img2.jpg}"></div></td>
+              <td><h4>Muhammad<br><span>India</span></h4></td>
+              <td><h4>26.07.2021</h4></td>
+              <td><span class="status Offline">Offline</span></td>
+            </tr>
+            <tr>
+              <td width="60px"><div class="imgBox"><img th:src="@{/img/admin/img3.jpg}"></div></td>
+              <td><h4>Amelia<br><span>France</span></h4></td>
+              <td><h4>26.07.2021</h4></td>
+              <td><span class="status Online">Online</span></td>
+            </tr>
+            <tr>
+              <td width="60px"><div class="imgBox"><img th:src="@{/img/admin/img4.jpg}"></div></td>
+              <td><h4>Olivia<br><span>USA</span></h4></td>
+              <td><h4>26.07.2021</h4></td>
+              <td><span class="status Offline">Offline</span></td>
+            </tr>
+            <tr>
+              <td width="60px"><div class="imgBox"><img th:src="@{/img/admin/img5.jpg}"></div></td>
+              <td><h4>Amit<br><span>Japan</span></h4></td>
+              <td><h4>26.07.2021</h4></td>
+              <td><span class="status Online">Online</span></td>
+            </tr>
+            <tr>
+              <td width="60px"><div class="imgBox"><img th:src="@{/img/admin/img6.jpg}"></div></td>
+              <td><h4>Ashraf<br><span>India</span></h4></td>
+              <td><h4>26.07.2021</h4></td>
+              <td><span class="status Offline">Offline</span></td>
+            </tr>
+            <tr>
+              <td width="60px"><div class="imgBox"><img th:src="@{/img/admin/img7.jpg}"></div></td>
+              <td><h4>Diana<br><span>Malaysia</span></h4></td>
+              <td><h4>26.07.2021</h4></td>
+              <td><span class="status Online">Online</span></td>
+            </tr>
+            <tr>
+              <td width="60px"><div class="imgBox"><img th:src="@{/img/admin/img8.jpg}"></div></td>
+              <td><h4>Amit<br><span>India</span></h4></td>
+              <td><h4>26.07.2021</h4></td>
+              <td><span class="status Offline">Offline</span></td>
+            </tr>
+          </table>
+        </div>
+        <!-- New Customers end -->
+
+      <!-- charts start -->
+        <div class="box">
+          <canvas id="OnlineTraffic" th:data-value1="${data_online_traffic_value1}" th:data-value2="${data_offline_traffic_value2}"></canvas>
+        </div>
+      </div>
+      <!-- charts end -->
+      <!-- table end -->
+
+      <!-- table start -->
+      <div class="details" style="grid-template-columns: 1fr;">
+        <!-- New Customers start -->
+        <div class="recentCustomers">
+          <div class="cardHeader">
+            <h2>Customers orders</h2>
+          </div>
+          <table>
+            <thead>
+              <tr>
+                <td>Profile</td>
+                <td>Name/County</td>
+                <td>Name</td>
+                <td>Price</td>
+                <td>Payment</td>
+                <td>Status</td>
+                <td>Deal date</td>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td width="60px"><div class="imgBox"><img th:src="@{/img/admin/img1.jpg}"></div></td>
+                <td><h4>David<br><span>Italy</span></h4></td>
+                <td>Star Refrigerator</td>
+                <td>$1200</td>
+                <td>Paid</td>
+                <td class="Transaction"><span class="status delivered">Delivered</span></td>
+                <td>27.07.2020</td>
+              </tr>
+              <tr>
+                <td width="60px"><div class="imgBox"><img th:src="@{/img/admin/img1.jpg}"></div></td>
+                <td><h4>David<br><span>Italy</span></h4></td>
+                <td>Casual Shoes</td>
+                <td>$575</td>
+                <td>Paid</td>
+                <td class="Transaction"><span class="status pending">Pending</span></td>
+                <td>27.07.2020</td>
+              </tr>
+              <tr>
+                <td width="60px"><div class="imgBox"><img th:src="@{/img/admin/img2.jpg}"></div></td>
+                <td><h4>Muhammad<br><span>India</span></h4></td>
+                <td>Wall Fan</td>
+                <td>$110</td>
+                <td>Paid</td>
+                <td class="Transaction"><span class="status pending">Pending</span></td>
+                <td>27.07.2020</td>
+              </tr>
+              <tr>
+                <td width="60px"><div class="imgBox"><img th:src="@{/img/admin/img3.jpg}"></div></td>
+                <td><h4>Amelia<br><span>France</span></h4></td>
+                <td>Adidas Shoes</td>
+                <td>$620</td>
+                <td>Paid</td>
+                <td class="Transaction"><span class="status return">Return</span></td>
+                <td>27.07.2020</td>
+              </tr>
+              <tr>
+                <td width="60px"><div class="imgBox"><img th:src="@{/img/admin/img4.jpg}"></div></td>
+                <td><h4>Olivia<br><span>USA</span></h4></td>
+                <td>Denim Shirts</td>
+                <td>$110</td>
+                <td>Due</td>
+                <td class="Transaction"><span class="status inprogress">In Progress</span></td>
+                <td>27.07.2020</td>
+              </tr>
+              <tr>
+                <td width="60px"><div class="imgBox"><img th:src="@{/img/admin/img5.jpg}"></div></td>
+                <td><h4>Amit<br><span>Japan</span></h4></td>
+                <td>Casual Shoes</td>
+                <td>$575</td>
+                <td>Paid</td>
+                <td class="Transaction"><span class="status pending">Pending</span></td>
+                <td>27.07.2020</td>
+              </tr>
+              <tr>
+                <td width="60px"><div class="imgBox"><img th:src="@{/img/admin/img6.jpg}"></div></td>
+                <td><h4>Ashraf<br><span>India</span></h4></td>
+                <td>Window Coolers</td>
+                <td>$110</td>
+                <td>Due</td>
+                <td class="Transaction"><span class="status pending">Pending</span></td>
+                <td>27.07.2020</td>
+              </tr>
+              <tr>
+                <td width="60px"><div class="imgBox"><img th:src="@{/img/admin/img7.jpg}"></div></td>
+                <td><h4>Diana<br><span>Malaysia</span></h4></td>
+                <td>Speakers</td>
+                <td>$620</td>
+                <td>Paid</td>
+                <td class="Transaction"><span class="status return">Return</span></td>
+                <td>27.07.2020</td>
+              </tr>
+              <tr>
+                <td width="60px"><div class="imgBox"><img th:src="@{/img/admin/img8.jpg}"></div></td>
+                <td><h4>Amit<br><span>India</span></h4></td>
+                <td>Hp Laptop</td>
+                <td>$110</td>
+                <td>Due</td>
+                <td class="Transaction"><span class="status inprogress">In Progress</span></td>
+                <td>27.07.2020</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <!-- New Customers end -->
+
+        <!-- table start -->
+      <div class="details" style="grid-template-columns: 1fr;">
+        <!-- New Customers start -->
+        <div class="recentCustomers">
+          <div class="cardHeader">
+            <h2>Customers orders</h2>
+          </div>
+          <table>
+            <thead>
+              <tr>
+                <td>Profile</td>
+                <td>Name<br>County</td>
+                <td>Register Date</td>
+                <td>Online Status</td>
+              </tr>
+            </thead>
+            <tbody class="section-download">
+              <tr>
+                <td width="60px"><div class="imgBox"><img th:src="@{/img/admin/img1.jpg}"></div></td>
+                <td><h4>David<br><span>Italy</span></h4></td>
+                <td>27.07.2020</td>
+                <td><span class="status Online">Online</span></td>
+              </tr>
+              <tr>
+                <td width="60px"><div class="imgBox"><img th:src="@{/img/admin/img2.jpg}"></div></td>
+                <td><h4>Muhammad<br><span>India</span></h4></td>
+                <td>27.07.2020</td>
+                <td><span class="status Online">Online</span></td>
+              </tr>
+              <tr>
+                <td width="60px"><div class="imgBox"><img th:src="@{/img/admin/img3.jpg}"></div></td>
+                <td><h4>Amelia<br><span>France</span></h4></td>
+                <td>27.07.2020</td>
+                <td><span class="status Offline">Offline</span></td>
+              </tr>
+              <tr>
+                <td width="60px"><div class="imgBox"><img th:src="@{/img/admin/img4.jpg}"></div></td>
+                <td><h4>Olivia<br><span>USA</span></h4></td>
+                <td>27.07.2020</td>
+                <td><span class="status Online">Online</span></td>
+              </tr>
+              <tr>
+                <td width="60px"><div class="imgBox"><img th:src="@{/img/admin/img5.jpg}"></div></td>
+                <td><h4>Amit<br><span>Japan</span></h4></td>
+                <td>27.07.2020</td>
+                <td><span class="status Offline">Offline</span></td>
+              </tr>
+              <tr>
+                <td width="60px"><div class="imgBox"><img th:src="@{/img/admin/img6.jpg}"></div></td>
+                <td><h4>Ashraf<br><span>India</span></h4></td>
+                <td>27.07.2020</td>
+                <td><span class="status Online">Online</span></td>
+              </tr>
+              <tr>
+                <td width="60px"><div class="imgBox"><img th:src="@{/img/admin/img7.jpg}"></div></td>
+                <td><h4>Diana<br><span>Malaysia</span></h4></td>
+                <td>27.07.2020</td>
+                <td><span class="status Offline">Offline</span></td>
+              </tr>
+              <tr>
+                <td width="60px"><div class="imgBox"><img th:src="@{/img/admin/img8.jpg}"></div></td>
+                <td><h4>Amit<br><span>India</span></h4></td>
+                <td>27.07.2020</td>
+                <td><span class="status Offline">Offline</span></td>
+              </tr>
+              <tr>
+                <td width="60px"><div class="imgBox"><img th:src="@{/img/admin/img1.jpg}"></div></td>
+                <td><h4>David<br><span>Italy</span></h4></td>
+                <td>27.07.2020</td>
+                <td><span class="status Online">Online</span></td>
+              </tr>
+              <tr>
+                <td width="60px"><div class="imgBox"><img th:src="@{/img/admin/img2.jpg}"></div></td>
+                <td><h4>Muhammad<br><span>India</span></h4></td>
+                <td>27.07.2020</td>
+                <td><span class="status Online">Online</span></td>
+              </tr>
+              <tr>
+                <td width="60px"><div class="imgBox"><img th:src="@{/img/admin/img3.jpg}"></div></td>
+                <td><h4>Amelia<br><span>France</span></h4></td>
+                <td>27.07.2020</td>
+                <td><span class="status Offline">Offline</span></td>
+              </tr>
+              <tr>
+                <td width="60px"><div class="imgBox"><img th:src="@{/img/admin/img4.jpg}"></div></td>
+                <td><h4>Olivia<br><span>USA</span></h4></td>
+                <td>27.07.2020</td>
+                <td><span class="status Online">Online</span></td>
+              </tr>
+              <tr>
+                <td width="60px"><div class="imgBox"><img th:src="@{/img/admin/img5.jpg}"></div></td>
+                <td><h4>Amit<br><span>Japan</span></h4></td>
+                <td>27.07.2020</td>
+                <td><span class="status Offline">Offline</span></td>
+              </tr>
+              <tr>
+                <td width="60px"><div class="imgBox"><img th:src="@{/img/admin/img6.jpg}"></div></td>
+                <td><h4>Ashraf<br><span>India</span></h4></td>
+                <td>27.07.2020</td>
+                <td><span class="status Online">Online</span></td>
+              </tr>
+              <tr>
+                <td width="60px"><div class="imgBox"><img th:src="@{/img/admin/img7.jpg}"></div></td>
+                <td><h4>Diana<br><span>Malaysia</span></h4></td>
+                <td>27.07.2020</td>
+                <td><span class="status Offline">Offline</span></td>
+              </tr>
+              <tr>
+                <td width="60px"><div class="imgBox"><img th:src="@{/img/admin/img8.jpg}"></div></td>
+                <td><h4>Amit<br><span>India</span></h4></td>
+                <td>27.07.2020</td>
+                <td><span class="status Offline">Offline</span></td>
+              </tr>
+            <tr>
+                <td width="60px"><div class="imgBox"><img th:src="@{/img/admin/img1.jpg}"></div></td>
+                <td><h4>David<br><span>Italy</span></h4></td>
+                <td>27.07.2020</td>
+                <td><span class="status Online">Online</span></td>
+              </tr>
+              <tr>
+                <td width="60px"><div class="imgBox"><img th:src="@{/img/admin/img2.jpg}"></div></td>
+                <td><h4>Muhammad<br><span>India</span></h4></td>
+                <td>27.07.2020</td>
+                <td><span class="status Online">Online</span></td>
+              </tr>
+              <tr>
+                <td width="60px"><div class="imgBox"><img th:src="@{/img/admin/img3.jpg}"></div></td>
+                <td><h4>Amelia<br><span>France</span></h4></td>
+                <td>27.07.2020</td>
+                <td><span class="status Offline">Offline</span></td>
+              </tr>
+              <tr>
+                <td width="60px"><div class="imgBox"><img th:src="@{/img/admin/img4.jpg}"></div></td>
+                <td><h4>Olivia<br><span>USA</span></h4></td>
+                <td>27.07.2020</td>
+                <td><span class="status Online">Online</span></td>
+              </tr>
+              <tr>
+                <td width="60px"><div class="imgBox"><img th:src="@{/img/admin/img5.jpg}"></div></td>
+                <td><h4>Amit<br><span>Japan</span></h4></td>
+                <td>27.07.2020</td>
+                <td><span class="status Offline">Offline</span></td>
+              </tr>
+              <tr>
+                <td width="60px"><div class="imgBox"><img th:src="@{/img/admin/img6.jpg}"></div></td>
+                <td><h4>Ashraf<br><span>India</span></h4></td>
+                <td>27.07.2020</td>
+                <td><span class="status Online">Online</span></td>
+              </tr>
+              <tr>
+                <td width="60px"><div class="imgBox"><img th:src="@{/img/admin/img7.jpg}"></div></td>
+                <td><h4>Diana<br><span>Malaysia</span></h4></td>
+                <td>27.07.2020</td>
+                <td><span class="status Offline">Offline</span></td>
+              </tr>
+              <tr>
+                <td width="60px"><div class="imgBox"><img th:src="@{/img/admin/img8.jpg}"></div></td>
+                <td><h4>Amit<br><span>India</span></h4></td>
+                <td>27.07.2020</td>
+                <td><span class="status Offline">Offline</span></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <!-- New Customers end -->
+      </div>
+    <!-- table end -->
+    </div>
+  </div>
+</div>
+
+<div class="status-modal">
+  <form class="choice">
+    <input type="text" class="choiceBox" name="" placeholder="Change status" readonly>
+    <div class="option">
+      <div onclick="show('Pending', 'pending')" class="status pending">Pending</div>
+      <div onclick="show('In Progress', 'inprogress')" class="status inprogress">In Progress</div>
+      <div onclick="show('Delivered', 'delivered')" class="status delivered">Delivered</div>
+      <div onclick="show('Return', 'return')" class="status return">Return</div>
+    </div>
+    <input type="submit" name="" value="Применить">
+  </form>
+</div>
+
+  <!-- https://www.chartjs.org/docs/latest/ -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@3.6.1/dist/chart.min.js"></script>
+  <script th:src="@{/js/admin/CustomersCharts.js}"></script>
+  <script th:src="@{/js/admin/admin-menu.js}"></script>
+  <script>
+    function show(status, classList) {
+      document.querySelector(".choiceBox").value = status;
+    }
+    let choice = document.querySelector('.choice');
+    choice.onclick = function () {
+      choice.classList.toggle('active');
+    }
+    let modal = document.querySelector('.status-modal');
+    modal.onmouseout = function () {
+      modal.classList.toggle('active');
+    }
+    document.querySelectorAll('.Transaction').forEach(
+      el => el.onclick = function() {
+        var offset = el.getBoundingClientRect();
+        if (window.outerWidth > 991)
+          modal.style.left = offset.left-45 + "px";
+        else
+          modal.style.left = "10px";
+        modal.style.top = offset.top+45 + "px";
+        modal.classList.toggle('active');
+      }
+    );
+  </script>
+</body>
+</html>

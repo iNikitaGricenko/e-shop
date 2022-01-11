@@ -1,0 +1,120 @@
+<div th:fragment="loader">
+    <style type="text/css">
+    .preloader
+    {
+      position: fixed;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      left: 0;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      z-index: 1001;
+      min-width: 100%;
+      min-height: 100%;
+      background: rgba(0,0,0,0.5);
+      backdrop-filter: blur(8px);
+    }
+    .preloader h1
+    {
+      position: absolute;
+      bottom: 20%;
+      color: #fff;
+      text-transform: uppercase;
+    }
+    .preloader .loader
+    {
+      position: relative;
+      width: 480px;
+      height: 480px;
+      border-radius: 50%;
+      overflow: hidden;
+      transform: rotate(175deg);
+    }
+    .preloader .loader span
+    {
+      position: absolute;
+      top: calc(12px * var(--i));
+      left: calc(12px * var(--i));
+      right: calc(12px * var(--i));
+      bottom: calc(12px * var(--i));
+      border: 10px solid #0b0b0b;
+      border-top: 10px solid #00ff45;
+      border-left: 10px solid #00ff45;
+      border-radius: 50%;
+      animation: animatte 1s alternate ease-in-out infinite;
+      animation-delay: calc(-0.01s * var(--i));
+    }
+    @keyframes animatte
+    {
+      0%
+      {
+        transform: rotate(0deg);
+        filter: hue-rotate( calc(0deg * var(--i)));
+      }
+      100%
+      {
+        transform: rotate(90deg);
+        filter: hue-rotate( calc(60deg * var(--i)));
+      }
+    }
+    .loaded_hiding .preloader {
+      transition: 0.3s opacity;
+      opacity: 0;
+    }
+    .loaded .preloader {
+      display: none;
+    }
+    @media only screen and (max-width: 1080px)
+    {
+      .preloader .loader
+      {
+        width: 250px;
+        height: 250px;
+      }
+      .preloader .loader span
+      {
+        top: calc(6px * var(--i));
+        left: calc(6px * var(--i));
+        right: calc(6px * var(--i));
+        bottom: calc(6px * var(--i));
+      }
+    }
+  </style>
+    <div class="preloader">
+    <h1>Загрузка...</h1>
+      <div class="loader">
+        <span style="--i:0;"></span>
+        <span style="--i:1;"></span>
+        <span style="--i:2;"></span>
+        <span style="--i:3;"></span>
+        <span style="--i:4;"></span>
+        <span style="--i:5;"></span>
+        <span style="--i:6;"></span>
+        <span style="--i:7;"></span>
+        <span style="--i:8;"></span>
+        <span style="--i:9;"></span>
+        <span style="--i:10;"></span>
+        <span style="--i:11;"></span>
+        <span style="--i:12;"></span>
+        <span style="--i:13;"></span>
+        <span style="--i:14;"></span>
+        <span style="--i:15;"></span>
+        <span style="--i:16;"></span>
+        <span style="--i:17;"></span>
+        <span style="--i:18;"></span>
+        <span style="--i:19;"></span>
+      </div>
+    </div>
+
+    <script>
+      window.onload = function () {
+        document.body.classList.add('loaded_hiding');
+        window.setTimeout(function () {
+          document.body.classList.add('loaded');
+          document.body.classList.remove('loaded_hiding');
+        }, 500);
+      }
+    </script>
+</div>

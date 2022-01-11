@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
+<head>
+  <meta charset="utf-8" />
+  <title th:text="${title}">
+
+  </title>
+  <link rel="icon" href="#">
+  <meta name='viewport' content='width=device-width, initial-scale=1.0'>
+  <script src="https://kit.fontawesome.com/979f4e20dd.js" crossorigin="anonymous"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <link rel="stylesheet" th:href="@{/css/style.css}"/>
+  <link rel="stylesheet" th:href="@{/css/product.css}"/>
+  <link rel="stylesheet" th:href="@{/css/media.css}" type="text/css"/>
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js" type="text/javascript"></script>
+  <script src="https://cdn.jsdelivr.net/npm/jquery.maskedinput@1.4.1/src/jquery.maskedinput.min.js" type="text/javascript"></script>
+</head>
+
+<body>
+<!-- loader start -->
+<div th:insert="blocks/loader :: loader"></div>
+<!-- loader end -->
+	<main id="blur">
+  <!-- header start -->
+    <div th:insert="blocks/header :: header"></div>
+
+  <div class="link-cards">
+    <div class="container" id="main-content">
+
+
+    <div class="card">
+        <img th:src="@{/img/links/wifi-router.png}">
+        <div class="content">
+          <div class="card-title">
+            <h3>
+              Wi-Fi роутеры
+            </h3>
+          </div>
+        <a class="button" href="wifi-routers">Перейти</a>
+        </div>
+    </div>
+
+    <div class="card">
+        <img th:src="@{/img/links/DW-POE496M_1500x1221_L_96.png}">
+        <div class="content">
+          <div class="card-title">
+            <h3>
+              Сетевые коммутаторы
+            </h3>
+          </div>
+        <a class="button" href="switches">Перейти</a>
+        </div>
+    </div>
+
+    <div class="card">
+        <img th:src="@{/img/links/91.png}">
+        <div class="content">
+          <div class="card-title">
+            <h3>
+              Сетевые карты
+            </h3>
+          </div>
+        <a class="button" href="network-cards">Перейти</a>
+        </div>
+    </div>
+
+    <div class="card">
+        <img th:src="@{/img/links/H3ad3d2c0fb974abe8dbc1abd03907a29T.png}">
+        <div class="content">
+          <div class="card-title">
+            <h3>
+              Wi-Fi адаптеры
+            </h3>
+          </div>
+        <a class="button" href="wifi-adapters">Перейти</a>
+        </div>
+    </div>
+
+    <div class="card">
+        <img th:src="@{/img/links/I17470_33103627_1692646014.png}">
+        <div class="content">
+          <div class="card-title">
+            <h3>
+              Powerline
+            </h3>
+          </div>
+        <a class="button" href="powerlines">Перейти</a>
+        </div>
+    </div>
+
+    <div class="card">
+        <img th:src="@{/img/links/1571220598_88ba7beba16ac4388afb9c4a24c4e559.png}">
+        <div class="content">
+          <div class="card-title">
+            <h3>
+              Для сетей
+            </h3>
+          </div>
+        <a class="button" href="network-cabels">Перейти</a>
+        </div>
+    </div>
+
+    <div class="card">
+        <img th:src="@{/img/links/GW.71.5153_01.png}">
+        <div class="content">
+          <div class="card-title">
+            <h3>
+              Антенны
+            </h3>
+          </div>
+        <a class="button" href="antennas">Перейти</a>
+        </div>
+    </div>
+
+  </div>
+  </div>
+
+<!-- footer start -->
+  <div th:insert="blocks/footer :: footer"></div>
+<!-- footer end -->
+    </main>
+<!-- modals start -->
+    <div th:insert="blocks/modals :: recall"></div>
+    <div th:insert="blocks/modals :: settings"></div>
+    <div th:insert="blocks/modals :: login"></div>
+    <div th:insert="blocks/modals :: register"></div>
+    <!-- modals end -->
+
+    <script type="text/javascript" th:src="@{/js/OpenProfileImage.js}"></script>
+    <script type="text/javascript" th:src="@{/js/PhoneMask.js}"></script>
+    <script type="text/javascript" th:src="@{/js/modals.js}"></script>
+</body>
+
+</html>

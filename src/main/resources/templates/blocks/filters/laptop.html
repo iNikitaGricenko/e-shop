@@ -1,0 +1,806 @@
+  <form th:fragment="laptop" class="filter" method="GET" th:action="@{/laptop}">
+      <div class="nav-opener-filter">
+        <label>Фильтры</label>
+        <i class="fas fa-caret-down"></i>
+      </div>
+      <div class="nav-filter">
+        <div class="inputBox-2">
+            <label for="maxcost">Введите максимальную стоимость товаров</label>
+            <input type="text" name="maxcost" value="190000" id="maxcost-label" pattern="[0-9]{0,6}" size="6" maxlength="6">
+            <span></span>
+        </div>
+        <div class="f-toggle">
+          <h2 class="heading2">Производитель</h2>
+          <i class="fas fa-chevron-down"></i>
+          <span></span>
+        </div>
+        <div class="choice" style="--i:390px; --display:block">
+          <div class="inputBox">
+            <input type="checkbox" name="Acer" id="Acer" value="Acer">
+            <label for="Acer">Acer</label>
+            <i class="fas fa-check"></i>
+          </div>
+          <div class="inputBox">
+            <input type="checkbox" name="Asus" id="Asus" value="Asus">
+            <label for="Asus">Asus</label>
+            <i class="fas fa-check"></i>
+          </div>
+          <div class="inputBox">
+            <input type="checkbox" name="Dell" id="Dell" value="Dell">
+            <label for="Dell">Dell</label>
+            <i class="fas fa-check"></i>
+          </div>
+          <div class="inputBox">
+            <input type="checkbox" name="DM" id="DM" value="DM">
+            <label for="DM">Dream Machine</label>
+            <i class="fas fa-check"></i>
+          </div>
+          <div class="inputBox">
+            <input type="checkbox" name="Gigabyte" id="Gigabyte" value="Gigabyte">
+            <label for="Gigabyte">Gigabyte</label>
+            <i class="fas fa-check"></i>
+          </div>
+          <div class="inputBox">
+            <input type="checkbox" name="HP" id="HP" value="HP">
+            <label for="HP">HP</label>
+            <i class="fas fa-check"></i>
+          </div>
+          <div class="inputBox">
+            <input type="checkbox" name="Lenovo" id="Lenovo" value="Lenovo">
+            <label for="Lenovo">Lenovo</label>
+            <i class="fas fa-check"></i>
+          </div>
+          <div class="inputBox">
+            <input type="checkbox" name="MSI" id="MSI" value="MSI">
+            <label for="MSI">MSI</label>
+            <i class="fas fa-check"></i>
+          </div>
+        </div>
+      </div>
+      <div class="nav-filter">
+        <div class="f-toggle">
+          <h2 class="heading2">Линейка процессора</h2>
+          <i class="fas fa-chevron-down"></i>
+          <span></span>
+        </div>
+        <div class="choice" style="--i:396px; --display:flex">
+          <div class="inputBox">
+            <input type="checkbox" name="Corei9" id="Corei9" value="Intel Core i9">
+            <label for="Corei9">Intel Core i9</label>
+            <i class="fas fa-check"></i>
+          </div>
+          <div class="inputBox">
+            <input type="checkbox" name="Corei7" id="Corei7" value="Intel Core i7">
+            <label for="Corei7">Intel Core i7</label>
+            <i class="fas fa-check"></i>
+          </div>
+          <div class="inputBox">
+            <input type="checkbox" name="Corei5" id="Corei5" value="Intel Core i5">
+            <label for="Corei5">Intel Core i5</label>
+            <i class="fas fa-check"></i>
+          </div>
+          <div class="inputBox">
+            <input type="checkbox" name="Corei3" id="Corei3" value="Intel Core i3">
+            <label for="Corei3">Intel Core i3</label>
+            <i class="fas fa-check"></i>
+          </div>
+          <div class="inputBox">
+            <input type="checkbox" name="Ryzen9" id="Ryzen9" value="AMX Ryzen 9">
+            <label for="Ryzen9">AMX Ryzen 9</label>
+            <i class="fas fa-check"></i>
+          </div>
+          <div class="inputBox">
+            <input type="checkbox" name="Ryzen7" id="Ryzen7" value="AMX Ryzen 7">
+            <label for="Ryzen7">AMX Ryzen 7</label>
+            <i class="fas fa-check"></i>
+          </div>
+          <div class="inputBox">
+            <input type="checkbox" name="Ryzen5" id="Ryzen5" value="AMX Ryzen 5">
+            <label for="Ryzen5">AMX Ryzen 5</label>
+            <i class="fas fa-check"></i>
+          </div>
+          <div class="inputBox">
+            <input type="checkbox" name="Ryzen3" id="Ryzen3" value="AMX Ryzen 3">
+            <label for="Ryzen3">AMX Ryzen 3</label>
+            <i class="fas fa-check"></i>
+          </div>
+        </div>
+      </div>
+      <div class="nav-filter">
+        <div class="f-toggle">
+          <h2 class="heading2">Кол-во ядер</h2>
+          <i class="fas fa-chevron-down"></i>
+          <span></span>
+        </div>
+        <div class="choice" style="--i:68px; --display:flex">
+          <div class="inputBox">
+            <input type="checkbox" name="8thr" id="8thr" value="8thr">
+            <label for="8thr">8</label>
+            <i class="fas fa-check"></i>
+          </div>
+          <div class="inputBox">
+            <input type="checkbox" name="6thr" id="6thr" value="6thr">
+            <label for="6thr">6</label>
+            <i class="fas fa-check"></i>
+          </div>
+          <div class="inputBox">
+            <input type="checkbox" name="4thr" id="4thr" value="4thr">
+            <label for="4thr">4</label>
+            <i class="fas fa-check"></i>
+          </div>
+          <div class="inputBox">
+            <input type="checkbox" name="2thr" id="2thr" value="2thr">
+            <label for="2thr">2</label>
+            <i class="fas fa-check"></i>
+          </div>
+        </div>
+      </div>
+      <div class="nav-filter">
+        <div class="f-toggle">
+          <h2 class="heading2">Тип Видеокарты</h2>
+          <i class="fas fa-chevron-down"></i>
+          <span></span>
+        </div>
+        <div class="choice" style="--i:114px; --display:flex">
+          <div class="inputBox">
+            <input type="checkbox" name="Discret" id="Discret" value="Discret">
+            <label for="Discret">Дискретная</label>
+            <i class="fas fa-check"></i>
+          </div>
+          <div class="inputBox">
+            <input type="checkbox" name="Integr" id="Integr" value="Integr">
+            <label for="Integr">Интегрированная</label>
+            <i class="fas fa-check"></i>
+          </div>
+        </div>
+      </div>
+      <div class="nav-filter">
+        <div class="f-toggle">
+          <h2 class="heading2">Видеокарта</h2>
+          <i class="fas fa-chevron-down"></i>
+          <span></span>
+        </div>
+        <div class="choice" style="--i:628px; --display:block">
+          <div class="inputBox">
+            <input type="checkbox" name="GeForce3080" id="GeForce3080" value="GeForce RTX 3080">
+            <label for="GeForce3080">GeForce RTX 3080</label>
+            <i class="fas fa-check"></i>
+          </div>
+          <div class="inputBox">
+            <input type="checkbox" name="GeForce3070" id="GeForce3070" value="GeForce RTX 3070">
+            <label for="GeForce3070">GeForce RTX 3070</label>
+            <i class="fas fa-check"></i>
+          </div>
+          <div class="inputBox">
+            <input type="checkbox" name="GeForce3060" id="GeForce3060" value="GeForce RTX 3060">
+            <label for="GeForce3060">GeForce RTX 3060</label>
+            <i class="fas fa-check"></i>
+          </div>
+          <div class="inputBox">
+            <input type="checkbox" name="GeForce3050Ti" id="GeForce3050Ti" value="GeForce RTX 3050 Ti">
+            <label for="GeForce3050Ti">GeForce RTX 3050 Ti</label>
+            <i class="fas fa-check"></i>
+          </div>
+          <div class="inputBox">
+            <input type="checkbox" name="GeForce3050" id="GeForce3050" value="GeForce RTX 3050">
+            <label for="GeForce3050">GeForce RTX 3050</label>
+            <i class="fas fa-check"></i>
+          </div>
+          <div class="inputBox">
+            <input type="checkbox" name="GeForce2080" id="GeForce2080" value="GeForce RTX 2080">
+            <label for="GeForce2080">GeForce RTX 2080</label>
+            <i class="fas fa-check"></i>
+          </div>
+          <div class="inputBox">
+            <input type="checkbox" name="GeForce2070" id="GeForce2070" value="GeForce RTX 2070">
+            <label for="GeForce2070">GeForce RTX 2070</label>
+            <i class="fas fa-check"></i>
+          </div>
+          <div class="inputBox">
+            <input type="checkbox" name="GeForce2060" id="GeForce2060" value="GeForce RTX 2060">
+            <label for="GeForce2060">GeForce RTX 2060</label>
+            <i class="fas fa-check"></i>
+          </div>
+          <div class="inputBox">
+            <input type="checkbox" name="GeForce1650Ti" id="GeForce1650Ti" value="GeForce GTX 1650 Ti">
+            <label for="GeForce1650Ti">GeForce GTX 1650 Ti</label>
+            <i class="fas fa-check"></i>
+          </div>
+          <div class="inputBox">
+            <input type="checkbox" name="GeForce1660Ti" id="GeForce1660Ti" value="GeForce GTX 1660 Ti">
+            <label for="GeForce1660Ti">GeForce GTX 1660 Ti</label>
+            <i class="fas fa-check"></i>
+          </div>
+          <div class="inputBox">
+            <input type="checkbox" name="GeForce1650" id="GeForce1650" value="GeForce GTX 1650">
+            <label for="GeForce1650">GeForce GTX 1650</label>
+            <i class="fas fa-check"></i>
+          </div>
+          <div class="inputBox">
+            <input type="checkbox" name="GeForce MX" id="GeForce MX" value="GeForce MX-серия">
+            <label for="GeForce MX">GeForce MX-серия</label>
+            <i class="fas fa-check"></i>
+          </div>
+          <div class="inputBox">
+            <input type="checkbox" name="AMD5500M" id="AMD5500M" value="AMD Radeon RX 5500M">
+            <label for="AMD5500M">AMD Radeon RX 5500M</label>
+            <i class="fas fa-check"></i>
+          </div>
+        </div>
+      </div>
+      <div class="nav-filter">
+        <div class="f-toggle">
+          <h2 class="heading2">Объем видеопамяти</h2>
+          <i class="fas fa-chevron-down"></i>
+          <span></span>
+        </div>
+        <div class="choice" style="--i:114px; --display:flex">
+          <div class="inputBox">
+            <input type="checkbox" name="16VirtGB" id="16VirtGB" value="16VirtGB">
+            <label for="16VirtGB">16 Гб</label>
+            <i class="fas fa-check"></i>
+          </div>
+          <div class="inputBox">
+            <input type="checkbox" name="8VirtGB" id="8VirtGB" value="8VirtGB">
+            <label for="8VirtGB">8 Гб</label>
+            <i class="fas fa-check"></i>
+          </div>
+          <div class="inputBox">
+            <input type="checkbox" name="6VirtGB" id="6VirtGB" value="6VirtGB">
+            <label for="6VirtGB">6 Гб</label>
+            <i class="fas fa-check"></i>
+          </div>
+          <div class="inputBox">
+            <input type="checkbox" name="4VirtGB" id="4VirtGB" value="4VirtGB">
+            <label for="4VirtGB">4 Гб</label>
+            <i class="fas fa-check"></i>
+          </div>
+          <div class="inputBox">
+            <input type="checkbox" name="2VirtGB" id="2VirtGB" value="2VirtGB">
+            <label for="2VirtGB">2 Гб</label>
+            <i class="fas fa-check"></i>
+          </div>
+        </div>
+      </div>
+      <div class="nav-filter">
+        <div class="f-toggle">
+          <h2 class="heading2">Диагональ</h2>
+          <i class="fas fa-chevron-down"></i>
+          <span></span>
+        </div>
+        <div class="choice" style="--i:114px; --display:flex">
+          <div class="inputBox">
+            <input type="checkbox" name="17.3" id="17.3" value="17.3">
+            <label for="17.3">17.3″</label>
+            <i class="fas fa-check"></i>
+          </div>
+          <div class="inputBox">
+            <input type="checkbox" name="15.6" id="15.6" value="15.6">
+            <label for="15.6">15.6″</label>
+            <i class="fas fa-check"></i>
+          </div>
+          <div class="inputBox">
+            <input type="checkbox" name="14" id="14" value="14">
+            <label for="14">14″</label>
+            <i class="fas fa-check"></i>
+          </div>
+          <div class="inputBox">
+            <input type="checkbox" name="13-13.9" id="13-13.9" value="13-13.9">
+            <label for="13-13.9">13-13.9″</label>
+            <i class="fas fa-check"></i>
+          </div>
+          <div class="inputBox">
+            <input type="checkbox" name="10-12.9" id="10-12.9" value="10-12.9">
+            <label for="10-12.9">10-12.9″</label>
+            <i class="fas fa-check"></i>
+          </div>
+        </div>
+      </div>
+      <div class="nav-filter">
+        <div class="f-toggle">
+          <h2 class="heading2">Разрешение дисплея</h2>
+          <i class="fas fa-chevron-down"></i>
+          <span></span>
+        </div>
+        <div class="choice" style="--i:252px; --display:block">
+          <div class="inputBox">
+            <input type="checkbox" name="3840x2160" id="3840x2160" value="3840x2160">
+            <label for="3840x2160">Ultra HD 4K (3840x2160)</label>
+            <i class="fas fa-check"></i>
+          </div>
+          <div class="inputBox">
+            <input type="checkbox" name="2560x1440" id="2560x1440" value="2560x1440">
+            <label for="2560x1440">Quad HD 2K (2560x1440)</label>
+            <i class="fas fa-check"></i>
+          </div>
+          <div class="inputBox">
+            <input type="checkbox" name="1920x1080" id="1920x1080" value="1920x1080">
+            <label for="1920x1080">Full HD (1920x1080)</label>
+            <i class="fas fa-check"></i>
+          </div>
+          <div class="inputBox">
+            <input type="checkbox" name="2880x1800" id="2880x1800" value="2880x1800">
+            <label for="2880x1800">2880x1800</label>
+            <i class="fas fa-check"></i>
+          </div>
+          <div class="inputBox">
+            <input type="checkbox" name="2560x1600" id="2560x1600" value="2560x1600">
+            <label for="2560x1600">2560x1600</label>
+            <i class="fas fa-check"></i>
+          </div>
+        </div>
+      </div>
+      <div class="nav-filter">
+        <div class="f-toggle">
+          <h2 class="heading2">Тип матрицы</h2>
+          <i class="fas fa-chevron-down"></i>
+          <span></span>
+        </div>
+        <div class="choice" style="--i:114px; --display:flex">
+          <div class="inputBox">
+            <input type="checkbox" name="IPS" id="IPS" value="IPS">
+            <label for="IPS">IPS</label>
+            <i class="fas fa-check"></i>
+          </div>
+          <div class="inputBox">
+            <input type="checkbox" name="OLED" id="OLED" value="OLED">
+            <label for="OLED">OLED</label>
+            <i class="fas fa-check"></i>
+          </div>
+          <div class="inputBox">
+            <input type="checkbox" name="SVA" id="SVA" value="SVA">
+            <label for="SVA">SVA</label>
+            <i class="fas fa-check"></i>
+          </div>
+          <div class="inputBox">
+            <input type="checkbox" name="TN+film" id="TN+film" value="TN+film">
+            <label for="TN+film">TN+film</label>
+            <i class="fas fa-check"></i>
+          </div>
+          <div class="inputBox">
+            <input type="checkbox" name="VA" id="VA" value="VA">
+            <label for="VA">VA</label>
+            <i class="fas fa-check"></i>
+          </div>
+        </div>
+      </div>
+      <div class="nav-filter">
+        <div class="f-toggle">
+          <h2 class="heading2">Частота обновлений</h2>
+          <i class="fas fa-chevron-down"></i>
+          <span></span>
+        </div>
+        <div class="choice" style="--i:161px; --display:flex">
+          <div class="inputBox">
+            <input type="checkbox" name="300hz" id="300hz" value="300hz">
+            <label for="300hz">300 Гц</label>
+            <i class="fas fa-check"></i>
+          </div>
+          <div class="inputBox">
+            <input type="checkbox" name="240hz" id="240hz" value="240hz">
+            <label for="240hz">240 Гц</label>
+            <i class="fas fa-check"></i>
+          </div>
+          <div class="inputBox">
+            <input type="checkbox" name="165hz" id="165hz" value="165hz">
+            <label for="165hz">165 Гц</label>
+            <i class="fas fa-check"></i>
+          </div>
+          <div class="inputBox">
+            <input type="checkbox" name="144hz" id="144hz" value="144hz">
+            <label for="144hz">144 Гц</label>
+            <i class="fas fa-check"></i>
+          </div>
+          <div class="inputBox">
+            <input type="checkbox" name="120hz" id="120hz" value="120hz">
+            <label for="120hz">120 Гц</label>
+            <i class="fas fa-check"></i>
+          </div>
+          <div class="inputBox">
+            <input type="checkbox" name="60hz" id="60hz" value="60hz">
+            <label for="60hz">60 Гц</label>
+            <i class="fas fa-check"></i>
+          </div>
+        </div>
+      </div>
+      <div class="nav-filter">
+        <div class="f-toggle">
+          <h2 class="heading2">Объем оперативной памяти</h2>
+          <i class="fas fa-chevron-down"></i>
+          <span></span>
+        </div>
+        <div class="choice" style="--i:114px; --display:flex">
+          <div class="inputBox">
+            <input type="checkbox" name="32GB" id="32GB" value="32GB">
+            <label for="32GB">32 Гб</label>
+            <i class="fas fa-check"></i>
+          </div>
+          <div class="inputBox">
+            <input type="checkbox" name="16GB" id="16GB" value="16GB">
+            <label for="16GB">16 Гб</label>
+            <i class="fas fa-check"></i>
+          </div>
+          <div class="inputBox">
+            <input type="checkbox" name="8GB" id="8GB" value="8GB">
+            <label for="8GB">8 Гб</label>
+            <i class="fas fa-check"></i>
+          </div>
+          <div class="inputBox">
+            <input type="checkbox" name="4GB" id="4GB" value="4GB">
+            <label for="4GB">4 Гб</label>
+            <i class="fas fa-check"></i>
+          </div>
+        </div>
+      </div>
+      <div class="nav-filter">
+        <div class="f-toggle">
+          <h2 class="heading2">Тип оперативной памяти</h2>
+          <i class="fas fa-chevron-down"></i>
+          <span></span>
+        </div>
+        <div class="choice" style="--i:166px; --display:block">
+          <div class="inputBox">
+            <input type="checkbox" name="DDR4" id="DDR4" value="DDR4">
+            <label for="DDR4">DDR4</label>
+            <i class="fas fa-check"></i>
+          </div>
+          <div class="inputBox">
+            <input type="checkbox" name="LPDDR4" id="LPDDR4" value="LPDDR4">
+            <label for="LPDDR4">LPDDR4</label>
+            <i class="fas fa-check"></i>
+          </div>
+          <div class="inputBox">
+            <input type="checkbox" name="LPDDR4X" id="LPDDR4X" value="LPDDR4X">
+            <label for="LPDDR4X">LPDDR4X</label>
+            <i class="fas fa-check"></i>
+          </div>
+        </div>
+      </div>
+      <div class="nav-filter">
+        <div class="f-toggle">
+          <h2 class="heading2">Частота оперативной памяти</h2>
+          <i class="fas fa-chevron-down"></i>
+          <span></span>
+        </div>
+        <div class="choice" style="--i:208px; --display:flex">
+          <div class="inputBox">
+            <input type="checkbox" name="2133MG" id="2133MG" value="2133MG">
+            <label for="2133MG">2133 МГц</label>
+            <i class="fas fa-check"></i>
+          </div>
+          <div class="inputBox">
+            <input type="checkbox" name="2400MG" id="2400MG" value="2400MG">
+            <label for="2400MG">2400 МГц</label>
+            <i class="fas fa-check"></i>
+          </div>
+          <div class="inputBox">
+            <input type="checkbox" name="2666MG" id="2666MG" value="2666MG">
+            <label for="2666MG">2666 МГц</label>
+            <i class="fas fa-check"></i>
+          </div>
+          <div class="inputBox">
+            <input type="checkbox" name="2933MG" id="2933MG" value="2933MG">
+            <label for="2933MG">2933 МГц</label>
+            <i class="fas fa-check"></i>
+          </div>
+          <div class="inputBox">
+            <input type="checkbox" name="3200MG" id="3200MG" value="3200MG">
+            <label for="3200MG">3200 МГц</label>
+            <i class="fas fa-check"></i>
+          </div>
+          <div class="inputBox">
+            <input type="checkbox" name="3733MG" id="3733MG" value="3733MG">
+            <label for="3733MG">3733 МГц</label>
+            <i class="fas fa-check"></i>
+          </div>
+          <div class="inputBox">
+            <input type="checkbox" name="4266MG" id="4266MG" value="4266MG">
+            <label for="4266MG">4266 МГц</label>
+            <i class="fas fa-check"></i>
+          </div>
+        </div>
+      </div>
+      <div class="nav-filter">
+        <div class="f-toggle">
+          <h2 class="heading2">Слотов оперативной памяти</h2>
+          <i class="fas fa-chevron-down"></i>
+          <span></span>
+        </div>
+        <div class="choice" style="--i:114px; --display:flex">
+          <div class="inputBox">
+            <input type="checkbox" name="Slot4" id="Slot4" value="Slot4">
+            <label for="Slot4">4 слота</label>
+            <i class="fas fa-check"></i>
+          </div>
+          <div class="inputBox">
+            <input type="checkbox" name="Slot2" id="Slot2" value="Slot2">
+            <label for="Slot2">2 слота</label>
+            <i class="fas fa-check"></i>
+          </div>
+          <div class="inputBox">
+            <input type="checkbox" name="Slot1" id="Slot1" value="Slot1">
+            <label for="Slot1">1 слот</label>
+            <i class="fas fa-check"></i>
+          </div>
+          <div class="inputBox">
+            <input type="checkbox" name="NoSlot" id="NoSlot" value="NoSlot">
+            <label for="NoSlot">Без слотов</label>
+            <i class="fas fa-check"></i>
+          </div>
+        </div>
+      </div>
+      <div class="nav-filter">
+        <div class="f-toggle">
+          <h2 class="heading2">Внутренний накопитель</h2>
+          <i class="fas fa-chevron-down"></i>
+          <span></span>
+        </div>
+        <div class="choice" style="--i:68px; --display:flex">
+          <div class="inputBox">
+            <input type="checkbox" name="SSD" id="SSD" value="SSD">
+            <label for="SSD">SSD</label>
+            <i class="fas fa-check"></i>
+          </div>
+          <div class="inputBox">
+            <input type="checkbox" name="HDD-SSD" id="HDD-SSD" value="HDD-SSD">
+            <label for="HDD-SSD">HDD + SSD</label>
+            <i class="fas fa-check"></i>
+          </div>
+        </div>
+      </div>
+      <div class="nav-filter">
+        <div class="f-toggle">
+          <h2 class="heading2">Объем SSD</h2>
+          <i class="fas fa-chevron-down"></i>
+          <span></span>
+        </div>
+        <div class="choice" style="--i:252px; --display:block">
+          <div class="inputBox">
+            <input type="checkbox" name="2000/2048ssd" id="2000/2048ssd" value="2000/2048ssd">
+            <label for="2000/2048ssd">2000/2048 ГБ</label>
+            <i class="fas fa-check"></i>
+          </div>
+          <div class="inputBox">
+            <input type="checkbox" name="1000/1024ssd" id="1000/1024ssd" value="1000/1024ssd">
+            <label for="1000/1024ssd">1000/1024 ГБ</label>
+            <i class="fas fa-check"></i>
+          </div>
+          <div class="inputBox">
+            <input type="checkbox" name="512ssd" id="512ssd" value="512ssd">
+            <label for="512ssd">512 ГБ</label>
+            <i class="fas fa-check"></i>
+          </div>
+          <div class="inputBox">
+            <input type="checkbox" name="256ssd" id="256ssd" value="256ssd">
+            <label for="256ssd">256 ГБ</label>
+            <i class="fas fa-check"></i>
+          </div>
+          <div class="inputBox">
+            <input type="checkbox" name="128ssd" id="128ssd" value="128ssd">
+            <label for="128ssd">128 ГБ</label>
+            <i class="fas fa-check"></i>
+          </div>
+        </div>
+      </div>
+      <div class="nav-filter">
+        <div class="f-toggle">
+          <h2 class="heading2">Объем HDD</h2>
+          <i class="fas fa-chevron-down"></i>
+          <span></span>
+        </div>
+        <div class="choice" style="--i:114px; --display:flex">
+          <div class="inputBox">
+            <input type="checkbox" name="500/512hdd" id="500/512hdd" value="500/512hdd">
+            <label for="500/512hdd">500/512 ГБ</label>
+            <i class="fas fa-check"></i>
+          </div>
+          <div class="inputBox">
+            <input type="checkbox" name="1000/1024hdd" id="1000/1024hdd" value="1000/1024hdd">
+            <label for="1000/1024hdd">1000/1024 ГБ</label>
+            <i class="fas fa-check"></i>
+          </div>
+        </div>
+      </div>
+      <div class="nav-filter">
+        <div class="f-toggle">
+          <h2 class="heading2">Wi-Fi</h2>
+          <i class="fas fa-chevron-down"></i>
+          <span></span>
+        </div>
+        <div class="choice" style="--i:160px; --display:flex">
+          <div class="inputBox">
+            <input type="checkbox" name="WiFi6" id="WiFi6" value="WiFi6">
+            <label for="WiFi6">Wi-Fi 802.11ax (Wi-Fi 6)</label>
+            <i class="fas fa-check"></i>
+          </div>
+          <div class="inputBox">
+            <input type="checkbox" name="WiFi5" id="WiFi5" value="WiFi5">
+            <label for="WiFi5">Wi-Fi 802.11ac (Wi-Fi 5)</label>
+            <i class="fas fa-check"></i>
+          </div>
+          <div class="inputBox">
+            <input type="checkbox" name="bgnWiFi" id="bgnWiFi" value="bgnWiFi">
+            <label for="bgnWiFi">Wi-Fi 802.11b/g/n</label>
+            <i class="fas fa-check"></i>
+          </div>
+        </div>
+      </div>
+      <div class="nav-filter">
+        <div class="f-toggle">
+          <h2 class="heading2">Установленная OS</h2>
+          <i class="fas fa-chevron-down"></i>
+          <span></span>
+        </div>
+        <div class="choice" style="--i:68px; --display:flex">
+          <div class="inputBox">
+            <input type="checkbox" name="WinOs" id="WinOs" value="WinOs">
+            <label for="WinOs">Windows</label>
+            <i class="fas fa-check"></i>
+          </div>
+          <div class="inputBox">
+            <input type="checkbox" name="NoOs" id="NoOs" value="NoOs">
+            <label for="NoOs">Без OS</label>
+            <i class="fas fa-check"></i>
+          </div>
+        </div>
+      </div>
+      <div class="nav-filter">
+        <div class="f-toggle">
+          <h2 class="heading2">Вес</h2>
+          <i class="fas fa-chevron-down"></i>
+          <span></span>
+        </div>
+        <div class="choice" style="--i:114px; --display:flex">
+          <div class="inputBox">
+            <input type="checkbox" name="1.5" id="1.5" value="1.5">
+            <label for="1.5">До 1.5 кг</label>
+            <i class="fas fa-check"></i>
+          </div>
+          <div class="inputBox">
+            <input type="checkbox" name="1.5-2" id="1.5-2" value="1.5-2">
+            <label for="1.5-2">1.5-2 кг</label>
+            <i class="fas fa-check"></i>
+          </div>
+          <div class="inputBox">
+            <input type="checkbox" name="2.05-2.5" id="2.05-2.5" value="2.05-2.5">
+            <label for="2.05-2.5">2.01-2.5 кг</label>
+            <i class="fas fa-check"></i>
+          </div>
+          <div class="inputBox">
+            <input type="checkbox" name="2-3" id="2-3" value="2.5-3">
+            <label for="2.5-3">2.51-3 кг</label>
+            <i class="fas fa-check"></i>
+          </div>
+        </div>
+      </div>
+      <div class="nav-filter">
+        <div class="f-toggle">
+          <h2 class="heading2">Тип ноутбука</h2>
+          <i class="fas fa-chevron-down"></i>
+          <span></span>
+        </div>
+        <div class="choice" style="--i:210px; --display:block">
+          <div class="inputBox">
+            <input type="checkbox" name="game" id="game" value="game">
+            <label for="game">Игровой</label>
+            <i class="fas fa-check"></i>
+          </div>
+          <div class="inputBox">
+            <input type="checkbox" name="graphic" id="graphic" value="graphic">
+            <label for="graphic">Для работы с графикой</label>
+            <i class="fas fa-check"></i>
+          </div>
+          <div class="inputBox">
+            <input type="checkbox" name="office" id="office" value="office">
+            <label for="office">Для учебы и офиса</label>
+            <i class="fas fa-check"></i>
+          </div>
+          <div class="inputBox">
+            <input type="checkbox" name="GFNow" id="GFNow" value="GFNow">
+            <label for="GFNow">GeForce Now</label>
+            <i class="fas fa-check"></i>
+          </div>
+        </div>
+      </div>
+      <div class="nav-filter">
+        <div class="f-toggle">
+          <h2 class="heading2">Процессор</h2>
+          <i class="fas fa-chevron-down"></i>
+          <span></span>
+        </div>
+        <div class="choice" style="--i:208">
+          <div class="inputBox">
+            <input type="checkbox" name="1" id="1" value="1">
+            <label for="1">1</label>
+            <i class="fas fa-check"></i>
+          </div>
+          <div class="inputBox">
+            <input type="checkbox" name="2" id="2" value="2">
+            <label for="2">2</label>
+            <i class="fas fa-check"></i>
+          </div>
+          <div class="inputBox">
+            <input type="checkbox" name="3" id="3" value="3">
+            <label for="3">3</label>
+            <i class="fas fa-check"></i>
+          </div>
+          <div class="inputBox">
+            <input type="checkbox" name="4" id="4" value="4">
+            <label for="4">4</label>
+            <i class="fas fa-check"></i>
+          </div>
+          <div class="inputBox">
+            <input type="checkbox" name="5" id="5" value="5">
+            <label for="5">5</label>
+            <i class="fas fa-check"></i>
+          </div>
+          <div class="inputBox">
+            <input type="checkbox" name="6" id="6" value="6">
+            <label for="6">6</label>
+            <i class="fas fa-check"></i>
+          </div>
+          <div class="inputBox">
+            <input type="checkbox" name="7" id="7" value="7">
+            <label for="7">7</label>
+            <i class="fas fa-check"></i>
+          </div>
+          <div class="inputBox">
+            <input type="checkbox" name="8" id="8" value="8">
+            <label for="8">8</label>
+            <i class="fas fa-check"></i>
+          </div>
+        </div>
+      </div>
+      <div class="nav-filter">
+        <div class="f-toggle">
+          <h2 class="heading2">Цвет</h2>
+          <i class="fas fa-chevron-down"></i>
+          <span></span>
+        </div>
+        <div class="choice" style="--i:208">
+          <div class="inputBox">
+            <input type="checkbox" name="1" id="1" value="1">
+            <label for="1">1</label>
+            <i class="fas fa-check"></i>
+          </div>
+          <div class="inputBox">
+            <input type="checkbox" name="2" id="2" value="2">
+            <label for="2">2</label>
+            <i class="fas fa-check"></i>
+          </div>
+          <div class="inputBox">
+            <input type="checkbox" name="3" id="3" value="3">
+            <label for="3">3</label>
+            <i class="fas fa-check"></i>
+          </div>
+          <div class="inputBox">
+            <input type="checkbox" name="4" id="4" value="4">
+            <label for="4">4</label>
+            <i class="fas fa-check"></i>
+          </div>
+          <div class="inputBox">
+            <input type="checkbox" name="5" id="5" value="5">
+            <label for="5">5</label>
+            <i class="fas fa-check"></i>
+          </div>
+          <div class="inputBox">
+            <input type="checkbox" name="6" id="6" value="6">
+            <label for="6">6</label>
+            <i class="fas fa-check"></i>
+          </div>
+          <div class="inputBox">
+            <input type="checkbox" name="7" id="7" value="7">
+            <label for="7">7</label>
+            <i class="fas fa-check"></i>
+          </div>
+          <div class="inputBox">
+            <input type="checkbox" name="8" id="8" value="8">
+            <label for="8">8</label>
+            <i class="fas fa-check"></i>
+          </div>
+        </div>
+      </div>
+      <div class="inputBox-2">
+        <input type="submit" name="" value="Применить">
+      </div>
+  </form>

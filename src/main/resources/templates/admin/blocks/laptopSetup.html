@@ -1,0 +1,221 @@
+<form th:fragment="laptop" class="change" th:action="@{/laptop}" th:object="${Laptop}" method="POST" enctype="multipart/form-data" > <!--enctype="multipart/form-data"-->
+  <input type="text" class="openBox" name="" placeholder="Добавить товар: Ноутбук" readonly>
+  <div class="option">
+    <div class="formBox">
+      <h2 class="form-heading">Ноутбук</h2>
+      <div class="inputBox">
+        <input type="text" name="name" required="">
+        <label>Название</label>
+        <span></span>
+      </div>
+      <div class="inputBox">
+        <input type="text" name="model" required="">
+        <label>Модель</label>
+        <span></span>
+      </div>
+      <div class="inputBox">
+        <input type="number"  name="cost" required="">
+        <label>Цена</label>
+        <span></span>
+      </div>
+    </div>
+    <br>
+    <br>
+    <div class="formBox">
+      <h2 class="form-heading">Процессор:</h2>
+      <div class="inputBox">
+        <input list="CPU" readonly name="CPU" required="">
+        <label>Процессор</label>
+        <span></span>
+        <datalist id="CPU" th:each="cpu : ${cpus}">
+          <option th:data-value-id="${cpu.id}" th:value="${cpu.name} + ' ' + ${cpu.model}">
+        </datalist>
+      </div>
+    </div>
+    <br>
+    <div class="formBox">
+      <h2 class="form-heading">Видеокарта:</h2>
+      <div class="inputBox">
+        <input list="GPU" readonly name="GPU" required="">
+        <label>Видеокарта</label>
+        <span></span>
+        <datalist id="GPU" th:each="gpu : ${gpus}">
+          <option th:data-value-id="${gpu.id}" th:value="${gpu.name} + ' ' + ${gpu.model}">
+        </datalist>
+      </div>
+    </div>
+    <br>
+    <div class="formBox">
+      <h2 class="form-heading">Дисплей:</h2>
+      <div class="inputBox">
+        <input type="number" min="0" step="0.1" name="displayDiagonal" required="">
+        <label>Диагональ</label>
+        <span></span>
+      </div>
+      <div class="inputBox">
+        <input type="text" name="displayResolution" required="">
+        <label>Разрешение</label>
+        <span></span>
+      </div>
+      <div class="inputBox">
+        <input type="text"  name="displayMatrixType" required="">
+        <label>Тип матрицы</label>
+        <span></span>
+      </div>
+      <div class="inputBox">
+        <input type="number" min="0" name="displayFreq" required="">
+        <label>Частота обновления</label>
+        <span></span>
+      </div>
+      <div class="inputBox">
+        <input type="text"  name="displayCoverage">
+        <label>Покрытие</label>
+        <span></span>
+      </div>
+    </div>
+    <br>
+    <div class="formBox">
+      <h2 class="form-heading">Оперативная память:</h2>
+      <div class="inputBox">
+        <input list="RAM" readonly name="RAM" required="">
+        <label>Оперативная память</label>
+        <span></span>
+        <datalist id="RAM" th:each="ram : ${rams}">
+          <option th:data-value-id="${ram.id}" th:value="${ram.name} + ' ' + ${ram.model}">
+        </datalist>
+      </div>
+    </div>
+    <br>
+    <div class="formBox">
+      <h2 class="form-heading">Внутренний накопитель:</h2>
+      <div class="inputBox">
+        <input list="SSD" readonly name="SSD" required="">
+        <label>Внутренний накопитель</label>
+        <span></span>
+        <datalist id="SSD" th:each="ssd : ${ssds}">
+          <option th:data-value-id="${ssd.id}" th:value="${ssd.name} + ' ' + ${ssd.model}">
+        </datalist>
+      </div>
+    </div>
+    <br>
+    <div class="formBox">
+      <h2 class="form-heading">Порты и беспроводные технологии:</h2>
+      <div class="inputBox" style="display: flex">
+        <input type="text" name="ports1">
+        <input type="text" name="ports2">
+        <input type="text" name="ports3">
+        <input type="text" name="ports4">
+        <input type="text" name="ports5">
+        <input type="text" name="ports6">
+        <input type="text" name="ports7">
+        <input type="text" name="ports8">
+        <input type="text" name="ports9">
+        <label>Порты</label>
+        <span></span>
+      </div>
+      <div class="inputBox" style="display: flex">
+        <input type="text" name="wirelessTech1" >
+        <input type="text" name="wirelessTech2" >
+        <label>Беспроводные технологии</label>
+        <span></span>
+      </div>
+    </div>
+    <br>
+    <div class="formBox">
+      <h2 class="form-heading">Мультимедиа:</h2>
+      <div class="inputBox">
+        <input type="text" name="multimedia">
+        <label>Мультимедиа</label>
+        <span></span>
+      </div>
+      <div class="inputBox">
+        <input type="text" name="multimediaOptionally">
+        <label>Дополнительно</label>
+        <span></span>
+      </div>
+    </div>
+    <br>
+    <div class="formBox">
+      <h2 class="form-heading">Акумулятор:</h2>
+      <div class="inputBox">
+        <input type="text" name="battery" required="">
+        <label>Тип</label>
+        <span></span>
+      </div>
+    </div>
+    <br>
+    <div class="formBox">
+      <h2 class="form-heading">Дополнительно:</h2>
+      <div class="inputBox">
+        <input type="text" name="volume" >
+        <label>Объем</label>
+        <span></span>
+      </div>
+      <div class="inputBox">
+        <input type="text" name="OS" >
+        <label>Установленная операционная система</label>
+        <span></span>
+      </div>
+      <div class="inputBox" style="display: flex">
+        <input type="text"  name="features1">
+        <input type="text"  name="features2">
+        <input type="text"  name="features3">
+        <input type="text"  name="features4">
+        <input type="text"  name="features5">
+        <label>Особенности</label>
+        <span></span>
+      </div>
+      <div class="inputBox" style="display: flex">
+        <input type="text"  name="additionally1">
+        <input type="text"  name="additionally2">
+        <input type="text"  name="additionally3">
+        <label>Дополнительно</label>
+        <span></span>
+      </div>
+      <div class="inputBox">
+        <input type="text" name="dimensions">
+        <label>Габариты</label>
+        <span></span>
+      </div>
+      <div class="inputBox">
+        <input type="number" min="0" step="0.1" name="weight" required="">
+        <label>Вес</label>
+        <span></span>
+      </div>
+      <div class="inputBox">
+        <input type="text" name="color" required="">
+        <label>Цвет</label>
+        <span></span>
+      </div>
+    </div>
+    <div class="formBox" style="display: flex; flex-wrap: wrap;">
+      <h2 class="form-heading">Фото:</h2>
+      <div class="inputImgBox" title="Фото 1" data-placement="bottom">
+        <img th:src="@{/img/admin/prod-icon.png}">
+        <input type="file" accept="image/jpg, image/jpeg, image/png" name="photo1" th:enctype="'multipart/form-data'">
+      </div>
+      <div class="inputImgBox" title="Фото 2" data-placement="bottom">
+        <img th:src="@{/img/admin/prod-icon.png}">
+        <input type="file" accept="image/jpg, image/jpeg, image/png" name="photo2" th:enctype="'multipart/form-data'">
+      </div>
+      <div class="inputImgBox" title="Фото 3" data-placement="bottom">
+        <img th:src="@{/img/admin/prod-icon.png}">
+        <input type="file" accept="image/jpg, image/jpeg, image/png" name="photo3" th:enctype="'multipart/form-data'">
+      </div>
+      <div class="inputImgBox" title="Фото 4" data-placement="bottom">
+        <img th:src="@{/img/admin/prod-icon.png}">
+        <input type="file" accept="image/jpg, image/jpeg, image/png" name="photo4" th:enctype="'multipart/form-data'">
+      </div>
+      <div class="inputImgBox" title="Фото 5" data-placement="bottom">
+        <img th:src="@{/img/admin/prod-icon.png}">
+        <input type="file" accept="image/jpg, image/jpeg, image/png" name="photo5" th:enctype="'multipart/form-data'">
+      </div>
+    </div>
+    <br>
+    <div class="formBox">
+      <div class="inputBox">
+        <input type="submit" name="" value="Применить">
+      </div>
+    </div>
+  </div>
+</form>
