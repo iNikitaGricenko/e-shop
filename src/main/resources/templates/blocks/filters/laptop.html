@@ -1,0 +1,786 @@
+<form th:fragment="laptop" class="NavigationContainer" method="GET" th:action="@{/laptop}">
+    <div class="nav-opener-filter">
+        <label>Фильтры</label>
+        <i class="fas fa-caret-down"></i>
+    </div>
+    <div class="inputBox-2">
+        <label for="maxcost">Введите максимальную стоимость</label>
+        <input type="text" name="maxcost" value="190000" id="maxcost-label" pattern="[0-9]{0,6}" size="6" maxlength="6">
+        <span></span>
+    </div>
+    <ul class="FilterList">
+        <h2 class="FilterName">Производитель</h2>
+        <li class="filter">
+            <label class="checkContainer">
+                <input type="checkbox" name="Acer" value="Acer">
+                <span class="iconBox"><label>Acer</label></span>
+            </label>
+        </li>
+        <li class="filter">
+            <label class="checkContainer">
+                <input type="checkbox" name="Acer" value="Acer">
+                <span class="iconBox"><label>Asus</label></span>
+            </label>
+        </li>
+        <li class="filter">
+            <label class="checkContainer">
+                <input type="checkbox" name="Acer" value="Acer">
+                <span class="iconBox"><label>Dell</label></span>
+            </label>
+        </li>
+        <li class="filter">
+            <label class="checkContainer">
+                <input type="checkbox" name="Acer" value="Acer">
+                <span class="iconBox"><label>Dream Machine</label></span>
+            </label>
+        </li>
+        <li class="filter">
+            <label class="checkContainer">
+                <input type="checkbox" name="Acer" value="Acer">
+                <span class="iconBox"><label>Gigabyte</label></span>
+            </label>
+        </li>
+        <li class="filter">
+            <label class="checkContainer">
+                <input type="checkbox" name="Acer" value="Acer">
+                <span class="iconBox"><label>HP</label></span>
+            </label>
+        </li>
+        <li class="filter">
+            <label class="checkContainer">
+                <input type="checkbox" name="Acer" value="Acer">
+                <span class="iconBox"><label>Lenovo</label></span>
+            </label>
+        </li>
+        <li class="filter">
+            <label class="checkContainer">
+                <input type="checkbox" name="Acer" value="Acer">
+                <span class="iconBox"><label>MSI</label></span>
+            </label>
+        </li>
+    </ul>
+    <ul class="FilterList">
+        <h2 class="FilterName">Линейка процессора</h2>
+        <li class="filter">
+            <label class="checkContainer">
+                <input type="checkbox" name="Acer" value="Acer">
+                <span class="iconBox"><label>Intel Core i9</label></span>
+            </label>
+        </li>
+        <li class="filter">
+            <label class="checkContainer">
+                <input type="checkbox" name="Acer" value="Acer">
+                <span class="iconBox"><label>Intel Core i7</label></span>
+            </label>
+        </li>
+        <li class="filter">
+            <label class="checkContainer">
+                <input type="checkbox" name="Acer" value="Acer">
+                <span class="iconBox"><label>Intel Core i5</label></span>
+            </label>
+        </li>
+        <li class="filter">
+            <label class="checkContainer">
+                <input type="checkbox" name="Acer" value="Acer">
+                <span class="iconBox"><label>Intel Core i3</label></span>
+            </label>
+        </li>
+        <li class="filter">
+            <label class="checkContainer">
+                <input type="checkbox" name="Acer" value="Acer">
+                <span class="iconBox"><label>AMX Ryzen 9</label></span>
+            </label>
+        </li>
+        <li class="filter">
+            <label class="checkContainer">
+                <input type="checkbox" name="Acer" value="Acer">
+                <span class="iconBox"><label>AMX Ryzen 7</label></span>
+            </label>
+        </li>
+        <li class="filter">
+            <label class="checkContainer">
+                <input type="checkbox" name="Acer" value="Acer">
+                <span class="iconBox"><label>AMX Ryzen 5</label></span>
+            </label>
+        </li>
+        <li class="filter">
+            <label class="checkContainer">
+                <input type="checkbox" name="Acer" value="Acer">
+                <span class="iconBox"><label>AMX Ryzen 3</label></span>
+            </label>
+        </li>
+    </ul>
+    <ul class="FilterList">
+        <h2 class="FilterName">Кол-во ядер</h2>
+        <li class="filter">
+            <label class="checkContainer">
+                <input type="checkbox" name="Acer" value="Acer">
+                <span class="iconBox"><label>8</label></span>
+            </label>
+        </li>
+        <li class="filter">
+            <label class="checkContainer">
+                <input type="checkbox" name="Acer" value="Acer">
+                <span class="iconBox"><label>6</label></span>
+            </label>
+        </li>
+        <li class="filter">
+            <label class="checkContainer">
+                <input type="checkbox" name="Acer" value="Acer">
+                <span class="iconBox"><label>4</label></span>
+            </label>
+        </li>
+        <li class="filter">
+            <label class="checkContainer">
+                <input type="checkbox" name="Acer" value="Acer">
+                <span class="iconBox"><label>2</label></span>
+            </label>
+        </li>
+    </ul>
+    <ul class="FilterList">
+        <h2 class="FilterName">Тип Видеокарты</h2>
+        <li class="filter">
+            <label class="checkContainer">
+                <input type="checkbox" name="Acer" value="Acer">
+                <span class="iconBox"><label>Дискретная</label></span>
+            </label>
+        </li>
+        <li class="filter">
+            <label class="checkContainer">
+                <input type="checkbox" name="Acer" value="Acer">
+                <span class="iconBox"><label>Интегрированная</label></span>
+            </label>
+        </li>
+    </ul>
+    <ul class="FilterList">
+        <h2 class="FilterName">Видеокарта</h2>
+        <li class="filter">
+            <label class="checkContainer">
+                <input type="checkbox" name="Acer" value="Acer">
+                <span class="iconBox"><label>GeForce RTX 3080</label></span>
+            </label>
+        </li>
+        <li class="filter">
+            <label class="checkContainer">
+                <input type="checkbox" name="Acer" value="Acer">
+                <span class="iconBox"><label>GeForce RTX 3070</label></span>
+            </label>
+        </li>
+        <li class="filter">
+            <label class="checkContainer">
+                <input type="checkbox" name="Acer" value="Acer">
+                <span class="iconBox"><label>GeForce RTX 3060</label></span>
+            </label>
+        </li>
+        <li class="filter">
+            <label class="checkContainer">
+                <input type="checkbox" name="Acer" value="Acer">
+                <span class="iconBox"><label>GeForce RTX 3050 Ti</label></span>
+            </label>
+        </li>
+        <li class="filter">
+            <label class="checkContainer">
+                <input type="checkbox" name="Acer" value="Acer">
+                <span class="iconBox"><label>GeForce RTX 3050</label></span>
+            </label>
+        </li>
+        <li class="filter">
+            <label class="checkContainer">
+                <input type="checkbox" name="Acer" value="Acer">
+                <span class="iconBox"><label>GeForce RTX 2080</label></span>
+            </label>
+        </li>
+        <li class="filter">
+            <label class="checkContainer">
+                <input type="checkbox" name="Acer" value="Acer">
+                <span class="iconBox"><label>GeForce RTX 2070</label></span>
+            </label>
+        </li>
+        <li class="filter">
+            <label class="checkContainer">
+                <input type="checkbox" name="Acer" value="Acer">
+                <span class="iconBox"><label>GeForce RTX 2060</label></span>
+            </label>
+        </li>
+        <li class="filter">
+            <label class="checkContainer">
+                <input type="checkbox" name="Acer" value="Acer">
+                <span class="iconBox"><label>GeForce GTX 1650 Ti</label></span>
+            </label>
+        </li>
+        <li class="filter">
+            <label class="checkContainer">
+                <input type="checkbox" name="Acer" value="Acer">
+                <span class="iconBox"><label>GeForce GTX 1660 Ti</label></span>
+            </label>
+        </li>
+        <li class="filter">
+            <label class="checkContainer">
+                <input type="checkbox" name="Acer" value="Acer">
+                <span class="iconBox"><label>GeForce GTX 1650</label></span>
+            </label>
+        </li>
+        <li class="filter">
+            <label class="checkContainer">
+                <input type="checkbox" name="Acer" value="Acer">
+                <span class="iconBox"><label>GeForce MX-серия</label></span>
+            </label>
+        </li>
+
+        <li class="filter">
+            <label class="checkContainer">
+                <input type="checkbox" name="Acer" value="Acer">
+                <span class="iconBox"><label>AMD Radeon RX 5500M</label></span>
+            </label>
+        </li>
+    </ul>
+    <ul class="FilterList">
+        <h2 class="FilterName">Объем видеопамяти</h2>
+        <li class="filter">
+            <label class="checkContainer">
+                <input type="checkbox" name="Acer" value="Acer">
+                <span class="iconBox"><label>16 Гб</label></span>
+            </label>
+        </li>
+        <li class="filter">
+            <label class="checkContainer">
+                <input type="checkbox" name="Acer" value="Acer">
+                <span class="iconBox"><label>8 Гб</label></span>
+            </label>
+        </li>
+        <li class="filter">
+            <label class="checkContainer">
+                <input type="checkbox" name="Acer" value="Acer">
+                <span class="iconBox"><label>6 Гб</label></span>
+            </label>
+        </li>
+        <li class="filter">
+            <label class="checkContainer">
+                <input type="checkbox" name="Acer" value="Acer">
+                <span class="iconBox"><label>4 Гб</label></span>
+            </label>
+        </li>
+        <li class="filter">
+            <label class="checkContainer">
+                <input type="checkbox" name="Acer" value="Acer">
+                <span class="iconBox"><label>2 Гб</label></span>
+            </label>
+        </li>
+    </ul>
+    <ul class="FilterList">
+        <h2 class="FilterName">Диагональ</h2>
+        <li class="filter">
+            <label class="checkContainer">
+                <input type="checkbox" name="Acer" value="Acer">
+                <span class="iconBox"><label>17.3″</label></span>
+            </label>
+        </li>
+        <li class="filter">
+            <label class="checkContainer">
+                <input type="checkbox" name="Acer" value="Acer">
+                <span class="iconBox"><label>15.6″</label></span>
+            </label>
+        </li>
+        <li class="filter">
+            <label class="checkContainer">
+                <input type="checkbox" name="Acer" value="Acer">
+                <span class="iconBox"><label>14″</label></span>
+            </label>
+        </li>
+        <li class="filter">
+            <label class="checkContainer">
+                <input type="checkbox" name="Acer" value="Acer">
+                <span class="iconBox"><label>13-13.9″</label></span>
+            </label>
+        </li>
+        <li class="filter">
+            <label class="checkContainer">
+                <input type="checkbox" name="Acer" value="Acer">
+                <span class="iconBox"><label>10-12.9″</label></span>
+            </label>
+        </li>
+    </ul>
+    <ul class="FilterList">
+        <h2 class="FilterName">Разрешение дисплея</h2>
+        <li class="filter">
+            <label class="checkContainer">
+                <input type="checkbox" name="3840x2160" value="3840x2160">
+                <span class="iconBox"><label>Ultra HD 4K (3840x2160)</label></span>
+            </label>
+        </li>
+        <li class="filter">
+            <label class="checkContainer">
+                <input type="checkbox" name="2560x1440" value="2560x1440">
+                <span class="iconBox"><label>Quad HD 2K (2560x1440)</label></span>
+            </label>
+        </li>
+        <li class="filter">
+            <label class="checkContainer">
+                <input type="checkbox" name="1920x1080" value="1920x1080">
+                <span class="iconBox"><label>Full HD (1920x1080)</label></span>
+            </label>
+        </li>
+        <li class="filter">
+            <label class="checkContainer">
+                <input type="checkbox" name="2880x1800" value="2880x1800">
+                <span class="iconBox"><label>2880x1800</label></span>
+            </label>
+        </li>
+        <li class="filter">
+            <label class="checkContainer">
+                <input type="checkbox" name="2560x1600" value="2560x1600">
+                <span class="iconBox"><label>2560x1600</label></span>
+            </label>
+        </li>
+    </ul>
+    <ul class="FilterList">
+        <h2 class="FilterName">Тип матрицы</h2>
+        <li class="filter">
+            <label class="checkContainer">
+                <input type="checkbox" name="IPS"  value="IPS">
+                <span class="iconBox"><label>IPS</label></span>
+            </label>
+        </li>
+        <li class="filter">
+            <label class="checkContainer">
+                <input type="checkbox" name="OLED"  value="OLED">
+                <span class="iconBox"><label>OLED</label></span>
+            </label>
+        </li>
+        <li class="filter">
+            <label class="checkContainer">
+                <input type="checkbox" name="SVA"  value="SVA">
+                <span class="iconBox"><label>SVA</label></span>
+            </label>
+        </li>
+        <li class="filter">
+            <label class="checkContainer">
+                <input type="checkbox" name="TN+film" value="TN+film">
+                <span class="iconBox"><label>TN+film</label></span>
+            </label>
+        </li>
+        <li class="filter">
+            <label class="checkContainer">
+                <input type="checkbox" name="VA" value="VA">
+                <span class="iconBox"><label>VA</label></span>
+            </label>
+        </li>
+    </ul>
+    <ul class="FilterList">
+        <h2 class="FilterName">Частота обновлений</h2></div>
+        <li class="filter">
+            <label class="checkContainer">
+                <input type="checkbox" name="300hz" value="300hz">
+                <span class="iconBox"><label>300 Гц</label></span>
+            </label>
+        </li>
+        <li class="filter">
+            <label class="checkContainer">
+                <input type="checkbox" name="240hz" value="240hz">
+                <span class="iconBox"><label>240 Гц</label></span>
+            </label>
+        </li>
+        <li class="filter">
+            <label class="checkContainer">
+                <input type="checkbox" name="165hz" value="165hz">
+                <span class="iconBox"><label>165 Гц</label></span>
+            </label>
+        </li>
+        <li class="filter">
+            <label class="checkContainer">
+                <input type="checkbox" name="144hz" value="144hz">
+                <span class="iconBox"><label>144 Гц</label></span>
+            </label>
+        </li>
+        <li class="filter">
+            <label class="checkContainer">
+                <input type="checkbox" name="120hz" value="120hz">
+                <span class="iconBox"><label>120 Гц</label></span>
+            </label>
+        </li>
+        <li class="filter">
+            <label class="checkContainer">
+                <input type="checkbox" name="60hz" value="60hz">
+                <span class="iconBox"><label>60 Гц</label></span>
+            </label>
+        </li>
+    </ul>
+    <ul class="FilterList">
+        <h2 class="FilterName">Объем оперативной памяти</h2>
+        <li class="filter">
+            <label class="checkContainer">
+                <input type="checkbox" name="32GB" value="32GB">
+                <span class="iconBox"><label>32 Гб</label></span>
+            </label>
+        </li>
+        <li class="filter">
+            <label class="checkContainer">
+                <input type="checkbox" name="16GB" value="16GB">
+                <span class="iconBox"><label>16 Гб</label></span>
+            </label>
+        </li>
+        <li class="filter">
+            <label class="checkContainer">
+                <input type="checkbox" name="8GB" value="8GB">
+                <span class="iconBox"><label>8 Гб</label></span>
+            </label>
+        </li>
+        <li class="filter">
+            <label class="checkContainer">
+                <input type="checkbox" name="4GB" value="4GB">
+                <span class="iconBox"><label>4 Гб</label></span>
+            </label>
+        </li>
+    </ul>
+    <ul class="FilterList">
+        <h2 class="FilterName">Тип оперативной памяти</h2>
+        <li class="filter">
+            <label class="checkContainer">
+                <input type="checkbox" name="DDR4" value="DDR4">
+                <span class="iconBox"><label>DDR4</label></span>
+            </label>
+        </li>
+        <li class="filter">
+            <label class="checkContainer">
+                <input type="checkbox" name="LPDDR4" value="LPDDR4">
+                <span class="iconBox"><label>LPDDR4</label></span>
+            </label>
+        </li>
+        <li class="filter">
+            <label class="checkContainer">
+                <input type="checkbox" name="LPDDR4X" value="LPDDR4X">
+                <span class="iconBox"><label>LPDDR4X</label></span>
+            </label>
+        </li>
+    </ul>
+    <ul class="FilterList">
+        <h2 class="FilterName">Частота оперативной памяти</h2>
+        <li class="filter">
+            <label class="checkContainer">
+                <input type="checkbox" name="2133MG" value="2133MG">
+                <span class="iconBox"><label>2133 МГц</label></span>
+            </label>
+        </li>
+        <li class="filter">
+            <label class="checkContainer">
+                <input type="checkbox" name="2400MG" value="2400MG">
+                <span class="iconBox"><label>2400 МГц</label></span>
+            </label>
+        </li>
+        <li class="filter">
+            <label class="checkContainer">
+                <input type="checkbox" name="2666MG" value="2666MG">
+                <span class="iconBox"><label>2666 МГц</label></span>
+            </label>
+        </li>
+        <li class="filter">
+            <label class="checkContainer">
+                <input type="checkbox" name="2933MG" value="2933MG">
+                <span class="iconBox"><label>2933 МГц</label></span>
+            </label>
+        </li>
+        <li class="filter">
+            <label class="checkContainer">
+                <input type="checkbox" name="3200MG" value="3200MG">
+                <span class="iconBox"><label>3200 МГц</label></span>
+            </label>
+        </li>
+        <li class="filter">
+            <label class="checkContainer">
+                <input type="checkbox" name="3733MG" value="3733MG">
+                <span class="iconBox"><label>3733 МГц</label></span>
+            </label>
+        </li>
+        <li class="filter">
+            <label class="checkContainer">
+                <input type="checkbox" name="4266MG" value="4266MG">
+                <span class="iconBox"><label>4266 МГц</label></span>
+            </label>
+        </li>
+    </ul>
+    <ul class="FilterList">
+        <h2 class="FilterName">Слотов оперативной памяти</h2>
+        <li class="filter">
+            <label class="checkContainer">
+                <input type="checkbox" name="Slot4" value="Slot4">
+                <span class="iconBox"><label>4 слота</label></span>
+            </label>
+        </li>
+        <li class="filter">
+            <label class="checkContainer">
+                <input type="checkbox" name="Slot2" value="Slot2">
+                <span class="iconBox"><label>2 слота</label></span>
+            </label>
+        </li>
+        <li class="filter">
+            <label class="checkContainer">
+                <input type="checkbox" name="Slot1" value="Slot1">
+                <span class="iconBox"><label>1 слот</label></span>
+            </label>
+        </li>
+        <li class="filter">
+            <label class="checkContainer">
+                <input type="checkbox" name="NoSlot" value="NoSlot">
+                <span class="iconBox"><label>Без слотов</label></span>
+            </label>
+        </li>
+    </ul>
+    <ul class="FilterList">
+        <h2 class="FilterName">Внутренний накопитель</h2>
+        <li class="filter">
+            <label class="checkContainer">
+                <input type="checkbox" name="SSD" value="SSD">
+                <span class="iconBox"><label>SSD</label></span>
+            </label>
+        </li>
+        <li class="filter">
+            <label class="checkContainer">
+                <input type="checkbox" name="HDD-SSD" value="HDD-SSD">
+                <span class="iconBox"><label>HDD + SSD</label></span>
+            </label>
+        </li>
+    </ul>
+    <ul class="FilterList">
+        <h2 class="FilterName">Объем SSD</h2>
+        <li class="filter">
+            <label class="checkContainer">
+                <input type="checkbox" name="2000/2048ssd" value="2000/2048ssd">
+                <span class="iconBox"><label>2000/2048 ГБ</label></span>
+            </label>
+        </li>
+        <li class="filter">
+            <label class="checkContainer">
+                <input type="checkbox" name="1000/1024ssd" value="1000/1024ssd">
+                <span class="iconBox"><label>1000/1024 ГБ</label></span>
+            </label>
+        </li>
+        <li class="filter">
+            <label class="checkContainer">
+                <input type="checkbox" name="512ssd" value="512ssd">
+                <span class="iconBox"><label>512 ГБ</label></span>
+            </label>
+        </li>
+        <li class="filter">
+            <label class="checkContainer">
+                <input type="checkbox" name="256ssd" value="256ssd">
+                <span class="iconBox"><label>256 ГБ</label></span>
+            </label>
+        </li>
+        <li class="filter">
+            <label class="checkContainer">
+                <input type="checkbox" name="128ssd" value="128ssd">
+                <span class="iconBox"><label>128 ГБ</label></span>
+            </label>
+        </li>
+    </ul>
+    <ul class="FilterList">
+        <h2 class="FilterName">Объем HDD</h2>
+        <li class="filter">
+            <label class="checkContainer">
+                <input type="checkbox" name="500/512hdd" value="500/512hdd">
+                <span class="iconBox"><label>500/512 ГБ</label></span>
+            </label>
+        </li>
+        <li class="filter">
+            <label class="checkContainer">
+                <input type="checkbox" name="1000/1024hdd" value="1000/1024hdd">
+                <span class="iconBox"><label>1000/1024 ГБ</label></span>
+            </label>
+        </li>
+    </ul>
+    <ul class="FilterList">
+        <h2 class="FilterName">Wi-Fi</h2>
+        <li class="filter">
+            <label class="checkContainer">
+                <input type="checkbox" name="WiFi6" value="WiFi6">
+                <span class="iconBox"><label>Wi-Fi 802.11ax (Wi-Fi 6)</label></span>
+            </label>
+        </li>
+        <li class="filter">
+            <label class="checkContainer">
+                <input type="checkbox" name="WiFi5" value="WiFi5">
+                <span class="iconBox"><label>Wi-Fi 802.11ac (Wi-Fi 5)</label></span>
+            </label>
+        </li>
+        <li class="filter">
+            <label class="checkContainer">
+                <input type="checkbox" name="bgnWiFi" value="bgnWiFi">
+                <span class="iconBox"><label>Wi-Fi 802.11b/g/n</label></span>
+            </label>
+        </li>
+    </ul>
+    <ul class="FilterList">
+        <h2 class="FilterName">Установленная OS</h2>
+        <li class="filter">
+            <label class="checkContainer">
+                <input type="checkbox" name="WinOs" value="WinOs">
+                <span class="iconBox"><label>Windows</label></span>
+            </label>
+        </li>
+        <li class="filter">
+            <label class="checkContainer">
+                <input type="checkbox" name="NoOs" value="NoOs">
+                <span class="iconBox"><label>Без OS</label></span>
+            </label>
+        </li>
+    </ul>
+    <ul class="FilterList">
+        <h2 class="FilterName">Вес</h2>
+        <li class="filter">
+            <label class="checkContainer">
+                <input type="checkbox" name="1.5" value="1.5">
+                <span class="iconBox"><label>До 1.5 кг</label></span>
+            </label>
+        </li>
+        <li class="filter">
+            <label class="checkContainer">
+                <input type="checkbox" name="1.5-2" value="1.5-2">
+                <span class="iconBox"><label>1.5-2 кг</label></span>
+            </label>
+        </li>
+        <li class="filter">
+            <label class="checkContainer">
+                <input type="checkbox" name="2.05-2.5" value="2.05-2.5">
+                <span class="iconBox"><label>2.01-2.5 кг</label></span>
+            </label>
+        </li>
+        <li class="filter">
+            <label class="checkContainer">
+                <input type="checkbox" name="2-3" value="2.5-3">
+                <span class="iconBox"><label>2.51-3 кг</label></span>
+            </label>
+        </li>
+    </ul>
+    <ul class="FilterList">
+        <h2 class="FilterName">Тип ноутбука</h2>
+        <li class="filter">
+            <label class="checkContainer">
+                <input type="checkbox" name="game" value="game">
+                <span class="iconBox"><label>Игровой</label></span>
+            </label>
+        </li>
+        <li class="filter">
+            <label class="checkContainer">
+                <input type="checkbox" name="graphic" value="graphic">
+                <span class="iconBox"><label>Для работы с графикой</label></span>
+            </label>
+        </li>
+        <li class="filter">
+            <label class="checkContainer">
+                <input type="checkbox" name="office" value="office">
+                <span class="iconBox"><label>Для учебы и офиса</label></span>
+            </label>
+        </li>
+        <li class="filter">
+            <label class="checkContainer">
+                <input type="checkbox" name="GFNow" value="GFNow">
+                <span class="iconBox"><label>GeForce Now</label></span>
+            </label>
+        </li>
+    </ul>
+    <ul class="FilterList">
+        <h2 class="FilterName">Процессор</h2>
+        <li class="filter">
+            <label class="checkContainer">
+                <input type="checkbox" name="1" value="1">
+                <span class="iconBox"><label>1</label></span>
+            </label>
+        </li>
+        <li class="filter">
+            <label class="checkContainer">
+                <input type="checkbox" name="2" value="2">
+                <span class="iconBox"><label>2</label></span>
+            </label>
+        </li>
+        <li class="filter">
+            <label class="checkContainer">
+                <input type="checkbox" name="3" value="3">
+                <span class="iconBox"><label>3</label></span>
+            </label>
+        </li>
+        <li class="filter">
+            <label class="checkContainer">
+                <input type="checkbox" name="4" value="4">
+                <span class="iconBox"><label>4</label></span>
+            </label>
+        </li>
+        <li class="filter">
+            <label class="checkContainer">
+                <input type="checkbox" name="5" value="5">
+                <span class="iconBox"><label>5</label></span>
+            </label>
+        </li>
+        <li class="filter">
+            <label class="checkContainer">
+                <input type="checkbox" name="6" value="6">
+                <span class="iconBox"><label>6</label></span>
+            </label>
+        </li>
+        <li class="filter">
+            <label class="checkContainer">
+                <input type="checkbox" name="7" value="7">
+                <span class="iconBox"><label>7</label></span>
+            </label>
+        </li>
+        <li class="filter">
+            <label class="checkContainer">
+                <input type="checkbox" name="8" value="8">
+                <span class="iconBox"><label>8</label></span>
+            </label>
+        </li>
+    </ul>
+    <ul class="FilterList">
+        <h2 class="FilterName">Цвет</h2>
+        <li class="filter">
+            <label class="checkContainer">
+                <input type="checkbox" name="1" value="1">
+                <span class="iconBox"><label>1</label></span>
+            </label>
+        </li>
+        <li class="filter">
+            <label class="checkContainer">
+                <input type="checkbox" name="2" value="2">
+                <span class="iconBox"><label>2</label></span>
+            </label>
+        </li>
+        <li class="filter">
+            <label class="checkContainer">
+                <input type="checkbox" name="3" value="3">
+                <span class="iconBox"><label>3</label></span>
+            </label>
+        </li>
+        <li class="filter">
+            <label class="checkContainer">
+                <input type="checkbox" name="4" value="4">
+                <span class="iconBox"><label>4</label></span>
+            </label>
+        </li>
+        <li class="filter">
+            <label class="checkContainer">
+                <input type="checkbox" name="5" value="5">
+                <span class="iconBox"><label>5</label></span>
+            </label>
+        </li>
+        <li class="filter">
+            <label class="checkContainer">
+                <input type="checkbox" name="6" value="6">
+                <span class="iconBox"><label>6</label></span>
+            </label>
+        </li>
+        <li class="filter">
+            <label class="checkContainer">
+                <input type="checkbox" name="7" value="7">
+                <span class="iconBox"><label>7</label></span>
+            </label>
+        </li>
+        <li class="filter">
+            <label class="checkContainer">
+                <input type="checkbox" name="8" value="8">
+                <span class="iconBox"><label>8</label></span>
+            </label>
+        </li>
+    </ul>
+    <div class="inputBox-2">
+        <input type="submit" name="" value="Применить">
+    </div>
+</form>
