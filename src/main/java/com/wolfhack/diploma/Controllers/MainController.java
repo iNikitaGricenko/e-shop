@@ -1,6 +1,6 @@
 package com.wolfhack.diploma.Controllers;
 
-import com.wolfhack.diploma.Classes.AuthorizedModel;
+import com.wolfhack.diploma.service.AttributeService.AuthorizedModel;
 import com.wolfhack.diploma.models.users.User;
 import com.wolfhack.diploma.repository.users.UserRepository;
 import lombok.RequiredArgsConstructor;
@@ -10,8 +10,6 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 
 import java.security.Principal;
-import java.util.HashMap;
-import java.util.Map;
 
 @RequiredArgsConstructor
 @Controller
@@ -22,7 +20,7 @@ public class MainController extends AuthorizedModel {
 
     @PostMapping("/search")
     public String Search(@RequestParam String search, Model model, Principal principal) {
-        addAuthorizedAttribute(model, principal, userRepository)
+        addAuthorizedAttribute(model, principal)
                 .addAttribute("title", search);
 
         return "redirect:/";
@@ -30,22 +28,16 @@ public class MainController extends AuthorizedModel {
 
     @GetMapping("/about")
     public String GetPageIndex(Model model, Principal principal) {
-        addAuthorizedAttribute(model, principal, userRepository)
+        addAuthorizedAttribute(model, principal)
                 .addAttribute("title", "Home page");
         return "index";
     }
 
     @GetMapping("/")
-    public ModelAndView GetPageHome(Model model, Principal principal) {
-        addAuthorizedAttribute(model, principal, userRepository)
+    public String GetPageHome(Model model, Principal principal) {
+        addAuthorizedAttribute(model, principal)
                 .addAttribute("title", "Home page");
-        ModelAndView modelAndView = new ModelAndView("home", model.asMap());
-
-        User user = (User) modelAndView.getModel().get("User");
-        if (user!=null)
-            System.out.println(user.getUser_id());
-
-        return modelAndView;
+        return "home";
     }
 
 }

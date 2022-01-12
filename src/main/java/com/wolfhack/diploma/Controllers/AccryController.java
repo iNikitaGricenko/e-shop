@@ -1,7 +1,7 @@
 package com.wolfhack.diploma.Controllers;
 
-import com.wolfhack.diploma.Classes.AuthorizedModel;
-import com.wolfhack.diploma.Classes.FileUploadUtil;
+import com.wolfhack.diploma.service.AttributeService.AuthorizedModel;
+import com.wolfhack.diploma.service.FileUploadService.FileUploadUtil;
 import com.wolfhack.diploma.models.products.*;
 import com.wolfhack.diploma.repository.products.*;
 import com.wolfhack.diploma.repository.users.UserRepository;
@@ -41,14 +41,14 @@ public class AccryController extends AuthorizedModel {
 
     @GetMapping
     public String getPage(Model model, Principal principal) {
-        addAuthorizedAttribute(model, principal, userRepository)
+        addAuthorizedAttribute(model, principal)
                 .addAttribute("title", "Accessories");
         return "products/accry";
     }
 
     @GetMapping("/hdd")
     public String getPageHDD(Model model, Principal principal) {
-        addAuthorizedAttribute(model, principal, userRepository)
+        addAuthorizedAttribute(model, principal)
                 .addAttribute("title", "Hdd products")
                 .addAttribute("filterURL", "blocks/filters/hdd")
                 .addAttribute("filter", "hdd");
@@ -71,7 +71,7 @@ public class AccryController extends AuthorizedModel {
 
     @GetMapping("/ssd")
     public String getPageSSD(Model model, Principal principal) {
-        addAuthorizedAttribute(model, principal, userRepository)
+        addAuthorizedAttribute(model, principal)
                 .addAttribute("title", "Ssd products");
         return "products/accry/ssd";
     }
@@ -95,7 +95,7 @@ public class AccryController extends AuthorizedModel {
 
     @GetMapping("/ram")
     public String getPageRAM(Model model, Principal principal) {
-        addAuthorizedAttribute(model, principal, userRepository)
+        addAuthorizedAttribute(model, principal)
                 .addAttribute("title", "Ram products");
         return "products/accry/ram";
     }
@@ -120,7 +120,7 @@ public class AccryController extends AuthorizedModel {
 
     @GetMapping("/cpu")
     public String getPageCPU(Model model, Principal principal) {
-        addAuthorizedAttribute(model, principal, userRepository)
+        addAuthorizedAttribute(model, principal)
                 .addAttribute("title", "Ram products");
         return "products/accry/cpu";
     }
@@ -145,7 +145,7 @@ public class AccryController extends AuthorizedModel {
 
     @GetMapping("/gpu")
     public String getPageGPU(Model model, Principal principal) {
-        addAuthorizedAttribute(model, principal, userRepository)
+        addAuthorizedAttribute(model, principal)
                 .addAttribute("title", "Ram products");
         return "products/accry/gpu";
     }
@@ -166,49 +166,49 @@ public class AccryController extends AuthorizedModel {
 
     @GetMapping("/motherboard")
     public String getPageMotherboard(Model model, Principal principal) {
-        addAuthorizedAttribute(model, principal, userRepository)
+        addAuthorizedAttribute(model, principal)
                 .addAttribute("title", "Ram products");
         return "products/accry/motherboard";
     }
 
     @GetMapping("/case")
     public String getPageCase(Model model, Principal principal) {
-        addAuthorizedAttribute(model, principal, userRepository)
+        addAuthorizedAttribute(model, principal)
                 .addAttribute("title", "Ram products");
         return "products/accry/case";
     }
 
     @GetMapping("/power-supply")
     public String getPagePowerSupply(Model model, Principal principal) {
-        addAuthorizedAttribute(model, principal, userRepository)
+        addAuthorizedAttribute(model, principal)
                 .addAttribute("title", "Ram products");
         return "products/accry/power-supply";
     }
 
     @GetMapping("/cooling-system")
     public String getPageCoolingSystem(Model model, Principal principal) {
-        addAuthorizedAttribute(model, principal, userRepository)
+        addAuthorizedAttribute(model, principal)
                 .addAttribute("title", "Ram products");
         return "products/accry/cooling-system";
     }
 
     @GetMapping("/sound-cards")
     public String getPageSoundCards(Model model, Principal principal) {
-        addAuthorizedAttribute(model, principal, userRepository)
+        addAuthorizedAttribute(model, principal)
                 .addAttribute("title", "Ram products");
         return "products/accry/sound-cards";
     }
 
     @GetMapping("/controllers-adapters")
     public String getPageControllersAdapters(Model model, Principal principal) {
-        addAuthorizedAttribute(model, principal, userRepository)
+        addAuthorizedAttribute(model, principal)
                 .addAttribute("title", "Ram products");
         return "products/accry/controllers-adapters";
     }
 
     @GetMapping("/external-hdd")
     public String getPageExternalHDD(Model model, Principal principal) {
-        addAuthorizedAttribute(model, principal, userRepository)
+        addAuthorizedAttribute(model, principal)
                 .addAttribute("title", "Ram products");
         return "products/accry/external-hdd";
     }

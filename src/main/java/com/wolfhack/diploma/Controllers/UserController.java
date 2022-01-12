@@ -1,6 +1,6 @@
 package com.wolfhack.diploma.Controllers;
 
-import com.wolfhack.diploma.Classes.FileUploadUtil;
+import com.wolfhack.diploma.service.FileUploadService.FileUploadUtil;
 import com.wolfhack.diploma.models.users.User;
 import com.wolfhack.diploma.repository.users.RoleRepository;
 import com.wolfhack.diploma.repository.users.UserRepository;

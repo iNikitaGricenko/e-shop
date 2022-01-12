@@ -1,4 +1,4 @@
-package com.wolfhack.diploma.Classes;
+package com.wolfhack.diploma.service.FileUploadService;
 
 import java.io.*;
 import java.nio.file.*;

@@ -1,6 +1,8 @@
-package com.wolfhack.diploma.service;
+package com.wolfhack.diploma.service.User;
 
 import com.wolfhack.diploma.models.users.User;
+import lombok.Getter;
+import lombok.Setter;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -10,6 +12,7 @@ import java.util.stream.Collectors;
 
 public class CustomUserDetails implements UserDetails {
 
+    @Getter @Setter
     private User user;
 
     @Override
@@ -45,13 +48,5 @@ public class CustomUserDetails implements UserDetails {
     @Override
     public boolean isEnabled() {
         return true;
-    }
-
-    public User getUser() {
-        return user;
-    }
-
-    public void setUser(User user) {
-        this.user = user;
     }
 }

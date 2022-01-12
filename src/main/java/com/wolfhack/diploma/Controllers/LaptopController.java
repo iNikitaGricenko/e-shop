@@ -1,7 +1,7 @@
 package com.wolfhack.diploma.Controllers;
 
-import com.wolfhack.diploma.Classes.AuthorizedModel;
-import com.wolfhack.diploma.Classes.FileUploadUtil;
+import com.wolfhack.diploma.service.AttributeService.AuthorizedModel;
+import com.wolfhack.diploma.service.FileUploadService.FileUploadUtil;
 import com.wolfhack.diploma.models.products.Laptop;
 import com.wolfhack.diploma.repository.products.LaptopRepository;
 import com.wolfhack.diploma.repository.users.UserRepository;
@@ -25,7 +25,7 @@ public class LaptopController extends AuthorizedModel {
     @GetMapping("/laptop")
     public String getPageLaptopProducts(@RequestParam(name="maxcost", required = false, defaultValue = "0") double maxcost,
                                         Model model, Principal principal) {
-        addAuthorizedAttribute(model, principal, userRepository)
+        addAuthorizedAttribute(model, principal)
                 .addAttribute("title", "Ноутбуки")
                 .addAttribute("filterURL", "blocks/filters/laptop")
                 .addAttribute("filter", "laptop");
@@ -47,7 +47,7 @@ public class LaptopController extends AuthorizedModel {
     public String getPageProducts(@PathVariable(value = "product") String productName,
                                   @PathVariable(value = "model") String productModel,
                                   Model model, Principal principal) {
-        addAuthorizedAttribute(model, principal, userRepository)
+        addAuthorizedAttribute(model, principal)
                 .addAttribute("title", "Product");
 
         Laptop product = laptopRepository.findByNameIsLikeAndModelIsLike(productName.replace("-", " "), productModel);

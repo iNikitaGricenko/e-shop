@@ -1,7 +1,6 @@
 package com.wolfhack.diploma.Controllers;
 
-import com.wolfhack.diploma.Classes.AuthorizedModel;
-import com.wolfhack.diploma.models.users.UserResponse;
+import com.wolfhack.diploma.service.AttributeService.AuthorizedModel;
 import com.wolfhack.diploma.repository.users.UserRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.access.prepost.PreAuthorize;
@@ -9,11 +8,11 @@ import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
-import org.springframework.web.servlet.ModelAndView;
 
 import java.security.Principal;
-
-import static org.springframework.util.MimeTypeUtils.APPLICATION_JSON_VALUE;
+import java.util.HashMap;
+import java.util.LinkedHashMap;
+import java.util.LinkedList;
 
 @RequiredArgsConstructor
 @RequestMapping("/admin")
@@ -22,11 +21,11 @@ import static org.springframework.util.MimeTypeUtils.APPLICATION_JSON_VALUE;
 public class AdminController extends AuthorizedModel {
 
     private final UserRepository userRepository;
-	UserDetailsService userDetailsService;
+	private UserDetailsService userDetailsService;
 
 	@PostMapping("/search")
     public String Search(@RequestParam String search, Model model, Principal principal) {
-		addAuthorizedAttribute(model, principal, userRepository)
+		addAuthorizedAttribute(model, principal)
 				.addAttribute("title", search);
 
         return "redirect:/admin";
@@ -34,7 +33,7 @@ public class AdminController extends AuthorizedModel {
 
     @GetMapping
 	public String getPageAdminPanel(Model model, Principal principal) {
-		addAuthorizedAttribute(model, principal, userRepository)
+		addAuthorizedAttribute(model, principal)
 				.addAttribute("title", "Админ панель");
 
 		/* first chart */
@@ -60,7 +59,7 @@ public class AdminController extends AuthorizedModel {
 
     @GetMapping("/customers")
 	public String getPageAdminCustomers(Model model, Principal principal) {
-		addAuthorizedAttribute(model, principal, userRepository);
+		addAuthorizedAttribute(model, principal);
 		/* first chart */
 		model.addAttribute("data_online_traffic_value1", "50");
 		model.addAttribute("data_offline_traffic_value2", "20");
@@ -70,21 +69,21 @@ public class AdminController extends AuthorizedModel {
 
     @GetMapping("/messages")
 	public String getPageAdminMessages(Model model, Principal principal) {
-		addAuthorizedAttribute(model, principal, userRepository);
+		addAuthorizedAttribute(model, principal);
 
     	return "admin/messages";
 	}
 
     @GetMapping("/setup")
 	public String getPageAdminSetup(Model model, Principal principal) {
-		addAuthorizedAttribute(model, principal, userRepository);
+		addAuthorizedAttribute(model, principal);
 
     	return "admin/setup";
 	}
 
     @GetMapping("/settings")
 	public String getPageAdminSettings(Model model, Principal principal) {
-		addAuthorizedAttribute(model, principal, userRepository);
+		addAuthorizedAttribute(model, principal);
 
     	return "admin/settings";
 	}

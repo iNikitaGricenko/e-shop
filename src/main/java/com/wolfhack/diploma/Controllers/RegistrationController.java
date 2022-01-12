@@ -1,6 +1,6 @@
 package com.wolfhack.diploma.Controllers;
 
-import com.wolfhack.diploma.Classes.AuthorizedModel;
+import com.wolfhack.diploma.service.AttributeService.AuthorizedModel;
 import com.wolfhack.diploma.models.users.User;
 import com.wolfhack.diploma.repository.users.RoleRepository;
 import com.wolfhack.diploma.repository.users.UserRepository;
