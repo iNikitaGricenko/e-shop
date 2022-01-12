@@ -9,6 +9,7 @@
   <meta name='viewport' content='width=device-width, initial-scale=1.0'>
   <script src="https://kit.fontawesome.com/979f4e20dd.js" crossorigin="anonymous"></script>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@3.6.1/dist/chart.min.js"></script>
   <link rel="stylesheet" th:href="@{/css/admin/admin-style.css}"/>
 </head>
 <body>
@@ -287,8 +288,7 @@
   </div>
 
   <!-- https://www.chartjs.org/docs/latest/ -->
-  <script src="https://cdn.jsdelivr.net/npm/chart.js@3.6.1/dist/chart.min.js"></script>
-  <script th:src="@{/js/admin/MainCharts.js}"></script>
+  <script async th:src="@{/js/admin/MainCharts.js}"></script>
   <script th:src="@{/js/admin/admin-menu.js}"></script>
 </body>
 </html>

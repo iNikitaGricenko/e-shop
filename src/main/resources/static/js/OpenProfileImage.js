@@ -1,6 +1,9 @@
     $(document).ready(function() {
 
-      document.querySelector(".inputImgBox").addEventListener("mousedown", middleClick);
+      let img = document.querySelector(".inputImgBox");
+      if (img !== null) {
+          img.addEventListener("mousedown", middleClick);
+      }
 
     });
     function middleClick(e) {

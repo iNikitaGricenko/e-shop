@@ -10,9 +10,6 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 import java.security.Principal;
-import java.util.HashMap;
-import java.util.LinkedHashMap;
-import java.util.LinkedList;
 
 @RequiredArgsConstructor
 @RequestMapping("/admin")
@@ -35,24 +32,6 @@ public class AdminController extends AuthorizedModel {
 	public String getPageAdminPanel(Model model, Principal principal) {
 		addAuthorizedAttribute(model, principal)
 				.addAttribute("title", "Админ панель");
-
-		/* first chart */
-		model.addAttribute("data_traffic_value1", "1200");
-		model.addAttribute("data_traffic_value2", "1900");
-		model.addAttribute("data_traffic_value3", "3000");
-		/* second chart */
-		model.addAttribute("data_january", "1200");
-		model.addAttribute("data_february", "1090");
-		model.addAttribute("data_march", "3000");
-		model.addAttribute("data_april", "5400");
-		model.addAttribute("data_may", "1220");
-		model.addAttribute("data_june", "1510");
-		model.addAttribute("data_july", "3600");
-		model.addAttribute("data_august", "4890");
-		model.addAttribute("data_september", "2127");
-		model.addAttribute("data_october", "1321");
-		model.addAttribute("data_november", "1054");
-		model.addAttribute("data_december", "4521");
 
     	return "admin/admin";
 	}

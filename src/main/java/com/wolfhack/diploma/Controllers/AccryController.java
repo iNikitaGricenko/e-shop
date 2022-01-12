@@ -66,14 +66,16 @@ public class AccryController extends AuthorizedModel {
     ) throws IOException
     {
 
-        return "products/laptop";
+        return "redirect:/laptop";
     }
 
     @GetMapping("/ssd")
     public String getPageSSD(Model model, Principal principal) {
         addAuthorizedAttribute(model, principal)
-                .addAttribute("title", "Ssd products");
-        return "products/accry/ssd";
+                .addAttribute("title", "Ssd products")
+                .addAttribute("filterURL", "blocks/filters/ssd")
+                .addAttribute("filter", "ssd");;
+        return "products/laptop";
     }
 
     @PostMapping("/ssd")
@@ -90,14 +92,16 @@ public class AccryController extends AuthorizedModel {
             return "redirect:/admin/setup?error=ssd=exists";
         }
 
-        return "products/accry/ssd";
+        return "redirect:/laptop";
     }
 
     @GetMapping("/ram")
     public String getPageRAM(Model model, Principal principal) {
         addAuthorizedAttribute(model, principal)
-                .addAttribute("title", "Ram products");
-        return "products/accry/ram";
+                .addAttribute("title", "Ram products")
+                .addAttribute("filterURL", "blocks/filters/ram")
+                .addAttribute("filter", "ram");;
+        return "products/laptop";
     }
 
     @PostMapping("/ram")
@@ -115,14 +119,17 @@ public class AccryController extends AuthorizedModel {
             return "redirect:/admin/setup?error=ram=exists";
         }
 
-        return "products/accry/ram";
+        return "redirect:/laptop";
     }
 
     @GetMapping("/cpu")
     public String getPageCPU(Model model, Principal principal) {
         addAuthorizedAttribute(model, principal)
-                .addAttribute("title", "Ram products");
-        return "products/accry/cpu";
+                .addAttribute("title", "CPU products")
+                .addAttribute("filterURL", "blocks/filters/cpu")
+                .addAttribute("filter", "cpu");;
+
+        return "products/laptop";
     }
 
     @PostMapping("/cpu")
@@ -140,7 +147,7 @@ public class AccryController extends AuthorizedModel {
             return "redirect:/admin/setup?error=cpu=exists";
         }
 
-        return "products/accry/cpu";
+        return "redirect:/laptop";
     }
 
     @GetMapping("/gpu")
