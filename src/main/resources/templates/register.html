@@ -27,7 +27,7 @@
     <div class="formBox">
       <form class="formBox-form" modelAttribute="User" name="User" th:action="@{/registration}" method="post">
       <h2 class="form-heading">Registration</h2>
-      <h3 style="color: var(--primary)" th:unless="${errorMessage eq ''}" th:text="${errorMessage}"></h3>
+      <h3 class="error-text" th:if="${param.error}" th:text="${errorMessage}"></h3>
         <div class="inputBox">
           <input type="email" name="login" required="">
           <label>Email Address</label>

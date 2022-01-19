@@ -28,7 +28,7 @@
 		    </div>
       	</div>
 
-      <div class="action" th:unless="${User != null}">
+      <div class="action" sec:authorize="!isAuthenticated()">
             <div class="btn" style="--i:1">
 	            <a class="nav-link-btn" rel="tooltip" title="Войти" data-placement="bottom" href="#" onclick="login()">
 		          <i class="fas fa-sign-in-alt"></i>
@@ -46,7 +46,7 @@
 		    </div>
       </div>
 
-	  <div class="action" th:if="${User != null}">
+	  <div class="action" sec:authorize="isAuthenticated()">
 		<div class="btn" style="--i:1">
 			<a class="nav-link-btn" rel="tooltip" title="Выйти" data-placement="bottom" href="logout">
 			  <i class="fas fa-sign-in-alt"></i>

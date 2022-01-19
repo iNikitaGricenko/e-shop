@@ -1,6 +1,6 @@
 package com.wolfhack.diploma.Controllers;
 
-import com.wolfhack.diploma.service.AttributeService.AuthorizedModel;
+import com.wolfhack.diploma.models.users.User;
 import com.wolfhack.diploma.service.FileUploadService.FileUploadUtil;
 import com.wolfhack.diploma.models.products.Laptop;
 import com.wolfhack.diploma.repository.products.LaptopRepository;
@@ -17,16 +17,24 @@ import java.util.List;
 
 @RequiredArgsConstructor
 @Controller
-public class LaptopController extends AuthorizedModel {
+public class LaptopController {
 
     private final UserRepository userRepository;
     private final LaptopRepository laptopRepository;
 
+    @ModelAttribute("User")
+    public User getCurrentUser(Principal principal) {
+        if (principal != null) {
+            return userRepository.findByLogin(principal.getName());
+        } else {
+            return null;
+        }
+    }
+
     @GetMapping("/laptop")
     public String getPageLaptopProducts(@RequestParam(name="maxcost", required = false, defaultValue = "0") double maxcost,
                                         Model model, Principal principal) {
-        addAuthorizedAttribute(model, principal)
-                .addAttribute("title", "Ноутбуки")
+        model.addAttribute("title", "Ноутбуки")
                 .addAttribute("filterURL", "blocks/filters/laptop")
                 .addAttribute("filter", "laptop");
 
@@ -47,8 +55,7 @@ public class LaptopController extends AuthorizedModel {
     public String getPageProducts(@PathVariable(value = "product") String productName,
                                   @PathVariable(value = "model") String productModel,
                                   Model model, Principal principal) {
-        addAuthorizedAttribute(model, principal)
-                .addAttribute("title", "Product");
+        model.addAttribute("title", "Product");
 
         Laptop product = laptopRepository.findByNameIsLikeAndModelIsLike(productName.replace("-", " "), productModel);
 

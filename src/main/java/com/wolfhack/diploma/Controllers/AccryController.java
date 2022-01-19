@@ -1,6 +1,6 @@
 package com.wolfhack.diploma.Controllers;
 
-import com.wolfhack.diploma.service.AttributeService.AuthorizedModel;
+import com.wolfhack.diploma.models.users.User;
 import com.wolfhack.diploma.service.FileUploadService.FileUploadUtil;
 import com.wolfhack.diploma.models.products.*;
 import com.wolfhack.diploma.repository.products.*;
@@ -17,7 +17,7 @@ import java.security.Principal;
 @RequiredArgsConstructor
 @Controller
 @RequestMapping("/accry")
-public class AccryController extends AuthorizedModel {
+public class AccryController {
 
     private final UserRepository userRepository;
 
@@ -25,6 +25,15 @@ public class AccryController extends AuthorizedModel {
     private final RamRepository ramRepository;
     private final CpuRepository cpuRepository;
     private final GpuRepository gpuRepository;
+
+    @ModelAttribute("User")
+    public User getCurrentUser(Principal principal) {
+        if (principal != null) {
+            return userRepository.findByLogin(principal.getName());
+        } else {
+            return null;
+        }
+    }
 
     private <P extends Product, R extends ProductRepo> boolean saveProduct(P product, R repository, MultipartFile[] files) throws IOException{
         if (repository.existsProductByNameAndModel(product.getName(), product.getModel())) {
@@ -41,15 +50,13 @@ public class AccryController extends AuthorizedModel {
 
     @GetMapping
     public String getPage(Model model, Principal principal) {
-        addAuthorizedAttribute(model, principal)
-                .addAttribute("title", "Accessories");
+        model.addAttribute("title", "Accessories");
         return "products/accry";
     }
 
     @GetMapping("/hdd")
     public String getPageHDD(Model model, Principal principal) {
-        addAuthorizedAttribute(model, principal)
-                .addAttribute("title", "Hdd products")
+        model.addAttribute("title", "Hdd products")
                 .addAttribute("filterURL", "blocks/filters/hdd")
                 .addAttribute("filter", "hdd");
         return "products/laptop";
@@ -71,8 +78,7 @@ public class AccryController extends AuthorizedModel {
 
     @GetMapping("/ssd")
     public String getPageSSD(Model model, Principal principal) {
-        addAuthorizedAttribute(model, principal)
-                .addAttribute("title", "Ssd products")
+        model.addAttribute("title", "Ssd products")
                 .addAttribute("filterURL", "blocks/filters/ssd")
                 .addAttribute("filter", "ssd");;
         return "products/laptop";
@@ -97,8 +103,7 @@ public class AccryController extends AuthorizedModel {
 
     @GetMapping("/ram")
     public String getPageRAM(Model model, Principal principal) {
-        addAuthorizedAttribute(model, principal)
-                .addAttribute("title", "Ram products")
+        model.addAttribute("title", "Ram products")
                 .addAttribute("filterURL", "blocks/filters/ram")
                 .addAttribute("filter", "ram");;
         return "products/laptop";
@@ -124,8 +129,7 @@ public class AccryController extends AuthorizedModel {
 
     @GetMapping("/cpu")
     public String getPageCPU(Model model, Principal principal) {
-        addAuthorizedAttribute(model, principal)
-                .addAttribute("title", "CPU products")
+        model.addAttribute("title", "CPU products")
                 .addAttribute("filterURL", "blocks/filters/cpu")
                 .addAttribute("filter", "cpu");;
 
@@ -152,8 +156,7 @@ public class AccryController extends AuthorizedModel {
 
     @GetMapping("/gpu")
     public String getPageGPU(Model model, Principal principal) {
-        addAuthorizedAttribute(model, principal)
-                .addAttribute("title", "Ram products");
+        model.addAttribute("title", "Ram products");
         return "products/accry/gpu";
     }
 
@@ -173,50 +176,43 @@ public class AccryController extends AuthorizedModel {
 
     @GetMapping("/motherboard")
     public String getPageMotherboard(Model model, Principal principal) {
-        addAuthorizedAttribute(model, principal)
-                .addAttribute("title", "Ram products");
+        model.addAttribute("title", "Ram products");
         return "products/accry/motherboard";
     }
 
     @GetMapping("/case")
     public String getPageCase(Model model, Principal principal) {
-        addAuthorizedAttribute(model, principal)
-                .addAttribute("title", "Ram products");
+        model.addAttribute("title", "Ram products");
         return "products/accry/case";
     }
 
     @GetMapping("/power-supply")
     public String getPagePowerSupply(Model model, Principal principal) {
-        addAuthorizedAttribute(model, principal)
-                .addAttribute("title", "Ram products");
+        model.addAttribute("title", "Ram products");
         return "products/accry/power-supply";
     }
 
     @GetMapping("/cooling-system")
     public String getPageCoolingSystem(Model model, Principal principal) {
-        addAuthorizedAttribute(model, principal)
-                .addAttribute("title", "Ram products");
+        model.addAttribute("title", "Ram products");
         return "products/accry/cooling-system";
     }
 
     @GetMapping("/sound-cards")
     public String getPageSoundCards(Model model, Principal principal) {
-        addAuthorizedAttribute(model, principal)
-                .addAttribute("title", "Ram products");
+        model.addAttribute("title", "Ram products");
         return "products/accry/sound-cards";
     }
 
     @GetMapping("/controllers-adapters")
     public String getPageControllersAdapters(Model model, Principal principal) {
-        addAuthorizedAttribute(model, principal)
-                .addAttribute("title", "Ram products");
+        model.addAttribute("title", "Ram products");
         return "products/accry/controllers-adapters";
     }
 
     @GetMapping("/external-hdd")
     public String getPageExternalHDD(Model model, Principal principal) {
-        addAuthorizedAttribute(model, principal)
-                .addAttribute("title", "Ram products");
+        model.addAttribute("title", "Ram products");
         return "products/accry/external-hdd";
     }
 

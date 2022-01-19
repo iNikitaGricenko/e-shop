@@ -1,393 +1,545 @@
-<div th:fragment="hdd" class="filter">
-  <div class="nav-opener-filter">
-    <label>Фильтры</label>
-    <i class="fas fa-caret-down"></i>
-  </div>
-  <div class="nav-filter">
-    <div class="f-toggle">
-      <h2 class="heading2">Объем памяти</h2>
-      <i class="fas fa-chevron-down"></i>
-      <span></span>
+<form th:fragment="hdd" class="NavigationContainer">
+    <div class="nav-opener-filter">
+        <label>Фильтры</label>
+        <i class="fas fa-caret-down"></i>
     </div>
-    <div class="choice" style="--i:631px; --display:block">
-      <div class="inputBox">
-        <input type="checkbox" name="GeForce3080" id="GeForce3080" value="GeForce RTX 3080">
-        <label for="GeForce3080">18 ТБ</label>
-        <i class="fas fa-check"></i>
-      </div>
-      <div class="inputBox">
-        <input type="checkbox" name="GeForce3070" id="GeForce3070" value="GeForce RTX 3070">
-        <label for="GeForce3070">16 ТБ</label>
-        <i class="fas fa-check"></i>
-      </div>
-      <div class="inputBox">
-        <input type="checkbox" name="GeForce3070" id="GeForce3070" value="GeForce RTX 3070">
-        <label for="GeForce3070">14 ТБ</label>
-        <i class="fas fa-check"></i>
-      </div>
-      <div class="inputBox">
-        <input type="checkbox" name="GeForce3070" id="GeForce3070" value="GeForce RTX 3070">
-        <label for="GeForce3070">12 ТБ</label>
-        <i class="fas fa-check"></i>
-      </div>
-      <div class="inputBox">
-        <input type="checkbox" name="GeForce3070" id="GeForce3070" value="GeForce RTX 3070">
-        <label for="GeForce3070">10 ТБ</label>
-        <i class="fas fa-check"></i>
-      </div>
-      <div class="inputBox">
-        <input type="checkbox" name="GeForce3070" id="GeForce3070" value="GeForce RTX 3070">
-        <label for="GeForce3070">8 ТБ</label>
-        <i class="fas fa-check"></i>
-      </div>
-      <div class="inputBox">
-        <input type="checkbox" name="GeForce3070" id="GeForce3070" value="GeForce RTX 3070">
-        <label for="GeForce3070">6 ТБ</label>
-        <i class="fas fa-check"></i>
-      </div>
-      <div class="inputBox">
-        <input type="checkbox" name="GeForce3070" id="GeForce3070" value="GeForce RTX 3070">
-        <label for="GeForce3070">4 ТБ</label>
-        <i class="fas fa-check"></i>
-      </div>
-      <div class="inputBox">
-        <input type="checkbox" name="GeForce3070" id="GeForce3070" value="GeForce RTX 3070">
-        <label for="GeForce3070">3 ТБ</label>
-        <i class="fas fa-check"></i>
-      </div>
-      <div class="inputBox">
-        <input type="checkbox" name="GeForce3070" id="GeForce3070" value="GeForce RTX 3070">
-        <label for="GeForce3070">2 ТБ</label>
-        <i class="fas fa-check"></i>
-      </div>
-      <div class="inputBox">
-        <input type="checkbox" name="GeForce3070" id="GeForce3070" value="GeForce RTX 3070">
-        <label for="GeForce3070">1 ТБ</label>
-        <i class="fas fa-check"></i>
-      </div>
-      <div class="inputBox">
-        <input type="checkbox" name="GeForce3070" id="GeForce3070" value="GeForce RTX 3070">
-        <label for="GeForce3070">500 ГБ</label>
-        <i class="fas fa-check"></i>
-      </div>
-      <div class="inputBox">
-        <input type="checkbox" name="GeForce3070" id="GeForce3070" value="GeForce RTX 3070">
-        <label for="GeForce3070">До 256 ГБ</label>
-        <i class="fas fa-check"></i>
-      </div>
+    <div class="inputBox-2">
+        <label for="maxcost">Введите максимальную стоимость</label>
+        <input type="text" name="maxcost" value="190000" id="maxcost-label" pattern="[0-9]{0,6}" size="6" maxlength="6">
+        <span></span>
     </div>
-  </div>
-
-  <div class="nav-filter">
-    <div class="f-toggle">
-      <h2 class="heading2">Форм-фактор</h2>
-      <i class="fas fa-chevron-down"></i>
-      <span></span>
+    <ul class="FilterList">
+        <h2 class="FilterName">Объем памяти</h2>
+        <li class="filter">
+            <label class="checkContainer">
+                <input type="checkbox" name="GeForce3080" value="GeForce RTX 3080">
+                <span class="iconBox"><label>Более 2 ТБ</label></span>
+            </label>
+        </li>
+        <li class="filter">
+            <label class="checkContainer">
+                <input type="checkbox" name="GeForce3070" value="GeForce RTX 3070">
+                <span class="iconBox"><label>2 ТБ</label></span>
+            </label>
+        </li>
+        <li class="filter">
+            <label class="checkContainer">
+                <input type="checkbox" name="GeForce3070" value="GeForce RTX 3070">
+                <span class="iconBox"><label>960 ГБ–1 ТБ</label></span>
+            </label>
+        </li>
+        <li class="filter">
+            <label class="checkContainer">
+                <input type="checkbox" name="GeForce3070" value="GeForce RTX 3070">
+                <span class="iconBox"><label>480–512 ГБ</label></span>
+            </label>
+        </li>
+        <li class="filter">
+            <label class="checkContainer">
+                <input type="checkbox" name="GeForce3070" value="GeForce RTX 3070">
+                <span class="iconBox"><label>240–256 ГБ</label></span>
+            </label>
+        </li>
+        <li class="filter">
+            <label class="checkContainer">
+                <input type="checkbox" name="GeForce3070" value="GeForce RTX 3070">
+                <span class="iconBox"><label>120–128 ГБ</label></span>
+            </label>
+        </li>
+    </ul>
+    <ul class="FilterList">
+        <h2 class="FilterName">Форм-фактор</h2>
+        <li class="filter">
+            <label class="checkContainer">
+                <input type="checkbox" name="GeForce3080" value="GeForce RTX 3080">
+                <span class="iconBox"><label>2.5″</label></span>
+            </label>
+        </li>
+        <li class="filter">
+            <label class="checkContainer">
+                <input type="checkbox" name="GeForce3070" value="GeForce RTX 3070">
+                <span class="iconBox"><label>M.2 2280/2260</label></span>
+            </label>
+        </li>
+        <li class="filter">
+            <label class="checkContainer">
+                <input type="checkbox" name="GeForce3070" value="GeForce RTX 3070">
+                <span class="iconBox"><label>mSATA</label></span>
+            </label>
+        </li>
+        <li class="filter">
+            <label class="checkContainer">
+                <input type="checkbox" name="GeForce3070" value="GeForce RTX 3070">
+                <span class="iconBox"><label>U.2</label></span>
+            </label>
+        </li>
+        <li class="filter">
+            <label class="checkContainer">
+                <input type="checkbox" name="GeForce3070" value="GeForce RTX 3070">
+                <span class="iconBox"><label>Внешний SSD</label></span>
+            </label>
+        </li>
+    </ul>
+    <ul class="FilterList">
+        <h2 class="FilterName">Интерфейс</h2>
+        <li class="filter">
+            <label class="checkContainer">
+                <input type="checkbox" name="GeForce3080" value="GeForce RTX 3080">
+                <span class="iconBox"><label>mSATA</label></span>
+            </label>
+        </li>
+        <li class="filter">
+            <label class="checkContainer">
+                <input type="checkbox" name="GeForce3070" value="GeForce RTX 3070">
+                <span class="iconBox"><label>SATA III</label></span>
+            </label>
+        </li>
+        <li class="filter">
+            <label class="checkContainer">
+                <input type="checkbox" name="GeForce3070" value="GeForce RTX 3070">
+                <span class="iconBox"><label>PCIe 3.0</label></span>
+            </label>
+        </li>
+        <li class="filter">
+            <label class="checkContainer">
+                <input type="checkbox" name="GeForce3070" value="GeForce RTX 3070">
+                <span class="iconBox"><label>PCIe 4.0</label></span>
+            </label>
+        </li>
+        <li class="filter">
+            <label class="checkContainer">
+                <input type="checkbox" name="GeForce3070" value="GeForce RTX 3070">
+                <span class="iconBox"><label>USB 3.1</label></span>
+            </label>
+        </li>
+        <li class="filter">
+            <label class="checkContainer">
+                <input type="checkbox" name="GeForce3070" value="GeForce RTX 3070">
+                <span class="iconBox"><label>USB Type-C</label></span>
+            </label>
+        </li>
+    </ul>
+    <ul class="FilterList">
+        <h2 class="FilterName">Скорость чтения</h2>
+        <li class="filter">
+            <label class="checkContainer">
+                <input type="checkbox" name="GeForce3080" value="GeForce RTX 3080">
+                <span class="iconBox"><label>Более 3500 МБ/с</label></span>
+            </label>
+        </li>
+        <li class="filter">
+            <label class="checkContainer">
+                <input type="checkbox" name="GeForce3070" value="GeForce RTX 3070">
+                <span class="iconBox"><label>3001-3500 МБ/с</label></span>
+            </label>
+        </li>
+        <li class="filter">
+            <label class="checkContainer">
+                <input type="checkbox" name="GeForce3060" value="GeForce RTX 3060">
+                <span class="iconBox"><label>2501-3000 МБ/с</label></span>
+            </label>
+        </li>
+        <li class="filter">
+            <label class="checkContainer">
+                <input type="checkbox" name="GeForce3050Ti" value="GeForce RTX 3050 Ti">
+                <span class="iconBox"><label>2001-2500 МБ/с</label></span>
+            </label>
+        </li>
+        <li class="filter">
+            <label class="checkContainer">
+                <input type="checkbox" name="GeForce3050" value="GeForce RTX 3050">
+                <span class="iconBox"><label>1501-2000 МБ/с</label></span>
+            </label>
+        </li>
+        <li class="filter">
+            <label class="checkContainer">
+                <input type="checkbox" name="GeForce3050" value="GeForce RTX 3050">
+                <span class="iconBox"><label>1001-1500 МБ/с</label></span>
+            </label>
+        </li>
+        <li class="filter">
+            <label class="checkContainer">
+                <input type="checkbox" name="GeForce3050" value="GeForce RTX 3050">
+                <span class="iconBox"><label>601-1000 МБ/с</label></span>
+            </label>
+        </li>
+        <li class="filter">
+            <label class="checkContainer">
+                <input type="checkbox" name="GeForce3050" value="GeForce RTX 3050">
+                <span class="iconBox"><label>501-600 МБ/с</label></span>
+            </label>
+        </li>
+        <li class="filter">
+            <label class="checkContainer">
+                <input type="checkbox" name="GeForce3050" value="GeForce RTX 3050">
+                <span class="iconBox"><label>До 500 МБ/с</label></span>
+            </label>
+        </li>
+    </ul>
+    <ul class="FilterList">
+        <h2 class="FilterName">Скорость записи</h2>
+        <li class="filter">
+            <label class="checkContainer">
+                <input type="checkbox" name="GeForce3080" value="GeForce RTX 3080">
+                <span class="iconBox"><label>Более 4000 МБ/с</label></span>
+            </label>
+        </li>
+        <li class="filter">
+            <label class="checkContainer">
+                <input type="checkbox" name="GeForce3070" value="GeForce RTX 3070">
+                <span class="iconBox"><label>3001-4000 МБ/с</label></span>
+            </label>
+        </li>
+        <li class="filter">
+            <label class="checkContainer">
+                <input type="checkbox" name="GeForce3060" value="GeForce RTX 3060">
+                <span class="iconBox"><label>2501-3000 МБ/с</label></span>
+            </label>
+        </li>
+        <li class="filter">
+            <label class="checkContainer">
+                <input type="checkbox" name="GeForce3050Ti" value="GeForce RTX 3050 Ti">
+                <span class="iconBox"><label>2001-2500 МБ/с</label></span>
+            </label>
+        </li>
+        <li class="filter">
+            <label class="checkContainer">
+                <input type="checkbox" name="GeForce3050" value="GeForce RTX 3050">
+                <span class="iconBox"><label>1501-2000 МБ/с</label></span>
+            </label>
+        </li>
+        <li class="filter">
+            <label class="checkContainer">
+                <input type="checkbox" name="GeForce3050" value="GeForce RTX 3050">
+                <span class="iconBox"><label>1001-1500 МБ/с</label></span>
+            </label>
+        </li>
+        <li class="filter">
+            <label class="checkContainer">
+                <input type="checkbox" name="GeForce3050" value="GeForce RTX 3050">
+                <span class="iconBox"><label>601-1000 МБ/с</label></span>
+            </label>
+        </li>
+        <li class="filter">
+            <label class="checkContainer">
+                <input type="checkbox" name="GeForce3050" value="GeForce RTX 3050">
+                <span class="iconBox"><label>501-600 МБ/с</label></span>
+            </label>
+        </li>
+        <li class="filter">
+            <label class="checkContainer">
+                <input type="checkbox" name="GeForce3050" value="GeForce RTX 3050">
+                <span class="iconBox"><label>До 500 МБ/с</label></span>
+            </label>
+        </li>
+    </ul>
+    <ul class="FilterList">
+        <h2 class="FilterName">Ресурс записи (TWB)</h2>
+        <li class="filter">
+            <label class="checkContainer">
+                <input type="checkbox" name="GeForce3080" value="GeForce RTX 3080">
+                <span class="iconBox"><label>Более 3000 Тб</label></span>
+            </label>
+        </li>
+        <li class="filter">
+            <label class="checkContainer">
+                <input type="checkbox" name="GeForce3070" value="GeForce RTX 3070">
+                <span class="iconBox"><label>2001-3000 Тб</label></span>
+            </label>
+        </li>
+        <li class="filter">
+            <label class="checkContainer">
+                <input type="checkbox" name="GeForce3060" value="GeForce RTX 3060">
+                <span class="iconBox"><label>1301-2000 Тб</label></span>
+            </label>
+        </li>
+        <li class="filter">
+            <label class="checkContainer">
+                <input type="checkbox" name="GeForce3060" value="GeForce RTX 3060">
+                <span class="iconBox"><label>1001-1300 Тб</label></span>
+            </label>
+        </li>
+        <li class="filter">
+            <label class="checkContainer">
+                <input type="checkbox" name="GeForce3060" value="GeForce RTX 3060">
+                <span class="iconBox"><label>801-1000 Тб</label></span>
+            </label>
+        </li>
+        <li class="filter">
+            <label class="checkContainer">
+                <input type="checkbox" name="GeForce3060" value="GeForce RTX 3060">
+                <span class="iconBox"><label>501-800 Тб</label></span>
+            </label>
+        </li>
+        <li class="filter">
+            <label class="checkContainer">
+                <input type="checkbox" name="GeForce3060" value="GeForce RTX 3060">
+                <span class="iconBox"><label>301-500 Тб</label></span>
+            </label>
+        </li>
+        <li class="filter">
+            <label class="checkContainer">
+                <input type="checkbox" name="GeForce3060" value="GeForce RTX 3060">
+                <span class="iconBox"><label>201-300 Тб</label></span>
+            </label>
+        </li>
+        <li class="filter">
+            <label class="checkContainer">
+                <input type="checkbox" name="GeForce3060" value="GeForce RTX 3060">
+                <span class="iconBox"><label>До 200 Тб</label></span>
+            </label>
+        </li>
+    </ul>
+    <ul class="FilterList">
+        <h2 class="FilterName">Производитель</h2>
+        <li class="filter">
+            <label class="checkContainer">
+                <input type="checkbox" name="GeForce3080" value="GeForce RTX 3080">
+                <span class="iconBox"><label>ADATA</label></span>
+            </label>
+        </li>
+        <li class="filter">
+            <label class="checkContainer">
+                <input type="checkbox" name="GeForce3070" value="GeForce RTX 3070">
+                <span class="iconBox"><label>AMD</label></span>
+            </label>
+        </li>
+        <li class="filter">
+            <label class="checkContainer">
+                <input type="checkbox" name="GeForce3070" value="GeForce RTX 3070">
+                <span class="iconBox"><label>Apacer</label></span>
+            </label>
+        </li>
+        <li class="filter">
+            <label class="checkContainer">
+                <input type="checkbox" name="GeForce3070" value="GeForce RTX 3070">
+                <span class="iconBox"><label>Corsair</label></span>
+            </label>
+        </li>
+        <li class="filter">
+            <label class="checkContainer">
+                <input type="checkbox" name="GeForce3070" value="GeForce RTX 3070">
+                <span class="iconBox"><label>Crucial</label></span>
+            </label>
+        </li>
+        <li class="filter">
+            <label class="checkContainer">
+                <input type="checkbox" name="GeForce3070" value="GeForce RTX 3070">
+                <span class="iconBox"><label>Gigabyte</label></span>
+            </label>
+        </li>
+        <li class="filter">
+            <label class="checkContainer">
+                <input type="checkbox" name="GeForce3070" value="GeForce RTX 3070">
+                <span class="iconBox"><label>GoodRAM</label></span>
+            </label>
+        </li>
+        <li class="filter">
+            <label class="checkContainer">
+                <input type="checkbox" name="GeForce3070" value="GeForce RTX 3070">
+                <span class="iconBox"><label>Intel</label></span>
+            </label>
+        </li>
+        <li class="filter">
+            <label class="checkContainer">
+                <input type="checkbox" name="GeForce3070" value="GeForce RTX 3070">
+                <span class="iconBox"><label>HyperX</label></span>
+            </label>
+        </li>
+        <li class="filter">
+            <label class="checkContainer">
+                <input type="checkbox" name="GeForce3070" value="GeForce RTX 3070">
+                <span class="iconBox"><label>Kingston</label></span>
+            </label>
+        </li>
+        <li class="filter">
+            <label class="checkContainer">
+                <input type="checkbox" name="GeForce3070" value="GeForce RTX 3070">
+                <span class="iconBox"><label>LaCie</label></span>
+            </label>
+        </li>
+        <li class="filter">
+            <label class="checkContainer">
+                <input type="checkbox" name="GeForce3070" value="GeForce RTX 3070">
+                <span class="iconBox"><label>Patriot</label></span>
+            </label>
+        </li>
+        <li class="filter">
+            <label class="checkContainer">
+                <input type="checkbox" name="GeForce3070" value="GeForce RTX 3070">
+                <span class="iconBox"><label>PNY</label></span>
+            </label>
+        </li>
+        <li class="filter">
+            <label class="checkContainer">
+                <input type="checkbox" name="GeForce3070" value="GeForce RTX 3070">
+                <span class="iconBox"><label>Samsung</label></span>
+            </label>
+        </li>
+        <li class="filter">
+            <label class="checkContainer">
+                <input type="checkbox" name="GeForce3070" value="GeForce RTX 3070">
+                <span class="iconBox"><label>SanDisk</label></span>
+            </label>
+        </li>
+        <li class="filter">
+            <label class="checkContainer">
+                <input type="checkbox" name="GeForce3070" value="GeForce RTX 3070">
+                <span class="iconBox"><label>Seagate</label></span>
+            </label>
+        </li>
+        <li class="filter">
+            <label class="checkContainer">
+                <input type="checkbox" name="GeForce3070" value="GeForce RTX 3070">
+                <span class="iconBox"><label>Silicon Power</label></span>
+            </label>
+        </li>
+        <li class="filter">
+            <label class="checkContainer">
+                <input type="checkbox" name="GeForce3070" value="GeForce RTX 3070">
+                <span class="iconBox"><label>Team</label></span>
+            </label>
+        </li>
+        <li class="filter">
+            <label class="checkContainer">
+                <input type="checkbox" name="GeForce3070" value="GeForce RTX 3070">
+                <span class="iconBox"><label>Transcend</label></span>
+            </label>
+        </li>
+        <li class="filter">
+            <label class="checkContainer">
+                <input type="checkbox" name="GeForce3070" value="GeForce RTX 3070">
+                <span class="iconBox"><label>Western Digital</label></span>
+            </label>
+        </li>
+    </ul>
+    <ul class="FilterList">
+        <h2 class="FilterName">Тип ячеек памяти</h2>
+        <li class="filter">
+            <label class="checkContainer">
+                <input type="checkbox" name="GeForce3080" value="GeForce RTX 3080">
+                <span class="iconBox"><label>MLC</label></span>
+            </label>
+        </li>
+        <li class="filter">
+            <label class="checkContainer">
+                <input type="checkbox" name="GeForce3070" value="GeForce RTX 3070">
+                <span class="iconBox"><label>TLC</label></span>
+            </label>
+        </li>
+        <li class="filter">
+            <label class="checkContainer">
+                <input type="checkbox" name="GeForce3060" value="GeForce RTX 3060">
+                <span class="iconBox"><label>V-NAND</label></span>
+            </label>
+        </li>
+        <li class="filter">
+            <label class="checkContainer">
+                <input type="checkbox" name="GeForce3050Ti" value="GeForce RTX 3050 Ti">
+                <span class="iconBox"><label>3D-NAND TLC</label></span>
+            </label>
+        </li>
+        <li class="filter">
+            <label class="checkContainer">
+                <input type="checkbox" name="GeForce3050Ti" value="GeForce RTX 3050 Ti">
+                <span class="iconBox"><label>3D-NAND QLC</label></span>
+            </label>
+        </li>
+        <li class="filter">
+            <label class="checkContainer">
+                <input type="checkbox" name="GeForce3050Ti" value="GeForce RTX 3050 Ti">
+                <span class="iconBox"><label>3D-NAND</label></span>
+            </label>
+        </li>
+    </ul>
+    <ul class="FilterList">
+        <h2 class="FilterName">Линейка</h2>
+        <li class="filter">
+            <label class="checkContainer">
+                <input type="checkbox" name="GeForce3080" value="GeForce RTX 3080">
+                <span class="iconBox"><label>ADATA Swordfish</label></span>
+            </label>
+        </li>
+        <li class="filter">
+            <label class="checkContainer">
+                <input type="checkbox" name="GeForce3080" value="GeForce RTX 3080">
+                <span class="iconBox"><label>ADATA XPG</label></span>
+            </label>
+        </li>
+        <li class="filter">
+            <label class="checkContainer">
+                <input type="checkbox" name="GeForce3070" value="GeForce RTX 3070">
+                <span class="iconBox"><label>Apacer Panther</label></span>
+            </label>
+        </li>
+        <li class="filter">
+            <label class="checkContainer">
+                <input type="checkbox" name="GeForce3070" value="GeForce RTX 3070">
+                <span class="iconBox"><label>GoodRAM IRDM</label></span>
+            </label>
+        </li>
+        <li class="filter">
+            <label class="checkContainer">
+                <input type="checkbox" name="GeForce3070" value="GeForce RTX 3070">
+                <span class="iconBox"><label>Kingston A2000</label></span>
+            </label>
+        </li>
+        <li class="filter">
+            <label class="checkContainer">
+                <input type="checkbox" name="GeForce3070" value="GeForce RTX 3070">
+                <span class="iconBox"><label>Kingston A400</label></span>
+            </label>
+        </li>
+        <li class="filter">
+            <label class="checkContainer">
+                <input type="checkbox" name="GeForce3070" value="GeForce RTX 3070">
+                <span class="iconBox"><label>Kingston KC2000</label></span>
+            </label>
+        </li>
+        <li class="filter">
+            <label class="checkContainer">
+                <input type="checkbox" name="GeForce3070" value="GeForce RTX 3070">
+                <span class="iconBox"><label>Kingston KC2500</label></span>
+            </label>
+        </li>
+        <li class="filter">
+            <label class="checkContainer">
+                <input type="checkbox" name="GeForce3070" value="GeForce RTX 3070">
+                <span class="iconBox"><label>Kingston KC600</label></span>
+            </label>
+        </li>
+        <li class="filter">
+            <label class="checkContainer">
+                <input type="checkbox" name="GeForce3070" value="GeForce RTX 3070">
+                <span class="iconBox"><label>Kingston NV1</label></span>
+            </label>
+        </li>
+        <li class="filter">
+            <label class="checkContainer">
+                <input type="checkbox" name="GeForce3070" value="GeForce RTX 3070">
+                <span class="iconBox"><label>Samsung 860 EVO</label></span>
+            </label>
+        </li>
+        <li class="filter">
+            <label class="checkContainer">
+                <input type="checkbox" name="GeForce3070" value="GeForce RTX 3070">
+                <span class="iconBox"><label>Samsung 870 EVO</label></span>
+            </label>
+        </li>
+        <li class="filter">
+            <label class="checkContainer">
+                <input type="checkbox" name="GeForce3070" value="GeForce RTX 3070">
+                <span class="iconBox"><label>Samsung 970 EVO</label></span>
+            </label>
+        </li>
+        <li class="filter">
+            <label class="checkContainer">
+                <input type="checkbox" name="GeForce3070" value="GeForce RTX 3070">
+                <span class="iconBox"><label>Samsung 980</label></span>
+            </label>
+        </li>
+    </ul>
+    <div class="inputBox-2">
+        <input class="submit" type="submit" name="" value="Применить">
     </div>
-    <div class="choice" style="--i:67px; --display:flex">
-      <div class="inputBox">
-        <input type="checkbox" name="GeForce3080" id="GeForce3080" value="GeForce RTX 3080">
-        <label for="GeForce3080">2.5″</label>
-        <i class="fas fa-check"></i>
-      </div>
-      <div class="inputBox">
-        <input type="checkbox" name="GeForce3070" id="GeForce3070" value="GeForce RTX 3070">
-        <label for="GeForce3070">3.5″</label>
-        <i class="fas fa-check"></i>
-      </div>
-    </div>
-  </div>
-
-  <div class="nav-filter">
-    <div class="f-toggle">
-      <h2 class="heading2">Производитель</h2>
-      <i class="fas fa-chevron-down"></i>
-      <span></span>
-    </div>
-    <div class="choice" style="--i:161px; --display:block">
-      <div class="inputBox">
-        <input type="checkbox" name="GeForce3080" id="GeForce3080" value="GeForce RTX 3080">
-        <label for="GeForce3080">Seagate</label>
-        <i class="fas fa-check"></i>
-      </div>
-      <div class="inputBox">
-        <input type="checkbox" name="GeForce3070" id="GeForce3070" value="GeForce RTX 3070">
-        <label for="GeForce3070">Toshiba</label>
-        <i class="fas fa-check"></i>
-      </div>
-      <div class="inputBox">
-        <input type="checkbox" name="GeForce3070" id="GeForce3070" value="GeForce RTX 3070">
-        <label for="GeForce3070">Western Digital</label>
-        <i class="fas fa-check"></i>
-      </div>
-    </div>
-  </div>
-
-  <div class="nav-filter">
-    <div class="f-toggle">
-      <h2 class="heading2">Интерфейс</h2>
-      <i class="fas fa-chevron-down"></i>
-      <span></span>
-    </div>
-    <div class="choice" style="--i:67px; --display:flex">
-      <div class="inputBox">
-        <input type="checkbox" name="GeForce3080" id="GeForce3080" value="GeForce RTX 3080">
-        <label for="GeForce3080">SATA III</label>
-        <i class="fas fa-check"></i>
-      </div>
-      <div class="inputBox">
-        <input type="checkbox" name="GeForce3070" id="GeForce3070" value="GeForce RTX 3070">
-        <label for="GeForce3070">SATA</label>
-        <i class="fas fa-check"></i>
-      </div>
-    </div>
-  </div>
-
-  <div class="nav-filter">
-    <div class="f-toggle">
-      <h2 class="heading2">Буфер обмена</h2>
-      <i class="fas fa-chevron-down"></i>
-      <span></span>
-    </div>
-    <div class="choice" style="--i:255px; --display:block">
-      <div class="inputBox">
-        <input type="checkbox" name="GeForce3080" id="GeForce3080" value="GeForce RTX 3080">
-        <label for="GeForce3080">256 МБ</label>
-        <i class="fas fa-check"></i>
-      </div>
-      <div class="inputBox">
-        <input type="checkbox" name="GeForce3070" id="GeForce3070" value="GeForce RTX 3070">
-        <label for="GeForce3070">128 МБ</label>
-        <i class="fas fa-check"></i>
-      </div>
-      <div class="inputBox">
-        <input type="checkbox" name="GeForce3060" id="GeForce3060" value="GeForce RTX 3060">
-        <label for="GeForce3060">64 МБ</label>
-        <i class="fas fa-check"></i>
-      </div>
-      <div class="inputBox">
-        <input type="checkbox" name="GeForce3050Ti" id="GeForce3050Ti" value="GeForce RTX 3050 Ti">
-        <label for="GeForce3050Ti">16 МБ</label>
-        <i class="fas fa-check"></i>
-      </div>
-      <div class="inputBox">
-        <input type="checkbox" name="GeForce3050" id="GeForce3050" value="GeForce RTX 3050">
-        <label for="GeForce3050">8 МБ</label>
-        <i class="fas fa-check"></i>
-      </div>
-    </div>
-  </div>
-
-  <div class="nav-filter">
-    <div class="f-toggle">
-      <h2 class="heading2">Скорость вращения</h2>
-      <i class="fas fa-chevron-down"></i>
-      <span></span>
-    </div>
-    <div class="choice" style="--i:161px; --display:block">
-      <div class="inputBox">
-        <input type="checkbox" name="GeForce3080" id="GeForce3080" value="GeForce RTX 3080">
-        <label for="GeForce3080">5400 оборотов/мин</label>
-        <i class="fas fa-check"></i>
-      </div>
-      <div class="inputBox">
-        <input type="checkbox" name="GeForce3070" id="GeForce3070" value="GeForce RTX 3070">
-        <label for="GeForce3070">5401–7199 оборотов/мин</label>
-        <i class="fas fa-check"></i>
-      </div>
-      <div class="inputBox">
-        <input type="checkbox" name="GeForce3060" id="GeForce3060" value="GeForce RTX 3060">
-        <label for="GeForce3060">7200 оборотов/мин</label>
-        <i class="fas fa-check"></i>
-      </div>
-    </div>
-  </div>
-
-  <div class="nav-filter">
-    <div class="f-toggle">
-      <h2 class="heading2">Скорость передачи данных</h2>
-      <i class="fas fa-chevron-down"></i>
-      <span></span>
-    </div>
-    <div class="choice" style="--i:67px; --display:flex">
-      <div class="inputBox">
-        <input type="checkbox" name="GeForce3080" id="GeForce3080" value="GeForce RTX 3080">
-        <label for="GeForce3080">600 МБ/с</label>
-        <i class="fas fa-check"></i>
-      </div>
-      <div class="inputBox">
-        <input type="checkbox" name="GeForce3070" id="GeForce3070" value="GeForce RTX 3070">
-        <label for="GeForce3070">До 600 МБ/с</label>
-        <i class="fas fa-check"></i>
-      </div>
-    </div>
-  </div>
-
-  <div class="nav-filter">
-    <div class="f-toggle">
-      <h2 class="heading2">Количество пластин</h2>
-      <i class="fas fa-chevron-down"></i>
-      <span></span>
-    </div>
-    <div class="choice" style="--i:208px; --display:block">
-      <div class="inputBox">
-        <input type="checkbox" name="GeForce3080" id="GeForce3080" value="GeForce RTX 3080">
-        <label for="GeForce3080">1 пластина</label>
-        <i class="fas fa-check"></i>
-      </div>
-      <div class="inputBox">
-        <input type="checkbox" name="GeForce3070" id="GeForce3070" value="GeForce RTX 3070">
-        <label for="GeForce3070">2 пластины</label>
-        <i class="fas fa-check"></i>
-      </div>
-      <div class="inputBox">
-        <input type="checkbox" name="GeForce3060" id="GeForce3060" value="GeForce RTX 3060">
-        <label for="GeForce3060">4 пластины</label>
-        <i class="fas fa-check"></i>
-      </div>
-      <div class="inputBox">
-        <input type="checkbox" name="GeForce3050Ti" id="GeForce3050Ti" value="GeForce RTX 3050 Ti">
-        <label for="GeForce3050Ti">5 пластин</label>
-        <i class="fas fa-check"></i>
-      </div>
-    </div>
-  </div>
-
-  <div class="nav-filter">
-    <div class="f-toggle">
-      <h2 class="heading2">Линейка Hitachi</h2>
-      <i class="fas fa-chevron-down"></i>
-      <span></span>
-    </div>
-    <div class="choice" style="--i:67px; --display:block">
-      <div class="inputBox">
-        <input type="checkbox" name="GeForce3080" id="GeForce3080" value="GeForce RTX 3080">
-        <label for="GeForce3080">Ultrastar</label>
-        <i class="fas fa-check"></i>
-      </div>
-    </div>
-  </div>
-
-  <div class="nav-filter">
-    <div class="f-toggle">
-      <h2 class="heading2">Линейка Seagate</h2>
-      <i class="fas fa-chevron-down"></i>
-      <span></span>
-    </div>
-    <div class="choice" style="--i:255px; --display:block">
-      <div class="inputBox">
-        <input type="checkbox" name="GeForce3080" id="GeForce3080" value="GeForce RTX 3080">
-        <label for="GeForce3080">BarraCuda</label>
-        <i class="fas fa-check"></i>
-      </div>
-      <div class="inputBox">
-        <input type="checkbox" name="GeForce3070" id="GeForce3070" value="GeForce RTX 3070">
-        <label for="GeForce3070">BarraCuda Pro</label>
-        <i class="fas fa-check"></i>
-      </div>
-      <div class="inputBox">
-        <input type="checkbox" name="GeForce3060" id="GeForce3060" value="GeForce RTX 3060">
-        <label for="GeForce3060">IronWolf (NAS)</label>
-        <i class="fas fa-check"></i>
-      </div>
-      <div class="inputBox">
-        <input type="checkbox" name="GeForce3050Ti" id="GeForce3050Ti" value="GeForce RTX 3050 Ti">
-        <label for="GeForce3050Ti">SkyHawk (Secure)</label>
-        <i class="fas fa-check"></i>
-      </div>
-      <div class="inputBox">
-        <input type="checkbox" name="GeForce3050" id="GeForce3050" value="GeForce RTX 3050">
-        <label for="GeForce3050">IronWolf Pro</label>
-        <i class="fas fa-check"></i>
-      </div>
-    </div>
-  </div>
-
-  <div class="nav-filter">
-    <div class="f-toggle">
-      <h2 class="heading2">Линейка Toshiba</h2>
-      <i class="fas fa-chevron-down"></i>
-      <span></span>
-    </div>
-    <div class="choice" style="--i:208px; --display:block">
-      <div class="inputBox">
-        <input type="checkbox" name="GeForce3080" id="GeForce3080" value="GeForce RTX 3080">
-        <label for="GeForce3080">P300</label>
-        <i class="fas fa-check"></i>
-      </div>
-      <div class="inputBox">
-        <input type="checkbox" name="GeForce3070" id="GeForce3070" value="GeForce RTX 3070">
-        <label for="GeForce3070">L200</label>
-        <i class="fas fa-check"></i>
-      </div>
-      <div class="inputBox">
-        <input type="checkbox" name="GeForce3060" id="GeForce3060" value="GeForce RTX 3060">
-        <label for="GeForce3060">X300</label>
-        <i class="fas fa-check"></i>
-      </div>
-      <div class="inputBox">
-        <input type="checkbox" name="GeForce3050Ti" id="GeForce3050Ti" value="GeForce RTX 3050 Ti">
-        <label for="GeForce3050Ti">Enterprise Capacity</label>
-        <i class="fas fa-check"></i>
-      </div>
-    </div>
-  </div>
-
-  <div class="nav-filter">
-    <div class="f-toggle">
-      <h2 class="heading2">Линейка Western Digital</h2>
-      <i class="fas fa-chevron-down"></i>
-      <span></span>
-    </div>
-    <div class="choice" style="--i:443px; --display:block">
-      <div class="inputBox">
-        <input type="checkbox" name="GeForce3080" id="GeForce3080" value="GeForce RTX 3080">
-        <label for="GeForce3080">Blue</label>
-        <i class="fas fa-check"></i>
-      </div>
-      <div class="inputBox">
-        <input type="checkbox" name="GeForce3070" id="GeForce3070" value="GeForce RTX 3070">
-        <label for="GeForce3070">Black</label>
-        <i class="fas fa-check"></i>
-      </div>
-      <div class="inputBox">
-        <input type="checkbox" name="GeForce3060" id="GeForce3060" value="GeForce RTX 3060">
-        <label for="GeForce3060">Caviar Black</label>
-        <i class="fas fa-check"></i>
-      </div>
-      <div class="inputBox">
-        <input type="checkbox" name="GeForce3050Ti" id="GeForce3050Ti" value="GeForce RTX 3050 Ti">
-        <label for="GeForce3050Ti">Red</label>
-        <i class="fas fa-check"></i>
-      </div>
-      <div class="inputBox">
-        <input type="checkbox" name="GeForce3050" id="GeForce3050" value="GeForce RTX 3050">
-        <label for="GeForce3050">Red Pro</label>
-        <i class="fas fa-check"></i>
-      </div>
-      <div class="inputBox">
-        <input type="checkbox" name="GeForce2080" id="GeForce2080" value="GeForce RTX 2080">
-        <label for="GeForce2080">RED (NAS)</label>
-        <i class="fas fa-check"></i>
-      </div>
-      <div class="inputBox">
-        <input type="checkbox" name="GeForce2070" id="GeForce2070" value="GeForce RTX 2070">
-        <label for="GeForce2070">RED PRO (NAS)</label>
-        <i class="fas fa-check"></i>
-      </div>
-      <div class="inputBox">
-        <input type="checkbox" name="GeForce2060" id="GeForce2060" value="GeForce RTX 2060">
-        <label for="GeForce2060">Purple</label>
-        <i class="fas fa-check"></i>
-      </div>
-      <div class="inputBox">
-        <input type="checkbox" name="GeForce1650Ti" id="GeForce1650Ti" value="GeForce GTX 1650 Ti">
-        <label for="GeForce1650Ti">Purple Surveillance</label>
-        <i class="fas fa-check"></i>
-      </div>
-    </div>
-  </div>
-  <div class="inputBox-2">
-    <input type="submit" name="" value="Применить">
-  </div>
-</div>
+</form>

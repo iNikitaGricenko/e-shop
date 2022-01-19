@@ -26,22 +26,22 @@
 		<h2 class="heading">Причина звонка</h2>
 		<div>
 			<input type="radio" name="reason" value="Arrange" id="radio1" required="">
-			<label for="radio1">Оформить заказ</label>
+			<label class="label-primary" for="radio1">Оформить заказ</label>
 			<i class="fas fa-check"></i>
 		</div>
 		<div>
 			<input type="radio" name="reason" value="Receive" id="radio2" required="">
-			<label for="radio2">Получить информацию о товаре</label>
+			<label class="label-primary" for="radio2">Получить информацию о товаре</label>
 			<i class="fas fa-check"></i>
 		</div>
 		<div>
 			<input type="radio" name="reason" value="Warranty" id="radio3" required="">
-			<label for="radio3">Гарантийное обращение</label>
+			<label class="label-primary" for="radio3">Гарантийное обращение</label>
 			<i class="fas fa-check"></i>
 		</div>
 		<div>
 			<input type="radio" name="reason" value="Other" id="radio4" required="">
-			<label for="radio4">Другое</label>
+			<label class="label-primary" for="radio4">Другое</label>
 			<i class="fas fa-check"></i>
 		</div>
 	</div>
@@ -51,63 +51,63 @@
 </div>
 <!-- recall end -->
 
-<div th:fragment="settings" id="settings" th:if="${User != null}">
-	<form class="formBox-form" th:action="@{/changeProfile}" th:object="${User}"  method="POST" enctype="multipart/form-data">
+<div th:fragment="settings" id="settings" sec:authorize="isAuthenticated()">
+	<form class="formBox-form" th:action="@{/changeProfile}" th:object="${User}" method="POST" enctype="multipart/form-data">
 		<i class="fas fa-times-circle close" onclick="settings()"></i>
-		<div class="inputBox admin" th:if="${User.isAdmin()}">
+		<div class="inputBox admin" sec:authorize="hasRole('ROLE_ADMIN')">
 			<a href="/admin" class="link-btn">Админ панель</a>
 		</div>
 		<h2 class="heading">Настройки профиля</h2>
 
 		<div class="imgBox inputImgBox">
-			<img id="ProfileImage" th:src="${User.photo}">
-			<input type="file" accept="image/jpg, image/jpeg, image/png" name="photo">
+			<img id="ProfileImage" th:src="*{photo}">
+			<input type="file" accept="image/jpg, image/jpeg, image/png" name="photoFile">
 		</div>
 
 		<div class="inputBox">
-			<input type="email" name="login" required="" th:value="${User.login}">
+			<input type="email" name="login" required="" th:value="*{login}">
 			<label>E-mail адрес</label>
 			<span></span>
 		</div>
 		<div class="inputBox">
-			<input type="password" name="password" required="" th:value="${User.password}">
+			<input type="password" name="password" required="" th:value="*{password}">
 			<label>Пароль</label>
 			<span></span>
 		</div>
 
 		<div class="inputBox">
 			<div></div>
-			<input type="text" name="firstName" id="FirstName" required="" th:value="${User.firstName}">
+			<input type="text" name="firstName" id="FirstName" required="" th:value="*{firstName}">
 			<label for="FirstName">Имя</label>
 			<span></span>
 		</div>
 		<div class="inputBox">
 			<div></div>
-			<input type="text" name="secondName" id="SecondName" required="" th:value="${User.secondName}">
+			<input type="text" name="secondName" id="SecondName" required="" th:value="*{secondName}">
 			<label for="SecondName">Фамилия</label>
 			<span></span>
 		</div>
 		<div class="inputBox">
 			<div></div>
-			<input type="text" name="middleName" id="MiddleName" required="" th:value="${User.middleName}">
+			<input type="text" name="middleName" id="MiddleName" required="" th:value="*{middleName}">
 			<label for="MiddleName">Отчество</label>
 			<span></span>
 		</div>
 		<div class="inputBox">
 			<div></div>
-			<input type="text" name="phone" id="MainPhone" autocomplete="on"  required="" th:value="${User.phone}">
+			<input type="text" name="phone" id="MainPhone" autocomplete="on"  required="" th:value="*{phone}">
 			<label for="MainPhone">Телефон</label>
 			<span></span>
 		</div>
 		<div class="inputBox">
 			<div></div>
-			<input type="text" name="city" id="City" required="" th:value="${User.city}">
+			<input type="text" name="city" id="City" required="" th:value="*{city}">
 			<label for="City">Город</label>
 			<span></span>
 		</div>
 		<div class="inputBox">
 			<div></div>
-			<input type="text" onfocus="(this.type='date')" onblur="if(this.value==''){this.type='text'}" name="registerDate" id="Regday" required="" th:value="${User.registerDate}" readonly>
+			<input type="text" onfocus="(this.type='date')" onblur="if(this.value==''){this.type='text'}" name="registerDate" id="Regday" required="" th:value="*{registerDate}" readonly>
 			<label for="regday" style="top: -30px;left: 0;color: var(--primary);">Дата регистрации</label>
 			<span></span>
 		</div>
@@ -116,7 +116,6 @@
 			<input type="submit" name="" value="Изменить профиль" oninvalid="settings()">
 		</div>
 	</form>
-
 </div>
 
 <!-- login start -->
@@ -149,7 +148,7 @@
 <div th:fragment="register" id="register">
 	<i class="fas fa-times-circle close" onclick="some(this)"></i>
 	<div class="formBox">
-		<form class="formBox-form" modelAttribute="User" name="User" th:action="@{/registration}" method="post">
+		<form class="formBox-form" th:action="@{/registration}" modelAttribute="User" method="post">
 			<h2 class="form-heading">Регистрация</h2>
 			<div class="inputBox">
 				<input type="email" name="login" required="">

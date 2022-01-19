@@ -5,19 +5,22 @@ import lombok.Setter;
 
 import javax.persistence.*;
 import java.util.Collection;
+import java.util.HashSet;
+import java.util.Set;
 
 @Getter
 @Setter
-@Entity
+@Entity @Table(name = "role", catalog = "user_datas")
 public class Role {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long role_id;
+
     private String role;
 
     @ManyToMany(mappedBy = "roles")
-    private Collection<User> users;
+    private Set<User> users = new HashSet<>();
 
     public Role() {}
 
