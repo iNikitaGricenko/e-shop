@@ -1,20 +1,14 @@
-body
-{
-    background: var(--pb-light);
-}
-header .imgBox
-{
-    height: 100vh;
-}
 .block
 {
     position: relative;
     width: 100%;
     height: auto;
-    padding: 25px 0;
-    background: #FFF;
-    display: flex;
+    display: inline-block;
+    background: white;
     font-size: 16px;
+    margin-top: 70px;
+    padding: 30px 15px;
+    border-radius: 13px;
 }
 .block .content
 {
@@ -23,19 +17,24 @@ header .imgBox
     justify-content: center;
     width: 100%;
     height: 100%;
-    min-height: 100vh;
-    z-index: 1;
+    transform: translateY(-5%);
 }
 .head
 {
     position: relative;
     display: flex;
-    align-items: center;
-    flex-direction: column;
     flex-wrap: wrap;
+    flex-direction: column;
+    align-items: center;
     width: 100%;
     height: 100%;
-    background: #fff;
+    border-radius: 15px;
+
+    padding-block: 10px;
+    margin-inline: auto;
+    background: linear-gradient(60deg, rgb(251 93 97), rgb(230 41 47));
+    transform: translateY(-75%);
+    box-shadow: 0 12px 20px -10px rgb(233 64 69 / 28%);
 }
 .head .heading
 {
@@ -45,36 +44,34 @@ header .imgBox
     text-align: center;
     padding: 10px 10px 25px;
     margin: 0;
-    color: #fff;
-    background: #111;
+    color: #FFFFFF;
+    border-radius: 30px;
 }
 .head .inputBox
 {
     position: relative;
     display: flex;
-    width: 422px;
+    width: 100%;
+    max-width: 422px;
     padding: 0 10px;
-    background: #FFF;
+    font-size: 16px;
 }
 .head .inputBox input
 {
     position: relative;
+    background: #FFF;
+    border-bottom: 1px solid #000;
     width: calc(100% - 38px);
-    padding: 10px 0;
-    padding-left: 10px;
+    padding-block: 10px;
+    padding-left: 16px;
     margin-bottom: 1px;
     font-size: 16px;
-    color: #000;
+    text-align: start;
     letter-spacing: 1px;
-    background: transparent;
+    color: #000;
     box-shadow: 0 2px 5px rgba(0,0,0,0.3);
     -webkit-box-shadow: 0 2px 5px rgba(0,0,0,0.3);
     -moz-box-shadow: 0 2px 5px rgba(0,0,0,0.3);
-    border: none;
-    outline: none;
-    border-bottom: 1px solid #000;
-    font-family: sans-serif;
-    text-align: start;
     transition: 0.5s;
     -moz-transition: 0.5s;
     -o-transition: 0.5s;
@@ -84,11 +81,10 @@ header .imgBox
 {
     position: absolute;
     padding: 10px 0;
-    margin-left: 6%;
-    font-size: 1rem;
+    margin-left: 4%;
+    font-size: 1em;
     color: #000;
     letter-spacing: 1px;
-    font-family: sans-serif;
     pointer-events: none;
     transition: .5s;
     -moz-transition: 0.5s;
@@ -109,7 +105,7 @@ header .imgBox
 {
     position: absolute;
     background: #000;
-    border-radius: 50%;
+    border-radius: 30%;
     box-shadow: -3px -3px 5px rgba(0,0,0,0.25),
     3px 3px 5px rgba(0,0,0,0.25);
     -webkit-box-shadow: -3px -3px 5px rgba(0,0,0,0.25),
@@ -147,18 +143,16 @@ header .imgBox
     grid-template-columns: repeat(4, 1fr);
     grid-gap: 1rem;
     justify-content: center;
+    align-items: center;
+    height: 100%;
 }
 .block .content .container .contentBox
 {
-    background: #FFF;
     padding: 1.8rem 1.5rem;
-    margin: 2px;
     width: 20.625rem;
-    height: fit-content;
-    display: flex;
-    justify-content: center;
-    text-align: left;
-    border: 1px solid #00000014;
+    background: white;
+    border-radius: 10px;
+    box-shadow: 4px 4px 2px rgb(200 200 200 / 50%);
     transition: box-shadow 0.5s, color 0.5s ease-in-out;
     -moz-transition: box-shadow 0.5s, transform 0.5s ease, color 0.5s ease-in-out;
     -o-transition: box-shadow 0.5s, transform 0.5s ease, color 0.5s ease-in-out;
@@ -167,7 +161,6 @@ header .imgBox
     -moz-transition-delay: box-shadow 0.15s;
     -o-transition-delay: box-shadow 0.15s;
     -webkit-transition-delay: box-shadow 0.15s;
-    z-index: 100;
 }
 .block .content .container .contentBox .preview
 {
@@ -183,11 +176,12 @@ header .imgBox
 .block .content .container .contentBox .Name
 {
     width: 100%;
+    font-family: 'Dosis', sans-serif;
     font-size: 1.2rem;
     font-weight: 600;
     text-align: end;
-    color: #000;
     text-decoration: none;
+    color: #000;
     transition: text-shadow 0.3s;
     -moz-transition: text-shadow 0.3s;
     -o-transition: text-shadow 0.3s;
@@ -214,7 +208,8 @@ header .imgBox
 }
 .block .content .container .contentBox .cost .money
 {
-    font-weight: 800;
+    font-family: 'Dosis', sans-serif;
+    font-weight: 700;
     font-size: 1.4em;
     padding: 10px;
 }
@@ -250,14 +245,14 @@ header .imgBox
     transition: color 500ms ease;
     width: 100%;
     height: 100%;
-    border-radius: 50%;
+    border-radius: 30%;
 }
 .block .content .container .contentBox .cost .icons a:nth-child(2) i
 {
     position: relative;
     color: var(--light-shades);
     background: var(--primary-triangular);
-    border-radius: 50%;
+    border-radius: 30%;
     transition: background-color 500ms ease;
 }
 .block .content .container .contentBox .cost .icons a:nth-child(1) i:hover
@@ -272,7 +267,6 @@ header .imgBox
 
 .link-cards
 {
-    background: #F6EFEA;
     display: flex;
     justify-content: center;
     align-content: center;
@@ -285,116 +279,77 @@ header .imgBox
     align-items: end;
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
     grid-gap: 20px;
-    padding: 20px 100px;
-    background: #BD1F2A;
+    padding: 50px;
+    border-radius: 15px;
 }
-.card
-{
-    color: #FFF;
-    backdrop-filter: blur(15px);
-    background: linear-gradient(
-            hsl(0 0% 0% / 0),
-            hsl(0 0% 0% / 1)
-    );
-    border-radius: .5rem;
-    overflow: hidden;
-    transition: transform 500ms ease;
+
+.card {
+    display: grid;
+    grid-template-columns: 100%;
+    grid-template-rows: 210px 110px 80px;
+    grid-template-areas: "image" "text" "stats";
+
+    border-radius: 18px;
+    background: white;
+    box-shadow: 6px 7px 1px rgb(0 0 0 / 5%);
+
+    text-align: center;
 }
-.card:hover,
-.card:focus-within,
-.card:focus
-{
-    outline: none;
-    transform: scale(1.05);
+.card-image {
+    grid-area: image;
+
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
+
+    background-color: var(--light-shades);
+    background-image: var(--background-img);
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+
+    pointer-events: none;
 }
-.card img
-{
-    background-size: cover;
-    max-width: 100%;
+
+.card-text {
+    grid-area: text;
+    margin: 25px;
 }
-.card .content
-{
-    --padding: 1.5rem;
-    padding: 0 var(--padding) 0;
-    background: linear-gradient(
-            hsl(0 0% 0% / 0),
-            hsl(0 0% 0% / 0.2) 10%,
-            hsl(0 0% 0% / 1)
-    );
-    max-width: 100%;
+.card-text .h2 {
+    color: grey;
+    margin-top: 0px;
+    font-size: 28px;
+    font-weight: 300;
 }
-.card .content .card-title
-{
-    position: relative;
-    width: max-content;
+.card-stats {
+    grid-area: stats;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    padding: 10px;
+
+    border-bottom-left-radius: 15px;
+    border-bottom-right-radius: 15px;
+
+    background-color: var(--main-brand);
 }
-.card .content .card-title::after
-{
-    content: '';
-    position: absolute;
-    left: calc(var(--padding) * -1);
-    bottom: -2px;
-    height: 4px;
-    width: calc(100% + var(--padding));
-    background: var(--primary);
-    transform-origin: left;
-    transition: transform 500ms ease;
+.card-stats .count {
+    font-size: 11px;
+    font-weight: 300;
+    text-transform: uppercase;
+    color: #FFFFFF;
 }
-.card:hover .content .card-title::after,
-.card:focus-within .content .card-title::after
-{
-    transform: scaleX(1);
-}
-.card .content .button
-{
-    cursor: pointer;
-    display: inline-block;
+.card-stats .button {
+    font-size: 22px;
+    font-weight: 500;
     text-decoration: none;
-    color: #FFF;
-    background: var(--primary);
-    padding: .5em 1.25em;
-    border-radius: 0.25em;
-    margin-top: 10px;
+    color: #ffffff;
 }
-.card .content .button:hover,
-.card .content .button:focus
-{
-    outline: none;
-    background-color: #FFF;
-    color: #000;
+.card-stats .button:hover {
+    color: #121212;
 }
-@media (hover) {
-    .card .content
-    {
-        transform: translateY(50%);
-        transition: transform 500ms ease;
-    }
-    .card:hover .content,
-    .card:focus-within .content
-    {
-        transform: translateY(-10%);
-        transition-delay: 500ms;
-    }
-    .card:focus-within .content
-    {
-        transition-duration: 0ms;
-    }
-    .card .content > *:not(.card-title)
-    {
-        opacity: 0;
-        transition: opacity 500ms linear;
-    }
-    .card:hover .content > *:not(.card-title),
-    .card:focus-within .content > *:not(.card-title)
-    {
-        opacity: 1;
-        transition-delay: 1000ms;
-    }
-    .card .content .card-title::after
-    {
-        transform: scaleX(0);
-    }
-}
+
 .card-second
 {
     width: 100%;
@@ -443,7 +398,6 @@ header .imgBox
     color: #83b81a;
     font-size: 1.5em;
     font-weight: 600;
-    font-family: serif;
 }
 .card-second a
 {
@@ -512,7 +466,6 @@ header .imgBox
     color: var(--s-light);
     font-size: 1.5em;
     font-weight: 600;
-    font-family: serif;
     margin: 5px;
 }
 .card-second .content .productName h3
@@ -546,6 +499,7 @@ header .imgBox
     padding-inline: 5px;
     visibility: visible;
     font-size: 14px;
+    transform: translateY(-5%);
 }
 .FilterList
 {
@@ -560,9 +514,8 @@ header .imgBox
     width: fit-content;
     height: 4.25em;
     overflow: hidden;
-    background: #ebf5fc;
-    box-shadow: -2px -2px 5px rgba(255,255,255,1),
-    3px 3px 5px rgba(0,0,0,0.1);
+    background: #f5f6f86b;
+    box-shadow: 4px 4px 2px rgb(200 200 200 / 50%);
 }
 .FilterList.active
 {
@@ -571,7 +524,7 @@ header .imgBox
 .FilterList .FilterName
 {
     width: 100%;
-    font-size: 1.6em;
+    font-size: 1.2em;
     color: var(--primary);
     cursor: pointer;
     user-select: none;
@@ -623,9 +576,9 @@ header .imgBox
     height: 60px;
     padding-inline: 10px;
 
-    background: #ebf5fc;
-    box-shadow: -2px -2px 5px rgba(255,255,255,1),
-    3px 3px 5px rgba(0,0,0,0.1);
+    background: #ffffff;
+    box-shadow: inset -2px -2px 5px rgb(0 0 0 / 10%),
+    inset 3px 3px 5px rgb(255 255 255 / 50%);
     border-radius: 10px;
     pointer-events: none;
 }
@@ -654,9 +607,9 @@ header .imgBox
     height: fit-content;
     padding-inline: 15px;
     margin-block: 5px;
-    background: #ebf5fc;
-    box-shadow: -2px -2px 5px rgb(255 255 255), 3px 3px 5px rgb(0 0 0 / 10%);
-    font-size: 22px;
+    background: #ffffff;
+    border-radius: 5px;
+    font-size: 16px;
 }
 .NavigationContainer .inputBox-2 label
 {
@@ -750,22 +703,29 @@ header .imgBox
 /*@media only screen (max-width: 1080px)*/
 @media (max-width: 959px)
 {
-    .head .heading
-    {
-        width: 100%;
+    .head {
+        transform: translateY(0);
+        margin-bottom: 20px;
     }
-    .block
+    .block .content {
+        transform: translateY(0);
+    }
+    .block .content .container
     {
-        display: block;
-        font-size: 14px;
-        padding: 0;
-        padding-bottom: 75px;
+        width: auto;
+        grid-template-columns: auto;
+        grid-gap: 0.5rem;
+    }
+    .block .content .container .contentBox:hover
+    {
+        transform: scale(1);
     }
     .block .NavigationContainer
     {
         width: 100%;
         padding-inline: 20px;
         background: #ebf5fc;
+        transform: translateY(0);
     }
     .block .NavigationContainer.active
     {
@@ -800,22 +760,12 @@ header .imgBox
         background: var(--primary);
         color: #FFF;
     }
-    .block .content .container
-    {
-        width: auto;
-        grid-template-columns: auto;
-        grid-gap: 0.5rem;
-    }
-    .block .content .container .contentBox:hover
-    {
-        transform: scale(1);
-    }
     .card
     {
         height: auto;
         margin: 25px 0;
     }
-    .card .content
+    .card .card-stats
     {
         padding: var(--padding);
     }
@@ -837,7 +787,9 @@ header .imgBox
     .link-cards .container
     {
         width: 1080px;
-        padding: 100px 25px;
         display: block;
+    }
+    .head .inputBox {
+        font-size: 14px;
     }
 }

@@ -50,7 +50,6 @@
 .product .container .content.main .info .serial
 {
 	font-size: 18px;
-	font-family: serif;
 	color: rgba(0,0,0,0.7);
 	padding: 0 20px;
 	display: flex;
@@ -60,7 +59,6 @@
 {
 	font-size: 14px;
 	font-weight: 500;
-	font-family: sans-serif;
 	padding: 0 5px;
 }
 .product .container .content.main .info .imgBox
@@ -105,7 +103,6 @@
 	padding: 0 5px;
 	font-size: 1.2em;
 	font-weight: 700;
-	font-family: serif;
 }
 .product .container .content.main .info .charact .description .about
 {
@@ -113,7 +110,6 @@
 	padding: 0 5px;
 	font-size: 1.1em;
 	font-weight: 500;
-	font-family: serif;
 }
 .product .container .content.price
 {
@@ -135,7 +131,6 @@
 .product .container .content.price .main h1
 {
 	padding: 0 10px;
-	font-family: serif;
 	display: flex;
 	align-items: baseline;
 }
@@ -143,7 +138,6 @@
 {
 	font-size: 16px;
 	font-weight: 500;
-	font-family: sans-serif;
 	padding: 0 10px;
 }
 .product .container .content.price .main .inputBox
@@ -203,14 +197,12 @@
 .product .container .content.detailed .heading
 {
 	color: #fff;
-	font-family: serif;
 	display: flex;
 	justify-content: space-between;
 }
 .product .container .content.detailed .heading p
 {
 	color: rgba(255,255,255,0.5);
-	font-family: serif;
 	font-weight: 500;
 	font-size: 1em;
 }

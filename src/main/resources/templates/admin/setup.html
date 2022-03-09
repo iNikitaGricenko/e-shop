@@ -2,9 +2,7 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
 <head>
   <meta charset="utf-8" />
-  <title th:text="${title}">
-
-  </title>
+  <title th:text="${title}"></title>
   <link rel="icon" href="#">
   <meta name='viewport' content='width=device-width, initial-scale=1.0'>
   <script src="https://kit.fontawesome.com/979f4e20dd.js" crossorigin="anonymous"></script>
@@ -90,7 +88,7 @@
         </form>
       </div>
       <div class="user">
-        <a href="settings"><img th:src="${User.photo}"></a>
+        <a href="settings"><img th:src="'/'+${User.photo}"></a>
       </div>
     </div>
 

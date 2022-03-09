@@ -17,348 +17,351 @@
 
 <body>
 <!-- loader start -->
-<div th:insert="blocks/loader :: loader"></div>
+<th:block th:insert="blocks/loader :: loader"></th:block>
 <!-- loader end -->
-	<main id="blur">
+<div class="main-container" id="blur">
   <!-- header start -->
-   <div th:insert="blocks/header :: header"></div>
-  <!-- nagivation end -->
-  <div class="product">
-    <h2 class="heading">Ноутбук Gigabyte G5 GD (GD-51RU121SD) Black</h2>
-    <div class="container">
-      <div class="content main">
-        <div class="info">
-          <h3 class="serial">
-            Код: <p>376645</p>
-          </h3>
-          <div class="imgBox">
-            <img class="image" th:src="@{/img/gigabyte-g5-gd-gd-51ru121sd-black.png}">
+  <th:block th:insert="blocks/header :: navigation"></th:block>
+  <div class="main-content">
+    <th:block th:insert="blocks/header :: header"></th:block>
+    <!-- nagivation end -->
+    <div class="product">
+      <h2 class="heading">Ноутбук Gigabyte G5 GD (GD-51RU121SD) Black</h2>
+      <div class="container">
+        <div class="content main">
+          <div class="info">
+            <h3 class="serial">
+              Код: <p>376645</p>
+            </h3>
+            <div class="imgBox">
+              <img class="image" th:src="@{/img/gigabyte-g5-gd-gd-51ru121sd-black.png}">
+            </div>
+            <div class="charact">
+              <h2>Краткие характеристики:</h2>
+              <ul class="description">
+                <li>
+                  <p class="title">Дисплей: </p>
+                  <p class="about">15.6″ (1920x1080, IPS)</p>
+                </li>
+                <li>
+                  <p class="title">Процессор: </p>
+                  <p class="about">Intel Core i5-10500H (2.5–4.5 ГГц), 6 ядер</p>
+                </li>
+                <li>
+                  <p class="title">Оперативная память: </p>
+                  <p class="about">16 ГБ (DDR4)</p>
+                </li>
+                <li>
+                  <p class="title">Внутренний накопитель: </p>
+                  <p class="about">512 ГБ (SSD)</p>
+                </li>
+                <li>
+                  <p class="title">Видеокарта: </p>
+                  <p class="about">NVIDIA GeForce RTX 3060 для ноутбуков</p>
+                </li>
+                <li>
+                  <p class="title">Габариты: </p>
+                  <p class="about">361 x 258 x 27.9 мм</p>
+                </li>
+                <li>
+                  <p class="title">Вес: </p>
+                  <p class="about">2.2 кг</p>
+                </li>
+              </ul>
+            </div>
           </div>
-          <div class="charact">
-            <h2>Краткие характеристики:</h2>
-            <ul class="description">
-              <li>
-                <p class="title">Дисплей: </p>
-                <p class="about">15.6″ (1920x1080, IPS)</p>
-              </li>
-              <li>
-                <p class="title">Процессор: </p>
-                <p class="about">Intel Core i5-10500H (2.5–4.5 ГГц), 6 ядер</p>
-              </li>
-              <li>
-                <p class="title">Оперативная память: </p>
-                <p class="about">16 ГБ (DDR4)</p>
-              </li>
-              <li>
-                <p class="title">Внутренний накопитель: </p>
-                <p class="about">512 ГБ (SSD)</p>
-              </li>
-              <li>
-                <p class="title">Видеокарта: </p>
+
+        </div>
+        <div class="content price">
+          <h3 class="available">Есть в наличии</h3>
+          <div class="main">
+            <h1>39 599<p>грн</p></h1>
+            <div class="inputBox">
+              <i class="fas fa-shopping-cart"></i>
+              <input type="submit" name="" value="Купить">
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="container">
+        <div class="content detailed">
+          <h2 class="heading">Технические характеристики <p>Ноутбук Gigabyte G5 KC (G5_KC-5RU1130SD) Black</p></h2>
+
+          <ul class="parts">
+            <h2>Процессор</h2>
+            <li>
+              <h3 class="title">Процессор</h3>
+              <data>
+                <p class="about">Intel Core i5-10500H (2.5–4.5 ГГц)</p>
+              </data>
+            </li>
+            <li>
+              <h3 class="title">Производительность процессора</h3>
+              <data>
+                <p class="about">12407</p>
+              </data>
+            </li>
+            <li>
+              <h3 class="title">Количество ядер</h3>
+              <data>
+                <p class="about">6 ядер</p>
+              </data>
+            </li>
+            <li>
+              <h3 class="title">Количество потоков</h3>
+              <data>
+                <p class="about">12 потоков</p>
+              </data>
+            </li>
+            <li>
+              <h3 class="title">Объем кэша L3</h3>
+              <data>
+                <p class="about"> 12 288 Кбайт</p>
+              </data>
+            </li>
+          </ul>
+
+          <ul class="parts">
+            <h2>Видеокарта</h2>
+            <li>
+              <h3 class="title">Тип</h3>
+              <data>
+                <p class="about">Дискретная</p>
+              </data>
+            </li>
+            <li>
+              <h3 class="title">Видеокарта</h3>
+              <data>
                 <p class="about">NVIDIA GeForce RTX 3060 для ноутбуков</p>
-              </li>
-              <li>
-                <p class="title">Габариты: </p>
+              </data>
+            </li>
+            <li>
+              <h3 class="title">Объем видеопамяти</h3>
+              <data>
+                <p class="about">6 ГБ</p>
+              </data>
+            </li>
+            <li>
+              <h3 class="title">Тип видеопамяти</h3>
+              <data>
+                <p class="about">GDDR6</p>
+              </data>
+            </li>
+            <li>
+              <h3 class="title">Производительность видеокарты</h3>
+              <data>
+                <p class="about">11989</p>
+              </data>
+            </li>
+          </ul>
+
+          <ul class="parts">
+            <h2>Дисплей</h2>
+            <li>
+              <h3 class="title">Диагональ</h3>
+              <data>
+                <p class="about">15.6″</p>
+              </data>
+            </li>
+            <li>
+              <h3 class="title">Разрешение</h3>
+              <data>
+                <p class="about">1920x1080</p>
+              </data>
+            </li>
+            <li>
+              <h3 class="title">Тип матрицы</h3>
+              <data>
+                <p class="about">IPS</p>
+              </data>
+            </li>
+            <li>
+              <h3 class="title">Частота обновления</h3>
+              <data>
+                <p class="about">144 Гц</p>
+              </data>
+            </li>
+            <li>
+              <h3 class="title">Покрытие</h3>
+              <data>
+                <p class="about">Матовое</p>
+              </data>
+            </li>
+          </ul>
+
+          <ul class="parts">
+            <h2>Оперативная память</h2>
+            <li>
+              <h3 class="title">Объем</h3>
+              <data>
+                <p class="about">16 ГБ</p>
+              </data>
+            </li>
+            <li>
+              <h3 class="title">Частота</h3>
+              <data>
+                <p class="about">2.9 ГГц</p>
+              </data>
+            </li>
+            <li>
+              <h3 class="title">Тип</h3>
+              <data>
+                <p class="about">DDR4</p>
+              </data>
+            </li>
+            <li>
+              <h3 class="title">Количество слотов</h3>
+              <data>
+                <p class="about">2 слота</p>
+              </data>
+            </li>
+            <li>
+              <h3 class="title">Максимальный поддерживаемый объем</h3>
+              <data>
+                <p class="about">64 ГБ</p>
+              </data>
+            </li>
+          </ul>
+
+          <ul class="parts">
+            <h2>Внутренний накопитель</h2>
+            <li>
+              <h3 class="title">Тип</h3>
+              <data>
+                <p class="about">SSD</p>
+              </data>
+            </li>
+            <li>
+              <h3 class="title">Объем SSD</h3>
+              <data>
+                <p class="about">512 ГБ</p>
+              </data>
+            </li>
+            <li>
+              <h3 class="title">Дополнительно</h3>
+              <data>
+                <p class="about">PCIe NVMe</p>
+              </data>
+            </li>
+          </ul>
+
+          <ul class="parts">
+            <h2>Порты и беспроводные технологии</h2>
+            <li>
+              <h3 class="title">Порты</h3>
+              <data>
+                <p class="about">1 x USB 2.0</p>
+                <p class="about">1 x USB 3.2 Gen1</p>
+                <p class="about">1 x USB 3.2 Gen2</p>
+                <p class="about">1 x HDMI 2.0</p>
+                <p class="about">1 x MiniDisplayPort 1.4</p>
+                <p class="about">1 x DisplayPort 1.4</p>
+                <p class="about">2 x miniJack (3.5 мм)</p>
+                <p class="about">LAN (RJ-45)</p>
+                <p class="about">SD кардридер</p>
+              </data>
+            </li>
+            <li>
+              <h3 class="title">Беспроводные технологии</h3>
+              <data>
+                <p class="about">Wi-Fi 802.11ax</p>
+                <p class="about">Bluetooth 5.0</p>
+              </data>
+            </li>
+          </ul>
+
+          <ul class="parts">
+            <h2>Мультимедиа</h2>
+            <li>
+              <h3 class="title">Мультимедиа</h3>
+              <data>
+                <p class="about">Веб-камера</p>
+              </data>
+            </li>
+            <li>
+              <h3 class="title">Дополнительно</h3>
+              <data>
+                <p class="about">2 x 2 Вт динамики</p>
+              </data>
+            </li>
+          </ul>
+
+          <ul class="parts">
+            <h2>Аккумулятор</h2>
+            <li>
+              <h3 class="title">Тип</h3>
+              <data>
+                <p class="about">Литий-ионный (Li-ion)</p>
+              </data>
+            </li>
+          </ul>
+
+          <ul class="parts">
+            <h2>Дополнительно</h2>
+            <li>
+              <h3 class="title">Объем</h3>
+              <data>
+                <p class="about">Без оптического дисковода</p>
+              </data>
+            </li>
+            <li>
+              <h3 class="title">Установленная операционная система</h3>
+              <data>
+                <p class="about">Без ОС</p>
+              </data>
+            </li>
+            <li>
+              <h3 class="title">Особенности</h3>
+              <data>
+                <p class="about">Безрамочный</p>
+                <p class="about">Подсветка клавиатуры</p>
+              </data>
+            </li>
+            <li>
+              <h3 class="title">Дополнительно</h3>
+              <data>
+                <p class="about">Клавиатура островного типа</p>
+                <p class="about">Блок питания 180 Вт</p>
+              </data>
+            </li>
+            <li>
+              <h3 class="title">Габариты</h3>
+              <data>
                 <p class="about">361 x 258 x 27.9 мм</p>
-              </li>
-              <li>
-                <p class="title">Вес: </p>
+              </data>
+            </li>
+            <li>
+              <h3 class="title">Вес</h3>
+              <data>
                 <p class="about">2.2 кг</p>
-              </li>
-            </ul>
-          </div>
-        </div>
-        
-      </div>
-      <div class="content price">
-        <h3 class="available">Есть в наличии</h3>
-        <div class="main">
-          <h1>39 599<p>грн</p></h1>
-          <div class="inputBox">
-            <i class="fas fa-shopping-cart"></i>
-            <input type="submit" name="" value="Купить">
-          </div>
+              </data>
+            </li>
+            <li>
+              <h3 class="title">Цвет</h3>
+              <data>
+                <p class="about">Черный</p>
+              </data>
+            </li>
+          </ul>
+
         </div>
       </div>
     </div>
-    <div class="container">
-      <div class="content detailed">
-      <h2 class="heading">Технические характеристики <p>Ноутбук Gigabyte G5 KC (G5_KC-5RU1130SD) Black</p></h2>
 
-        <ul class="parts">
-          <h2>Процессор</h2>
-          <li>
-            <h3 class="title">Процессор</h3>
-            <data>
-              <p class="about">Intel Core i5-10500H (2.5–4.5 ГГц)</p>
-            </data>
-          </li>
-          <li>
-            <h3 class="title">Производительность процессора</h3>
-            <data>
-              <p class="about">12407</p>
-            </data>
-          </li>
-          <li>
-            <h3 class="title">Количество ядер</h3>
-            <data>
-              <p class="about">6 ядер</p>
-            </data>
-          </li>
-          <li>
-            <h3 class="title">Количество потоков</h3>
-            <data>
-              <p class="about">12 потоков</p>
-            </data>
-          </li>
-          <li>
-            <h3 class="title">Объем кэша L3</h3>
-            <data>
-              <p class="about"> 12 288 Кбайт</p>
-            </data>
-          </li>
-        </ul>
-
-        <ul class="parts">
-          <h2>Видеокарта</h2>
-          <li>
-            <h3 class="title">Тип</h3>
-            <data>
-              <p class="about">Дискретная</p>
-            </data>
-          </li>
-          <li>
-            <h3 class="title">Видеокарта</h3>
-            <data>
-              <p class="about">NVIDIA GeForce RTX 3060 для ноутбуков</p>
-            </data>
-          </li>
-          <li>
-            <h3 class="title">Объем видеопамяти</h3>
-            <data>
-              <p class="about">6 ГБ</p>
-            </data>
-          </li>
-          <li>
-            <h3 class="title">Тип видеопамяти</h3>
-            <data>
-              <p class="about">GDDR6</p>
-            </data>
-          </li>
-          <li>
-            <h3 class="title">Производительность видеокарты</h3>
-            <data>
-              <p class="about">11989</p>
-            </data>
-          </li>
-        </ul>
-
-        <ul class="parts">
-          <h2>Дисплей</h2>
-          <li>
-            <h3 class="title">Диагональ</h3>
-            <data>
-              <p class="about">15.6″</p>
-            </data>
-          </li>
-          <li>
-            <h3 class="title">Разрешение</h3>
-            <data>
-              <p class="about">1920x1080</p>
-            </data>
-          </li>
-          <li>
-            <h3 class="title">Тип матрицы</h3>
-            <data>
-              <p class="about">IPS</p>
-            </data>
-          </li>
-          <li>
-            <h3 class="title">Частота обновления</h3>
-            <data>
-              <p class="about">144 Гц</p>
-            </data>
-          </li>
-          <li>
-            <h3 class="title">Покрытие</h3>
-            <data>
-              <p class="about">Матовое</p>
-            </data>
-          </li>
-        </ul>
-
-        <ul class="parts">
-          <h2>Оперативная память</h2>
-          <li>
-            <h3 class="title">Объем</h3>
-            <data>
-              <p class="about">16 ГБ</p>
-            </data>
-          </li>
-          <li>
-            <h3 class="title">Частота</h3>
-            <data>
-              <p class="about">2.9 ГГц</p>
-            </data>
-          </li>
-          <li>
-            <h3 class="title">Тип</h3>
-            <data>
-              <p class="about">DDR4</p>
-            </data>
-          </li>
-          <li>
-            <h3 class="title">Количество слотов</h3>
-            <data>
-              <p class="about">2 слота</p>
-            </data>
-          </li>
-          <li>
-            <h3 class="title">Максимальный поддерживаемый объем</h3>
-            <data>
-              <p class="about">64 ГБ</p>
-            </data>
-          </li>
-        </ul>
-
-        <ul class="parts">
-          <h2>Внутренний накопитель</h2>
-          <li>
-            <h3 class="title">Тип</h3>
-            <data>
-              <p class="about">SSD</p>
-            </data>
-          </li>
-          <li>
-            <h3 class="title">Объем SSD</h3>
-            <data>
-              <p class="about">512 ГБ</p>
-            </data>
-          </li>
-          <li>
-            <h3 class="title">Дополнительно</h3>
-            <data>
-              <p class="about">PCIe NVMe</p>
-            </data>
-          </li>
-        </ul>
-
-        <ul class="parts">
-          <h2>Порты и беспроводные технологии</h2>
-          <li>
-            <h3 class="title">Порты</h3>
-            <data>
-              <p class="about">1 x USB 2.0</p>
-              <p class="about">1 x USB 3.2 Gen1</p>
-              <p class="about">1 x USB 3.2 Gen2</p>
-              <p class="about">1 x HDMI 2.0</p>
-              <p class="about">1 x MiniDisplayPort 1.4</p>
-              <p class="about">1 x DisplayPort 1.4</p>
-              <p class="about">2 x miniJack (3.5 мм)</p>
-              <p class="about">LAN (RJ-45)</p>
-              <p class="about">SD кардридер</p>
-            </data>
-          </li>
-          <li>
-            <h3 class="title">Беспроводные технологии</h3>
-            <data>
-              <p class="about">Wi-Fi 802.11ax</p>
-              <p class="about">Bluetooth 5.0</p>
-            </data>
-          </li>
-        </ul>
-
-        <ul class="parts">
-          <h2>Мультимедиа</h2>
-          <li>
-            <h3 class="title">Мультимедиа</h3>
-            <data>
-              <p class="about">Веб-камера</p>
-            </data>
-          </li>
-          <li>
-            <h3 class="title">Дополнительно</h3>
-            <data>
-              <p class="about">2 x 2 Вт динамики</p>
-            </data>
-          </li>
-        </ul>
-
-        <ul class="parts">
-          <h2>Аккумулятор</h2>
-          <li>
-            <h3 class="title">Тип</h3>
-            <data>
-              <p class="about">Литий-ионный (Li-ion)</p>
-            </data>
-          </li>
-        </ul>
-
-        <ul class="parts">
-          <h2>Дополнительно</h2>
-          <li>
-            <h3 class="title">Объем</h3>
-            <data>
-              <p class="about">Без оптического дисковода</p>
-            </data>
-          </li>
-          <li>
-            <h3 class="title">Установленная операционная система</h3>
-            <data>
-              <p class="about">Без ОС</p>
-            </data>
-          </li>
-          <li>
-            <h3 class="title">Особенности</h3>
-            <data>
-              <p class="about">Безрамочный</p>
-              <p class="about">Подсветка клавиатуры</p>
-            </data>
-          </li>
-          <li>
-            <h3 class="title">Дополнительно</h3>
-            <data>
-              <p class="about">Клавиатура островного типа</p>
-              <p class="about">Блок питания 180 Вт</p>
-            </data>
-          </li>
-          <li>
-            <h3 class="title">Габариты</h3>
-            <data>
-              <p class="about">361 x 258 x 27.9 мм</p>
-            </data>
-          </li>
-          <li>
-            <h3 class="title">Вес</h3>
-            <data>
-              <p class="about">2.2 кг</p>
-            </data>
-          </li>
-          <li>
-            <h3 class="title">Цвет</h3>
-            <data>
-              <p class="about">Черный</p>
-            </data>
-          </li>
-        </ul>
-
-      </div>
-    </div>
+    <!-- footer start -->
+    <th:block th:insert="blocks/footer :: footer"></th:block>
+    <!-- footer end -->
   </div>
-
-<!-- footer start -->
-  <div th:insert="blocks/footer :: footer"></div>
-<!-- footer end -->
-    </main>
+</div>
 <!-- modals start -->
-    <div th:insert="blocks/modals :: recall"></div>
-    <div th:insert="blocks/modals :: settings"></div>
-    <div th:insert="blocks/modals :: login"></div>
-    <div th:insert="blocks/modals :: register"></div>
+<th:block th:insert="blocks/modals :: recall"></th:block>
+<th:block th:insert="blocks/modals :: settings"></th:block>
+<th:block th:insert="blocks/modals :: login"></th:block>
+<th:block th:insert="blocks/modals :: register"></th:block>
 <!-- modals end -->
-    <script type="text/javascript" th:src="@{/js/OpenProfileImage.js}"></script>
-    <script type="text/javascript" th:src="@{/js/PhoneMask.js}"></script>
-    <script type="text/javascript" th:src="@{/js/modals.js}"></script>
+<script type="text/javascript" th:src="@{/js/OpenProfileImage.js}"></script>
+<script type="text/javascript" th:src="@{/js/PhoneMask.js}"></script>
+<script type="text/javascript" th:src="@{/js/modals.js}"></script>
 </body>
 
 </html>

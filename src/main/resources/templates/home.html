@@ -12,29 +12,27 @@
   <script src="https://cdn.jsdelivr.net/npm/jquery.maskedinput@1.4.1/src/jquery.maskedinput.min.js" type="text/javascript"></script>
   <link rel="stylesheet" th:href="@{/css/style.css}" type="text/css"/>
   <link rel="stylesheet" th:href="@{/css/product.css}" type="text/css"/>
-  <link rel="stylesheet" th:href="@{/css/media.css}" type="text/css"/>
-
 </head>
 
 <body>
 <!-- loader start -->
-<div th:insert="blocks/loader :: loader"></div>
+<th:block th:insert="blocks/loader :: loader"></th:block>
 <!-- loader end -->
-<main id="blur">
+<div class="main-container" id="blur">
   <!-- header start -->
-  <div th:insert="blocks/header :: header"></div>
+  <th:block th:insert="blocks/header :: navigation"></th:block>
+  <div class="main-content">
+    <th:block th:insert="blocks/header :: header"></th:block>
 
-  <!-- services start -->
-  <div class="head">
-    <h2 class="heading" id="main-content">Примеры товаров</h2>
-  </div>
-  <section class="block">
-    <div class="block-bg"></div>
-    <div class="content">
-      <div class="container">
+    <!-- services start -->
+    <section class="block" style="background: none">
+      <div class="head">
+        <h2 class="heading" id="main-content">Примеры товаров</h2>
+      </div>
+      <div class="content">
+        <div class="container">
 
-        <div class="contentBox">
-          <div>
+          <div class="contentBox">
             <a href="/detailed" class="Name">
               Ноутбук Gigabyte G5 GD (GD-51RU121SD) Black
             </a>
@@ -57,135 +55,136 @@
               </div>
             </div>
           </div>
-        </div>
 
-        <div class="contentBox">
-          <div>
-            <a href="#" class="Name">
-              SSD-диск Kingston A2000 3D NAND 500GB M.2 (2280 PCI-E) NVMe x4 (SA2000M8/500G)
-            </a>
-            <h2 class="serial">
-              Код: 168884
-            </h2>
-            <br>
-            <img class="preview" th:src="@{/img/links/kingston-a2000-3d-nand-500gb-m2-2280-pci-e-nvme-x4-sa2000m8500g.png}">
-            <br>
-            <p class="availability">Есть в наличии</p>
-            <div class="cost">
-              <p class="money">1 899 грн</p>
-              <div class="icons">
-                <a href="#">
-                  <i class="fas fa-balance-scale"></i>
-                </a>
-                <a href="#">
-                  <i class="fas fa-shopping-cart"></i>
-                </a>
+          <div class="contentBox">
+            <div>
+              <a href="#" class="Name">
+                SSD-диск Kingston A2000 3D NAND 500GB M.2 (2280 PCI-E) NVMe x4 (SA2000M8/500G)
+              </a>
+              <h2 class="serial">
+                Код: 168884
+              </h2>
+              <br>
+              <img class="preview" th:src="@{/img/links/kingston-a2000-3d-nand-500gb-m2-2280-pci-e-nvme-x4-sa2000m8500g.png}">
+              <br>
+              <p class="availability">Есть в наличии</p>
+              <div class="cost">
+                <p class="money">1 899 грн</p>
+                <div class="icons">
+                  <a href="#">
+                    <i class="fas fa-balance-scale"></i>
+                  </a>
+                  <a href="#">
+                    <i class="fas fa-shopping-cart"></i>
+                  </a>
+                </div>
               </div>
             </div>
           </div>
-        </div>
 
-        <div class="contentBox">
-          <div>
-            <a href="#" class="Name">
-              ОЗУ Samsung SODIMM DDR2 2GB 800Mhz (M470T5663EH3-CF7)
-            </a>
-            <h2 class="serial">
-              Код: 081008
-            </h2>
-            <br>
-            <img class="preview" th:src="@{/img/links/samsung-sodimm-ddr2-2gb-800mhz-m470t5663eh3-cf7.png}">
-            <br>
-            <p class="availability">Есть в наличии</p>
-            <div class="cost">
-              <p class="money">309 грн</p>
-              <div class="icons">
-                <a href="#">
-                  <i class="fas fa-balance-scale"></i>
-                </a>
-                <a href="#">
-                  <i class="fas fa-shopping-cart"></i>
-                </a>
+          <div class="contentBox">
+            <div>
+              <a href="#" class="Name">
+                ОЗУ Samsung SODIMM DDR2 2GB 800Mhz (M470T5663EH3-CF7)
+              </a>
+              <h2 class="serial">
+                Код: 081008
+              </h2>
+              <br>
+              <img class="preview" th:src="@{/img/links/samsung-sodimm-ddr2-2gb-800mhz-m470t5663eh3-cf7.png}">
+              <br>
+              <p class="availability">Есть в наличии</p>
+              <div class="cost">
+                <p class="money">309 грн</p>
+                <div class="icons">
+                  <a href="#">
+                    <i class="fas fa-balance-scale"></i>
+                  </a>
+                  <a href="#">
+                    <i class="fas fa-shopping-cart"></i>
+                  </a>
+                </div>
               </div>
             </div>
           </div>
-        </div>
 
-        <div class="contentBox">
-          <div>
-            <a href="#" class="Name">
-              Жесткий диск Western Digital Red 1TB 16MB 2.5" (WD10JFCX)
-            </a>
-            <h2 class="serial">
-              Код: 017662
-            </h2>
-            <br>
-            <img class="preview" th:src="@{/img/links/western-digital-wd-red-1tb-16mb-25-wd10jfcx.png}">
-            <br>
-            <p class="availability">Есть в наличии</p>
-            <div class="cost">
-              <p class="money">2 311 грн</p>
-              <div class="icons">
-                <a href="#">
-                  <i class="fas fa-balance-scale"></i>
-                </a>
-                <a href="#">
-                  <i class="fas fa-shopping-cart"></i>
-                </a>
+          <div class="contentBox">
+            <div>
+              <a href="#" class="Name">
+                Жесткий диск Western Digital Red 1TB 16MB 2.5" (WD10JFCX)
+              </a>
+              <h2 class="serial">
+                Код: 017662
+              </h2>
+              <br>
+              <img class="preview" th:src="@{/img/links/western-digital-wd-red-1tb-16mb-25-wd10jfcx.png}">
+              <br>
+              <p class="availability">Есть в наличии</p>
+              <div class="cost">
+                <p class="money">2 311 грн</p>
+                <div class="icons">
+                  <a href="#">
+                    <i class="fas fa-balance-scale"></i>
+                  </a>
+                  <a href="#">
+                    <i class="fas fa-shopping-cart"></i>
+                  </a>
+                </div>
               </div>
             </div>
           </div>
-        </div>
 
+        </div>
+      </div>
+    </section>
+    <!-- services end -->
+
+    <!-- contact start -->
+    <div class="contact">
+      <div class="formBox">
+        <form class="formBox-form">
+          <h2 class="form-heading">Связаться с нами</h2>
+          <div class="inputBox">
+            <input type="text" name="" required="">
+            <label>Полное имя</label>
+            <span></span>
+          </div>
+          <div class="inputBox">
+            <input type="Email" name="" required="">
+            <label>E-mail адрес</label>
+            <span></span>
+          </div>
+          <div class="inputBox">
+            <input type="tel" id="Phone2" name="" required="" autocomplete="on">
+            <label>Номер телефона</label>
+            <span></span>
+          </div>
+          <div class="inputBox">
+            <textarea type="text" required=""></textarea>
+            <label>Ваше сообщение</label>
+            <span></span>
+          </div>
+          <div class="inputBox">
+            <input type="submit" name="" value="Отправить">
+            <!-- <button type="submit" name="" value="">Send</button> -->
+          </div>
+        </form>
       </div>
     </div>
-  </section>
-  <!-- services end -->
+    <!-- contact end -->
 
-  <!-- contact start -->
-  <div class="contact">
-    <div class="contact-bg"></div>
-    <div class="formBox">
-      <form class="formBox-form">
-        <h2 class="form-heading">Связаться с нами</h2>
-        <div class="inputBox">
-          <input type="text" name="" required="">
-          <label>Полное имя</label>
-          <span></span>
-        </div>
-        <div class="inputBox">
-          <input type="Email" name="" required="">
-          <label>E-mail адрес</label>
-          <span></span>
-        </div>
-        <div class="inputBox">
-          <input type="tel" id="Phone2" name="" required="" autocomplete="on">
-          <label>Номер телефона</label>
-          <span></span>
-        </div>
-        <div class="inputBox">
-          <textarea type="text" required=""></textarea>
-          <label>Ваше сообщение</label>
-          <span></span>
-        </div>
-        <div class="inputBox">
-          <input type="submit" name="" value="Отправить">
-          <!-- <button type="submit" name="" value="">Send</button> -->
-        </div>
-      </form>
-    </div>
+
+    <!-- footer start -->
+    <th:block th:insert="blocks/footer :: footer"></th:block>
+    <!-- footer end -->
+
   </div>
-  <!-- contact end -->
-
-  <!-- footer start -->
-  <div th:insert="blocks/footer :: footer"></div>
-  <!-- footer end -->
-</main>
+</div>
 <!-- modals start -->
-<div th:insert="blocks/modals :: recall"></div>
-<div th:insert="blocks/modals :: settings"></div>
-<div th:insert="blocks/modals :: login"></div>
-<div th:insert="blocks/modals :: register"></div>
+<th:block th:insert="blocks/modals :: recall"></th:block>
+<th:block th:insert="blocks/modals :: settings"></th:block>
+<th:block th:insert="blocks/modals :: login"></th:block>
+<th:block th:insert="blocks/modals :: register"></th:block>
 <!-- modals end -->
 <script type="text/javascript" th:src="@{/js/OpenProfileImage.js}"></script>
 <script type="text/javascript" th:src="@{/js/PhoneMask.js}"></script>

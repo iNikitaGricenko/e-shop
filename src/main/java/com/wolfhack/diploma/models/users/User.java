@@ -1,15 +1,13 @@
 package com.wolfhack.diploma.models.users;
 
 import lombok.AccessLevel;
-import lombok.Data;
 import lombok.Getter;
 import lombok.Setter;
-import org.springframework.web.multipart.MultipartFile;
 
 import javax.persistence.*;
 import java.sql.Date;
-import java.util.Collection;
 import java.util.HashSet;
+import java.util.Objects;
 import java.util.Set;
 
 @Getter
@@ -20,7 +18,8 @@ public class User {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private Long user_id;
+    @Column(name = "user_id")
+    private Long id;
 
     private String login;
     private String username;
@@ -56,7 +55,9 @@ public class User {
     public User() {}
 
     public boolean isAdmin() {
-        return roles.iterator().next().getRole().equals("ADMIN") ? true : false;
+        return roles
+                .stream()
+                .anyMatch(role -> Objects.equals(role.getRole(), "ADMIN"));
     }
 
 
@@ -65,7 +66,7 @@ public class User {
         if (photo == null) {
             return null;
         }
-        return "photos/profiles-photos/Profile_" + username +"_"+ user_id + "/" + photo;
+        return "photos/profiles-photos/Profile_" + username +"_"+ id + "/" + photo;
     }
     public String getPhotoName() {
         return photo;

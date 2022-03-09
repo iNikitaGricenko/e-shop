@@ -1,4 +1,7 @@
 /* --- banner start --- */
+body {
+  padding: 0;
+}
 .banner 
 {
   position: relative;

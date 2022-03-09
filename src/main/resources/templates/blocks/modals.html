@@ -1,7 +1,9 @@
 <!-- recall start -->
 <div th:fragment="recall" id="recall">
 	<i class="fas fa-times-circle close" onclick="recall()"></i>
-	<h2 class="heading">Запросить обратный звонок</h2>
+	<div class="flex pb-15">
+		<h2 class="heading">Запросить обратный звонок</h2>
+	</div>
 
 	<div class="inputBox">
 		<div></div>
@@ -70,7 +72,7 @@
 			<span></span>
 		</div>
 		<div class="inputBox">
-			<input type="password" name="password" required="" th:value="*{password}">
+			<input type="password" name="password" required>
 			<label>Пароль</label>
 			<span></span>
 		</div>
@@ -113,7 +115,7 @@
 		</div>
 
 		<div class="inputBox">
-			<input type="submit" name="" value="Изменить профиль" oninvalid="settings()">
+			<input type="submit" class="submit" name="" value="Изменить профиль" oninvalid="changeProfile()">
 		</div>
 	</form>
 </div>

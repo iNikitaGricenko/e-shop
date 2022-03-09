@@ -1,151 +1,118 @@
-<div th:fragment="header">
-    	<header>
-    	<div class="imgBox"></div>
-      <a href="/" class="logo">Brand Name</a>
-			<a class="skip-nav-link" href="#main-content">Пропустить</a>
-      <div class="main">
-        <div class="content">
+<div class="topbar" th:fragment="header">
+	<div class="main">
+		<div class="navigate">
 			<ul class="navbar">
-			  <li class="nav-item">
-					<a class="nav-link" rel="tooltip" title="Contact phone #1" data-placement="bottom" href="#">
-						<p>(0**) ***-**-**</p>
+				<li class="nav-item">
+					<a class="nav-link" rel="tooltip" title="Доставка" data-placement="bottom" target="_blank" href="#">
+						<p>Доставка</p>
+						<span></span>
 					</a>
-			  </li>
+				</li>
 			</ul>
 			<ul class="navbar">
-			  <li class="nav-item">
-				<a class="nav-link" rel="tooltip" title="Contact phone #2" data-placement="bottom" href="#">
-				  <p>(0**) ***-**-**</p>
-				</a>
-			  </li>
+				<li class="nav-item">
+					<a class="nav-link" rel="tooltip" title="Оплата" data-placement="bottom" target="_blank" href="#">
+						<p>Оплата</p>
+						<span></span>
+					</a>
+				</li>
 			</ul>
-            <div class="btn" style="--i:1.5">
-			    <a class="nav-link-btn" rel="tooltip" title="Перезвоните" data-placement="bottom" href="#" onclick="recall()">
-	              <i class="fas fa-mobile-alt"></i>
-	              <p>Перезвоните мне</p>
-	              <!-- <span></span> -->
-	            </a>
-		    </div>
-      	</div>
+			<ul class="navbar">
+				<li class="nav-item">
+					<a class="nav-link" rel="tooltip" title="Гарантия" data-placement="bottom" target="_blank" href="#">
+						<p>Гарантия</p>
+						<span></span>
+					</a>
+				</li>
+			</ul>
+			<ul class="navbar">
+				<li class="nav-item">
+					<a class="nav-link" rel="tooltip" title="Контакты" data-placement="bottom" target="_blank" href="#">
+						<p>Контакты</p>
+						<span></span>
+					</a>
+				</li>
+			</ul>
+			<ul class="navbar">
+				<li class="nav-item">
+					<a class="nav-link" rel="tooltip" title="Отзывы" data-placement="bottom" target="_blank" href="#">
+						<p>Отзывы</p>
+						<span></span>
+					</a>
+				</li>
+			</ul>
+		</div>
 
-      <div class="action" sec:authorize="!isAuthenticated()">
-            <div class="btn" style="--i:1">
-	            <a class="nav-link-btn" rel="tooltip" title="Войти" data-placement="bottom" href="#" onclick="login()">
-		          <i class="fas fa-sign-in-alt"></i>
-	              <p>Войти</p>
-	              <!-- <span></span> -->
-	            </a>
-		    </div>
+		<div class="content">
+			<a class="nav-link-btn" rel="tooltip" title="Перезвоните" data-placement="bottom" href="#" onclick="recall()">
+				<p>Перезвоните мне</p>
+			</a>
+		</div>
 
-            <div class="btn" style="--i:1.5">
-	            <a class="nav-link-btn" rel="tooltip" title="Зарегистрироваться" data-placement="bottom" href="#" onclick="register()">
-	              <i class="fas fa-user-plus"></i>
-	              <p>Зарегестрироваться</p>
-	              <!-- <span></span> -->
-	            </a>
-		    </div>
-      </div>
+		<div class="action" sec:authorize="!isAuthenticated()">
+			<a class="nav-link-btn" rel="tooltip" title="Войти" data-placement="bottom" href="#" onclick="login()">
+				<p>Войти</p>
+			</a>
 
-	  <div class="action" sec:authorize="isAuthenticated()">
-		<div class="btn" style="--i:1">
+			<a class="nav-link-btn" rel="tooltip" title="Зарегистрироваться" data-placement="bottom" href="#" onclick="register()">
+				<p>Зарегестрироваться</p>
+			</a>
+		</div>
+
+		<div class="action" sec:authorize="isAuthenticated()">
 			<a class="nav-link-btn" rel="tooltip" title="Выйти" data-placement="bottom" href="logout">
-			  <i class="fas fa-sign-in-alt"></i>
-			  <p>Выйти</p>
-			  <!-- <span></span> -->
+				<p>Выйти</p>
+			</a>
+
+			<a class="nav-link-btn" rel="tooltip" th:title="${User.login}" th:text="${User.login}" href="#" onclick="settings()">
 			</a>
 		</div>
+	</div>
 
-		<div class="btn" style="--i:1.5;">
-			<a class="nav-link-btn" rel="tooltip" th:title="${User.login}" data-placement="bottom" href="#" onclick="settings()">
-			  <p th:text="${User.login}"></p>
-			  <!-- <span></span> -->
+	<div class="search">
+		<div class="icons">
+			<a href="#">
+				<i class="fas fa-balance-scale"></i>
+			</a>
+			<a href="#">
+				<i class="far fa-heart"></i>
+			</a>
+			<a href="#">
+				<i class="fas fa-shopping-cart"></i>
 			</a>
 		</div>
-	  </div>
+		<div class="inputBox">
+			<form action="/search" th:method="post">
+				<input type="search" name="search" required="">
+				<label>Поиск по сайту</label>
+				<a id="search-link" type="submit">
+					<i class="fas fa-search"></i>
+				</a>
+			</form>
+		</div>
+	</div>
 
-      <div class="navigate">
-        <ul class="navbar">
-          <li class="nav-item">
-            <a class="nav-link" rel="tooltip" title="Доставка" data-placement="bottom" target="_blank" href="#">
-              <p>Доставка</p>
-              <span></span>
-            </a>
-          </li>
-        </ul>
-        <ul class="navbar">
-          <li class="nav-item">
-            <a class="nav-link" rel="tooltip" title="Оплата" data-placement="bottom" target="_blank" href="#">
-              <p>Оплата</p>
-              <span></span>
-            </a>
-          </li>
-        </ul>
-        <ul class="navbar">
-          <li class="nav-item">
-            <a class="nav-link" rel="tooltip" title="Гарантия" data-placement="bottom" target="_blank" href="#">
-              <p>Гарантия</p>
-              <span></span>
-            </a>
-          </li>
-        </ul>
-        <ul class="navbar">
-          <li class="nav-item">
-            <a class="nav-link" rel="tooltip" title="Контакты" data-placement="bottom" target="_blank" href="#">
-              <p>Контакты</p>
-              <span></span>
-            </a>
-          </li>
-        </ul>
-		<ul class="navbar">
-          <li class="nav-item">
-            <a class="nav-link" rel="tooltip" title="Отзывы" data-placement="bottom" target="_blank" href="#">
-              <p>Отзывы</p>
-              <span></span>
-            </a>
-          </li>
-        </ul>
-      </div>
-      </div>
-    </header>
-  <!-- header end -->
-  <div class="nav-menu">
-  	<div class="content">
-  		<div class="search">
-	  		<div class="inputBox">
-				<form action="/search" th:method="post">
-					<input type="search" name="search" required="">
-					<label>Поиск по сайту</label>
-					<a id="search-link" type="submit">
-						<i class="fas fa-search"></i>
-					</a>
-				</form>
-			</div>
-			<div class="icons">
-				<a href="#">
-					<i class="fas fa-balance-scale"></i>
-				</a>
-				<a href="#">
-					<i class="far fa-heart"></i>
-				</a>
-				<a href="#">
-					<i class="fas fa-shopping-cart"></i>
-				</a>
-			</div>
-	  	</div>
-	  	<div class="catalog">
-	  		<nav class="navigation">
-  				<ul>
-				  	<li><a href="/laptop" title="Ноутбуки" data-placement="bottom"><i class="fas fa-laptop"></i></a></li>
-				  	<li><a href="/accry" title="Комплектующие для ПК" data-placement="bottom"><i class="fas fa-microchip"></i></a></li>
-			      	<li><a href="#" title="Всё для игр" data-placement="bottom"><i class="fas fa-gamepad"></i></a></li>
-			      	<li><a href="/periphery" title="Переферия для пк" data-placement="bottom"><i class="fas fa-mouse"></i></a></li>
-			      	<li><a href="/wireless" title="Сетевое оборудование" data-placement="bottom"><i class="fas fa-wifi"></i></a></li>
-			      	<li><a href="#" title="Мониторы" data-placement="bottom"><i class="fas fa-desktop"></i></a></li>
-			      	<li><a href="#" title="Аудио и видео" data-placement="bottom"><i class="fas fa-video"></i></a></li>
-			      	<li><a href="/office" title="Оргтехника" data-placement="bottom"><i class="fas fa-print"></i></a></li>
+</div>
+<!-- header end -->
+<div th:fragment="navigation" class="nav-menu">
+	<div class="content">
+		<div class="logo-container">
+			<a href="/" class="logo">Brand Name</a>
+		</div>
+		<a class="skip-nav-link" href="#main-content">Пропустить</a>
+		<div class="catalog">
+			<nav class="navigation">
+				<ul>
+					<li><a href="/laptop" title="Ноутбуки" data-placement="bottom"><i class="fas fa-laptop"></i></a></li>
+					<li><a href="/accry" title="Комплектующие для ПК" data-placement="bottom"><i class="fas fa-microchip"></i></a></li>
+					<li><a href="#" title="Всё для игр" data-placement="bottom"><i class="fas fa-gamepad"></i></a></li>
+					<li><a href="/periphery" title="Переферия для пк" data-placement="bottom"><i class="fas fa-mouse"></i></a></li>
+					<li><a href="/wireless" title="Сетевое оборудование" data-placement="bottom"><i class="fas fa-wifi"></i></a></li>
+					<li><a href="#" title="Мониторы" data-placement="bottom"><i class="fas fa-desktop"></i></a></li>
+					<li><a href="#" title="Аудио и видео" data-placement="bottom"><i class="fas fa-video"></i></a></li>
+					<li><a href="/office" title="Оргтехника" data-placement="bottom"><i class="fas fa-print"></i></a></li>
 				</ul>
-		  	</nav>
-  		</div>
-  	</div>
-  </div>
+			</nav>
+		</div>
+	</div>
 </div>

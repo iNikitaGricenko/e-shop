@@ -96,7 +96,7 @@
             <div class="formBox">
               <h2 class="form-heading">Главная</h2>
                 <div class="inputImgBox">
-                  <img id="ProfileImage" th:src="${User.photo}">
+                  <img id="ProfileImage" th:src="'/'+${User.photo}">
                   <input type="file" accept="image/jpg, image/jpeg, image/png" name="photo" onclick="middleClick(this);">
                 </div>
                 <div class="inputBox">
@@ -105,7 +105,7 @@
                   <span></span>
                 </div>
                 <div class="inputBox">
-                  <input type="password" name="password" required="" th:value="${User.password}">
+                  <input type="password" name="password" required>
                   <label>Пароль</label>
                   <span></span>
                 </div>
