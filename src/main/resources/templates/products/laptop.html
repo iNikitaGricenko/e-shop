@@ -17,70 +17,73 @@
 
 <body>
 <!-- loader start -->
-<div th:insert="blocks/loader :: loader"></div>
+<th:block th:insert="blocks/loader :: loader"></th:block>
 <!-- loader end -->
-  <main id="blur">
+<div class="main-container" id="blur">
   <!-- header start -->
-    <div th:insert="blocks/header :: header"></div>
+  <th:block th:insert="blocks/header :: navigation"></th:block>
+  <div class="main-content">
+    <th:block th:insert="blocks/header :: header"></th:block>
 
-  <!-- services start -->
-    <div class="head">
-      <h2 class="heading" th:text="${title}" id="main-content"></h2>
-      <div class="inputBox">
-        <input type="search" name="" required="">
-        <label>Введите название товара для поиска</label>
-        <a href="#">
-          <i class="fas fa-search"></i>
-        </a>
+    <!-- services start -->
+
+    <section class="block">
+      <div class="head">
+        <h2 class="heading" th:text="${title}" id="main-content"></h2>
+        <div class="inputBox">
+          <input type="search" name="" required="">
+          <label>Введите название товара для поиска</label>
+          <a href="#">
+            <i class="fas fa-search"></i>
+          </a>
+        </div>
       </div>
-    </div>
-  <section class="block">
-    <div class="block-bg"></div>
-    <th:block th:insert="${filterURL} :: ${filter}"></th:block>
+      <th:block th:insert="${filterURL} :: ${filter}"></th:block>
 
-    <div class="content">
-      <div class="container">
-        <div class="contentBox" th:each="element : ${products}">
-          <div>
-            <a th:href="'/' + ${element.name.replace(' ', '-')} + '=' + ${element.model}" class="Name" th:text="'Ноутбук ' + ${element.name} +'('+ ${element.model} + ')'"></a>
-            <h2 class="serial" th:text="'Код:' + ${element.laptop_id}"></h2>
-            <br>
+      <div class="content">
+        <div class="container">
+          <div class="contentBox" th:each="element : ${products}">
+            <div>
+              <a th:href="'/' + ${element.name.replace(' ', '-')} + '=' + ${element.model}" class="Name" th:text="'Ноутбук ' + ${element.name} +'('+ ${element.model} + ')'"></a>
+              <h2 class="serial" th:text="'Код:' + ${element.id}"></h2>
+              <br>
               <img class="preview" th:src="${element.getPhotos()[0]}">
-            <br>
-            <p class="availability">Есть в наличии</p>
-            <div class="cost">
-              <p class="money" th:text="${element.cost} + ' грн'"></p>
-              <div class="icons">
-                <a href="#">
-                  <i class="fas fa-balance-scale"></i>
-                </a>
-                <a href="#">
-                  <i class="fas fa-shopping-cart"></i>
-                </a>
+              <br>
+              <p class="availability">Есть в наличии</p>
+              <div class="cost">
+                <p class="money" th:text="${element.cost} + ' грн'"></p>
+                <div class="icons">
+                  <a href="#">
+                    <i class="fas fa-balance-scale"></i>
+                  </a>
+                  <a href="#">
+                    <i class="fas fa-shopping-cart"></i>
+                  </a>
+                </div>
               </div>
             </div>
           </div>
+
         </div>
-
       </div>
-    </div>
-  </section>
-  <!-- services end -->
+    </section>
+    <!-- services end -->
 
-<!-- footer start -->
-  <div th:insert="blocks/footer :: footer"></div>
-<!-- footer end -->
-  </main>
-  <!-- modals start -->
-    <div th:insert="blocks/modals :: recall"></div>
-    <div th:insert="blocks/modals :: settings"></div>
-    <div th:insert="blocks/modals :: login"></div>
-    <div th:insert="blocks/modals :: register"></div>
-  <!-- modals end -->
-    <script type="text/javascript" th:src="@{/js/OpenProfileImage.js}"></script>
-    <script type="text/javascript" th:src="@{/js/PhoneMask.js}"></script>
-    <script type="text/javascript" th:src="@{/js/modals.js}"></script>
-    <script type="text/javascript" th:src="@{/js/toggle-filter.js}"></script>
+    <!-- footer start -->
+    <th:block th:insert="blocks/footer :: footer"></th:block>
+    <!-- footer end -->
+  </div>
+</div>
+<!-- modals start -->
+<th:block th:insert="blocks/modals :: recall"></th:block>
+<th:block th:insert="blocks/modals :: settings"></th:block>
+<th:block th:insert="blocks/modals :: login"></th:block>
+<th:block th:insert="blocks/modals :: register"></th:block>
+<!-- modals end -->
+<script type="text/javascript" th:src="@{/js/OpenProfileImage.js}"></script>
+<script type="text/javascript" th:src="@{/js/PhoneMask.js}"></script>
+<script type="text/javascript" th:src="@{/js/modals.js}"></script>
+<script type="text/javascript" th:src="@{/js/toggle-filter.js}"></script>
 </body>
 
 </html>

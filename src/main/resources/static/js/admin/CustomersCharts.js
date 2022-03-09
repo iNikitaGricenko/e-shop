@@ -10,8 +10,8 @@ const Chart3 = new Chart(OnlineTraffic, {
             label: 'Online Traffic',
             data: OnlineTrafficData,
             backgroundColor: [
-                'rgb(60,184,229)',
-                'rgba(108,108,108,0.9)'
+                'rgb(141 224 44)',
+                'rgb(192 161 135)'
             ],
         }]
     },

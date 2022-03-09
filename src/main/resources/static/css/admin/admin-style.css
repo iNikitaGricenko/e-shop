@@ -1,10 +1,11 @@
+@import url('https://fonts.googleapis.com/css2?family=Dosis:wght@200;300;400;500;600;700;800&family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Ubuntu:wght@300;400;500;7007display=swap');
 *
 {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: 'Ubuntu', sans-serif;
+    font-family: 'Montserrat', sans-serif;
 }
 :root
 {
@@ -15,17 +16,18 @@
     --black2: #999;
 
     --primary: #03a9f4;
-  --p-light: #67daff;
-  --p-dark: #007ac1;
-  --secondary: #b3e5fc;
-  --s-light: #e6ffff;
-  --s-dark: #82b3c9;
+    --p-light: #67daff;
+    --p-dark: #007ac1;
+    --secondary: #b3e5fc;
+    --s-light: #e6ffff;
+    --s-dark: #82b3c9;
 
-    --light-shades: #F6EFEA;
-    --light-accent: #D7AB9A;
-    --main-brand: #DC9B85;
-    --dark-accent: #A48A8B;
-    --dark-shades: #DD4141;
+
+    --light-shades: #F2F1E5;
+    --light-accent: #C0A188;
+    --main-brand: #E94045;
+    --dark-accent: #985A7E;
+    --dark-shades: #163762;
 }
 body
 {
@@ -42,10 +44,12 @@ body
     position: fixed;
     width: 80px;
     height: 100%;
-    background: var(--primary);
-    border-left: 10px solid var(--primary);
+    background: #FFF;
+    border-left: 10px solid #FFF;
     overflow: hidden;
+    box-shadow: 0 5px 15px rgb(0 0 0 / 15%);
     transition: 0.5s;
+    z-index: 1;
 }
 .navigation.active
 {
@@ -69,11 +73,14 @@ body
 .navigation ul li:hover,
 .navigation ul li.hovered
 {
-    background: var(--white);
+    background: var(--main-brand);
+    box-shadow: 0 12px 20px -10px rgb(233 64 69 / 28%),
+    0 4px 20px 0px rgb(0 0 0 / 12%),
+    0 7px 8px -5px rgb(233 64 69 / 20%);
 }
 .navigation ul li[aria-disabled="true"]
 {
-    background: var(--p-dark);
+    background: var(--black2);
     pointer-events: none;
 }
 .navigation ul li:nth-child(1)
@@ -81,6 +88,9 @@ body
     margin-bottom: 40px;
     margin-top: 20px;
     pointer-events: none;
+}
+.navigation ul li:nth-child(1) a {
+    color: var(--main-brand);
 }
 .navigation ul li:last-child
 {
@@ -92,12 +102,12 @@ body
     width: 100%;
     display: flex;
     text-decoration: none;
-    color: var(--white);
+    color: #a9afbb;
 }
 .navigation ul li:hover a,
 .navigation ul li.hovered a
 {
-    color: var(--primary);
+    color: #fff;
 }
 .navigation ul li:hover a:after,
 .navigation ul li.hovered a:after,
@@ -117,14 +127,14 @@ body
 .navigation ul li.hovered a:after
 {
     bottom: -50px;
-    box-shadow: 35px -35px 0 10px var(--white);
+    box-shadow: 35px -35px 0 10px var(--main-brand);
     z-index: 1000;
 }
 .navigation ul li:hover a:before,
 .navigation ul li.hovered a:before
 {
     top: -50px;
-    box-shadow: 35px 35px 0 10px var(--white);
+    box-shadow: 35px 35px 0 10px var(--main-brand);
 }
 .navigation ul li a .icon
 {
@@ -155,7 +165,7 @@ body
     width: calc(100% - 80px);
     left: 80px;
     min-height: 100vh;
-    background: var(--white);
+    background-color: #f0f0f0;
     transition: 0.5s;
 }
 .main-content.active
@@ -202,6 +212,7 @@ body
     padding: 5px 35px;
     font-size: 18px;
     outline: none;
+    background: #FFF;
     border: 1px solid var(--black2);
 }
 .search label .fab
@@ -241,7 +252,7 @@ body
 .cardBox .card
 {
     position: relative;
-    background: var(--white);
+    background: var(--light-shades);
     padding: 30px;
     border-radius: 20px;
     display: flex;
@@ -272,6 +283,18 @@ body
 {
     background: var(--primary);
 }
+.cardBox .card:nth-child(1):hover {
+    background: #f87e15;
+}
+.cardBox .card:nth-child(2):hover {
+    background: #7b8e4d;
+}
+.cardBox .card:nth-child(3):hover {
+    background: #f44336;
+}
+.cardBox .card:nth-child(4):hover {
+    background: #c0a187;
+}
 .cardBox .card:hover .numbers,
 .cardBox .card:hover .cardName,
 .cardBox .card:hover .iconBox
@@ -293,7 +316,7 @@ body
 .graphBox .box
 {
     position: relative;
-    background: var(--white);
+    background: var(--light-shades);
     padding: 20px;
     width: 100%;
     box-shadow: 0 7px 25px rgba(0,0,0,0.08);
@@ -316,7 +339,7 @@ body
     position: relative;
     display: grid;
     min-height: 500px;
-    background: var(--white);
+    background: var(--light-shades);
     padding: 20px;
     box-shadow: 0 7px 25px rgba(0,0,0,0.08);
     border-radius: 20px;
@@ -330,13 +353,13 @@ body
 .cardHeader h2
 {
     font-weight: 600;
-    color: var(--primary);
+    color: var(--main-brand);
 }
 .btn
 {
     position: relative;
     padding: 5px 10px;
-    background: var(--primary);
+    background: var(--main-brand);
     text-decoration: none;
     color: var(--white);
     border-radius: 6px;
@@ -417,25 +440,25 @@ body
 {
     background: rgba(108,108,108,0.9);
 }.status.Order
-{
-    background: rgba(198, 172, 0, 0.9);
-}.status.Inform
-{
-    background: rgba(148, 0, 170, 0.9);
-}.status.Guarantee
-{
-    background: rgba(25, 219, 0, 0.9);
-}.status.Other
-{
-    background: rgba(87, 141, 111, 0.9);
-}
+ {
+     background: rgba(198, 172, 0, 0.9);
+ }.status.Inform
+  {
+      background: rgba(148, 0, 170, 0.9);
+  }.status.Guarantee
+   {
+       background: rgba(25, 219, 0, 0.9);
+   }.status.Other
+    {
+        background: rgba(87, 141, 111, 0.9);
+    }
 .recentCustomers
 {
     position: relative;
     display: grid;
     min-height: 500px;
     padding: 20px;
-    background: var(--white);
+    background: var(--light-shades);
     box-shadow: 0 7px 25px rgba(0,0,0,0.08);
     border-radius: 20px;
 }
@@ -499,26 +522,26 @@ body
 }
 .formBox
 {
-  width: 100%;
-  padding: 40px;
+    width: 100%;
+    padding: 40px;
     display: block;
-  background: var(--white);
-  box-shadow: 0 15px 25px rgba(0,0,0,0.08);
-  -webkit-box-shadow: 0 15px 25px rgba(0,0,0,0.08);
-  -moz-box-shadow: 0 15px 25px rgba(0,0,0,0.08);
-  border-radius: 20px;
-  transition: 0.5s;
-  -moz-transition: 0.5s;
-  -o-transition: 0.5s;
-  -webkit-transition: 0.5s;
+    background: var(--light-shades);
+    box-shadow: 0 15px 25px rgba(0,0,0,0.08);
+    -webkit-box-shadow: 0 15px 25px rgba(0,0,0,0.08);
+    -moz-box-shadow: 0 15px 25px rgba(0,0,0,0.08);
+    border-radius: 20px;
+    transition: 0.5s;
+    -moz-transition: 0.5s;
+    -o-transition: 0.5s;
+    -webkit-transition: 0.5s;
 }
 .formBox .form-heading
 {
-  margin: 0 0 30px;
-  padding: 0;
-  color: var(--black1);
-  text-align: center;
-  font-family: sans-serif;
+    margin: 0 0 30px;
+    padding: 0;
+    color: var(--black1);
+    text-align: center;
+    font-family: sans-serif;
 }
 .formBox .inputImgBox
 {
@@ -549,7 +572,7 @@ body
 }
 .formBox .inputImgBox:hover
 {
-    border: 1px solid var(--primary);
+    border: 1px solid var(--main-brand);
 }
 .formBox .inputImgBox input[type=file]
 {
@@ -563,132 +586,132 @@ body
 }
 .formBox .inputBox
 {
-  position: relative;
+    position: relative;
 }
 .formBox .inputBox label
 {
-  position: absolute;
-  top: 0;
-  left: 0;
-  padding: 10px 5px;
-  font-size: 16px;
-  color: var(--black2);
-  letter-spacing: 1px;
-  font-family: sans-serif;
-  pointer-events: none;
-  transition: .5s;
-  -moz-transition: 0.5s;
-  -o-transition: 0.5s;
-  -webkit-transition: 0.5s;
+    position: absolute;
+    top: 0;
+    left: 0;
+    padding: 10px 5px;
+    font-size: 16px;
+    color: var(--black2);
+    letter-spacing: 1px;
+    font-family: sans-serif;
+    pointer-events: none;
+    transition: .5s;
+    -moz-transition: 0.5s;
+    -o-transition: 0.5s;
+    -webkit-transition: 0.5s;
 }
 .formBox .inputBox input:focus ~ label,
 .formBox .inputBox input:valid ~ label
 {
-  top: -30px;
-  left: 0;
-  color: var(--primary);
+    top: -30px;
+    left: 0;
+    color: var(--primary);
 }
 .formBox .inputBox input
 {
-  position: relative;
-  width: 100%;
-  padding: 10px 5px;
-  font-size: 16px;
-  color: var(--black1);
-  letter-spacing: 1px;
-  font-family: sans-serif;
-  margin-bottom: 30px;
-  border: none;
-  outline: none;
-  background: var(--white);
-  box-shadow: 0 5px 5px rgba(0,0,0,0.15);
-  -webkit-box-shadow: 0 5px 5px rgba(0,0,0,0.15);
-  -moz-box-shadow: 0 5px 5px rgba(0,0,0,0.15);
+    position: relative;
+    width: 100%;
+    padding: 10px 5px;
+    font-size: 16px;
+    color: var(--black1);
+    letter-spacing: 1px;
+    font-family: sans-serif;
+    margin-bottom: 30px;
+    border: none;
+    outline: none;
+    background: var(--light-shades);
+    box-shadow: 0 5px 5px rgba(0,0,0,0.15);
+    -webkit-box-shadow: 0 5px 5px rgba(0,0,0,0.15);
+    -moz-box-shadow: 0 5px 5px rgba(0,0,0,0.15);
 }
 .formBox .inputBox span
 {
-  position: absolute;
-  bottom: 0;
-  right: 0;
-  display: block;
-  background: var(--secondary-black);
-  width: 100%;
-  height: 2px;
-  transform: translateY(-30px);
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    display: block;
+    background: var(--secondary-black);
+    width: 100%;
+    height: 2px;
+    transform: translateY(-30px);
 }
 .formBox .inputBox span:before
 {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: #00b0ff;
-  transform: scale(0);
-  transform-origin: right;
-  transition: transform 0.5s ease-in-out;
-  -moz-transition: transform 0.5s ease-in-out;
-  -o-transition: transform 0.5s ease-in-out;
-  -webkit-transition: transform 0.5s ease-in-out;
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: #00b0ff;
+    transform: scale(0);
+    transform-origin: right;
+    transition: transform 0.5s ease-in-out;
+    -moz-transition: transform 0.5s ease-in-out;
+    -o-transition: transform 0.5s ease-in-out;
+    -webkit-transition: transform 0.5s ease-in-out;
 }
 .formBox .inputBox input:hover + label
 {
-  opacity: 0.25;
+    opacity: 0.25;
 }
 .formBox .inputBox input:focus ~ span:before,
 .formBox .inputBox input:valid ~ span:before
 {
-  box-shadow: 0 2px 10px #00b0ff,
+    box-shadow: 0 2px 10px #00b0ff,
     0 2px 15px #00b0ff;
-  -webkit-box-shadow: 0 2px 10px #00b0ff,
+    -webkit-box-shadow: 0 2px 10px #00b0ff,
     0 2px 15px #00b0ff;
-  -moz-box-shadow: 0 2px 10px #00b0ff,
+    -moz-box-shadow: 0 2px 10px #00b0ff,
     0 2px 15px #00b0ff;
-  transform: scale(1);
-  transform-origin: left;
-  transition: transform 0.5s ease-in-out;
-  -moz-transition: transform 0.5s ease-in-out;
-  -o-transition: transform 0.5s ease-in-out;
-  -webkit-transition: transform 0.5s ease-in-out;
+    transform: scale(1);
+    transform-origin: left;
+    transition: transform 0.5s ease-in-out;
+    -moz-transition: transform 0.5s ease-in-out;
+    -o-transition: transform 0.5s ease-in-out;
+    -webkit-transition: transform 0.5s ease-in-out;
 }
 .formBox .inputBox input:invalid ~ span:before
 {
-  background: #c70000;
-  box-shadow: 0 2px 10px #c70000,
+    background: #c70000;
+    box-shadow: 0 2px 10px #c70000,
     0 2px 15px #c70000;
-  -webkit-box-shadow: 0 2px 10px #c70000,
+    -webkit-box-shadow: 0 2px 10px #c70000,
     0 2px 15px #c70000;
-  -moz-box-shadow: 0 2px 10px #c70000,
+    -moz-box-shadow: 0 2px 10px #c70000,
     0 2px 15px #c70000;
 }
 .formBox .inputBox input[type=submit],
 .formBox .inputBox button[type=submit]
 {
-  background: transparent;
-  border: none;
-  outline: none;
-  color: var(--white);
-  font-family: sans-serif;
-  font-size: 16px;
-  background: var(--primary);
-  padding: 15px 0;
-  margin: auto;
-  cursor: pointer;
-  border-radius: 5px;
-  overflow: hidden;
-  transition: 0.5s;
-  -moz-transition: 0.5s;
-  -o-transition: 0.5s;
-  -webkit-transition: 0.5s;
+    background: transparent;
+    border: none;
+    outline: none;
+    color: var(--white);
+    font-family: sans-serif;
+    font-size: 16px;
+    background: var(--main-brand);
+    padding: 15px 0;
+    margin: auto;
+    cursor: pointer;
+    border-radius: 5px;
+    overflow: hidden;
+    transition: 0.5s;
+    -moz-transition: 0.5s;
+    -o-transition: 0.5s;
+    -webkit-transition: 0.5s;
 }
 .formBox .inputBox input[type=submit]:hover,
 .formBox .inputBox button[type=submit]:hover
 {
-  text-shadow: 0 0 10px #000;
-  transform: scale(0.98);
-  opacity: 0.85;
-  animation: hover-shadow 2s linear infinite;
+    text-shadow: 0 0 10px #000;
+    transform: scale(0.98);
+    opacity: 0.85;
+    animation: hover-shadow 2s linear infinite;
 }
 .status-modal
 {
@@ -697,12 +720,12 @@ body
     left: calc(40% - 80px);
     width: 400px;
     height: 350px;
-  background: transparent;
-  border-radius: 20px;
-  transition: 0.5s;
-  -moz-transition: 0.5s;
-  -o-transition: 0.5s;
-  -webkit-transition: 0.5s;
+    background: transparent;
+    border-radius: 20px;
+    transition: 0.5s;
+    -moz-transition: 0.5s;
+    -o-transition: 0.5s;
+    -webkit-transition: 0.5s;
     display: none;
 }
 .status-modal.active
@@ -924,24 +947,24 @@ body
 
 @keyframes hover-shadow
 {
-  0%
-  {
-    box-shadow: 0 0 15px black;
-    -webkit-box-shadow: 0 0 15px black;
-    -moz-box-shadow: 0 0 15px black;
-  }
-  50%
-  {
-    box-shadow: 0 0 20px var(--primary);
-    -webkit-box-shadow: 0 0 20px var(--primary);
-    -moz-box-shadow: 0 0 20px var(--primary);
-  }
-  100%
-  {
-    box-shadow: 0 0 15px black;
-    -webkit-box-shadow: 0 0 15px black;
-    -moz-box-shadow: 0 0 15px black;
-  }
+    0%
+    {
+        box-shadow: 0 0 15px black;
+        -webkit-box-shadow: 0 0 15px black;
+        -moz-box-shadow: 0 0 15px black;
+    }
+    50%
+    {
+        box-shadow: 0 0 20px var(--primary);
+        -webkit-box-shadow: 0 0 20px var(--primary);
+        -moz-box-shadow: 0 0 20px var(--primary);
+    }
+    100%
+    {
+        box-shadow: 0 0 15px black;
+        -webkit-box-shadow: 0 0 15px black;
+        -moz-box-shadow: 0 0 15px black;
+    }
 }
 /* --- form end --- */
 
