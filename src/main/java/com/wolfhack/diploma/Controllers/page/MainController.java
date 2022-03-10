@@ -1,7 +1,5 @@
 package com.wolfhack.diploma.Controllers.page;
 
-import com.wolfhack.diploma.models.users.User;
-import com.wolfhack.diploma.repository.UserRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -13,17 +11,6 @@ import java.security.Principal;
 @Controller
 @RequestMapping(value = "/")
 public class MainController {
-
-    private final UserRepository userRepository;
-
-    @ModelAttribute("User")
-    public User getCurrentUser(Principal principal) {
-        if (principal != null) {
-            return userRepository.findByLogin(principal.getName());
-        } else {
-            return null;
-        }
-    }
 
     @GetMapping("/about")
     public String getPageIndex(Model model, Principal principal) {

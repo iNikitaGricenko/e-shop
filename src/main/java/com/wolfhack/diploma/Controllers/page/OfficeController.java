@@ -17,17 +17,6 @@ import java.security.Principal;
 @RequestMapping("/office")
 public class OfficeController {
 
-    private final UserRepository userRepository;
-
-    @ModelAttribute("User")
-    public User getCurrentUser(Principal principal) {
-        if (principal != null) {
-            return userRepository.findByLogin(principal.getName());
-        } else {
-            return null;
-        }
-    }
-
     @GetMapping
     public String getPage(Model model, Principal principal) {
         model.addAttribute("title", "Office equipment");

@@ -16,17 +16,6 @@ import java.security.Principal;
 @RequestMapping("/wireless")
 public class WirelessController {
 
-    private final UserRepository userRepository;
-
-    @ModelAttribute("User")
-    public User getCurrentUser(Principal principal) {
-        if (principal != null) {
-            return userRepository.findByLogin(principal.getName());
-        } else {
-            return null;
-        }
-    }
-
     @GetMapping
     public String getPage(Model model, Principal principal) {
         model.addAttribute("title", "Wireless");

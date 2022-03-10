@@ -72,7 +72,7 @@ public class UserDetailService implements UserDetailsService {
     }
 
     @SneakyThrows
-    public boolean edit(User user, MultipartFile photo) throws NotFoundException {
+    public User edit(User user, MultipartFile photo) {
         User foundedUser = userRepository.findById(user.getId())
                 .orElseThrow(NotFoundException::new);
 
@@ -95,7 +95,7 @@ public class UserDetailService implements UserDetailsService {
         String uploadDir = "photos/profiles-photos/Profile_" + savedUser.getUsername() +"_"+ savedUser.getId();
         FileUploadUtil.trySaveFile(uploadDir, "Profile."+fileName, photo);
 
-        return true;
+        return savedUser;
     }
 
     public List<User> getAll() {
