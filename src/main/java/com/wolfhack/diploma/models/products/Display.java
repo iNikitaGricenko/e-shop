@@ -1,12 +1,12 @@
-package com.wolfhack.diploma.models;
+package com.wolfhack.diploma.models.products;
 
 import lombok.Getter;
 import lombok.Setter;
+import org.springframework.data.mongodb.core.mapping.Document;
 
 import javax.persistence.*;
 
-@Entity
-@Inheritance(strategy = InheritanceType.JOINED)
+@Getter @Setter
 public class Display {
     private enum Type {
         TN,
@@ -21,24 +21,10 @@ public class Display {
         QuadHD_1440x1080;
     }
 
-    @Id
-    @Column(name = "id", nullable = false)
-    private Long id;
-
     public Resolution resolution;
     public Type type;
 
-    @Getter @Setter
     private float diagonal;
-    @Getter @Setter
     private int freq;
-
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
 
 }

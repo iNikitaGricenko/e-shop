@@ -5,47 +5,55 @@ import lombok.Getter;
 import lombok.Setter;
 
 import javax.persistence.*;
+import java.io.Serializable;
+import java.sql.Date;
 import java.util.HashSet;
 import java.util.Set;
 
 @Entity(name = "orders")
 @Getter @Setter
-public class Order {
+public class Order implements Serializable {
+
+    public enum OrderStatus {
+        INPROGRESS, PENDING, DELIVERED, RETURN
+    }
 
     @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE)
-    private Long orders_id;
-    private int count;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "orders_id")
+    private Long id;
+
+    @Column(name = "address", length = 200, nullable = false)
+    private String address;
+
+    @Column(name = "description", length = 1024)
     private String description;
 
-    @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
-    @JoinTable(
-            name = "user_orders",
-            foreignKey = @ForeignKey(name = "user_order_id"),
-            joinColumns = {@JoinColumn(
-                    name = "order_id",
-                    referencedColumnName = "orders_id"
-            ),
-            @JoinColumn(
-                    name = "count",
-                    referencedColumnName = "count"
-            ),
-            @JoinColumn(
-                    name = "user_id",
-                    referencedColumnName = "user_id"
-            )},
-            inverseJoinColumns = {@JoinColumn(
-                    name = "product_id",
-                    referencedColumnName = "id",
-                    unique = false
-            )}
-    )
-    private Set<Product> products = new HashSet<>();
+    @Transient
+    private int count;
 
-    @ManyToOne
-    @JoinColumn(
-            name = "user_id",
-            referencedColumnName = "user_id"
-    )
-    private User users;
+    @Column(name = "created", insertable = false)
+    @Basic(optional = false)
+    private Date created;
+
+    @Enumerated(EnumType.STRING)
+    @Column(name = "status", nullable = false)
+    @Basic(optional = false)
+    private OrderStatus status;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "user_id", referencedColumnName = "user_id")
+    private User user;
+
+    @Column(name = "deleted")
+    private boolean isDeleted = Boolean.FALSE;
+    @Column(name = "deleted_at", insertable = false)
+    private Date deletedAt;
+
+    @ElementCollection
+    @CollectionTable(name = "user_orders", joinColumns = {
+            @JoinColumn(name = "order_id", referencedColumnName = "orders_id")})
+    @AttributeOverrides({
+            @AttributeOverride(name = "id", column = @Column(name = "product_id"))})
+    private Set<Product> products;
 }

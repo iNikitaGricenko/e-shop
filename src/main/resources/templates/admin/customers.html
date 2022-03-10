@@ -89,7 +89,7 @@
           </form>
         </div>
         <div class="user">
-          <a href="settings"><img th:src="'/'+${User.photo}"></a>
+          <a href="settings"><img th:src="'/'+${#authentication.getPrincipal().getUser().getPhoto()}"></a>
         </div>
       </div>
 

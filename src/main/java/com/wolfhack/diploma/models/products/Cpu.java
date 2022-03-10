@@ -2,24 +2,21 @@ package com.wolfhack.diploma.models.products;
 
 import lombok.Getter;
 import lombok.Setter;
+import org.springframework.data.mongodb.core.mapping.Document;
 
 import javax.persistence.Entity;
 import javax.persistence.Inheritance;
 import javax.persistence.InheritanceType;
 import javax.persistence.Table;
 
-@Entity
-@Table(name = "CPU")
+@Document("cpu")
+@Getter @Setter
 public class Cpu extends Product {
 
-    @Getter @Setter
     private long cores;
-    @Getter @Setter
     private long threads;
-    @Getter @Setter
     private long cacheSize;
 
-    @Getter @Setter
     private int performance;
 
     @Override

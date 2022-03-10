@@ -25,13 +25,6 @@ public class MainController {
         }
     }
 
-    @PostMapping("/search")
-    public String search(@RequestParam String search, Model model, Principal principal) {
-        model.addAttribute("title", search);
-
-        return "redirect:/";
-    }
-
     @GetMapping("/about")
     public String getPageIndex(Model model, Principal principal) {
         model.addAttribute("title", "Home page");

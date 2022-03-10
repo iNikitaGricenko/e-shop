@@ -1,5 +1,6 @@
 package com.wolfhack.diploma.models.dto;
 
+import com.wolfhack.diploma.models.users.Role;
 import lombok.Data;
 
 import java.io.Serializable;
@@ -18,6 +19,6 @@ public class UserDto implements Serializable {
     private final String phone;
     private final String city;
     private final Date registerDate;
-    private final Set<RoleDto> roles;
+    private final Role role;
     private final String photo;
 }

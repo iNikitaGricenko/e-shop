@@ -1,24 +1,22 @@
 package com.wolfhack.diploma.models.products;
 
 import lombok.*;
+import org.springframework.data.mongodb.core.mapping.Document;
 import org.springframework.web.multipart.MultipartFile;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
+import java.util.Objects;
 
 @Getter @Setter
-@Entity
-@Inheritance(strategy = InheritanceType.JOINED)
+@Embeddable
 public abstract class Product {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    protected Long id;
+    protected String id;
 
-    @NotNull
     protected String name;
 
-    @NotNull
     protected String model;
 
     @Setter(AccessLevel.NONE)
@@ -51,4 +49,16 @@ public abstract class Product {
         return photos;
     }
 
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Product product = (Product) o;
+        return name.equals(product.name) && model.equals(product.model);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(id);
+    }
 }
