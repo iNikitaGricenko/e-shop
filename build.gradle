@@ -21,7 +21,7 @@ repositories {
 
 flyway {
 	url = 'jdbc:mysql:3306:eshop'
-	user = 'boss'
+	user = 'root'
 	password = 'WolFHacK702'
 }
 
