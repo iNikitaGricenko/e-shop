@@ -1,22 +1,23 @@
-package com.wolfhack.diploma.service;
+package com.wolfhack.diploma.models.users;
 
-import com.wolfhack.diploma.models.users.User;
 import lombok.Getter;
 import lombok.Setter;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
+import org.springframework.security.core.userdetails.UserDetails;
 
 import java.util.Collection;
-import java.util.stream.Collectors;
+import java.util.Collections;
 
-public class UserDetails implements org.springframework.security.core.userdetails.UserDetails {
+@Getter @Setter
+public class CustomUserDetails implements UserDetails {
 
-    @Getter @Setter
     private User user;
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
-        return user.getRoles().stream().map(role -> new SimpleGrantedAuthority("ROLE_"+role.toString())).collect(Collectors.toSet());
+        SimpleGrantedAuthority authority = new SimpleGrantedAuthority(user.getRole().toString());
+        return Collections.singleton(authority);
     }
 
     @Override

@@ -2,24 +2,18 @@ package com.wolfhack.diploma.models.products;
 
 import lombok.Getter;
 import lombok.Setter;
+import org.springframework.data.mongodb.core.mapping.Document;
 
 import javax.persistence.*;
 import java.lang.management.MemoryType;
 
-@Entity
-@Table(name = "RAM")
+@Document("ram")
+@Getter @Setter
 public class Ram extends Product{
 
-    @Getter @Setter
     private MemoryType type;
-
-    @Getter @Setter
     private long size;
-
-    @Getter @Setter
     private long maxSize;
-
-    @Getter @Setter
     private long freq;
 
     @Override

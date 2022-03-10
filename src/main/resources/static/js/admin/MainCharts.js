@@ -1,5 +1,5 @@
 $.ajax({
-    url: "http://wolfhack:8088/api/admin/traffic",
+    url: "http://localhost:8088/api/admin/traffic",
     type: "GET",
     success: function (data) {
         buildTrafficChart(data);
@@ -25,12 +25,11 @@ function buildTrafficChart(data) {
         },
         options: {
             responsive: true,
-
         }
     });
 }
 
-$.getJSON("http://wolfhack:8088/api/admin/earning").done(function(data) {
+$.getJSON("http://localhost:8088/api/admin/earning").done(function(data) {
     buildEarningChart(data);
 })
 function buildEarningChart(data) {

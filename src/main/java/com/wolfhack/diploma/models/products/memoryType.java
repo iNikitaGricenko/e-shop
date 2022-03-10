@@ -1,4 +1,4 @@
-package com.wolfhack.diploma.models.enums;
+package com.wolfhack.diploma.models.products;
 
 public enum memoryType {
     DDR3,

@@ -1,10 +1,12 @@
 package com.wolfhack.diploma.service;
 
+import com.wolfhack.diploma.models.users.CustomUserDetails;
+import com.wolfhack.diploma.models.users.Role;
 import com.wolfhack.diploma.models.users.User;
-import com.wolfhack.diploma.repository.RoleRepository;
 import com.wolfhack.diploma.repository.UserRepository;
 import lombok.RequiredArgsConstructor;
 import lombok.SneakyThrows;
+import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
@@ -18,7 +20,6 @@ import java.io.IOException;
 import java.sql.Date;
 import java.util.Calendar;
 import java.util.List;
-import java.util.stream.Collectors;
 
 import static org.springframework.data.crossstore.ChangeSetPersister.NotFoundException;
 
@@ -27,33 +28,32 @@ import static org.springframework.data.crossstore.ChangeSetPersister.NotFoundExc
 public class UserDetailService implements UserDetailsService {
 
     private final UserRepository userRepository;
-    private final RoleRepository roleRepository;
-    private String photoCatalog;
+    private String photoCatalog = "/photos/profiles-photos";
 
     @Override
-    public org.springframework.security.core.userdetails.UserDetails loadUserByUsername(String login) throws UsernameNotFoundException {
+    public UserDetails loadUserByUsername(String login) throws UsernameNotFoundException {
         User user = userRepository.findByLogin(login);
-        UserDetails userDetails = null;
+        CustomUserDetails customUserDetails = null;
         if (user!=null) {
-            userDetails = new UserDetails();
-            userDetails.setUser(user);
+            customUserDetails = new CustomUserDetails();
+            customUserDetails.setUser(user);
         } else {
             System.out.println("User not exist with email : " + login);
             throw new UsernameNotFoundException("User not exist with email : " + login);
         }
 
-        return userDetails;
+        return customUserDetails;
     }
 
     public boolean addUser(User user) throws IOException {
-
         if (userRepository.existsUserByLogin(user.getLogin())) {
             return false;
         }
         
-        user.setRoles(roleRepository.findById(3L).stream().collect(Collectors.toSet()));
+        user.setRole(Role.USER);
         BCryptPasswordEncoder bCryptPasswordEncoder = new BCryptPasswordEncoder();
-        user.setPassword(bCryptPasswordEncoder.encode(user.getPassword()));
+        String bcryptedPassword = bCryptPasswordEncoder.encode(user.getPassword());
+        user.setPassword(bcryptedPassword);
 
         Date date = new Date(Calendar.getInstance().getTime().getTime());
         user.setRegisterDate(date);
@@ -61,7 +61,6 @@ public class UserDetailService implements UserDetailsService {
 
         User savedUser = userRepository.save(user);
 
-        photoCatalog = "/photos/profiles-photos";
         File in = new File(new File("").getAbsolutePath() + photoCatalog + "/user-icon.png");
         File out = new File(new File("").getAbsolutePath() + photoCatalog + "/Profile_" + savedUser.getUsername() +"_"+savedUser.getId());
 
@@ -74,15 +73,18 @@ public class UserDetailService implements UserDetailsService {
 
     @SneakyThrows
     public boolean edit(User user, MultipartFile photo) throws NotFoundException {
-
         User foundedUser = userRepository.findById(user.getId())
                 .orElseThrow(NotFoundException::new);
 
-        user.getId();
+        BCryptPasswordEncoder bCryptPasswordEncoder = new BCryptPasswordEncoder();
+        String bcryptedPassword = bCryptPasswordEncoder.encode(user.getPassword());
+        user.setPassword(bcryptedPassword);
         user.setUsername(foundedUser.getUsername());
+        user.setRole(foundedUser.getRole());
         user.setPhoto(foundedUser.getPhotoName());
 
-        String fileName = StringUtils.cleanPath(photo.getContentType().replaceAll("image/", ""));
+        String path = photo.getContentType().replaceAll("image/", "");
+        String fileName = StringUtils.cleanPath(path);
 
         if (!fileName.contains("application/octet-stream")) {
             user.setPhoto("Profile."+fileName);
@@ -98,5 +100,10 @@ public class UserDetailService implements UserDetailsService {
 
     public List<User> getAll() {
         return userRepository.findAll();
+    }
+
+    public User getOne(Long id) {
+        return userRepository.findById(id)
+                .orElseThrow();
     }
 }

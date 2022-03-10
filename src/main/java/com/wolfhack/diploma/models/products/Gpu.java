@@ -2,12 +2,13 @@ package com.wolfhack.diploma.models.products;
 
 import lombok.Getter;
 import lombok.Setter;
+import org.springframework.data.mongodb.core.mapping.Document;
 
 import javax.persistence.*;
 import java.lang.management.MemoryType;
 
-@Entity
-@Table(name = "GPU")
+@Document("gpu")
+@Getter @Setter
 public class Gpu extends Product {
 
     enum Type {
@@ -15,16 +16,9 @@ public class Gpu extends Product {
         Интегрированная
     }
 
-    @Getter @Setter
     private Type type;
-
-    @Getter @Setter
     private long memorySize;
-
-    @Getter @Setter
     private MemoryType memoryType;
-
-    @Getter @Setter
     private int performance;
 
     @Override

@@ -4,10 +4,9 @@ import com.wolfhack.diploma.models.dto.UserDto;
 import com.wolfhack.diploma.models.dto.mapper.UserMapper;
 import com.wolfhack.diploma.models.users.User;
 import com.wolfhack.diploma.service.UserDetailService;
-import com.wolfhack.diploma.service.UserDetails;
+import com.wolfhack.diploma.models.users.CustomUserDetails;
 import com.wolfhack.diploma.validator.AuthenticationConstraint;
 import org.springframework.http.ResponseEntity;
-import org.springframework.security.access.AuthorizationServiceException;
 import org.springframework.security.core.Authentication;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
@@ -42,7 +41,7 @@ public class RegistrationController {
     public ResponseEntity<?> changeProfile(@ModelAttribute("User") UserDto requestUser, @AuthenticationConstraint Authentication authentication,
                                            @RequestParam("photoFile") MultipartFile photo) throws NotFoundException {
         User user = userMapper.toUser(requestUser);
-        Long id = ((UserDetails) authentication.getPrincipal()).getUser().getId();
+        Long id = ((CustomUserDetails) authentication.getPrincipal()).getUser().getId();
         user.setId(id);
 
         userService.edit(user, photo);
