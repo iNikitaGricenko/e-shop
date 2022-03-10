@@ -19,17 +19,7 @@ import java.util.List;
 @Controller
 public class LaptopController {
 
-    private final UserRepository userRepository;
     private final LaptopRepository laptopRepository;
-
-    @ModelAttribute("User")
-    public User getCurrentUser(Principal principal) {
-        if (principal != null) {
-            return userRepository.findByLogin(principal.getName());
-        } else {
-            return null;
-        }
-    }
 
     @GetMapping("/laptop")
     public String getPageLaptopProducts(@RequestParam(name="maxcost", required = false, defaultValue = "0") double maxcost,

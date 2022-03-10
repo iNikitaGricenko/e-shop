@@ -64,7 +64,7 @@
 				<p>Выйти</p>
 			</a>
 
-			<a class="nav-link-btn" rel="tooltip" th:title="${User.login}" th:text="${User.login}" href="#" onclick="settings()">
+			<a class="nav-link-btn" rel="tooltip" th:title="${#authentication.getPrincipal().getUser().getLogin()}" th:text="${#authentication.getPrincipal().getUser().getLogin()}" href="#" onclick="settings()">
 			</a>
 		</div>
 	</div>

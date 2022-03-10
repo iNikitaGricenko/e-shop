@@ -90,14 +90,15 @@
       </div>
     </div>
 
-    <form th:action="@{/changeProfile}" th:object="${User}" method="post" enctype="multipart/form-data">
+    <div method="post" enctype="multipart/form-data">
+      <script type="text/javascript" th:src="@{/js/updateProfile.js}"></script>
       <div class="settings">
         <!-- Main info start -->
         <div class="formBox">
           <h2 class="form-heading">Главная</h2>
           <div class="inputImgBox">
             <img id="ProfileImage">
-            <input type="file" accept="image/jpg, image/jpeg, image/png" name="photo" onclick="middleClick(this);">
+            <input type="file" id="photoFile" accept="image/jpg, image/jpeg, image/png" name="photo" onclick="middleClick(this);">
           </div>
           <div class="inputBox">
             <input type="email" name="login" id="ProfileLogin" required="">
@@ -105,7 +106,7 @@
             <span></span>
           </div>
           <div class="inputBox">
-            <input type="password" name="password" required>
+            <input type="password" name="password" id="Password" required>
             <label>Пароль</label>
             <span></span>
           </div>
@@ -142,7 +143,7 @@
             <span></span>
           </div>
           <div class="inputBox">
-            <input type="tel" id="Phone2" name="phone" required="" autocomplete="on" >
+            <input type="tel" id="MainPhone" name="phone" required="" autocomplete="on" >
             <label>Телефон</label>
             <span></span>
           </div>
@@ -152,37 +153,18 @@
       <div class="settings">
         <!-- Third info start -->
         <div class="formBox">
+          <script type="text/javascript" th:src="@{/js/editProfile.js}"></script>
           <div class="inputBox">
-            <input type="submit" name="" value="Принять настройки">
+            <input type="button" name="" value="Принять настройки" onclick="editProfile()">
           </div>
         </div>
         <!-- Third info end -->
       </div>
-    </form>
+    </div>
 
   </div>
 </div>
 
-<script>
-  $(document).ready(function() {
-    $.ajax({
-      type: 'GET',
-      url: 'http://localhost:8088/api/user',
-      dataType: 'json',
-      contentType: 'application/json',
-      success: function (data) {
-        $("#ProfileImage").attr("src", "/"+data.photo);
-        $("#ProfileLogin").attr("value", data.login);
-        $("#FirstName").attr("value", data.firstName);
-        $("#SecondName").attr("value", data.secondName);
-        $("#MiddleName").attr("value", data.middleName);
-        $("#Phone2").attr("value", data.phone);
-        $("#City").attr("value", data.city);
-        $("#RegisterDate").attr("value", data.registerDate);
-      }
-    })
-  })
-</script>
 <script type="text/javascript" th:src="@{/js/admin/admin-menu.js}"></script>
 <script type="text/javascript" th:src="@{/js/OpenProfileImage.js}"></script>
 <script type="text/javascript" th:src="@{/js/PhoneMask.js}"></script>

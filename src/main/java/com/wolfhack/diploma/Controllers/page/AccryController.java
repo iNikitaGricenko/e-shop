@@ -18,21 +18,10 @@ import java.security.Principal;
 @RequestMapping("/accry")
 public class AccryController {
 
-    private final UserRepository userRepository;
-
     private final SsdRepository ssdRepository;
     private final RamRepository ramRepository;
     private final CpuRepository cpuRepository;
     private final GpuRepository gpuRepository;
-
-    @ModelAttribute("User")
-    public User getCurrentUser(Principal principal) {
-        if (principal != null) {
-            return userRepository.findByLogin(principal.getName());
-        } else {
-            return null;
-        }
-    }
 
     private <P extends Product, R extends ProductRepo> boolean saveProduct(P product, R repository, MultipartFile[] files) throws IOException{
         if (repository.existsProductByNameAndModel(product.getName(), product.getModel())) {
