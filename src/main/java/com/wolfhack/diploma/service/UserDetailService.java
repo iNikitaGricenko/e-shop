@@ -6,6 +6,7 @@ import com.wolfhack.diploma.models.users.User;
 import com.wolfhack.diploma.repository.UserRepository;
 import lombok.RequiredArgsConstructor;
 import lombok.SneakyThrows;
+import org.springframework.kafka.core.KafkaTemplate;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
@@ -28,7 +29,8 @@ import static org.springframework.data.crossstore.ChangeSetPersister.NotFoundExc
 public class UserDetailService implements UserDetailsService {
 
     private final UserRepository userRepository;
-    private String photoCatalog = "/photos/profiles-photos";
+    private final KafkaTemplate<String, String> kafkaTemplate;
+    private final String photoCatalog = "/photos/profiles-photos";
 
     @Override
     public UserDetails loadUserByUsername(String login) throws UsernameNotFoundException {
@@ -61,12 +63,8 @@ public class UserDetailService implements UserDetailsService {
 
         User savedUser = userRepository.save(user);
 
-        File in = new File(new File("").getAbsolutePath() + photoCatalog + "/user-icon.png");
-        File out = new File(new File("").getAbsolutePath() + photoCatalog + "/Profile_" + savedUser.getUsername() +"_"+savedUser.getId());
-
-        out.mkdirs();
-        out = new File(out.getAbsolutePath()+"/"+"user-icon.png");
-        FileCopyUtils.copy(in, out);
+        savePhoto(savedUser);
+        kafkaTemplate.send("registration", savedUser.getLogin());
 
         return true;
     }
@@ -105,5 +103,14 @@ public class UserDetailService implements UserDetailsService {
     public User getOne(Long id) {
         return userRepository.findById(id)
                 .orElseThrow();
+    }
+
+    private void savePhoto(User savedUser) throws IOException {
+        File in = new File(new File("").getAbsolutePath() + photoCatalog + "/user-icon.png");
+        File out = new File(new File("").getAbsolutePath() + photoCatalog + "/Profile_" + savedUser.getUsername() +"_"+ savedUser.getId());
+
+        out.mkdirs();
+        out = new File(out.getAbsolutePath()+"/"+"user-icon.png");
+        FileCopyUtils.copy(in, out);
     }
 }
