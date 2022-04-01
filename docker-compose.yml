@@ -59,8 +59,8 @@ services:
       KAFKA_OFFSETS_TOPIC_REPLICATION_FACTOR: 1
       KAFKA_TRANSACTION_STATE_LOG_MIN_ISR: 1
       KAFKA_TRANSACTION_STATE_LOG_REPLICATION_FACTOR: 1
+# docker exec -it --tty kafka-broker kafka-console-consumer kafka-broker --from-beginning  --bootstrap-server kafka-broker:9093 --topic registration
 # End Kafka
-
 volumes:
   data: {}
 networks:
