@@ -689,6 +689,79 @@
 {
     display: none;
 }
+
+.container-list
+{
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 100%;
+    gap: 10px;
+}
+
+.list-head
+{
+    position: relative;
+    display: flex;
+    align-items: center;
+    background: white;
+    box-shadow: 4px 4px 2px rgb(200 200 200 / 50%);
+    border-radius: 5px;
+}
+
+.list-head .heading
+{
+    width: 400px;
+    height: 100%;
+    padding: 11px;
+    transform: translateY(5px);
+    color: black;
+}
+
+.list-head .imageBox
+{
+    background: #7b8e4d;
+    width: 50px;
+    height: 50px;
+    margin-left: auto;
+}
+
+.list-head .titleBox
+{
+    display: flex;
+    align-items: center;
+    width: 60%;
+    height: 100%;
+    margin-inline: auto;
+    color: black;
+}
+
+.list-head .buttonBox
+{
+    width: 50px;
+    margin-left: auto;
+}
+
+.list-head .buttonBox .expandButton
+{
+    position: relative;
+    width: 18px;
+    height: 9px;
+    background: var(--primary);
+    font-size: 2rem;
+    padding-inline: 9px;
+    color: white;
+    text-decoration: none;
+    border-radius: 3px;
+    transition: 500ms ease;
+}
+
+.list-head .buttonBox .expandButton:hover
+{
+    opacity: 0.8;
+}
+
 @media only screen and (max-width: 1600px)
 {
     .block .content .container

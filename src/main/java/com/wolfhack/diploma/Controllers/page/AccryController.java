@@ -1,6 +1,5 @@
 package com.wolfhack.diploma.Controllers.page;
 
-import com.wolfhack.diploma.models.users.User;
 import com.wolfhack.diploma.repository.*;
 import com.wolfhack.diploma.service.FileUploadUtil;
 import com.wolfhack.diploma.models.products.*;
@@ -39,7 +38,7 @@ public class AccryController {
     @GetMapping
     public String getPage(Model model, Principal principal) {
         model.addAttribute("title", "Accessories");
-        return "products/accry";
+        return "products/accry-catalog";
     }
 
     @GetMapping("/hdd")
@@ -47,7 +46,7 @@ public class AccryController {
         model.addAttribute("title", "Hdd products")
                 .addAttribute("filterURL", "blocks/filters/hdd")
                 .addAttribute("filter", "hdd");
-        return "products/laptop";
+        return "products/product-list";
     }
 
     @PostMapping("/hdd")
@@ -69,7 +68,7 @@ public class AccryController {
         model.addAttribute("title", "Ssd products")
                 .addAttribute("filterURL", "blocks/filters/ssd")
                 .addAttribute("filter", "ssd");;
-        return "products/laptop";
+        return "products/product-list";
     }
 
     @PostMapping("/ssd")
@@ -93,8 +92,8 @@ public class AccryController {
     public String getPageRAM(Model model, Principal principal) {
         model.addAttribute("title", "Ram products")
                 .addAttribute("filterURL", "blocks/filters/ram")
-                .addAttribute("filter", "ram");;
-        return "products/laptop";
+                .addAttribute("filter", "ram");
+        return "products/product-list";
     }
 
     @PostMapping("/ram")
@@ -119,9 +118,11 @@ public class AccryController {
     public String getPageCPU(Model model, Principal principal) {
         model.addAttribute("title", "CPU products")
                 .addAttribute("filterURL", "blocks/filters/cpu")
-                .addAttribute("filter", "cpu");;
+                .addAttribute("filter", "cpu");
 
-        return "products/laptop";
+        model.addAttribute("products", cpuRepository.findAll());
+
+        return "products/product-list";
     }
 
     @PostMapping("/cpu")

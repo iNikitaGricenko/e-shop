@@ -8,37 +8,38 @@ import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import java.util.*;
 
+import static com.wolfhack.diploma.models.products.OS.*;
+
 @Document("laptop")
 @Getter @Setter
 public class Laptop extends Product{
 
-    private double cost;
     private String dimensions;
     private float weight;
 
-    private Cpu cpu;
-    private Gpu gpu;
+    private Cpu cpu = new Cpu();
+    private Gpu gpu = new Gpu();
 
-    private Display display;
+    private Display display = new Display();
     private String displayCoverage;
 
-    private Ram ram;
+    private Ram ram = new Ram();
     private int ramSlots;
 
-    private Color color;
-    private Ssd ssd;
+    private Color color = Color.Black;
+    private Ssd ssd = new Ssd();
 
     private String multimedia, multimediaOptionally;
     private String battery;
 
     private String volume;
-    private OS OS;
+    private OS OS = Linux;
 
     private String[] wirelessTech;
     private List<String> comments = new ArrayList<>();
-    private List<String> ports;
-    private List<String> features;
-    private List<String> additionally;
+    private List<String> ports = new ArrayList<>();
+    private List<String> features = new ArrayList<>();
+    private List<String> additionally = new ArrayList<>();
 
     @Override
     public String getCatalog() {
@@ -47,10 +48,10 @@ public class Laptop extends Product{
 
     public Map getDisplayMap() {
         Map displayMap = new HashMap<String, String>();
-        displayMap.put("diagonal", display.getDiagonal() + "″");
-        displayMap.put("resolution", display.resolution);
-        displayMap.put("matrix type", display.type);
-        displayMap.put("freq", display.getFreq() + " Гц");
+        displayMap.put("diagonal", Optional.ofNullable(display).orElse(new Display()).getDiagonal() + "″");
+        displayMap.put("resolution", Optional.ofNullable(display).orElse(new Display()).resolution);
+        displayMap.put("matrix type", Optional.ofNullable(display).orElse(new Display()).type);
+        displayMap.put("freq", Optional.ofNullable(display).orElse(new Display()).getFreq() + " Гц");
         displayMap.put("coverage", displayCoverage);
         return displayMap;
     }

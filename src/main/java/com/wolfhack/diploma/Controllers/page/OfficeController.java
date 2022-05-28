@@ -1,12 +1,9 @@
 package com.wolfhack.diploma.Controllers.page;
 
-import com.wolfhack.diploma.models.users.User;
-import com.wolfhack.diploma.repository.UserRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import java.security.Principal;
@@ -20,7 +17,7 @@ public class OfficeController {
     @GetMapping
     public String getPage(Model model, Principal principal) {
         model.addAttribute("title", "Office equipment");
-        return "products/office";
+        return "products/office-catalog";
     }
 
     @GetMapping("/mfp")

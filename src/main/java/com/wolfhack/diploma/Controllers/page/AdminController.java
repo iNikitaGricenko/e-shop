@@ -1,6 +1,11 @@
 package com.wolfhack.diploma.Controllers.page;
 
+import com.wolfhack.diploma.repository.CpuRepository;
+import com.wolfhack.diploma.repository.GpuRepository;
+import com.wolfhack.diploma.repository.RamRepository;
+import com.wolfhack.diploma.repository.SsdRepository;
 import lombok.RequiredArgsConstructor;
+import org.springframework.data.querydsl.QuerydslPredicateExecutor;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -14,6 +19,11 @@ import java.security.Principal;
 @RequestMapping("/admin")
 @Controller
 public class AdminController {
+
+	private final CpuRepository cpuRepository;
+	private final GpuRepository gpuRepository;
+	private final RamRepository ramRepository;
+	private final SsdRepository ssdRepository;
 
 	@PostMapping("/search")
 	public String Search(@RequestParam String search, Model model, Principal principal) {
@@ -43,6 +53,10 @@ public class AdminController {
 
 	@GetMapping("/setup")
 	public String getPageAdminSetup(Model model, Principal principal) {
+		model.addAttribute("cpus", cpuRepository.findAll());
+		model.addAttribute("gpus", gpuRepository.findAll());
+		model.addAttribute("ssds", ssdRepository.findAll());
+		model.addAttribute("rams", ramRepository.findAll());
 		return "admin/setup";
 	}
 
