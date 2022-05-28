@@ -27,7 +27,7 @@
     <!-- services start -->
     <section class="block" style="background: none">
       <div class="head">
-        <h2 class="heading" id="main-content">Популярныеп товары</h2>
+        <h2 class="heading" id="main-content">Популярные товары</h2>
       </div>
       <div class="content">
         <div class="container">
@@ -134,8 +134,124 @@
             </div>
           </div>
 
+          <div class="contentBox">
+            <div>
+              <a href="#" class="Name">
+                SSD-диск Kingston A2000 3D NAND 500GB M.2 (2280 PCI-E) NVMe x4 (SA2000M8/500G)
+              </a>
+              <h2 class="serial">
+                Код: 168884
+              </h2>
+              <br>
+              <img class="preview" th:src="@{/img/links/kingston-a2000-3d-nand-500gb-m2-2280-pci-e-nvme-x4-sa2000m8500g.png}">
+              <br>
+              <p class="availability">Есть в наличии</p>
+              <div class="cost">
+                <p class="money">1 899 грн</p>
+                <div class="icons">
+                  <a href="#">
+                    <i class="fas fa-balance-scale"></i>
+                  </a>
+                  <a href="#">
+                    <i class="fas fa-shopping-cart"></i>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="contentBox">
+            <a href="/detailed" class="Name">
+              Ноутбук Gigabyte G5 GD (GD-51RU121SD) Black
+            </a>
+            <h2 class="serial">
+              Код: 376645
+            </h2>
+            <br>
+            <img class="preview" th:src="@{/img/gigabyte-g5-gd-gd-51ru121sd-black.png}">
+            <br>
+            <p class="availability">Есть в наличии</p>
+            <div class="cost">
+              <p class="money">31 999 грн</p>
+              <div class="icons">
+                <a href="#">
+                  <i class="fas fa-balance-scale"></i>
+                </a>
+                <a href="#">
+                  <i class="fas fa-shopping-cart"></i>
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <div class="contentBox">
+            <div>
+              <a href="#" class="Name">
+                Жесткий диск Western Digital Red 1TB 16MB 2.5" (WD10JFCX)
+              </a>
+              <h2 class="serial">
+                Код: 017662
+              </h2>
+              <br>
+              <img class="preview" th:src="@{/img/links/western-digital-wd-red-1tb-16mb-25-wd10jfcx.png}">
+              <br>
+              <p class="availability">Есть в наличии</p>
+              <div class="cost">
+                <p class="money">2 311 грн</p>
+                <div class="icons">
+                  <a href="#">
+                    <i class="fas fa-balance-scale"></i>
+                  </a>
+                  <a href="#">
+                    <i class="fas fa-shopping-cart"></i>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="contentBox">
+            <div>
+              <a href="#" class="Name">
+                ОЗУ Samsung SODIMM DDR2 2GB 800Mhz (M470T5663EH3-CF7)
+              </a>
+              <h2 class="serial">
+                Код: 081008
+              </h2>
+              <br>
+              <img class="preview" th:src="@{/img/links/samsung-sodimm-ddr2-2gb-800mhz-m470t5663eh3-cf7.png}">
+              <br>
+              <p class="availability">Есть в наличии</p>
+              <div class="cost">
+                <p class="money">309 грн</p>
+                <div class="icons">
+                  <a href="#">
+                    <i class="fas fa-balance-scale"></i>
+                  </a>
+                  <a href="#">
+                    <i class="fas fa-shopping-cart"></i>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+
         </div>
       </div>
+    </section>
+    <!-- services end -->
+
+    <!-- services start -->
+    <section class="block" style="background: none">
+      <div class="head">
+        <h2 class="heading">Каталог</h2>
+      </div>
+      <th:block th:insert="products/accry-catalog :: catalog">
+      </th:block>
+      <th:block th:insert="products/periphery-catalog :: catalog">
+      </th:block>
+      <th:block th:insert="products/office-catalog :: catalog">
+      </th:block>
     </section>
     <!-- services end -->
 

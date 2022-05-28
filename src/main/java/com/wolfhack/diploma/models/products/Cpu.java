@@ -12,13 +12,10 @@ import javax.persistence.Table;
 @Document("cpu")
 @Getter @Setter
 public class Cpu extends Product {
-
     private long cores;
     private long threads;
     private long cacheSize;
-
     private int performance;
-
     @Override
     public String getCatalog() {
         return "Cpu_";

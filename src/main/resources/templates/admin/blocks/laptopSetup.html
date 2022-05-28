@@ -24,19 +24,20 @@
     <div class="formBox">
       <h2 class="form-heading">Процессор:</h2>
       <div class="inputBox">
-        <input list="CPU" readonly name="CPU" required="">
+        <input type="text" list="CPU" name="CPU" required="">
         <label>Процессор</label>
         <span></span>
         <datalist id="CPU" th:each="cpu : ${cpus}">
-          <option th:data-value-id="${cpu.id}" th:value="${cpu.name} + ' ' + ${cpu.model}">
+          <option th:data-value-id="${cpu.id}" th:value="${cpu.name} + ' ' + ${cpu.model}" th:text="${cpu.name} + ' ' + ${cpu.model}"/>
         </datalist>
+        </input>
       </div>
     </div>
     <br>
     <div class="formBox">
       <h2 class="form-heading">Видеокарта:</h2>
       <div class="inputBox">
-        <input list="GPU" readonly name="GPU" required="">
+        <input list="GPU" name="GPU" required="">
         <label>Видеокарта</label>
         <span></span>
         <datalist id="GPU" th:each="gpu : ${gpus}">
@@ -77,7 +78,7 @@
     <div class="formBox">
       <h2 class="form-heading">Оперативная память:</h2>
       <div class="inputBox">
-        <input list="RAM" readonly name="RAM" required="">
+        <input list="RAM" name="RAM" required="">
         <label>Оперативная память</label>
         <span></span>
         <datalist id="RAM" th:each="ram : ${rams}">
@@ -89,7 +90,7 @@
     <div class="formBox">
       <h2 class="form-heading">Внутренний накопитель:</h2>
       <div class="inputBox">
-        <input list="SSD" readonly name="SSD" required="">
+        <input list="SSD" name="SSD" required="">
         <label>Внутренний накопитель</label>
         <span></span>
         <datalist id="SSD" th:each="ssd : ${ssds}">

@@ -1,6 +1,6 @@
 version: "3.9"
 services:
-#  Start Mysql
+# Start Mysql
   mysql:
     image: mysql
     container_name: mysql-eshop
@@ -12,7 +12,7 @@ services:
       - MYSQL_DATABASE=eshop
     ports:
       - 3306:3306
-#  End Mysql
+# End Mysql
 
 # Start Mongo
   mongodb:

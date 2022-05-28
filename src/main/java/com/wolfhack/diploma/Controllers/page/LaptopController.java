@@ -1,10 +1,8 @@
 package com.wolfhack.diploma.Controllers.page;
 
-import com.wolfhack.diploma.models.users.User;
 import com.wolfhack.diploma.service.FileUploadUtil;
 import com.wolfhack.diploma.models.products.Laptop;
 import com.wolfhack.diploma.repository.LaptopRepository;
-import com.wolfhack.diploma.repository.UserRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -38,7 +36,7 @@ public class LaptopController {
 
         model.addAttribute("products", laptops);
 
-        return "products/laptop";
+        return "products/product-list";
     }
 
     @GetMapping("/{product}={model}")

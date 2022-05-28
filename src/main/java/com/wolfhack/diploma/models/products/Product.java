@@ -19,6 +19,8 @@ public abstract class Product {
 
     protected String model;
 
+    private double cost;
+
     @Setter(AccessLevel.NONE)
     protected String photo1,
                 photo2,

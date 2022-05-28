@@ -19,7 +19,7 @@ public class MainController {
     }
 
     @GetMapping("/example")
-    public String getExample(Model model, Principal principal) {
+    public String getPageExample(Model model, Principal principal) {
         model.addAttribute("title", "Home page");
         return "products/detailed-example";
     }
@@ -28,5 +28,11 @@ public class MainController {
     public String getPageHome(Model model, Principal principal) {
         model.addAttribute("title", "Home page");
         return "home";
+    }
+
+    @GetMapping("/constructor")
+    public String getPageConstructor(Model model, Principal principal) {
+        model.addAttribute("title", "Constructor");
+        return "constructor";
     }
 }

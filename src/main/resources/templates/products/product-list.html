@@ -38,32 +38,34 @@
           </a>
         </div>
       </div>
-      <th:block th:insert="${filterURL} :: ${filter}"></th:block>
+      <div class="flex" style="align-items: inherit;">
 
-      <div class="content">
-        <div class="container">
-          <div class="contentBox" th:each="element : ${products}">
-            <div>
-              <a th:href="'/' + ${element.name.replace(' ', '-')} + '=' + ${element.model}" class="Name" th:text="'Ноутбук ' + ${element.name} +'('+ ${element.model} + ')'"></a>
-              <h2 class="serial" th:text="'Код:' + ${element.id}"></h2>
-              <br>
-              <img class="preview" th:src="${element.getPhotos()[0]}">
-              <br>
-              <p class="availability">Есть в наличии</p>
-              <div class="cost">
-                <p class="money" th:text="${element.cost} + ' грн'"></p>
-                <div class="icons">
-                  <a href="#">
-                    <i class="fas fa-balance-scale"></i>
-                  </a>
-                  <a href="#">
-                    <i class="fas fa-shopping-cart"></i>
-                  </a>
+        <th:block th:insert="${filterURL} :: ${filter}"></th:block>
+
+        <div class="content">
+          <div class="container">
+            <div class="contentBox" th:each="element : ${products}">
+              <div>
+                <a th:href="'/' + ${element.name.replace(' ', '-')} + '=' + ${element.model}" class="Name" th:text="${title} + ${element.name} +'('+ ${element.model} + ')'"></a>
+                <h2 class="serial" th:text="'Код:' + ${element.id}"></h2>
+                <br>
+                <img class="preview" th:src="${element.getPhotos()[0]}">
+                <br>
+                <p class="availability">Есть в наличии</p>
+                <div class="cost">
+                  <p class="money" th:text="${element.cost} + ' грн'"></p>
+                  <div class="icons">
+                    <a href="#">
+                      <i class="fas fa-balance-scale"></i>
+                    </a>
+                    <a href="#">
+                      <i class="fas fa-shopping-cart"></i>
+                    </a>
+                  </div>
                 </div>
               </div>
             </div>
           </div>
-
         </div>
       </div>
     </section>
