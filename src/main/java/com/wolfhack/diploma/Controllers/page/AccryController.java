@@ -190,7 +190,7 @@ public class AccryController {
     @GetMapping("/sound-cards")
     public String getPageSoundCards(Model model, Principal principal) {
         model.addAttribute("title", "Ram products");
-        return "products/accry/sound-cards";
+        return "products/accry/sound-card";
     }
 
     @GetMapping("/controllers-adapters")
