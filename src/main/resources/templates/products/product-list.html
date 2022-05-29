@@ -27,7 +27,7 @@
 
     <!-- services start -->
 
-    <section class="block">
+    <section class="block" th:fragment="product-list" id="product-list-block">
       <div class="head">
         <h2 class="heading" th:text="${title}" id="main-content"></h2>
         <div class="inputBox">
@@ -86,6 +86,7 @@
 <script type="text/javascript" th:src="@{/js/PhoneMask.js}"></script>
 <script type="text/javascript" th:src="@{/js/modals.js}"></script>
 <script type="text/javascript" th:src="@{/js/toggle-filter.js}"></script>
+<script type="text/javascript" th:src="@{/js/toggle-caret.js}"></script>
 </body>
 
 </html>

@@ -700,6 +700,32 @@
     gap: 10px;
 }
 
+.container-list .panel
+{
+    position: relative;
+    display: block;
+}
+
+.panel .bottom-panel
+{
+    width: 100%;
+    height: 10px;
+    margin-bottom: 0;
+    transform: translateY(-35px);
+    transition: 250ms ease-in-out;
+    transition-delay: 150ms;
+    z-index: 1;
+}
+
+.panel .bottom-panel.active
+{
+    transition: 500ms ease-in-out;
+    transition-delay: 200ms;
+    transform: translateY(15px);
+    height: max-content;
+    margin-bottom: 25px;
+}
+
 .list-head
 {
     position: relative;
@@ -708,6 +734,7 @@
     background: white;
     box-shadow: 4px 4px 2px rgb(200 200 200 / 50%);
     border-radius: 5px;
+    z-index: 2;
 }
 
 .list-head .heading
@@ -725,6 +752,8 @@
     width: 50px;
     height: 50px;
     margin-left: auto;
+    font-family: "Font Awesome 5 Free";
+    content: '\f2db';
 }
 
 .list-head .titleBox
