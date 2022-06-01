@@ -6,7 +6,7 @@ import org.springframework.stereotype.Repository;
 import java.util.List;
 
 @Repository
-public interface LaptopRepository extends ProductRepo<Laptop> {
+public interface LaptopRepository extends ProductRepository<Laptop> {
 
     List<Laptop> findLaptopsByCostLessThanEqual(double cost);
 

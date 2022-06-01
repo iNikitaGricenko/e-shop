@@ -1,4 +1,4 @@
-package com.wolfhack.diploma.service;
+package com.wolfhack.diploma.util;
 
 import java.io.*;
 import java.nio.file.*;

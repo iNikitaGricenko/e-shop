@@ -2,14 +2,13 @@ package com.wolfhack.diploma.repository;
 
 import com.wolfhack.diploma.models.products.Laptop;
 import com.wolfhack.diploma.models.products.Product;
-import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.mongodb.repository.MongoRepository;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
 
 @Repository
-public interface ProductRepo<T extends Product> extends MongoRepository<T, String> {
+public interface ProductRepository<T extends Product> extends MongoRepository<T, String> {
 
     boolean existsProductByNameAndModel(String name, String model);
     Laptop findByNameIsLikeAndModelIsLike(String name, String model);
