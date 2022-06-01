@@ -4,6 +4,7 @@ import com.wolfhack.diploma.models.users.CustomUserDetails;
 import com.wolfhack.diploma.models.users.Role;
 import com.wolfhack.diploma.models.users.User;
 import com.wolfhack.diploma.repository.UserRepository;
+import com.wolfhack.diploma.util.FileUploadUtil;
 import lombok.RequiredArgsConstructor;
 import lombok.SneakyThrows;
 import org.springframework.kafka.core.KafkaTemplate;

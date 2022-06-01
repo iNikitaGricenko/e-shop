@@ -3,6 +3,6 @@ import com.wolfhack.diploma.models.products.Ssd;
 import org.springframework.stereotype.Repository;
 
 @Repository
-public interface SsdRepository extends ProductRepo<Ssd> {
+public interface SsdRepository extends ProductRepository<Ssd> {
 
 }

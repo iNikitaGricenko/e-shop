@@ -201,7 +201,7 @@
         setTimeout(toggleFilter, 2000);
         var native_id = "#" + id;
         $(native_id).toggleClass("active");
-        $(native_id).load("http://localhost:8088/accry/"+id+" #product-list-block");
+        $(native_id).load("http://localhost:8088/accessories/"+id+" #product-list-block");
         $(self).attr("onclick", "expandBackUp('"+id+"', this)");
     }
     function expandBackUp(id, self) {

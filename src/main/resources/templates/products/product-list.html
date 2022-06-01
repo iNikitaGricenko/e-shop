@@ -46,7 +46,7 @@
           <div class="container">
             <div class="contentBox" th:each="element : ${products}">
               <div>
-                <a th:href="'/' + ${element.name.replace(' ', '-')} + '=' + ${element.model}" class="Name" th:text="${title} + ${element.name} +'('+ ${element.model} + ')'"></a>
+                <a th:href="${#httpServletRequest.requestURI} + '/' + ${element.name.replace(' ', '-')} + '-' + ${element.model}" class="Name" th:text="${element.name} +'('+ ${element.model} + ')'"></a>
                 <h2 class="serial" th:text="'Код:' + ${element.id}"></h2>
                 <br>
                 <img class="preview" th:src="${element.getPhotos()[0]}">
