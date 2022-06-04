@@ -748,12 +748,17 @@
 
 .list-head .imageBox
 {
-    background: #7b8e4d;
+    background: #e6e6e6;
     width: 50px;
     height: 50px;
     margin-left: auto;
-    font-family: "Font Awesome 5 Free";
-    content: '\f2db';
+}
+
+.list-head .imageBox .preview_selected_product
+{
+    object-fit: scale-down;
+    width: 100%;
+    height: 100%;
 }
 
 .list-head .titleBox
@@ -764,6 +769,17 @@
     height: 100%;
     margin-inline: auto;
     color: black;
+}
+
+.list-head .titleBox a
+{
+    text-decoration: none;
+    color: var(--primary-black);
+    font-size: 1rem;
+}
+.list-head .titleBox a:hover
+{
+    color: var(--primary-triangular);
 }
 
 .list-head .buttonBox

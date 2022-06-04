@@ -132,7 +132,7 @@ body
 }
 .skip-nav-link:focus
 {
-  transform: translateY(-310%);
+  transform: translateY(-260%);
 }
 .topbar .main
 {
@@ -476,6 +476,31 @@ body
   border-radius: 30%;
   z-index: 2;
 }
+
+.navigation li a + span
+{
+  position: absolute;
+  width: 150px;
+  text-align: center;
+  bottom: -10px;
+  visibility: hidden;
+  opacity: 0;
+  color: black;
+  font-size: 1rem;
+  cursor: none;
+  pointer-events: none;
+  transform: translateY(0);
+  z-index: 5;
+}
+.navigation li a:hover + span
+{
+  visibility: visible;
+  opacity: 1;
+  transform: translateY(50%);
+  transition: 500ms;
+  transition-delay: 150ms;
+}
+
 .navigation li a
 {
   position: relative;

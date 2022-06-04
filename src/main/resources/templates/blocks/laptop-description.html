@@ -1,0 +1,310 @@
+<th:block th:fragment="cpu">
+    <ul class="parts">
+        <h2>Процессор</h2>
+        <li>
+            <h3 class="title">Процессор</h3>
+            <data>
+                <p class="about" th:text="${element.getCpu().getName()}"></p>
+            </data>
+        </li>
+        <li>
+            <h3 class="title">Производительность процессора</h3>
+            <data>
+                <p class="about" th:text="${element.getCpu().getPerformance()}"></p>
+            </data>
+        </li>
+        <li>
+            <h3 class="title">Количество ядер</h3>
+            <data>
+                <p class="about"th:text="${element.getCpu().getCores()}"></p>
+            </data>
+        </li>
+        <li>
+            <h3 class="title">Количество потоков</h3>
+            <data>
+                <p class="about" th:text="${element.getCpu().getThreads()}"></p>
+            </data>
+        </li>
+        <li>
+            <h3 class="title">Объем кэша L3</h3>
+            <data>
+                <p class="about" th:text="${element.getCpu().getCacheSize()}"></p>
+            </data>
+        </li>
+    </ul>
+</th:block>
+<th:block th:fragment="short-cpu">
+    <li>
+        <p class="title">Модель: </p>
+        <p class="about" th:text="${element.getModel()}"></p>
+    </li>
+    <li>
+        <p class="title">Количество ядер: </p>
+        <p class="about" th:text="${element.getCores()}"></p>
+    </li>
+    <li>
+        <p class="title">Потоков: </p>
+        <p class="about" th:text="${element.getThreads()}"></p>
+    </li>
+</th:block>
+
+<th:block th:fragment="gpu">
+    <ul class="parts">
+        <h2>Видеокарта</h2>
+        <li>
+            <h3 class="title">Тип</h3>
+            <data>
+                <p class="about" th:text="${element.getGpu().getType()}"></p>
+            </data>
+        </li>
+        <li>
+            <h3 class="title">Видеокарта</h3>
+            <data>
+                <p class="about" th:text="${element.getGpu().getName()}"></p>
+            </data>
+        </li>
+        <li>
+            <h3 class="title">Объем видеопамяти</h3>
+            <data>
+                <p class="about" th:text="${element.getGpu().getMemorySize()}"></p>
+            </data>
+        </li>
+        <li>
+            <h3 class="title">Тип видеопамяти</h3>
+            <data>
+                <p class="about" th:text="${element.getGpu().getMemoryType()}"></p>
+            </data>
+        </li>
+        <li>
+            <h3 class="title">Производительность видеокарты</h3>
+            <data>
+                <p class="about" th:text="${element.getGpu().getPerformance()}"></p>
+            </data>
+        </li>
+    </ul>
+</th:block>
+
+<th:block th:fragment="display">
+    <ul class="parts">
+        <h2>Дисплей</h2>
+        <li>
+            <h3 class="title">Диагональ</h3>
+            <data>
+                <p class="about" th:text="${element.getDisplayMap().get('diagonal')}"></p>
+            </data>
+        </li>
+        <li>
+            <h3 class="title">Разрешение</h3>
+            <data>
+                <p class="about" th:text="${element.getDisplayMap().get('resolution')}"></p>
+            </data>
+        </li>
+        <li>
+            <h3 class="title">Тип матрицы</h3>
+            <data>
+                <p class="about" th:text="${element.getDisplayMap().get('matrix type')}"></p>
+            </data>
+        </li>
+        <li>
+            <h3 class="title">Частота обновления</h3>
+            <data>
+                <p class="about" th:text="${element.getDisplayMap().get('freq')}"></p>
+            </data>
+        </li>
+        <li>
+            <h3 class="title">Покрытие</h3>
+            <data>
+                <p class="about" th:text="${element.getDisplayMap().get('coverage')}"></p>
+            </data>
+        </li>
+    </ul>
+</th:block>
+
+<th:block th:fragment="ram">
+    <ul class="parts">
+        <h2>Оперативная память</h2>
+        <li>
+            <h3 class="title">Объем</h3>
+            <data>
+                <p class="about" th:text="${element.getRam().getSize()}"></p>
+            </data>
+        </li>
+        <li>
+            <h3 class="title">Частота</h3>
+            <data>
+                <p class="about" th:text="${element.getRam().getFreq()}"></p>
+            </data>
+        </li>
+        <li>
+            <h3 class="title">Тип</h3>
+            <data>
+                <p class="about" th:text="${element.getRam().getType()}"></p>
+            </data>
+        </li>
+        <li>
+            <h3 class="title">Количество слотов</h3>
+            <data>
+                <p class="about" th:text="${element.getRamSlots()}"></p>
+            </data>
+        </li>
+        <li>
+            <h3 class="title">Максимальный поддерживаемый объем</h3>
+            <data>
+                <p class="about" th:text="${element.getRam().getMaxSize()}"></p>
+            </data>
+        </li>
+    </ul>
+</th:block>
+
+<th:block th:fragment="ssd">
+    <ul class="parts">
+        <h2>Внутренний накопитель</h2>
+        <li>
+            <h3 class="title">Тип</h3>
+            <data>
+                <p class="about" th:text="${element.getSsd().getType()}"></p>
+            </data>
+        </li>
+        <li>
+            <h3 class="title">Объем SSD</h3>
+            <data>
+                <p class="about" th:text="${element.getSsd().getSize()}"></p>
+            </data>
+        </li>
+        <li>
+            <h3 class="title">Дополнительно</h3>
+            <data>
+                <p class="about" th:text="'Скорость чтения: ' + ${element.getSsd().getReaderSpeed()}"></p>
+                <p class="about" th:text="'Скорость записывания: ' + ${element.getSsd().getWriterSpeed()}"></p>
+            </data>
+        </li>
+    </ul>
+</th:block>
+
+<th:block th:fragment="wireless">
+    <ul class="parts">
+        <h2>Порты и беспроводные технологии</h2>
+        <li>
+            <h3 class="title">Порты</h3>
+            <data th:each="port : ${element.getPorts()}">
+                <p class="about" th:text="${port}"></p>
+            </data>
+        </li>
+        <li>
+            <h3 class="title">Беспроводные технологии</h3>
+            <data th:each="wireless : ${element.getWirelessTech()}">
+                <p class="about" th:text="${wireless}"></p>
+            </data>
+        </li>
+    </ul>
+</th:block>
+
+<th:block th:fragment="multimedia">
+    <ul class="parts">
+        <h2>Мультимедиа</h2>
+        <li>
+            <h3 class="title">Мультимедиа</h3>
+            <data th:each="media : ${element.getMultimedia()}">
+                <p class="about" th:text="${media}"></p>
+            </data>
+        </li>
+        <li>
+            <h3 class="title">Дополнительно</h3>
+            <data th:each="media : ${element.getMultimedia()}">
+                <p class="about" th:text="${media}"></p>
+            </data>
+        </li>
+    </ul>
+</th:block>
+
+<th:block th:fragment="accumulator">
+    <ul class="parts">
+        <h2>Аккумулятор</h2>
+        <li>
+            <h3 class="title">Тип</h3>
+            <data>
+                <p class="about" th:text="${element.battery}"></p>
+            </data>
+        </li>
+    </ul>
+</th:block>
+
+<th:block th:fragment="laptop">
+    <ul class="parts">
+        <h2>Дополнительно</h2>
+        <li>
+            <h3 class="title">Объем</h3>
+            <data>
+                <p class="about" th:text="${element.getOptionallyMap().get('volume')}"></p>
+            </data>
+        </li>
+        <li>
+            <h3 class="title">Установленная операционная система</h3>
+            <data>
+                <p class="about" th:text="${element.getOptionallyMap().get('OS')}"></p>
+            </data>
+        </li>
+        <li>
+            <h3 class="title">Особенности</h3>
+            <data>
+                <p class="about" th:text="${element.getOptionallyMap().get('features1')}"></p>
+                <p class="about" th:text="${element.getOptionallyMap().get('features2')}"></p>
+            </data>
+        </li>
+        <li>
+            <h3 class="title">Дополнительно</h3>
+            <data>
+                <p class="about" th:text="${element.getOptionallyMap().get('additionally1')}"></p>
+                <p class="about" th:text="${element.getOptionallyMap().get('additionally2')}"></p>
+            </data>
+        </li>
+        <li>
+            <h3 class="title">Габариты</h3>
+            <data>
+                <p class="about" th:text="${element.getOptionallyMap().get('dimensions')}"></p>
+            </data>
+        </li>
+        <li>
+            <h3 class="title">Вес</h3>
+            <data>
+                <p class="about" th:text="${element.getOptionallyMap().get('weight')}"></p>
+            </data>
+        </li>
+        <li>
+            <h3 class="title">Цвет</h3>
+            <data>
+                <p class="about" th:text="${element.getOptionallyMap().get('color')}"></p>
+            </data>
+        </li>
+    </ul>
+</th:block>
+<th:block th:fragment="short-laptop">
+    <li>
+        <p class="title">Дисплей: </p>
+        <p class="about" th:text="${element.getDisplayMap().get('diagonal')} +'″ ('+ ${element.getDisplayMap().get('resolution')} +', '+ ${element.getDisplayMap().get('matrix type')} + ')'"></p>
+    </li>
+    <li>
+        <p class="title">Процессор: </p>
+        <p class="about" th:text="${element.getCpu().getName()} +', ' + ${element.getCpu().getCores()}"></p>
+    </li>
+    <li>
+        <p class="title">Оперативная память: </p>
+        <p class="about" th:text="${element.getRam().getSize()} +' ГБ (' + ${element.getRam().getType()} + ')'"></p>
+    </li>
+    <li>
+        <p class="title">Внутренний накопитель: </p>
+        <p class="about" th:text="${element.getSsd().getSize()} +' ГБ (' + ${element.getSsd().getType()} + ')'"></p>
+    </li>
+    <li>
+        <p class="title">Видеокарта: </p>
+        <p class="about" th:text="${element.getGpu().getName()}"></p>
+    </li>
+    <li>
+        <p class="title">Габариты: </p>
+        <p class="about" th:text="${element.dimensions} + ' мм'"></p>
+    </li>
+    <li>
+        <p class="title">Вес: </p>
+        <p class="about" th:text="${element.weight} + ' кг'"></p>
+    </li>
+</th:block>

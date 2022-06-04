@@ -30,7 +30,7 @@
       <h2 class="form-heading">Характеристики</h2>
       <div class="inputBox">
         <input type="number" min="1024" step="1024" name="memorySize" required="">
-        <label>Объем памяти</label>
+        <label>Объем памяти (Мб)</label>
         <span></span>
       </div>
       <div class="inputBox">
@@ -39,8 +39,102 @@
         <span></span>
       </div>
       <div class="inputBox">
-        <input type="number" min="0" step="1" name="performance">
-        <label>Производительность</label>
+        <input type="number" min="0" step="1" name="memoryBus">
+        <label>Шина памяти (бит)</label>
+        <span></span>
+      </div>
+      <div class="inputBox">
+        <input type="text" name="coreFrequency" required="">
+        <label>Частота графического ядра (Мгц)</label>
+        <span></span>
+      </div>
+      <div class="inputBox">
+        <input type="number" min="0" step="1" name="videoMemoryFrequency">
+        <label>Частота видеопамяти (Мгц)</label>
+        <span></span>
+      </div>
+      <div class="inputBox">
+        <input type="text" name="maxResolution">
+        <label>Максимальное разрешение </label>
+        <span></span>
+      </div>
+      <div class="inputBox">
+        <input type="text" name="processorFamily">
+        <label>Семейство процессора  </label>
+        <span></span>
+      </div>
+    </div>
+    <div class="formBox">
+      <h2 class="form-heading">Подключения и разъемы</h2>
+      <div class="inputBox">
+        <input type="text" name="gpuInterface" required="">
+        <label>Интерфейс</label>
+        <span></span>
+      </div>
+      <div class="inputBox">
+        <input type="text" name="connectors" required="">
+        <label>Разъемы</label>
+        <span></span>
+      </div>
+    </div>
+    <div class="formBox">
+      <h2 class="form-heading">Подсветка</h2>
+      <div class="inputBox">
+        <input type="text" name="lighting" required="">
+        <label>Подсветка </label>
+        <span></span>
+      </div>
+    </div>
+    <div class="formBox">
+      <h2 class="form-heading">Дополнительные характеристики</h2>
+      <div class="inputBox">
+        <input type="number" min="0" step="1" name="fans">
+        <label>Количество вентиляторов </label>
+        <span></span>
+      </div>
+      <div class="inputBox">
+        <input type="text" name="standardsSupport">
+        <label>Поддержка стандартов </label>
+        <span></span>
+      </div>
+      <div class="inputBox">
+        <input type="checkbox" name="cudaSupport">
+        <label>Поддержка CUDA</label>
+        <span></span>
+      </div>
+      <div class="inputBox">
+        <input type="number" min="0" step="1" name="length">
+        <label>Длина видеокарты </label>
+        <span></span>
+      </div>
+      <div class="inputBox">
+        <input type="number" min="0" step="1" name="height">
+        <label>Высота видеокарты</label>
+        <span></span>
+      </div>
+      <div class="inputBox">
+        <input type="number" min="0" step="1" name="slots">
+        <label>Кол-во занимаемых слотов</label>
+        <span></span>
+      </div>
+      <div class="inputBox">
+        <input type="checkbox" name="additionalPowerSupply">
+        <label>Необходимость дополнительного питания</label>
+        <span></span>
+      </div>
+      <div class="inputBox">
+        <input type="number" min="0" step="50" name="powerSupplyCapacity">
+        <label>Рекомендуемая мощность БП (Вт)</label>
+        <span></span>
+      </div>
+      <div class="inputBox">
+        <input type="text" name="supplyConnector" required="">
+        <label>Разъем доп. питания </label>
+        <span></span>
+      </div>
+      <div class="inputBox">
+        <input type="number" min="0" step="1" name="cudaCores">
+        <label>Количество ядер CUDA </label>
         <span></span>
       </div>
     </div>

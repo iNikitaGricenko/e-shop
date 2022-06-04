@@ -4,6 +4,8 @@ import com.wolfhack.diploma.models.products.Laptop;
 import com.wolfhack.diploma.repository.LaptopRepository;
 import com.wolfhack.diploma.util.FileUploadUtil;
 import lombok.RequiredArgsConstructor;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
@@ -27,7 +29,8 @@ public class LaptopService {
     }
 
     public Laptop findByNameAndModel(String productName, String productModel) {
-        return laptopRepository.findByNameIsLikeAndModelIsLike(productName.replace("-", " "), productModel);
+        productName= productName.replace("-", " ");
+        return (Laptop) laptopRepository.findByNameIsLikeAndModelIsLike(productName.replace("-", " "), productModel);
     }
 
     public List<Laptop> filterByMaxCost(double maxCost) {
@@ -37,4 +40,16 @@ public class LaptopService {
         return laptopRepository.findAll();
     }
 
+    public Page<Laptop> findAll(Pageable pageable) {
+        return laptopRepository.findAll(pageable);
+    }
+
+    public Laptop findById(String id) {
+        return laptopRepository.findById(id)
+                .orElseThrow(RuntimeException::new);
+    }
+
+    public void save(Laptop laptop) {
+        laptopRepository.save(laptop);
+    }
 }

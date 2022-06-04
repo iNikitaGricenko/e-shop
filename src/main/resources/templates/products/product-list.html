@@ -46,10 +46,10 @@
           <div class="container">
             <div class="contentBox" th:each="element : ${products}">
               <div>
-                <a th:href="${#httpServletRequest.requestURI} + '/' + ${element.name.replace(' ', '-')} + '-' + ${element.model}" class="Name" th:text="${element.name} +'('+ ${element.model} + ')'"></a>
+                <a th:href="${#httpServletRequest.requestURI} + '/' + ${element.model} + '/' + ${element.name.replace(' ', '-')}" class="Name" th:text="${element.name} +'('+ ${element.model} + ')'"></a>
                 <h2 class="serial" th:text="'Код:' + ${element.id}"></h2>
                 <br>
-                <img class="preview" th:src="${element.getPhotos()[0]}">
+                <img class="preview" th:src="'/'+${element.getPhotos()[0]}">
                 <br>
                 <p class="availability">Есть в наличии</p>
                 <div class="cost">
@@ -58,7 +58,7 @@
                     <a href="#">
                       <i class="fas fa-balance-scale"></i>
                     </a>
-                    <a href="#">
+                    <a href="#" class="buy-button">
                       <i class="fas fa-shopping-cart"></i>
                     </a>
                   </div>

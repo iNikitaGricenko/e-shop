@@ -15,7 +15,13 @@ public class Cpu extends Product {
     private long cores;
     private long threads;
     private long cacheSize;
-    private int performance;
+    private long frequency;
+    private String microarchitecture;
+    private String series;
+    private String graphics;
+    private String socket;
+    private String compatibility;
+    private String productLine;
     @Override
     public String getCatalog() {
         return "Cpu_";

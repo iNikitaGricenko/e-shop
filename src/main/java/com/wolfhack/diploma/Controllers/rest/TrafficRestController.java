@@ -6,14 +6,13 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@RequestMapping("api/admin/earning")
+@RequestMapping("api/admin/traffic")
 @CrossOrigin(origins = "http://localhost:8088")
-public class EarningController {
+public class TrafficRestController {
 
     @GetMapping
-    public String[] getEarning() {
-        return new String[] {"1200", "1090", "3000", "5400", "1220", "1510", "3600", "4890", "2127", "1321", "1054", "4521"};
+    public String[] getTraffic() {
+        return new String[] {"1200","1900","3000"};
     }
 
 }
-

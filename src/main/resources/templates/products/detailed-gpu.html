@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
+<head>
+  <meta charset="utf-8" />
+  <title th:text="${title}">
+
+  </title>
+  <link rel="icon" href="#">
+  <meta name='viewport' content='width=device-width, initial-scale=1.0'>
+  <script src="https://kit.fontawesome.com/979f4e20dd.js" crossorigin="anonymous"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <link rel="stylesheet" th:href="@{/css/style.css}"/>
+  <link rel="stylesheet" th:href="@{/css/detailed-product-page.css}">
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js" type="text/javascript"></script>
+  <script src="https://cdn.jsdelivr.net/npm/jquery.maskedinput@1.4.1/src/jquery.maskedinput.min.js" type="text/javascript"></script>
+</head>
+
+<body>
+<!-- loader start -->
+<th:block th:insert="blocks/loader :: loader"></th:block>
+<!-- loader end -->
+<div class="main-container" id="blur">
+  <!-- header start -->
+  <th:block th:insert="blocks/header :: navigation"></th:block>
+  <div class="main-content">
+    <th:block th:insert="blocks/header :: header"></th:block>
+    <!-- nagivation end -->
+    <div class="product" th:each="element : ${product}" id="main-content">
+      <h2 class="heading" th:text="${title} + ' ('+${element.model} + ' ' + ${element.color} + ') '"></h2>
+      <div class="container">
+        <div class="content main">
+          <div class="info">
+            <h3 class="serial">
+              Код: <p th:text="${element.id}"></p>
+            </h3>
+            <div class="imgBox">
+              <img class="image" th:src="'/'+${element.getPhotos()[0]}">
+            </div>
+            <div class="charact">
+              <h2>Краткие характеристики:</h2>
+              <ul class="description">
+                <li>
+                  <p class="title">Тип: </p>
+                  <p class="about" th:text="${element.type}"></p>
+                </li>
+                <li>
+                  <p class="title">Объём памяти: </p>
+                  <p class="about" th:text="${element.memorySize}"></p>
+                </li>
+                <li>
+                  <p class="title">Тип памяти: </p>
+                  <p class="about" th:text="${element.memoryType}"></p>
+                </li>
+                <li>
+                  <p class="title">Шина памяти: </p>
+                  <p class="about" th:text="${element.memoryBus} + ' ядер'"></p>
+                </li>
+                <li>
+                  <p class="title">Частота графического ядра: </p>
+                  <p class="about" th:text="${element.coreFrequency}"></p>
+                </li>
+                <li>
+                  <p class="title">Частота видеопамяти: </p>
+                  <p class="about" th:text="${element.videoMemoryFrequency}"></p>
+                </li>
+              </ul>
+            </div>
+          </div>
+
+        </div>
+        <div class="content price">
+          <h3 class="available">Есть в наличии</h3>
+          <div class="main">
+            <h1 th:text="${element.cost}"><p>грн</p></h1>
+            <div class="inputBox">
+              <span><input type="submit" name="" value="Купить"></span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="container">
+        <div class="content detailed">
+          <h2 class="heading">Технические характеристики <p th:text="${title} +' ('+${element.model}+')'"></p></h2>
+
+          <ul class="parts">
+            <li>
+              <h3 class="title">Объём памяти </h3>
+              <data>
+                <p class="about" th:text="${element.memorySize}"></p>
+              </data>
+            </li>
+            <li>
+              <h3 class="title">Шина памяти</h3>
+              <data>
+                <p class="about" th:text="${element.memoryBus}"></p>
+              </data>
+            </li>
+            <li>
+              <h3 class="title">Графический процессор </h3>
+              <data>
+                <p class="about" th:text="${element.graphicsProcessor}"></p>
+              </data>
+            </li>
+            <li>
+              <h3 class="title">Тип памяти </h3>
+              <data>
+                <p class="about"th:text="${element.coreFrequency}"></p>
+              </data>
+            </li>
+            <li>
+              <h3 class="title">Частота графического ядра </h3>
+              <data>
+                <p class="about" th:text="${element.coreFrequency}"></p>
+              </data>
+            </li>
+            <li>
+              <h3 class="title">Частота видеопамяти </h3>
+              <data>
+                <p class="about" th:text="${element.videoMemoryFrequency}"></p>
+              </data>
+            </li>
+            <li>
+              <h3 class="title">Максимальное разрешение </h3>
+              <data>
+                <p class="about" th:text="${element.maxResolution}"></p>
+              </data>
+            </li>
+            <li>
+              <h3 class="title">Семейство процессора </h3>
+              <data>
+                <p class="about" th:text="${element.processorFamily}"></p>
+              </data>
+            </li>
+          </ul>
+          <ul class="parts">
+            <h2>Подключения и разъемы</h2>
+            <li>
+              <h3 class="title">Интерфейс</h3>
+              <data>
+                <p class="about" th:text="${element.gpuInterface}"></p>
+              </data>
+            </li>
+            <li>
+              <h3 class="title">Разъемы</h3>
+              <data>
+                <p class="about" th:text="${element.connectors}"></p>
+              </data>
+            </li>
+          </ul>
+          <ul class="parts">
+            <h2>Подсветка</h2>
+            <li>
+              <h3 class="title">Подсветка</h3>
+              <data>
+                <p class="about" th:text="${element.lighting}"></p>
+              </data>
+            </li>
+          </ul>
+          <ul class="parts">
+            <h2>Дополнительные характеристики</h2>
+            <li>
+              <h3 class="title">Количество вентиляторов</h3>
+              <data>
+                <p class="about" th:text="${element.fans}"></p>
+              </data>
+            </li>
+            <li>
+              <h3 class="title">Поддержка стандартов</h3>
+              <data>
+                <p class="about" th:text="${element.standardsSupport}"></p>
+              </data>
+            </li>
+            <li>
+              <h3 class="title">Поддержка CUDA</h3>
+              <data>
+                <p class="about" th:text="${element.cudaSupport}"></p>
+              </data>
+            </li>
+            <li>
+              <h3 class="title">Длина видеокарты</h3>
+              <data>
+                <p class="about" th:text="${element.length}"></p>
+              </data>
+            </li>
+            <li>
+              <h3 class="title">Высота видеокарты</h3>
+              <data>
+                <p class="about"th:text="${element.height}"></p>
+              </data>
+            </li>
+            <li>
+              <h3 class="title">Кол-во занимаемых слотов</h3>
+              <data>
+                <p class="about" th:text="${element.slots}"></p>
+              </data>
+            </li>
+            <li>
+              <h3 class="title">Необходимость дополнительного питания</h3>
+              <data>
+                <p class="about" th:text="${element.additionalPowerSupply}"></p>
+              </data>
+            </li>
+            <li>
+              <h3 class="title">Рекомендуемая мощность БП</h3>
+              <data>
+                <p class="about" th:text="${element.powerSupplyCapacity}"></p>
+              </data>
+            </li>
+            <li>
+              <h3 class="title">Разъем доп. питания</h3>
+              <data>
+                <p class="about" th:text="${element.microarchitecture}"></p>
+              </data>
+            </li>
+            <li>
+              <h3 class="title">Количество ядер CUDA</h3>
+              <data>
+                <p class="about" th:text="${element.cudaCores}"></p>
+              </data>
+            </li>
+          </ul>
+
+
+        </div>
+      </div>
+    </div>
+
+    <!-- footer start -->
+    <th:block th:insert="blocks/footer :: footer"></th:block>
+    <!-- footer end -->
+  </div>
+</div>
+<!-- modals start -->
+<th:block th:insert="blocks/modals :: recall"></th:block>
+<th:block th:insert="blocks/modals :: settings"></th:block>
+<th:block th:insert="blocks/modals :: login"></th:block>
+<th:block th:insert="blocks/modals :: register"></th:block>
+<!-- modals end -->
+<script type="text/javascript" th:src="@{/js/OpenProfileImage.js}"></script>
+<script type="text/javascript" th:src="@{/js/PhoneMask.js}"></script>
+<script type="text/javascript" th:src="@{/js/modals.js}"></script>
+</body>
+
+</html>

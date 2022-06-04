@@ -19,7 +19,29 @@ public class Gpu extends Product {
     private Type type;
     private long memorySize;
     private MemoryType memoryType;
-    private int performance;
+    private double memoryBus;
+
+    private String graphicsProcessor;
+    private double coreFrequency;
+    private double videoMemoryFrequency;
+    private String maxResolution;
+    private String processorFamily;
+
+    private boolean cudaSupport; //Поддержка CUDA
+    private boolean additionalPowerSupply; //Необходимость дополнительного питания
+    private double length; //Длина видеокарты
+    private double height; //Высота видеокарты
+    private double powerSupplyCapacity; //Рекомендуемая мощность БП
+    private int fans; //Количество вентиляторов
+    private int slots; //Кол-во занимаемых слотов
+    private int cudaCores; //Количество ядер CUDA
+    private String standardsSupport; //Поддержка стандартов
+    private String supplyConnector; //Разъем доп. питания
+
+    private String lighting;
+    private String gpuInterface;
+    private String connectors;
+
 
     @Override
     public String getCatalog() {
