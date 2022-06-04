@@ -31,4 +31,12 @@ public class SsdService {
         return ssdRepository.existsProductByNameAndModel(ssd.getName(), ssd.getModel());
     }
 
+    public void save(Ssd ssd) {
+        ssdRepository.save(ssd);
+    }
+
+    public Ssd findById(String id) {
+        return ssdRepository.findById(id)
+                .orElseThrow(RuntimeException::new);
+    }
 }

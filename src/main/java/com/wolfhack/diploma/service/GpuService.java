@@ -31,4 +31,12 @@ public class GpuService {
         return gpuRepository.existsProductByNameAndModel(gpu.getName(), gpu.getModel());
     }
 
+    public void save(Gpu gpu) {
+        gpuRepository.save(gpu);
+    }
+
+    public Gpu findById(String id) {
+        return gpuRepository.findById(id)
+                .orElseThrow(RuntimeException::new);
+    }
 }

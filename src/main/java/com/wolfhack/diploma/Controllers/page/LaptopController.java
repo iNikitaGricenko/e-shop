@@ -2,16 +2,13 @@ package com.wolfhack.diploma.Controllers.page;
 
 import com.wolfhack.diploma.service.LaptopService;
 import com.wolfhack.diploma.models.products.Laptop;
-import com.wolfhack.diploma.repository.LaptopRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
-import javax.websocket.server.PathParam;
 import java.io.IOException;
-import java.security.Principal;
 import java.util.List;
 
 @RequiredArgsConstructor
@@ -32,13 +29,15 @@ public class LaptopController {
         return "products/product-list";
     }
 
-    @GetMapping("/{product}-{model}")
+    @GetMapping("/{model}/{product}")
     public String getPageProducts(@PathVariable(value = "product") String productName,
                                   @PathVariable(value = "model") String productModel, Model model) {
         Laptop product = laptopService.findByNameAndModel(productName, productModel);
+        String[] descriptions = {"cpu", "gpu", "display", "ram", "ssd", "wireless", "multimedia", "accumulator", "laptop"};
         model.addAttribute("title", "Ноутбук " + productName)
                 .addAttribute("product", product);
-        return "products/detailed-products";
+
+        return "products/detailed-laptop";
     }
 
     @PostMapping

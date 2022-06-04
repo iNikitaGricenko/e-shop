@@ -13,7 +13,7 @@ import static java.util.stream.Collectors.*;
 @RestController
 @RequestMapping("/api/admin/user")
 @RequiredArgsConstructor
-public class AdminUserController {
+public class AdminUserRestController {
 
     private final UserDetailService userDetailService;
     private final UserMapper userMapper;

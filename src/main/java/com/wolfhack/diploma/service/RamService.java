@@ -31,4 +31,12 @@ public class RamService {
         return ramRepository.existsProductByNameAndModel(ram.getName(), ram.getModel());
     }
 
+    public void save(Ram ram) {
+        ramRepository.save(ram);
+    }
+
+    public Ram findById(String id) {
+        return ramRepository.findById(id)
+                .orElseThrow(RuntimeException::new);
+    }
 }
