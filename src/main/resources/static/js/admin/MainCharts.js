@@ -1,6 +1,9 @@
 $.ajax({
     url: "http://localhost:8088/api/admin/traffic",
     type: "GET",
+    headers: {
+                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+            },
     success: function (data) {
         buildTrafficChart(data);
     }
