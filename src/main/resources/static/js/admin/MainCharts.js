@@ -32,8 +32,15 @@ function buildTrafficChart(data) {
     });
 }
 
-$.getJSON("http://localhost:8088/api/admin/earning").done(function(data) {
-    buildEarningChart(data);
+$.ajax({
+    url: "http://localhost:8088/api/admin/earning",
+    type: "GET",
+    headers: {
+                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+            },
+    success: function (data) {
+        buildEarningChart(data);
+    }
 })
 function buildEarningChart(data) {
     const Earning = document.getElementById('Earning').getContext('2d');
