@@ -6,4 +6,8 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface PowerSupplyRepository extends MongoRepository<PowerSupply, String> {
+
+    boolean existsProductByNameAndModel(String name, String model);
+    PowerSupply findByNameIsLikeAndModelIsLike(String name, String model);
+
 }

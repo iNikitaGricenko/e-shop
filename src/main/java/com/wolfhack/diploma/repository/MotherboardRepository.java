@@ -6,4 +6,8 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface MotherboardRepository extends MongoRepository<Motherboard, String> {
+
+    boolean existsProductByNameAndModel(String name, String model);
+    Motherboard findByNameIsLikeAndModelIsLike(String name, String model);
+
 }

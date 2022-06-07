@@ -6,4 +6,8 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface GpuRepository extends MongoRepository<Gpu, String> {
+
+    boolean existsProductByNameAndModel(String name, String model);
+    Gpu findByNameIsLikeAndModelIsLike(String name, String model);
+
 }
