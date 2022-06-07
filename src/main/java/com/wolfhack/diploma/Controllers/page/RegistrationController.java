@@ -50,11 +50,11 @@ public class RegistrationController {
     }
 
     @GetMapping("/registration")
-    public String SuccessRegistration(Model model, Principal principal) { return "register"; }
+    public String SuccessRegistration() { return "register"; }
 
     @GetMapping("/login")
-    public String login(Model model, Principal principal) { return "login"; }
+    public String login() { return "login"; }
 
     @GetMapping("/?logout")
-    public String logout(Model model, Principal principal) { return "redirect:/logout"; }
+    public String logout() { return "redirect:/logout"; }
 }

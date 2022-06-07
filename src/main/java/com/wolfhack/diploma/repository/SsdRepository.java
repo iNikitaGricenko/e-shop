@@ -1,5 +1,7 @@
 package com.wolfhack.diploma.repository;
 import com.wolfhack.diploma.models.products.Ssd;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.data.mongodb.repository.MongoRepository;
 import org.springframework.stereotype.Repository;
 
@@ -11,4 +13,5 @@ public interface SsdRepository extends MongoRepository<Ssd, String> {
     boolean existsProductByNameAndModel(String name, String model);
     SSLContext findByNameIsLikeAndModelIsLike(String name, String model);
 
+    Page<Ssd> findAllByFormFactorIsLike(Pageable pageable, String s);
 }
