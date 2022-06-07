@@ -197,12 +197,14 @@
 <script type="text/javascript" th:src="@{/js/modals.js}"></script>
 
 <script>
+    let query_parameters = "";
     function expandList(id, self) {
         setTimeout(toggleFilter, 500);
         setTimeout(setBuyButtonToChoiceFunction, 500, id, self);
         var native_id = "#" + id;
         $(native_id).toggleClass("active");
-        $(native_id).load("http://localhost:8088/accessories/"+id+" #product-list-block");
+        let httpLocalhost8088Accessories = "http://localhost:8088/accessories/";
+        $(native_id).load(httpLocalhost8088Accessories+id+ "?"+query_parameters+" #product-list-block");
         $(self).attr("onclick", "expandBackUp('"+id+"', this)");
     }
     function expandBackUp(id, self) {
@@ -213,9 +215,9 @@
     }
     function toggleFilter() {
         document.querySelectorAll('.FilterName').forEach(
-          el => el.onclick = function() {
-            el.parentElement.classList.toggle('active')
-          }
+            el => el.onclick = function() {
+                el.parentElement.classList.toggle('active')
+            }
         );
     }
 </script>
@@ -231,10 +233,26 @@
 
                 $(this).closest('.panel').find('img').attr('src', this_preview);
                 this_titleBox.attr('data-code', this_productCode.text().replace("Код:", ""));
+
+                query_parameters = deleteDuplicatesInString(query_parameters, id);
+                query_parameters += "&"+id+"="+this_productCode.text().replace("Код:", "");
+                console.log(query_parameters);
+
                 this_titleBox.empty().prepend($('<a href="'+ this_href +'">'+this_name.text()+'</a>'))
                 setTimeout(expandBackUp, 25, id, self);
             }
         )
+        function deleteDuplicatesInString(string, duplicateID) {
+            let strings = string.split("&");
+            let temp = "";
+            strings.forEach((value, index) => {
+                if (value.includes(duplicateID)) {
+                    return;
+                }
+                temp += value;
+            })
+            return temp;
+        }
 
     }
 </script>

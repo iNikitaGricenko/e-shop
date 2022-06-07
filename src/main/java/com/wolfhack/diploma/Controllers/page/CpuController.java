@@ -2,6 +2,7 @@ package com.wolfhack.diploma.Controllers.page;
 
 import com.wolfhack.diploma.models.products.Cpu;
 import com.wolfhack.diploma.service.CpuService;
+import com.wolfhack.diploma.service.PCConstructorService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Controller;
@@ -17,14 +18,15 @@ import java.io.IOException;
 public class CpuController {
 
     private final CpuService cpuService;
+    private final PCConstructorService constructorService;
 
     @GetMapping
-    public String getPageCPU(Model model, Pageable pageable,
-                             @RequestParam(value = "code", required = false) String productCode){
+    public String getPageCPU(@RequestParam(value = "motherboard", required = false, defaultValue = "") String motherboardCode,
+            Model model, Pageable pageable){
         model.addAttribute("title", "CPU products")
                 .addAttribute("filterURL", "blocks/filters/cpu")
                 .addAttribute("filter", "cpu")
-                .addAttribute("products", cpuService.findAllFilteredByCode(pageable, productCode));
+                .addAttribute("products", constructorService.findCpuByMotherboardCompatible(pageable, motherboardCode));
 
         return "products/product-list";
     }

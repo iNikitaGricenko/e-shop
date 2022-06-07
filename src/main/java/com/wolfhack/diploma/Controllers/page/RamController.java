@@ -1,6 +1,7 @@
 package com.wolfhack.diploma.Controllers.page;
 
 import com.wolfhack.diploma.models.products.Ram;
+import com.wolfhack.diploma.service.PCConstructorService;
 import com.wolfhack.diploma.service.RamService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Pageable;
@@ -17,13 +18,15 @@ import java.io.IOException;
 public class RamController {
 
     private final RamService ramService;
+    private final PCConstructorService constructorService;
 
     @GetMapping
-    public String getPageRAM(Model model, Pageable pageable) {
+    public String getPageRAM(@RequestParam(required = false, name = "motherboard", defaultValue = "") String motherboardCode,
+            Model model, Pageable pageable) {
         model.addAttribute("title", "Ram products")
                 .addAttribute("filterURL", "blocks/filters/ram")
                 .addAttribute("filter", "ram")
-                .addAttribute("products", ramService.findAll(pageable));
+                .addAttribute("products", constructorService.findRamByMotherboardCompatible(pageable, motherboardCode));
 
         return "products/product-list";
     }
