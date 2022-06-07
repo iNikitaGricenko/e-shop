@@ -11,4 +11,7 @@ public interface LaptopRepository extends MongoRepository<Laptop, String> {
 
     List<Laptop> findLaptopsByCostLessThanEqual(double cost);
 
+    boolean existsProductByNameAndModel(String name, String model);
+    Laptop findByNameIsLikeAndModelIsLike(String name, String model);
+
 }

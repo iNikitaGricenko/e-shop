@@ -6,4 +6,8 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface RamRepository extends MongoRepository<Ram, String> {
+
+    boolean existsProductByNameAndModel(String name, String model);
+    Ram findByNameIsLikeAndModelIsLike(String name, String model);
+
 }
