@@ -15,7 +15,7 @@ public class Cpu extends Product {
     private long cores;
     private long threads;
     private long cacheSize;
-    private long frequency;
+    private float frequency;
     private String microarchitecture;
     private String series;
     private String graphics;

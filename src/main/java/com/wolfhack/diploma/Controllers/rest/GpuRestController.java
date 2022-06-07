@@ -27,7 +27,7 @@ public class GpuRestController {
 
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
-    public void addGpu(@RequestBody Gpu gpu) {
+    public void addGpu(Gpu gpu) {
         gpuService.save(gpu);
     }
 

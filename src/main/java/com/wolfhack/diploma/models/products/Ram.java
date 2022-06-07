@@ -11,10 +11,19 @@ import java.lang.management.MemoryType;
 @Getter @Setter
 public class Ram extends Product{
 
-    private MemoryType type;
+    private String type;
     private long size;
-    private long maxSize;
-    private long freq;
+    private String formFactor;
+    private float freq;
+    private double bandwidth;
+    private String casLatency;
+    private String timingScheme;
+    private String eccMemory;
+    private String xmp;
+    private float voltage;
+
+    private String worksTemperature;
+    private String storageTemperature;
 
     @Override
     public String getCatalog() {

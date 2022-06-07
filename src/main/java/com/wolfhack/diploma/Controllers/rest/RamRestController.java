@@ -27,7 +27,7 @@ public class RamRestController {
 
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
-    public void addRam(@RequestBody Ram ram) {
+    public void addRam(Ram ram) {
         ramService.save(ram);
     }
 

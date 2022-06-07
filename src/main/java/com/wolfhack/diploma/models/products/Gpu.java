@@ -16,9 +16,9 @@ public class Gpu extends Product {
         Интегрированная
     }
 
-    private Type type;
+    private String type;
     private long memorySize;
-    private MemoryType memoryType;
+    private String memoryType;
     private double memoryBus;
 
     private String graphicsProcessor;

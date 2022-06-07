@@ -27,7 +27,7 @@ public class CpuRestController {
 
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
-    public void addCpu(@RequestBody Cpu cpu) {
+    public void addCpu(Cpu cpu) {
         cpuService.save(cpu);
     }
 

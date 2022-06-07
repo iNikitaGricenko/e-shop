@@ -27,7 +27,7 @@ public class SsdRestController {
 
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
-    public void addSsd(@RequestBody Ssd ssd) {
+    public void addSsd(Ssd ssd) {
         ssdService.save(ssd);
     }
 }
