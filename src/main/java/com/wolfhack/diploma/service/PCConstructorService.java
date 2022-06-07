@@ -1,8 +1,6 @@
 package com.wolfhack.diploma.service;
 
-import com.wolfhack.diploma.models.products.Cpu;
-import com.wolfhack.diploma.models.products.Motherboard;
-import com.wolfhack.diploma.models.products.Ram;
+import com.wolfhack.diploma.models.products.*;
 import com.wolfhack.diploma.repository.*;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Page;
@@ -11,8 +9,12 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import java.util.Formatter;
+import java.util.List;
 import java.util.Map;
+import java.util.Set;
 import java.util.stream.Collectors;
+
+import static java.util.stream.Collectors.*;
 
 @Service
 @RequiredArgsConstructor
@@ -36,7 +38,7 @@ public class PCConstructorService {
 
         return new PageImpl<>(motherboards.getContent().stream()
                 .filter(motherboard -> motherboard.getMemoryType().equals(ramType.toString()))
-                .collect(Collectors.toList()));
+                .collect(toList()));
         }
         return motherboards;
     }
@@ -59,6 +61,39 @@ public class PCConstructorService {
         return ramRepository.findAllByType(pageable, motherboard.getMemoryType().split(" ")[0]);
     }
 
+    public Page<Gpu> findGpuByMotherboardCompatible(Pageable pageable, String motherboardCode) {
+        if (motherboardCode.equals("")) {
+            return gpuRepository.findAll(pageable);
+        }
+        Motherboard motherboard = motherboardRepository.findById(motherboardCode)
+                .orElseGet(Motherboard::new);
+
+        List<String> pciKeys = motherboard.getExternalPorts()
+                .keySet().stream()
+                .filter(s -> s.contains("PCI"))
+                .collect(toList());
+        List<String> existingPciExpress = pciKeys.stream()
+                .peek(s -> s.replaceAll("PCI-E", "PCI Express"))
+                .collect(toList());
+
+        return gpuRepository.findAllByGpuInterfaceIsLike(pageable, existingPciExpress.get(0));
+    }
+
+    public Page<Ssd> findSsdByMotherboardCompatible(Pageable pageable, String motherboardCode) {
+        if (motherboardCode.equals("")) {
+            return ssdRepository.findAll(pageable);
+        }
+        Motherboard motherboard = motherboardRepository.findById(motherboardCode)
+                .orElseGet(Motherboard::new);
+
+        List<String> pciKeys = motherboard.getInjectedPorts()
+                .keySet().stream()
+                .filter(s -> s.contains("Кол-во слотов"))
+                .peek(s -> s.replaceAll("Кол-во слотов ", ""))
+                .collect(toList());
+
+        return ssdRepository.findAllByFormFactorIsLike(pageable, pciKeys.get(0));
+    }
 
     public Page<Motherboard> findMotherboardsByCpuCompatible(Pageable pageable, String cpuCode) {
         if (cpuCode.equals("")) {
