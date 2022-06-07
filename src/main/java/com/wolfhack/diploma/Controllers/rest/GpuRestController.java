@@ -9,7 +9,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
-@RequestMapping("/api/v1/gpu")
+@RequestMapping("/api/gpu")
 @RequiredArgsConstructor
 public class GpuRestController {
 
@@ -27,7 +27,7 @@ public class GpuRestController {
 
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
-    public void addGpu(@RequestBody Gpu gpu) {
+    public void addGpu(Gpu gpu) {
         gpuService.save(gpu);
     }
 

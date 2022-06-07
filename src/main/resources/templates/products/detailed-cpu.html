@@ -26,39 +26,39 @@
   <div class="main-content">
     <th:block th:insert="blocks/header :: header"></th:block>
     <!-- nagivation end -->
-    <div class="product" th:each="element : ${product}" id="main-content">
-      <h2 class="heading" th:text="${title} + ' ('+${element.model}+ ') '"></h2>
+    <div class="product" id="main-content">
+      <h2 class="heading" th:text="${title} + ' ('+${product.model}+ ') '"></h2>
       <div class="container">
         <div class="content main">
           <div class="info">
             <h3 class="serial">
-              Код: <p th:text="${element.id}"></p>
+              Код: <p th:text="${product.id}"></p>
             </h3>
             <div class="imgBox">
-              <img class="image" th:src="'/'+${element.getPhotos()[0]}">
+              <img class="image" th:src="'/'+${product.getPhotos()[0]}">
             </div>
             <div class="charact">
               <h2>Краткие характеристики:</h2>
               <ul class="description">
                 <li>
                   <p class="title">Линейка: </p>
-                  <p class="about" th:text="${element.productLine}"></p>
+                  <p class="about" th:text="${product.productLine}"></p>
                 </li>
                 <li>
                   <p class="title">Разъем процессора (Socket): </p>
-                  <p class="about" th:text="${element.socket}"></p>
+                  <p class="about" th:text="${product.socket}"></p>
                 </li>
                 <li>
                   <p class="title">Количество ядер: </p>
-                  <p class="about" th:text="${element.cores} + ' ядер'"></p>
+                  <p class="about" th:text="${product.cores} + ' ядер'"></p>
                 </li>
                 <li>
                   <p class="title">Интегрированная графика: </p>
-                  <p class="about" th:text="${element.graphics}"></p>
+                  <p class="about" th:text="${product.graphics}"></p>
                 </li>
                 <li>
                   <p class="title">Совместимость: </p>
-                  <p class="about" th:text="${element.compatibility}"></p>
+                  <p class="about" th:text="${product.compatibility}"></p>
                 </li>
               </ul>
             </div>
@@ -68,7 +68,7 @@
         <div class="content price">
           <h3 class="available">Есть в наличии</h3>
           <div class="main">
-            <h1 th:text="${element.cost}"><p>грн</p></h1>
+            <h1 th:text="${product.cost}"><p>грн</p></h1>
             <div class="inputBox">
               <span><input type="submit" name="" value="Купить"></span>
             </div>
@@ -77,67 +77,67 @@
       </div>
       <div class="container">
         <div class="content detailed">
-          <h2 class="heading">Технические характеристики <p th:text="${title} +' ('+${element.model}+')'"></p></h2>
+          <h2 class="heading">Технические характеристики <p th:text="${title} +' ('+${product.model}+')'"></p></h2>
 
           <ul class="parts">
             <li>
               <h3 class="title">Линейка</h3>
               <data>
-                <p class="about" th:text="${element.productLine}"></p>
+                <p class="about" th:text="${product.productLine}"></p>
               </data>
             </li>
             <li>
               <h3 class="title">Разъем процессора (Socket)</h3>
               <data>
-                <p class="about" th:text="${element.socket}"></p>
+                <p class="about" th:text="${product.socket}"></p>
               </data>
             </li>
             <li>
               <h3 class="title">Совместимость</h3>
               <data>
-                <p class="about" th:text="${element.compatibility}"></p>
+                <p class="about" th:text="${product.compatibility}"></p>
               </data>
             </li>
             <li>
               <h3 class="title">Количество ядер</h3>
               <data>
-                <p class="about"th:text="${element.cores}"></p>
+                <p class="about"th:text="${product.cores}"></p>
               </data>
             </li>
             <li>
               <h3 class="title">Количество потоков</h3>
               <data>
-                <p class="about" th:text="${element.threads}"></p>
+                <p class="about" th:text="${product.threads}"></p>
               </data>
             </li>
             <li>
               <h3 class="title">Частота процессора</h3>
               <data>
-                <p class="about" th:text="${element.frequency}"></p>
+                <p class="about" th:text="${product.frequency}"></p>
               </data>
             </li>
             <li>
               <h3 class="title">Объем кэша L3</h3>
               <data>
-                <p class="about" th:text="${element.cacheSize}"></p>
+                <p class="about" th:text="${product.cacheSize}"></p>
               </data>
             </li>
             <li>
               <h3 class="title">Микроархитектура</h3>
               <data>
-                <p class="about" th:text="${element.microarchitecture}"></p>
+                <p class="about" th:text="${product.microarchitecture}"></p>
               </data>
             </li>
             <li>
               <h3 class="title">Серия</h3>
               <data>
-                <p class="about" th:text="${element.series}"></p>
+                <p class="about" th:text="${product.series}"></p>
               </data>
             </li>
             <li>
               <h3 class="title">Графическое ядро</h3>
               <data>
-                <p class="about" th:text="${element.graphics}"></p>
+                <p class="about" th:text="${product.graphics}"></p>
               </data>
             </li>
           </ul>

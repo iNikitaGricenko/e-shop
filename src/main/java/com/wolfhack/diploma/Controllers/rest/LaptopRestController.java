@@ -9,7 +9,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
-@RequestMapping("/api/v1/laptop")
+@RequestMapping("/api/laptop")
 @RequiredArgsConstructor
 public class LaptopRestController {
 
@@ -27,7 +27,7 @@ public class LaptopRestController {
 
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
-    public void addLaptop(@RequestBody Laptop laptop) {
+    public void addLaptop(Laptop laptop) {
         laptopService.save(laptop);
     }
 

@@ -9,7 +9,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
-@RequestMapping("/api/v1/ram")
+@RequestMapping("/api/ram")
 @RequiredArgsConstructor
 public class RamRestController {
 
@@ -27,7 +27,7 @@ public class RamRestController {
 
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
-    public void addRam(@RequestBody Ram ram) {
+    public void addRam(Ram ram) {
         ramService.save(ram);
     }
 

@@ -36,6 +36,8 @@ public class CpuController {
         model.addAttribute("title", "Процессор " + productName)
                 .addAttribute("product", cpu);
 
+        System.out.println(cpu.getProductLine());
+
         return "products/detailed-cpu";
     }
 

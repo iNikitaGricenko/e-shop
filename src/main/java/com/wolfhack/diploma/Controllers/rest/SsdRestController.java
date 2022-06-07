@@ -9,7 +9,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
-@RequestMapping("/api/v1/ssd")
+@RequestMapping("/api/ssd")
 @RequiredArgsConstructor
 public class SsdRestController {
 
@@ -27,7 +27,7 @@ public class SsdRestController {
 
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
-    public void addSsd(@RequestBody Ssd ssd) {
+    public void addSsd(Ssd ssd) {
         ssdService.save(ssd);
     }
 }

@@ -33,27 +33,9 @@ public class AccessoriesController {
         return "products/product-list";
     }
 
-    @GetMapping("/motherboard")
-    public String getPageMotherboard(Model model, Pageable pageable) {
-        model.addAttribute("title", "Motherboard products")
-                .addAttribute("filterURL", "blocks/filters/hdd")
-                .addAttribute("filter", "hdd");
-
-        return "products/product-list";
-    }
-
     @GetMapping("/case")
     public String getPageCase(Model model, Pageable pageable) {
         model.addAttribute("title", "case products")
-                .addAttribute("filterURL", "blocks/filters/hdd")
-                .addAttribute("filter", "hdd");
-
-        return "products/product-list";
-    }
-
-    @GetMapping("/power-supply")
-    public String getPagePowerSupply(Model model, Pageable pageable) {
-        model.addAttribute("title", "Power Supply's")
                 .addAttribute("filterURL", "blocks/filters/hdd")
                 .addAttribute("filter", "hdd");
 
