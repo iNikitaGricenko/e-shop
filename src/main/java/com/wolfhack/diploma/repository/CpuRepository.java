@@ -14,4 +14,5 @@ public interface CpuRepository extends MongoRepository<Cpu, String> {
     boolean existsProductByNameAndModel(String name, String model);
     Cpu findByNameIsLikeAndModelIsLike(String name, String model);
 
+    Page<Cpu> findAllBySocket(Pageable pageable, String socket);
 }
