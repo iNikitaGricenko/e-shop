@@ -3,15 +3,13 @@ package com.wolfhack.diploma.service;
 import com.wolfhack.diploma.models.products.*;
 import com.wolfhack.diploma.repository.*;
 import lombok.RequiredArgsConstructor;
+import org.springframework.data.crossstore.ChangeSetPersister;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageImpl;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
-import java.util.Formatter;
-import java.util.List;
-import java.util.Map;
-import java.util.Set;
+import java.util.*;
 import java.util.stream.Collectors;
 
 import static java.util.stream.Collectors.*;
@@ -47,8 +45,12 @@ public class PCConstructorService {
         if (motherboardCode.equals("")) {
             return cpuRepository.findAll(pageable);
         }
-        Motherboard motherboard = motherboardRepository.findById(motherboardCode)
-                .orElseGet(Motherboard::new);
+        Optional<Motherboard> optionalMotherboard = motherboardRepository.findById(motherboardCode);
+        if (optionalMotherboard.isEmpty()) {
+            return cpuRepository.findAll(pageable);
+        }
+        Motherboard motherboard = optionalMotherboard
+                .orElseThrow(RuntimeException::new);
         return cpuRepository.findAllBySocket(pageable, motherboard.getSocket());
     }
 
@@ -56,8 +58,12 @@ public class PCConstructorService {
         if (motherboardCode.equals("")) {
             return ramRepository.findAll(pageable);
         }
-        Motherboard motherboard = motherboardRepository.findById(motherboardCode)
-                .orElseGet(Motherboard::new);
+        Optional<Motherboard> optionalMotherboard = motherboardRepository.findById(motherboardCode);
+        if (optionalMotherboard.isEmpty()) {
+            return ramRepository.findAll(pageable);
+        }
+        Motherboard motherboard = optionalMotherboard
+                .orElseThrow(RuntimeException::new);
         return ramRepository.findAllByType(pageable, motherboard.getMemoryType().split(" ")[0]);
     }
 
@@ -65,8 +71,12 @@ public class PCConstructorService {
         if (motherboardCode.equals("")) {
             return gpuRepository.findAll(pageable);
         }
-        Motherboard motherboard = motherboardRepository.findById(motherboardCode)
-                .orElseGet(Motherboard::new);
+        Optional<Motherboard> optionalMotherboard = motherboardRepository.findById(motherboardCode);
+        if (optionalMotherboard.isEmpty()) {
+            return gpuRepository.findAll(pageable);
+        }
+        Motherboard motherboard = optionalMotherboard
+                .orElseThrow(RuntimeException::new);
 
         List<String> pciKeys = motherboard.getExternalPorts()
                 .keySet().stream()
@@ -83,8 +93,12 @@ public class PCConstructorService {
         if (motherboardCode.equals("")) {
             return ssdRepository.findAll(pageable);
         }
-        Motherboard motherboard = motherboardRepository.findById(motherboardCode)
-                .orElseGet(Motherboard::new);
+        Optional<Motherboard> optionalMotherboard = motherboardRepository.findById(motherboardCode);
+        if (optionalMotherboard.isEmpty()) {
+            return ssdRepository.findAll(pageable);
+        }
+        Motherboard motherboard = optionalMotherboard
+                .orElseThrow(RuntimeException::new);
 
         List<String> pciKeys = motherboard.getInjectedPorts()
                 .keySet().stream()
@@ -99,8 +113,12 @@ public class PCConstructorService {
         if (cpuCode.equals("")) {
             return motherboardRepository.findAll(pageable);
         }
-        Cpu cpu = cpuRepository.findById(cpuCode)
-                .orElseGet(Cpu::new);
+        Optional<Cpu> optionalCpu = cpuRepository.findById(cpuCode);
+        if (optionalCpu.isEmpty()) {
+            return motherboardRepository.findAll(pageable);
+        }
+        Cpu cpu = optionalCpu
+                .orElseThrow();
         return motherboardRepository.findAllBySocket(pageable, cpu.getSocket());
     }
 
@@ -108,8 +126,13 @@ public class PCConstructorService {
         if (ramCode.equals("")) {
             return motherboardRepository.findAll(pageable);
         }
-        Ram ram = ramRepository.findById(ramCode)
-                .orElseGet(Ram::new);
+        Optional<Ram> optionalRam = ramRepository.findById(ramCode);
+        if (optionalRam.isEmpty()) {
+            return motherboardRepository.findAll(pageable);
+        }
+        Ram ram = optionalRam
+                .orElseThrow(RuntimeException::new);
+
         Formatter ramType = new Formatter()
                 .format("%s %s", ram.getType(), ram.getFormFactor());
         return motherboardRepository.findAllByMemoryType(pageable, ramType.toString());
