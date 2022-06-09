@@ -29,6 +29,10 @@
         <section class="block" style="background: none">
             <div class="head">
                 <h2 class="heading" id="main-content">Конструктор</h2>
+                <span class="total_cost_block">
+                    <p class="total_money">Общая стоимость равна: <span id="total_money_cost"></span></p>
+                    <a href="#" class="constructor-buy-button"><i class="fas fa-shopping-cart"></i></a>
+                </span>
             </div>
 
             <div class="content">
@@ -222,6 +226,7 @@
     }
 </script>
 <script>
+    let total_cost = 0;
     function setBuyButtonToChoiceFunction(id, self) {
         document.querySelectorAll('.buy-button').forEach(
             el => el.onclick = function () {
@@ -230,13 +235,16 @@
                 let this_preview = $(this).closest('.contentBox').find('.preview').attr('src');
                 let this_titleBox = $(this).closest('.panel').find('.titleBox');
                 let this_productCode = $(this).closest('.contentBox').find('.serial');
+                let this_cost = parseInt($(this).closest('.cost').find('.money').text());
+
+                total_cost = total_cost + this_cost;
+                $('#total_money_cost').text(total_cost + " грн");
 
                 $(this).closest('.panel').find('img').attr('src', this_preview);
                 this_titleBox.attr('data-code', this_productCode.text().replace("Код:", ""));
 
                 query_parameters = deleteDuplicatesInString(query_parameters, id);
                 query_parameters += "&"+id+"="+this_productCode.text().replace("Код:", "");
-                console.log(query_parameters);
 
                 this_titleBox.empty().prepend($('<a href="'+ this_href +'">'+this_name.text()+'</a>'))
                 setTimeout(expandBackUp, 25, id, self);

@@ -121,7 +121,7 @@
 </div>
 
 <!-- login start -->
-<div th:fragment="login" id="login">
+<div th:fragment="login" id="login" ${session}>
 	<i class="fas fa-times-circle close" onclick="some(this)"></i>
 	<div class="formBox">
 		<form class="formBox-form" th:action="@{/login}" method="post">
