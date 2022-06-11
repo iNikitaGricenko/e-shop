@@ -1,7 +1,8 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
   <meta charset="utf-8" />
+
   <title th:text="${title}">
 
   </title>
@@ -9,7 +10,7 @@
   <meta name='viewport' content='width=device-width, initial-scale=1.0'>
   <script src="https://kit.fontawesome.com/979f4e20dd.js" crossorigin="anonymous"></script>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js" type="text/javascript"></script>
+  <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
   <script src="https://cdn.jsdelivr.net/npm/jquery.maskedinput@1.4.1/src/jquery.maskedinput.min.js" type="text/javascript"></script>
   <link rel="stylesheet" th:href="@{/css/style.css}"/>
   <link rel="stylesheet" th:href="@{/css/product.css}"/>
@@ -55,7 +56,7 @@
                 <div class="cost">
                   <p class="money" th:text="${element.cost} + ' грн'"></p>
                   <div class="icons">
-                    <a href="#">
+                    <a href="#" class="wishlist-button" onclick="addToWishlist(this)">
                       <i class="fas fa-balance-scale"></i>
                     </a>
                     <a href="#" class="buy-button">
@@ -87,6 +88,43 @@
 <script type="text/javascript" th:src="@{/js/modals.js}"></script>
 <script type="text/javascript" th:src="@{/js/toggle-filter.js}"></script>
 <script type="text/javascript" th:src="@{/js/toggle-caret.js}"></script>
+
+<script type="text/javascript">
+  function addToWishlist (self) {
+    let serial = $(self).closest('.contentBox').find('.serial');
+    let userId = 1;
+    let productId = serial.text().replace("Код:", "");
+    let body = {
+      "user":{"id":userId},
+      "productId":productId
+    };
+
+    console.log(userId)
+    console.log(productId)
+    console.log(body)
+    let crsf_token = $("meta[name='_csrf']").attr("content");
+    let jsonBody = JSON.stringify(body);
+    console.log(jsonBody)
+
+    $.ajax({
+      type: 'POST',
+      url: 'http://localhost:8088/accessories/api/user/wishlist',
+      dataType: 'json',
+      contentType: 'application/json',
+      data: jsonBody,
+      headers: {
+        "X-CSRF-TOKEN": crsf_token
+      },
+      success: function (data) {
+        console.log("SUCCESS " + data)
+      },
+      error: function (data) {
+        console.log("ERROR " + data.responseText)
+      }
+    })
+
+  }
+</script>
 </body>
 
 </html>
