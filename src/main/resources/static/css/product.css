@@ -690,6 +690,51 @@
     display: none;
 }
 
+.total_cost_block
+{
+    display: flex;
+    width: calc(100% - 75%);
+    justify-content: space-between;
+    align-items: center;
+}
+.total_cost_block .total_money
+{
+    margin-top: 10px;
+    color: white;
+    font-style: oblique;
+}
+.total_cost_block .total_money span
+{
+    font-style: initial;
+    color: aliceblue;
+    font-weight: bold;
+}
+
+.constructor-buy-button
+{
+    text-decoration: none;
+    white-space: nowrap;
+    width: 35px;
+    height: 35px;
+}
+
+.constructor-buy-button i
+{
+    position: relative;
+    color: white;
+    background: rgba(0, 225, 0, 0.5);
+    border-radius: 30%;
+    transition: background-color 500ms ease;
+    font-size: 1.4rem;
+    text-shadow: none;
+    padding: 10px;
+}
+
+.constructor-buy-button:hover i
+{
+    background: rgba(0, 225, 0, 1);
+}
+
 .container-list
 {
     position: relative;
@@ -735,6 +780,7 @@
     box-shadow: 4px 4px 2px rgb(200 200 200 / 50%);
     border-radius: 5px;
     z-index: 2;
+    overflow-x: auto;
 }
 
 .list-head .heading

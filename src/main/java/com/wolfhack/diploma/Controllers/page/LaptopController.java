@@ -33,7 +33,6 @@ public class LaptopController {
     public String getPageProducts(@PathVariable(value = "product") String productName,
                                   @PathVariable(value = "model") String productModel, Model model) {
         Laptop product = laptopService.findByNameAndModel(productName, productModel);
-        String[] descriptions = {"cpu", "gpu", "display", "ram", "ssd", "wireless", "multimedia", "accumulator", "laptop"};
         model.addAttribute("title", "Ноутбук " + productName)
                 .addAttribute("product", product);
 
