@@ -1,19 +1,13 @@
 package com.wolfhack.diploma.models.users;
 
-import lombok.*;
+import lombok.Getter;
+import lombok.Setter;
 
 import javax.persistence.*;
-import javax.validation.constraints.NotBlank;
-
 import java.util.Date;
-
-import static javax.persistence.CascadeType.*;
-import static javax.persistence.FetchType.EAGER;
 
 @Entity(name = "wishlist")
 @Getter @Setter
-@NoArgsConstructor
-@AllArgsConstructor
 public class Wishlist {
 
     @Id

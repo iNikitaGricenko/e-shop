@@ -56,11 +56,14 @@
                 <div class="cost">
                   <p class="money" th:text="${element.cost} + ' грн'"></p>
                   <div class="icons">
-                    <a href="#" class="wishlist-button" onclick="addToWishlist(this)">
+                    <a href="#">
                       <i class="fas fa-balance-scale"></i>
                     </a>
                     <a href="#" class="buy-button">
                       <i class="fas fa-shopping-cart"></i>
+                    </a>
+                    <a sec:authorize="isAuthenticated()" href="#" class="wishlist-button" onclick="addToWishlist(this)">
+                      <i class="fa-heart far" onmouseenter="$(this).toggleClass('fas')" onmouseleave="$(this).toggleClass('fas')"></i>
                     </a>
                   </div>
                 </div>
@@ -89,10 +92,14 @@
 <script type="text/javascript" th:src="@{/js/toggle-filter.js}"></script>
 <script type="text/javascript" th:src="@{/js/toggle-caret.js}"></script>
 
-<script type="text/javascript">
+<script type="text/javascript" th:inline="javascript" sec:authorize="isAuthenticated()">
   function addToWishlist (self) {
     let serial = $(self).closest('.contentBox').find('.serial');
-    let userId = 1;
+
+    /*<![CDATA[*/
+        var userId = [[${#authentication.principal.user.id}]];
+    /*]]>*/
+
     let productId = serial.text().replace("Код:", "");
     let body = {
       "user":{"id":userId},

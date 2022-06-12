@@ -255,6 +255,14 @@
     border-radius: 30%;
     transition: background-color 500ms ease;
 }
+.block .content .container .contentBox .cost .icons a:nth-child(3) i
+{
+    position: relative;
+    color: red;
+    font-size: 1.3em;
+    border-radius: 30%;
+    transition: color 500ms ease;
+}
 .block .content .container .contentBox .cost .icons a:nth-child(1) i:hover
 {
     color: #929292;
@@ -263,6 +271,10 @@
 {
     background: #111;
     color: var(--light-shades);
+}
+.block .content .container .contentBox .cost .icons a:nth-child(3) i:hover
+{
+    color: darkred;
 }
 
 .link-cards
