@@ -4,6 +4,9 @@ $(document).ready(function() {
         url: 'http://localhost:8088/api/user',
         dataType: 'json',
         contentType: 'application/json',
+        headers: {
+                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+            },
         success: function (data) {
             $("#ProfileImage").attr("src", "/"+data.photo);
             $("#ProfileLogin").attr("value", data.login);
